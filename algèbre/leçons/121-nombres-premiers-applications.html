@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Leçon 121 — Nombres premiers. Applications</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Leçon 121 — Nombres premiers. Applications</h1>
+</header>
+<h1 id="leçon-121-nombres-premiers.-applications">Leçon 121 — Nombres
+premiers. Applications</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../../index/lecons.html">← Index des leçons</a> · <a
+href="../../index/developpements.html">Développements</a> · <a
+href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="rôle-dans-le-graphe">Rôle dans le graphe</h2>
+<p>Leçon centrale d’arithmétique des entiers. Elle doit relier
+propriétés internes des nombres premiers, réduction modulo <span
+class="math inline">\(p\)</span>, algorithmes et applications à d’autres
+domaines.</p>
+<h2 id="attendus-du-jury-à-garder-en-tête">Attendus du jury à garder en
+tête</h2>
+<p>D’après le rapport du jury 2025 :</p>
+<ul>
+<li>faire des choix motivés dans un sujet très vaste ;</li>
+<li>conserver une étude interne à l’arithmétique des entiers ;</li>
+<li>développer des applications aux corps finis, groupes, polynômes ou à
+la cryptographie ;</li>
+<li>introduire des fonctions arithmétiques pertinentes ;</li>
+<li>évoquer les aspects algorithmiques et les tests de primalité ;</li>
+<li>utiliser la réduction modulo <span class="math inline">\(p\)</span>
+;</li>
+<li>évoquer la répartition des nombres premiers.</li>
+</ul>
+<h2 id="plan-possible-squelette">Plan possible — squelette</h2>
+<h3 id="divisibilité-et-factorisation">1. Divisibilité et
+factorisation</h3>
+<ul>
+<li>nombres premiers et irréductibles dans <span
+class="math inline">\(\mathbb Z\)</span> ;</li>
+<li>lemme d’Euclide et théorème fondamental de l’arithmétique ;</li>
+<li>infinité des nombres premiers ;</li>
+<li>valuations <span class="math inline">\(p\)</span>-adiques
+élémentaires.</li>
+</ul>
+<h3 id="fonctions-arithmétiques-liées-aux-premiers">2. Fonctions
+arithmétiques liées aux premiers</h3>
+<ul>
+<li>indicatrice d’Euler ;</li>
+<li>fonctions <span class="math inline">\(\mu\)</span>, <span
+class="math inline">\(\tau\)</span>, <span
+class="math inline">\(\sigma\)</span>, selon le plan ;</li>
+<li>formules multiplicatives.</li>
+</ul>
+<h3 id="réduction-modulo-un-nombre-premier">3. Réduction modulo un
+nombre premier</h3>
+<ul>
+<li>corps <span class="math inline">\(\mathbb F_p\)</span> ;</li>
+<li>petit théorème de Fermat ;</li>
+<li>groupe multiplicatif ;</li>
+<li>carrés, symbole de Legendre et critère d’Euler.</li>
+</ul>
+<h3 id="applications-et-algorithmes">4. Applications et algorithmes</h3>
+<ul>
+<li>tests de primalité ;</li>
+<li>obstructions modulaires aux équations diophantiennes ;</li>
+<li>réciprocité quadratique ;</li>
+<li>cryptographie ou polynômes sur <span class="math inline">\(\mathbb
+F_p\)</span>.</li>
+</ul>
+<h3 id="répartition">5. Répartition</h3>
+<ul>
+<li>théorème de Dirichlet ou théorème des nombres premiers admis pour
+leur portée culturelle ;</li>
+<li>résultats élémentaires accessibles selon le temps.</li>
+</ul>
+<h2 id="développement-actuel-recommandé">Développement actuel
+recommandé</h2>
+<ul>
+<li>[[Développement — Loi de réciprocité quadratique]] —
+<strong>5/5</strong>.
+<ul>
+<li>L’énoncé porte directement sur deux nombres premiers impairs.</li>
+<li>La preuve combine réduction modulo <span
+class="math inline">\(p\)</span>, critère d’Euler et une application
+substantielle aux résidus quadratiques.</li>
+</ul></li>
+</ul>
+<h2 id="résultats-clés-à-maîtriser">Résultats clés à maîtriser</h2>
+<ul>
+<li>lemme d’Euclide et décomposition en facteurs premiers ;</li>
+<li>infinité des nombres premiers ;</li>
+<li>petit théorème de Fermat ;</li>
+<li>critère d’Euler ;</li>
+<li>loi de réciprocité quadratique et lois complémentaires ;</li>
+<li>au moins un test de primalité expliqué.</li>
+</ul>
+<h2 id="notions-et-leçons-liées">Notions et leçons liées</h2>
+<ul>
+<li>[[Nombre premier]]</li>
+<li>[[Symbole de Legendre]]</li>
+<li>[[Critère d’Euler]]</li>
+<li>[[Résidu quadratique]]</li>
+<li>[[Leçon 120 — Anneaux Z/nZ]]</li>
+<li>[[Leçon 123 — Corps finis]]</li>
+</ul>
+<h2 id="exemples-à-préparer">Exemples à préparer</h2>
+<ul>
+<li>preuve d’Euclide de l’infinité des nombres premiers ;</li>
+<li>calcul d’une valuation dans une factorielle ;</li>
+<li>calcul de <span class="math inline">\(\left(\frac pq\right)\)</span>
+par réciprocité ;</li>
+<li>équation diophantienne impossible modulo un premier bien
+choisi.</li>
+</ul>
+<h2 id="pièges-et-points-de-vigilance">Pièges et points de
+vigilance</h2>
+<ul>
+<li>Ne pas transformer la leçon en catalogue de théorèmes analytiques
+admis.</li>
+<li>Motiver le choix des applications.</li>
+<li>Maîtriser les hypothèses de la réciprocité : premiers impairs
+distincts.</li>
+<li>Savoir appliquer concrètement le développement à un exemple.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Pourquoi un nombre premier est-il irréductible dans <span
+class="math inline">\(\mathbb Z\)</span>, et réciproquement ?</li>
+<li>Donner un test de primalité et discuter sa complexité.</li>
+<li>Déterminer si un entier est un carré modulo un premier donné.</li>
+<li>Énoncer et appliquer les deux lois complémentaires.</li>
+<li>Où utilise-t-on la primalité de <span
+class="math inline">\(p\)</span> dans la preuve par action de groupe
+?</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Choisir les fonctions arithmétiques
+effectivement retenues.</label></li>
+<li><label><input type="checkbox" />Préparer un exemple algorithmique et
+un exemple diophantien.</label></li>
+</ul>
+</body>
+</html>

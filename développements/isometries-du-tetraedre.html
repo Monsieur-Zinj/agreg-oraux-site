@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Développement — Isométries du tétraèdre régulier</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Développement — Isométries du tétraèdre régulier</h1>
+</header>
+<h1 id="développement-isométries-du-tétraèdre-régulier">Développement —
+Isométries du tétraèdre régulier</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../index/developpements.html">← Index des développements</a> ·
+<a href="../index/lecons.html">Leçons</a> · <a
+href="../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../index.html">Accueil</a></p>
+<h2 id="position-dans-le-graphe">Position dans le graphe</h2>
+<p>Développement d’algèbre géométrique : on identifie le groupe des
+isométries d’un tétraèdre régulier à un groupe de permutations.</p>
+<p>Objectif principal :</p>
+<p><span class="math display">\[
+\operatorname{Is}(T) \simeq \mathfrak S_4.
+\]</span></p>
+<p>Objectif complémentaire :</p>
+<p><span class="math display">\[
+\operatorname{Is}^+(T) \simeq \mathfrak A_4.
+\]</span></p>
+<p>C’est un bon développement pour éviter les théorèmes de Sylow tout en
+gardant un vrai contenu de théorie des groupes : action, morphisme,
+noyau, image, générateurs, parité, déterminant.</p>
+<h2 id="leçons-compatibles">Leçons compatibles</h2>
+<h3 id="recasage-principal">Recasage principal</h3>
+<ul>
+<li>[[Leçon 101 — Groupe opérant sur un ensemble]]
+<ul>
+<li>Cadre naturel : le groupe des isométries agit sur les quatre sommets
+du tétraèdre.</li>
+<li>Le développement construit explicitement le morphisme d’action <span
+class="math display">\[
+\operatorname{Is}(T) \to \mathfrak S_4.
+\]</span></li>
+</ul></li>
+</ul>
+<h3 id="recasages-très-solides-à-créer-dans-le-graphe">Recasages très
+solides à créer dans le graphe</h3>
+<ul>
+<li>[[Leçon 104 — Groupes finis]]
+<ul>
+<li>Exemple géométrique de groupe fini d’ordre <span
+class="math inline">\(24\)</span>, avec sous-groupe distingué d’indice
+<span class="math inline">\(2\)</span> isomorphe à <span
+class="math inline">\(\mathfrak A_4\)</span>.</li>
+</ul></li>
+<li>[[Leçon 105 — Groupe des permutations d’un ensemble fini]]
+<ul>
+<li>Identification concrète d’un groupe géométrique à <span
+class="math inline">\(\mathfrak S_4\)</span>.</li>
+<li>Dictionnaire entre types de permutations et types d’isométries.</li>
+</ul></li>
+</ul>
+<h3 id="recasages-possibles-avec-adaptation">Recasages possibles avec
+adaptation</h3>
+<ul>
+<li>[[Leçon 108 — Exemples de parties génératrices d’un groupe]]
+<ul>
+<li>Insister sur le fait que les transpositions engendrent <span
+class="math inline">\(\mathfrak S_4\)</span>, et qu’elles sont réalisées
+par des symétries planes.</li>
+</ul></li>
+<li>[[Leçon 161 — Espaces vectoriels et espaces affines euclidiens :
+distances, isométries]]
+<ul>
+<li>Présenter le développement comme classification du groupe des
+isométries de l’espace préservant un solide régulier.</li>
+<li>Insister davantage sur axes, plans, isométries directes et
+indirectes.</li>
+</ul></li>
+</ul>
+<h3 id="variante-plus-fragile">Variante plus fragile</h3>
+<ul>
+<li>[[Leçon 103 — Conjugaison dans un groupe]]
+<ul>
+<li>Seulement si on utilise la variante via l’action sur les trois
+bimédianes et le quotient <span class="math display">\[
+\mathfrak S_4 / V_4 \simeq \mathfrak S_3.
+\]</span></li>
+</ul></li>
+</ul>
+<h2 id="prérequis">Prérequis</h2>
+<ul>
+<li>[[Action de groupe]]</li>
+<li>[[Groupe symétrique]]</li>
+<li>[[Groupe alterné]]</li>
+<li>[[Isométrie affine]]</li>
+<li>[[Repère affine]]</li>
+<li>[[Déterminant]]</li>
+<li>[[Groupe d’isométries]]</li>
+<li>[[Tétraèdre régulier]]</li>
+</ul>
+<h2 id="énoncé">Énoncé</h2>
+<p>Soit <span class="math inline">\(T\)</span> un tétraèdre régulier
+plein de l’espace euclidien <span class="math inline">\(\mathbb
+R^3\)</span>, de sommets <span class="math display">\[
+S_1,S_2,S_3,S_4.
+\]</span></p>
+<p>Alors :</p>
+<p><span class="math display">\[
+\boxed{\operatorname{Is}(T) \simeq \mathfrak S_4.}
+\]</span></p>
+<p>De plus, le sous-groupe des isométries directes est isomorphe au
+groupe alterné :</p>
+<p><span class="math display">\[
+\boxed{\operatorname{Is}^+(T) \simeq \mathfrak A_4.}
+\]</span></p>
+<h2 id="preuve-squelette-détaillé">Preuve — squelette détaillé</h2>
+<h3 id="étape-1-les-isométries-permutent-les-sommets">Étape 1 — Les
+isométries permutent les sommets</h3>
+<p>On veut montrer qu’une isométrie de l’espace qui stabilise <span
+class="math inline">\(T\)</span> stabilise l’ensemble de ses
+sommets.</p>
+<p>La source utilise l’idée des points extrémaux du convexe <span
+class="math inline">\(T\)</span>.</p>
+<p>Un point <span class="math inline">\(x\)</span> d’un convexe <span
+class="math inline">\(C\)</span> est dit extrémal si</p>
+<p><span class="math display">\[
+x \in [a,b] \Rightarrow x=a \text{ ou } x=b.
+\]</span></p>
+<p>Dans un tétraèdre plein, les points extrémaux sont exactement les
+quatre sommets.</p>
+<p>Comme une isométrie affine envoie les segments sur les segments, elle
+envoie les points extrémaux sur les points extrémaux. Donc toute
+isométrie stabilisant <span class="math inline">\(T\)</span> permute les
+quatre sommets.</p>
+<p>Conclusion : il existe une action naturelle</p>
+<p><span class="math display">\[
+\operatorname{Is}(T) \curvearrowright \{S_1,S_2,S_3,S_4\}.
+\]</span></p>
+<p>Point oral : ne pas s’enliser dans la preuve complète de la
+caractérisation des points extrémaux. Il suffit de la donner proprement
+et rapidement.</p>
+<h3 id="étape-2-morphisme-vers-mathfrak-s_4">Étape 2 — Morphisme vers
+<span class="math inline">\(\mathfrak S_4\)</span></h3>
+<p>On note <span class="math inline">\(E=\{S_1,S_2,S_3,S_4\}\)</span>.
+L’action donne un morphisme de groupes</p>
+<p><span class="math display">\[
+\varphi : \operatorname{Is}(T) \to \mathfrak S(E) \simeq \mathfrak S_4,
+\qquad
+\varphi(g)=g_{|E}.
+\]</span></p>
+<p>C’est le morphisme de restriction aux sommets.</p>
+<h3 id="étape-3-injectivité">Étape 3 — Injectivité</h3>
+<p>Si <span class="math inline">\(g \in \operatorname{Is}(T)\)</span>
+fixe les quatre sommets, alors <span class="math inline">\(g\)</span>
+fixe un repère affine de <span class="math inline">\(\mathbb
+R^3\)</span>.</p>
+<p>En effet, les quatre sommets d’un tétraèdre non aplati ne sont pas
+coplanaires, donc ils forment un repère affine de l’espace.</p>
+<p>Une application affine qui fixe un repère affine est l’identité.
+Donc</p>
+<p><span class="math display">\[
+\ker \varphi = \{\operatorname{Id}\}.
+\]</span></p>
+<p>Ainsi <span class="math inline">\(\varphi\)</span> est injectif.</p>
+<h3 id="étape-4-surjectivité">Étape 4 — Surjectivité</h3>
+<p>Il suffit de montrer que l’image contient les transpositions, puisque
+les transpositions engendrent <span class="math inline">\(\mathfrak
+S_4\)</span>.</p>
+<p>Par exemple, la transposition <span
+class="math inline">\((12)\)</span> est réalisée par la symétrie
+orthogonale par rapport au plan médiateur de <span
+class="math inline">\([S_1S_2]\)</span>.</p>
+<p>Dans un tétraèdre régulier, ce plan contient <span
+class="math inline">\(S_3\)</span> et <span
+class="math inline">\(S_4\)</span>, et échange <span
+class="math inline">\(S_1\)</span> et <span
+class="math inline">\(S_2\)</span>. Donc l’isométrie induite sur les
+sommets est bien <span class="math inline">\((12)\)</span>.</p>
+<p>Par symétrie, toutes les transpositions sont réalisées. Donc <span
+class="math inline">\(\varphi\)</span> est surjective.</p>
+<h3 id="étape-5-conclusion-principale">Étape 5 — Conclusion
+principale</h3>
+<p>Le morphisme <span class="math inline">\(\varphi\)</span> est
+injectif et surjectif, donc</p>
+<p><span class="math display">\[
+\boxed{\operatorname{Is}(T) \simeq \mathfrak S_4.}
+\]</span></p>
+<p>En particulier,</p>
+<p><span class="math display">\[
+|\operatorname{Is}(T)|=24.
+\]</span></p>
+<h3 id="étape-6-isométries-directes">Étape 6 — Isométries directes</h3>
+<p>On distingue les isométries directes et indirectes par le déterminant
+de leur partie linéaire.</p>
+<p>Les isométries directes forment</p>
+<p><span class="math display">\[
+\operatorname{Is}^+(T)=\{g\in \operatorname{Is}(T): \det(g)=1\}.
+\]</span></p>
+<p>Elles correspondent aux permutations paires des sommets.</p>
+<p>On peut le justifier par le dictionnaire géométrique suivant.</p>
+<p>Les isométries directes sont :</p>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 40%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>Type géométrique</th>
+<th style="text-align: right;">Nombre</th>
+<th>Permutations correspondantes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identité</td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>identité</td>
+</tr>
+<tr>
+<td>Rotations d’angle <span class="math inline">\(\pm 2\pi/3\)</span>
+autour d’un axe sommet-centre de la face opposée</td>
+<td style="text-align: right;">8</td>
+<td><span class="math inline">\(3\)</span>-cycles</td>
+</tr>
+<tr>
+<td>Rotations d’angle <span class="math inline">\(\pi\)</span> autour
+d’une bimédiane</td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td>produits de deux transpositions disjointes</td>
+</tr>
+</tbody>
+</table>
+<p>Cela donne</p>
+<p><span class="math display">\[
+1+8+3=12
+\]</span></p>
+<p>isométries directes, correspondant exactement aux éléments de <span
+class="math inline">\(\mathfrak A_4\)</span>. Donc</p>
+<p><span class="math display">\[
+\boxed{\operatorname{Is}^+(T) \simeq \mathfrak A_4.}
+\]</span></p>
+<h2 id="dictionnaire-complet-à-connaître">Dictionnaire complet à
+connaître</h2>
+<p>Via l’isomorphisme <span
+class="math inline">\(\operatorname{Is}(T)\simeq \mathfrak S_4\)</span>
+:</p>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 28%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">Nombre</th>
+<th style="text-align: right;">Ordre</th>
+<th>Isométries de <span class="math inline">\(T\)</span></th>
+<th>Permutations de <span class="math inline">\(\mathfrak
+S_4\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;" class="score score-1">1</td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>identité</td>
+<td>identité</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td>rotations d’axe sommet-centre de la face opposée</td>
+<td><span class="math inline">\(3\)</span>-cycles</td>
+</tr>
+<tr>
+<td style="text-align: right;" class="score score-3">3</td>
+<td style="text-align: right;" class="score score-2">2</td>
+<td>rotations d’angle <span class="math inline">\(\pi\)</span> autour
+des bimédianes</td>
+<td>doubles transpositions</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;" class="score score-2">2</td>
+<td>symétries par rapport à un plan médiateur</td>
+<td>transpositions</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>antidéplacements</td>
+<td><span class="math inline">\(4\)</span>-cycles</td>
+</tr>
+</tbody>
+</table>
+<p>Les trois premières lignes donnent <span
+class="math inline">\(\operatorname{Is}^+(T)\)</span>. Les deux
+dernières donnent les isométries indirectes.</p>
+<h2 id="variante-ouverture-action-sur-les-bimédianes">Variante /
+ouverture : action sur les bimédianes</h2>
+<p>Une bimédiane du tétraèdre est une droite joignant les milieux de
+deux arêtes opposées. Il y en a trois.</p>
+<p>Le groupe <span class="math inline">\(\operatorname{Is}(T)\simeq
+\mathfrak S_4\)</span> agit sur l’ensemble des trois bimédianes, ce qui
+donne un morphisme naturel</p>
+<p><span class="math display">\[
+\mathfrak S_4 \to \mathfrak S_3.
+\]</span></p>
+<p>Son noyau est le groupe de Klein</p>
+<p><span class="math display">\[
+V_4=\{e,(12)(34),(13)(24),(14)(23)\}.
+\]</span></p>
+<p>On obtient donc</p>
+<p><span class="math display">\[
+\mathfrak S_4/V_4 \simeq \mathfrak S_3.
+\]</span></p>
+<p>Cette variante est utile si on veut recaser le développement dans une
+leçon sur les quotients ou les sous-groupes distingués, mais elle n’est
+pas indispensable dans la version principale.</p>
+<h2 id="durée-cible">Durée cible</h2>
+<p>Environ 12 à 15 minutes.</p>
+<p>Répartition possible :</p>
+<ul>
+<li>2 min : présentation du tétraèdre et des points extrémaux ;</li>
+<li>3 min : construction du morphisme vers <span
+class="math inline">\(\mathfrak S_4\)</span> ;</li>
+<li>2 min : injectivité ;</li>
+<li>3 min : surjectivité par les transpositions ;</li>
+<li>3 min : identification de <span
+class="math inline">\(\operatorname{Is}^+(T)\)</span> à <span
+class="math inline">\(\mathfrak A_4\)</span> et dictionnaire géométrique
+;</li>
+<li>1 min : ouverture sur les bimédianes ou le cube.</li>
+</ul>
+<h2 id="points-sensibles-à-loral">Points sensibles à l’oral</h2>
+<ul>
+<li>Bien préciser que le tétraèdre est plein : on utilise la convexité
+et les points extrémaux.</li>
+<li>Justifier qu’une isométrie de l’espace est affine.</li>
+<li>Ne pas dire seulement « elle envoie les sommets sur les sommets »
+sans justification.</li>
+<li>Bien expliquer pourquoi les quatre sommets forment un repère
+affine.</li>
+<li>Pour l’injectivité : une application affine fixant un repère affine
+est l’identité.</li>
+<li>Pour la surjectivité : les transpositions engendrent <span
+class="math inline">\(\mathfrak S_4\)</span>.</li>
+<li>Ne pas confondre isométries du tétraèdre et rotations du cube.</li>
+<li>Pour <span class="math inline">\(\operatorname{Is}^+(T)\)</span>,
+savoir expliquer géométriquement les <span
+class="math inline">\(12\)</span> éléments directs.</li>
+<li>Éviter de dépendre des théorèmes de Sylow : ils ne sont pas
+nécessaires ici.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Pourquoi les isométries du tétraèdre permutent-elles les sommets
+?</li>
+<li>Pourquoi les sommets sont-ils exactement les points extrémaux ?</li>
+<li>Pourquoi une isométrie est-elle affine ?</li>
+<li>Pourquoi quatre sommets non coplanaires forment-ils un repère affine
+?</li>
+<li>Quelle isométrie réalise la transposition <span
+class="math inline">\((12)\)</span> ?</li>
+<li>Quelles isométries correspondent aux <span
+class="math inline">\(3\)</span>-cycles ?</li>
+<li>Pourquoi les isométries directes correspondent-elles aux
+permutations paires ?</li>
+<li>Combien y a-t-il d’axes de rotation d’ordre <span
+class="math inline">\(3\)</span> ?</li>
+<li>Combien y a-t-il de rotations d’ordre <span
+class="math inline">\(2\)</span> ?</li>
+<li>Qu’est-ce qu’une bimédiane ?</li>
+<li>Quel est le morphisme naturel <span class="math inline">\(\mathfrak
+S_4\to \mathfrak S_3\)</span> ?</li>
+<li>Quel est son noyau ?</li>
+</ul>
+<h2 id="source">Source</h2>
+<ul>
+<li>Voyage en Algébrie, chapitre III, « Actions de groupes par
+isométries », section III.1 « Le tétraèdre » et section III.3 «
+Dictionnaires ».</li>
+<li>URL :
+https://math.univ-lyon1.fr/irem/IMG/pdf/Voyage-en-Algebrie.pdf</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Écrire une version complète en 12
+minutes avec transitions orales.</label></li>
+<li><label><input type="checkbox" />Préparer un dessin du tétraèdre avec
+les axes sommet-centre de face opposée.</label></li>
+<li><label><input type="checkbox" />Préparer un dessin des trois
+bimédianes.</label></li>
+<li><label><input type="checkbox" />Ajouter les fiches notions :
+[[Groupe d’isométries]], [[Tétraèdre régulier]], [[Bimédiane]], [[Groupe
+alterné]].</label></li>
+<li><label><input type="checkbox" />Créer les leçons 104, 105, 108 et
+161 si elles deviennent prioritaires dans le graphe.</label></li>
+</ul>
+</body>
+</html>

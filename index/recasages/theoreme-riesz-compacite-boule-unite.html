@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Recasage — Théorème de Riesz : compacité de la boule unité et dimension finie</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Recasage — Théorème de Riesz : compacité de la boule
+unité et dimension finie</h1>
+</header>
+<h1
+id="recasage-théorème-de-riesz-compacité-de-la-boule-unité-et-dimension-finie">Recasage
+— Théorème de Riesz : compacité de la boule unité et dimension
+finie</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="index.html">← Recasages</a> · <a
+href="../../d%C3%A9veloppements/theoreme-riesz-compacite-boule-unite.html">Développement</a>
+· <a href="../matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="notes-par-leçon-créée">Notes par leçon créée</h2>
+<table>
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 36%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">Leçon</th>
+<th style="text-align: right;">Note</th>
+<th>Commentaire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">101</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien naturel avec les actions de groupes.</td>
+</tr>
+<tr>
+<td style="text-align: right;">104</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien naturel avec les groupes finis.</td>
+</tr>
+<tr>
+<td style="text-align: right;">105</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien naturel avec les groupes de permutations.</td>
+</tr>
+<tr>
+<td style="text-align: right;">108</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien naturel avec les parties génératrices d’un groupe.</td>
+</tr>
+<tr>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien naturel avec les anneaux <span
+class="math inline">\(\mathbb Z/n\mathbb Z\)</span>.</td>
+</tr>
+<tr>
+<td style="text-align: right;">121</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien naturel avec les nombres premiers.</td>
+</tr>
+<tr>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien naturel avec les corps finis.</td>
+</tr>
+<tr>
+<td style="text-align: right;">161</td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>La distance à un sous-espace est voisine de questions métriques,
+mais le développement est trop topologique pour cette leçon
+euclidienne.</td>
+</tr>
+<tr>
+<td style="text-align: right;">170</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien naturel avec les formes quadratiques.</td>
+</tr>
+<tr>
+<td style="text-align: right;">190</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien naturel avec le dénombrement.</td>
+</tr>
+<tr>
+<td style="text-align: right;">203</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Recasage prioritaire : le résultat caractérise la dimension finie
+par la compacité de la boule unité et la suite séparée montre l’échec de
+la compacité en dimension infinie.</td>
+</tr>
+<tr>
+<td style="text-align: right;">206</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Recasage prioritaire : la preuve utilise deux fois la dimension
+finie et aboutit à une caractérisation topologique exacte.</td>
+</tr>
+<tr>
+<td style="text-align: right;">208</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Recasage prioritaire : boule unité, distance à un sous-espace et
+contraste entre dimensions finie et infinie sont au cœur de la
+leçon.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="recasages-prioritaires">Recasages prioritaires</h2>
+<h3 id="utilisation-de-la-notion-de-compacité">203 — Utilisation de la
+notion de compacité</h3>
+<p>Insister sur la suite de vecteurs unitaires séparés d’au moins <span
+class="math inline">\(1\)</span>, qui réfute directement la compacité
+séquentielle en dimension infinie. Dans le sens direct, annoncer
+clairement le recours au théorème « fermé borné implique compact » en
+dimension finie.</p>
+<h3
+id="exemples-dutilisation-de-la-notion-de-dimension-finie-en-analyse">206
+— Exemples d’utilisation de la notion de dimension finie en analyse</h3>
+<p>Mettre en avant les deux usages de la dimension finie : l’existence
+d’un meilleur approximant dans <span class="math inline">\(F\)</span>,
+puis la caractérisation topologique globale par la boule unité.</p>
+<h3 id="espaces-vectoriels-normés-applications-linéaires-continues">208
+— Espaces vectoriels normés, applications linéaires continues</h3>
+<p>Présenter la distance à un sous-espace de dimension finie, la
+normalisation donnant <span class="math inline">\(d(a,F)=1\)</span>,
+puis la construction récurrente. Conserver l’équivalence des normes
+parmi les résultats du plan, mais non dans le développement.</p>
+<h2 id="variantes-selon-la-leçon">Variantes selon la leçon</h2>
+<ul>
+<li>Pour 203 : raccourcir la preuve du meilleur approximant et détailler
+l’obstruction à la compacité.</li>
+<li>Pour 206 : détailler exactement chaque intervention de la dimension
+finie.</li>
+<li>Pour 208 : comparer en ouverture la version exacte obtenue ici avec
+le lemme de Riesz classique à distance <span
+class="math inline">\(&gt;\alpha\)</span>.</li>
+</ul>
+<h2 id="remarques">Remarques</h2>
+<p>Le développement remplace « Équivalence des normes et compacité de la
+boule unité ». L’équivalence des normes reste un résultat important des
+plans 203, 206 et 208, mais elle n’est plus traitée comme une partie du
+développement afin d’éviter un exposé hybride et trop long.</p>
+<p>Le recasage en 148 n’est pas retenu dans la matrice actuelle : cette
+leçon est centrée sur les fondements algébriques de la dimension et du
+rang, tandis que la preuve est principalement topologique.</p>
+</body>
+</html>

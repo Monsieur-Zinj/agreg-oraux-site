@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Leçon 206 — Exemples d’utilisation de la notion de dimension finie en analyse</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Leçon 206 — Exemples d’utilisation de la notion de
+dimension finie en analyse</h1>
+</header>
+<h1
+id="leçon-206-exemples-dutilisation-de-la-notion-de-dimension-finie-en-analyse">Leçon
+206 — Exemples d’utilisation de la notion de dimension finie en
+analyse</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../../index/lecons.html">← Index des leçons</a> · <a
+href="../../index/developpements.html">Développements</a> · <a
+href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="rôle-dans-le-graphe">Rôle dans le graphe</h2>
+<p>Leçon transversale consacrée aux propriétés analytiques qui
+deviennent vraies, plus fortes ou plus simples en dimension finie. Le
+plan doit être structuré par des utilisations de la dimension finie, et
+non par une juxtaposition de rappels d’algèbre linéaire.</p>
+<h2 id="attendus-du-jury-à-garder-en-tête">Attendus du jury à garder en
+tête</h2>
+<p>D’après le rapport du jury 2025 :</p>
+<ul>
+<li>exploiter les propriétés topologiques spécifiques à la dimension
+finie : valeurs d’adhérence, équivalence des normes, compacts = fermés
+bornés ;</li>
+<li>ouvrir vers la mesure de Lebesgue sur <span
+class="math inline">\(\mathbb R^d\)</span>, le calcul différentiel, les
+extrema liés et les équations différentielles linéaires ;</li>
+<li>considérer l’approximation par projection sur des sous-espaces de
+dimension finie ;</li>
+<li>pour aller plus loin : meilleure approximation uniforme,
+approximation polynomiale et propriétés spectrales des opérateurs
+compacts.</li>
+</ul>
+<h2 id="plan-possible-squelette">Plan possible — squelette</h2>
+<h3 id="topologie-des-espaces-normés-de-dimension-finie">1. Topologie
+des espaces normés de dimension finie</h3>
+<ul>
+<li>[[Normes équivalentes]]</li>
+<li>[[Compacité]] des fermés bornés</li>
+<li>Valeurs d’adhérence et extraction</li>
+<li>Continuité automatique des applications linéaires</li>
+<li>Sous-espaces de dimension finie fermés</li>
+</ul>
+<h3 id="calcul-différentiel-en-dimension-finie">2. Calcul différentiel
+en dimension finie</h3>
+<ul>
+<li>Représentation matricielle de la différentielle</li>
+<li>Matrice jacobienne</li>
+<li>Théorèmes d’inversion locale et des fonctions implicites</li>
+<li>Extrema liés et multiplicateurs de Lagrange</li>
+</ul>
+<h3 id="équations-différentielles-et-espaces-de-solutions">3. Équations
+différentielles et espaces de solutions</h3>
+<ul>
+<li>Dimension de l’espace des solutions d’une équation différentielle
+linéaire homogène</li>
+<li>Systèmes différentiels linéaires en dimension finie</li>
+<li>Exponentielle de matrices</li>
+</ul>
+<h3 id="approximation-par-des-espaces-de-dimension-finie">4.
+Approximation par des espaces de dimension finie</h3>
+<ul>
+<li>Projection sur un sous-espace de dimension finie</li>
+<li>Existence d’une meilleure approximation</li>
+<li>Polynômes de degré borné</li>
+<li>Approximation dans les espaces préhilbertiens</li>
+</ul>
+<h2 id="notions-liées">Notions liées</h2>
+<ul>
+<li>[[Dimension finie]]</li>
+<li>[[Normes équivalentes]]</li>
+<li>[[Compacité]]</li>
+<li>[[Valeur d’adhérence]]</li>
+<li>[[Matrice jacobienne]]</li>
+<li>[[Projection orthogonale]]</li>
+<li>[[Meilleure approximation]]</li>
+</ul>
+<h2 id="leçons-liées">Leçons liées</h2>
+<h3 id="très-proches">Très proches</h3>
+<ul>
+<li>[[Leçon 203 — Utilisation de la notion de compacité]]</li>
+<li>[[Leçon 208 — Espaces vectoriels normés, applications linéaires
+continues]]</li>
+</ul>
+<h3 id="liens-naturels">Liens naturels</h3>
+<ul>
+<li>[[Leçon 148 — Dimension d’un espace vectoriel, rang]]</li>
+<li>[[Leçon 213 — Espaces de Hilbert]]</li>
+<li>[[Leçon 214 — Inversion locale, fonctions implicites]]</li>
+<li>[[Leçon 219 — Extremums]]</li>
+<li>[[Leçon 220 — Équations différentielles ordinaires]]</li>
+</ul>
+<h2 id="développements-possibles">Développements possibles</h2>
+<ul>
+<li>[[Développement — Théorème de Riesz : compacité de la boule unité et
+dimension finie]]</li>
+<li>[[Développement — Extrema liés et multiplicateurs de Lagrange]]</li>
+<li>[[Développement — Exponentielle de matrices et systèmes
+différentiels]]</li>
+<li>[[Développement — Meilleure approximation sur un sous-espace de
+dimension finie]]</li>
+</ul>
+<h2 id="développement-actuel-recommandé">Développement actuel
+recommandé</h2>
+<p><a
+href="../../d%C3%A9veloppements/theoreme-riesz-compacite-boule-unite.html">Théorème
+de Riesz : compacité de la boule unité et dimension finie</a> — recasage
+5/5.</p>
+<p>Orientation : insister sur l’existence d’un meilleur approximant dans
+un sous-espace de dimension finie, puis sur la caractérisation
+topologique obtenue par la suite uniformément séparée.</p>
+<h2 id="résultats-clés-à-maîtriser">Résultats clés à maîtriser</h2>
+<ul>
+<li>Toutes les normes sont équivalentes en dimension finie.</li>
+<li>Les parties compactes sont exactement les parties fermées et
+bornées.</li>
+<li>La boule unité fermée d’un espace normé est compacte si et seulement
+si l’espace est de dimension finie.</li>
+<li>Toute application linéaire définie sur un espace normé de dimension
+finie est continue.</li>
+<li>Tout sous-espace vectoriel de dimension finie d’un espace normé est
+fermé.</li>
+</ul>
+<h2 id="pièges-et-points-de-vigilance">Pièges et points de
+vigilance</h2>
+<ul>
+<li>Ne pas faire une leçon d’algèbre linéaire : chaque résultat doit
+déboucher sur une utilisation analytique.</li>
+<li>Toujours signaler où intervient la dimension finie.</li>
+<li>Distinguer les propriétés vraies en dimension quelconque de celles
+propres à la dimension finie.</li>
+<li>Donner au moins un contre-exemple en dimension infinie.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Où la dimension finie intervient-elle dans l’équivalence des normes
+?</li>
+<li>Pourquoi un sous-espace de dimension finie est-il fermé ?</li>
+<li>Donner une partie fermée bornée non compacte en dimension
+infinie.</li>
+<li>Quel rôle joue la dimension finie dans un théorème d’existence
+?</li>
+<li>Comment la dimension finie intervient-elle dans l’étude d’une
+équation différentielle linéaire ?</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Choisir un plan définitif avec trois
+familles d’applications.</label></li>
+<li><label><input type="checkbox" />Préparer un contre-exemple en
+dimension infinie pour chaque propriété topologique
+majeure.</label></li>
+<li><label><input type="checkbox" />Ajouter un développement de calcul
+différentiel ou d’équations différentielles.</label></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Leçon 203 — Utilisation de la notion de compacité</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Leçon 203 — Utilisation de la notion de compacité</h1>
+</header>
+<h1 id="leçon-203-utilisation-de-la-notion-de-compacité">Leçon 203 —
+Utilisation de la notion de compacité</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../../index/lecons.html">← Index des leçons</a> · <a
+href="../../index/developpements.html">Développements</a> · <a
+href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="rôle-dans-le-graphe">Rôle dans le graphe</h2>
+<p>Leçon-carrefour en analyse. Elle ne doit pas être une leçon abstraite
+sur la compacité, mais une leçon sur les usages de la compacité :
+existence, extraction, uniformité, passage du local au global, extrema,
+dimension finie, espaces de fonctions, équations différentielles,
+analyse complexe et opérateurs compacts.</p>
+<h2 id="attendus-du-jury-à-garder-en-tête">Attendus du jury à garder en
+tête</h2>
+<p>D’après le rapport du jury 2025 :</p>
+<ul>
+<li>la leçon ne porte pas sur la compacité en général, mais sur son
+utilisation ;</li>
+<li>deux grands thèmes naturels :
+<ul>
+<li>théorèmes d’existence exploitant la compacité ;</li>
+<li>utilisation de la compacité pour obtenir des uniformités ;</li>
+</ul></li>
+<li>utiliser les valeurs d’adhérence pour prouver des convergences ou
+des continuités ;</li>
+<li>traiter les problèmes d’extrema ;</li>
+<li>comprendre l’équivalence des normes en dimension finie comme
+application de compacité ;</li>
+<li>exploiter le théorème de Heine ;</li>
+<li>utiliser les sous-recouvrements finis pour passer du local au global
+;</li>
+<li>pour aller plus loin : boule unité en dimension finie, équations
+différentielles non linéaires, Ascoli, Montel, opérateurs compacts.</li>
+</ul>
+<h2 id="plan-possible-squelette">Plan possible — squelette</h2>
+<h3 id="la-compacité-comme-outil-dextraction">1. La compacité comme
+outil d’extraction</h3>
+<ul>
+<li>[[Compacité]]</li>
+<li>[[Valeur d’adhérence]]</li>
+<li>Compacité séquentielle dans les espaces métriques</li>
+<li>Extraction de sous-suites convergentes</li>
+<li>Applications aux suites</li>
+<li>Applications aux fonctions continues sur un compact</li>
+</ul>
+<p>Exemples à préparer :</p>
+<ul>
+<li>toute suite dans un compact métrique admet une valeur d’adhérence
+;</li>
+<li>convergence via unicité de la valeur d’adhérence ;</li>
+<li>utilisation de Bolzano-Weierstrass dans <span
+class="math inline">\(\mathbb{R}^n\)</span>.</li>
+</ul>
+<p>Liens :</p>
+<ul>
+<li>[[Leçon 223 — Suites réelles et complexes]]</li>
+<li>[[Leçon 241 — Suites et séries de fonctions]]</li>
+</ul>
+<h3 id="compacité-et-existence">2. Compacité et existence</h3>
+<p>Objectif : montrer que la compacité transforme des problèmes
+d’infimum/supremum en problèmes de minimum/maximum.</p>
+<p>Résultats typiques :</p>
+<ul>
+<li>image continue d’un compact ;</li>
+<li>théorème des bornes atteintes ;</li>
+<li>existence d’extrema ;</li>
+<li>distance d’un point à un compact ;</li>
+<li>projection sur certains fermés convexes en cadre hilbertien, si on
+veut ouvrir.</li>
+</ul>
+<p>Exemples :</p>
+<ul>
+<li>fonction continue sur un segment ;</li>
+<li>extrema sous contrainte compacte ;</li>
+<li>existence d’une meilleure approximation dans un sous-espace de
+dimension finie ;</li>
+<li>applications à l’optimisation.</li>
+</ul>
+<p>Liens :</p>
+<ul>
+<li>[[Leçon 219 — Extremums]]</li>
+<li>[[Leçon 253 — Convexité en analyse]]</li>
+<li>[[Leçon 213 — Espaces de Hilbert]]</li>
+</ul>
+<h3 id="compacité-et-uniformité">3. Compacité et uniformité</h3>
+<p>Idée centrale : la compacité permet souvent de passer d’une propriété
+locale ou ponctuelle à une propriété globale ou uniforme.</p>
+<p>Résultats typiques :</p>
+<ul>
+<li>théorème de Heine : continuité sur un compact <span
+class="math inline">\(\Rightarrow\)</span> continuité uniforme ;</li>
+<li>fonctions continues sur un segment et intégrabilité de Riemann
+;</li>
+<li>passage du local au global par sous-recouvrement fini ;</li>
+<li>continuité uniforme de familles de translations dans certains
+espaces <span class="math inline">\(L^p\)</span>, si maîtrisé.</li>
+</ul>
+<p>Liens :</p>
+<ul>
+<li>[[Leçon 228 — Continuité, dérivabilité]]</li>
+<li>[[Leçon 234 — Fonctions et espaces de fonctions
+Lebesgue-intégrables]]</li>
+<li>[[Leçon 239 — Fonctions définies par une intégrale dépendant d’un
+paramètre]]</li>
+</ul>
+<h3 id="compacité-et-dimension-finie">4. Compacité et dimension
+finie</h3>
+<p>Thème important signalé par le jury.</p>
+<p>Résultats :</p>
+<ul>
+<li>compacité de la sphère unité en dimension finie ;</li>
+<li>équivalence des normes en dimension finie ;</li>
+<li>caractérisation des espaces vectoriels normés de dimension finie par
+compacité de la boule unité fermée ;</li>
+<li>conséquences sur les applications linéaires.</li>
+</ul>
+<p>Liens :</p>
+<ul>
+<li>[[Leçon 148 — Dimension d’un espace vectoriel, rang]]</li>
+<li>[[Leçon 206 — Dimension finie en analyse]]</li>
+<li>[[Leçon 208 — Espaces vectoriels normés, applications linéaires
+continues]]</li>
+</ul>
+<h3 id="compacité-dans-les-espaces-de-fonctions">5. Compacité dans les
+espaces de fonctions</h3>
+<p>Grand réservoir d’exemples et de développements.</p>
+<p>Résultats possibles :</p>
+<ul>
+<li>théorème d’Ascoli ;</li>
+<li>équicontinuité ;</li>
+<li>parties compactes de <span class="math inline">\(C(K)\)</span>
+;</li>
+<li>approximation et extraction ;</li>
+<li>opérateurs compacts.</li>
+</ul>
+<p>Liens :</p>
+<ul>
+<li>[[Leçon 201 — Espaces de fonctions]]</li>
+<li>[[Leçon 209 — Approximation d’une fonction par des fonctions
+régulières]]</li>
+<li>[[Leçon 213 — Espaces de Hilbert]]</li>
+<li>[[Leçon 241 — Suites et séries de fonctions]]</li>
+</ul>
+<h3 id="ouvertures-possibles">6. Ouvertures possibles</h3>
+<p>À utiliser seulement si bien maîtrisé :</p>
+<ul>
+<li>équations différentielles non linéaires et phénomène de sortie de
+tout compact ;</li>
+<li>théorème d’Ascoli ;</li>
+<li>familles normales et théorème de Montel ;</li>
+<li>opérateurs compacts ;</li>
+<li>compacité faible, si compatible avec le niveau visé ;</li>
+<li>applications à l’analyse complexe.</li>
+</ul>
+<p>Liens :</p>
+<ul>
+<li>[[Leçon 220 — Équations différentielles ordinaires]]</li>
+<li>[[Leçon 221 — Équations différentielles linéaires]]</li>
+<li>[[Leçon 245 — Fonctions holomorphes et méromorphes]]</li>
+</ul>
+<h2 id="notions-liées">Notions liées</h2>
+<ul>
+<li>[[Compacité]]</li>
+<li>[[Compacité séquentielle]]</li>
+<li>[[Valeur d’adhérence]]</li>
+<li>[[Recouvrement ouvert]]</li>
+<li>[[Sous-recouvrement fini]]</li>
+<li>[[Continuité uniforme]]</li>
+<li>[<a href="#théorème-de-heine">Théorème de Heine</a>]</li>
+<li>[[Théorème des bornes atteintes]]</li>
+<li>[[Équivalence des normes]]</li>
+<li>[[Distance à un compact]]</li>
+<li>[[Équicontinuité]]</li>
+<li>[[Théorème d’Ascoli]]</li>
+<li>[[Théorème de Montel]]</li>
+<li>[[Opérateur compact]]</li>
+</ul>
+<h2 id="leçons-liées">Leçons liées</h2>
+<h3 id="très-proches">Très proches</h3>
+<ul>
+<li>[[Leçon 201 — Espaces de fonctions]]</li>
+<li>[[Leçon 205 — Espaces complets]]</li>
+<li>[[Leçon 206 — Dimension finie en analyse]]</li>
+<li>[[Leçon 208 — Espaces vectoriels normés]]</li>
+<li>[[Leçon 219 — Extremums]]</li>
+<li>[[Leçon 228 — Continuité, dérivabilité]]</li>
+</ul>
+<h3 id="liens-naturels">Liens naturels</h3>
+<ul>
+<li>[[Leçon 209 — Approximation d’une fonction par des fonctions
+régulières]]</li>
+<li>[[Leçon 213 — Espaces de Hilbert]]</li>
+<li>[[Leçon 214 — Inversion locale, fonctions implicites]]</li>
+<li>[[Leçon 220 — Équations différentielles ordinaires]]</li>
+<li>[[Leçon 223 — Suites réelles et complexes]]</li>
+<li>[[Leçon 229 — Fonctions monotones, fonctions convexes]]</li>
+<li>[[Leçon 239 — Fonctions définies par une intégrale dépendant d’un
+paramètre]]</li>
+<li>[[Leçon 241 — Suites et séries de fonctions]]</li>
+<li>[[Leçon 245 — Fonctions holomorphes et méromorphes]]</li>
+<li>[[Leçon 253 — Convexité en analyse]]</li>
+</ul>
+<h3 id="liens-transversaux">Liens transversaux</h3>
+<ul>
+<li>[[Leçon 181 — Convexité dans Rn]]</li>
+<li>[[Leçon 191 — Techniques d’algèbre en géométrie]]</li>
+</ul>
+<h2 id="développements-possibles">Développements possibles</h2>
+<ul>
+<li>[[Développement — Théorème de Heine]]</li>
+<li>[[Développement — Théorème de Riesz : compacité de la boule unité et
+dimension finie]]</li>
+<li>[[Développement — Théorème des bornes atteintes et application aux
+extrema]]</li>
+<li>[[Développement — Théorème d’Ascoli]]</li>
+<li>[[Développement — Théorème de Montel]]</li>
+<li>[[Développement — Existence d’une meilleure approximation]]</li>
+<li>[[Développement — Théorème de Schauder ou opérateurs compacts]]</li>
+</ul>
+<h2 id="développement-actuel-recommandé">Développement actuel
+recommandé</h2>
+<p><a
+href="../../d%C3%A9veloppements/theoreme-riesz-compacite-boule-unite.html">Théorème
+de Riesz : compacité de la boule unité et dimension finie</a> — recasage
+5/5.</p>
+<p>Orientation : construire une suite de vecteurs unitaires séparés d’au
+moins <span class="math inline">\(1\)</span>, qui montre que la boule
+unité n’est pas compacte en dimension infinie. Conserver l’équivalence
+des normes comme résultat du plan.</p>
+<h2 id="résultats-clés-à-maîtriser">Résultats clés à maîtriser</h2>
+<h3 id="image-continue-dun-compact">Image continue d’un compact</h3>
+<p>Si <span class="math inline">\(K\)</span> est compact et <span
+class="math inline">\(f : K \to Y\)</span> est continue, alors <span
+class="math inline">\(f(K)\)</span> est compact.</p>
+<p>Conséquences :</p>
+<ul>
+<li>bornes atteintes pour les fonctions réelles continues ;</li>
+<li>existence de minima/maxima ;</li>
+<li>stabilité de la compacité par homéomorphisme.</li>
+</ul>
+<h3 id="théorème-de-heine">Théorème de Heine</h3>
+<p>Toute fonction continue sur un compact métrique est uniformément
+continue.</p>
+<h3 id="équivalence-des-normes-en-dimension-finie">Équivalence des
+normes en dimension finie</h3>
+<p>Sur un espace vectoriel normé de dimension finie, toutes les normes
+sont équivalentes.</p>
+<p>Point à savoir expliquer : l’argument repose sur la compacité de la
+sphère unité pour une norme de référence.</p>
+<h3 id="passage-local-global-par-compacité">Passage local-global par
+compacité</h3>
+<p>Si une propriété locale est contrôlée sur des ouverts recouvrant un
+compact, on peut souvent extraire un sous-recouvrement fini et obtenir
+un contrôle global.</p>
+<h2 id="exemples-à-préparer">Exemples à préparer</h2>
+<ul>
+<li><span class="math inline">\([a,b]\)</span> compact dans <span
+class="math inline">\(\mathbb{R}\)</span></li>
+<li>Sphère unité de <span
+class="math inline">\(\mathbb{R}^n\)</span></li>
+<li>Fonction continue sur un compact atteignant ses bornes</li>
+<li>Distance entre deux compacts disjoints</li>
+<li>Équivalence des normes sur <span
+class="math inline">\(\mathbb{R}^n\)</span></li>
+<li>Suite dans un compact et extraction convergente</li>
+<li>Famille équicontinue de fonctions sur un compact</li>
+<li>Exemple de non-compacité en dimension infinie</li>
+</ul>
+<h2 id="pièges-et-points-de-vigilance">Pièges et points de
+vigilance</h2>
+<ul>
+<li>Ne pas faire une leçon de topologie générale abstraite : le mot clé
+est « utilisation ».</li>
+<li>Ne pas se limiter à <span class="math inline">\([a,b]\)</span> ;
+inclure espaces normés, espaces de fonctions, dimension finie.</li>
+<li>Bien distinguer fermé/borné/compact selon le cadre.</li>
+<li>En dimension infinie, fermé borné ne suffit plus.</li>
+<li>Savoir expliquer précisément où intervient la compacité dans chaque
+preuve.</li>
+<li>Ne pas citer Ascoli, Montel ou opérateurs compacts sans exemple
+maîtrisé.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Donner une preuve de l’équivalence des normes utilisant la
+compacité.</li>
+<li>Pourquoi la compacité donne-t-elle la continuité uniforme ?</li>
+<li>Donner un exemple de passage du local au global par compacité.</li>
+<li>Donner un exemple où fermé borné n’est pas compact.</li>
+<li>Comment utiliser la compacité pour prouver l’existence d’un extremum
+?</li>
+<li>Quelle différence entre compacité et compacité séquentielle ?</li>
+<li>Où la compacité intervient-elle dans un théorème d’existence pour
+les équations différentielles ?</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Choisir un plan
+définitif.</label></li>
+<li><label><input type="checkbox" />Sélectionner 3 exemples structurants
+: extraction, extrema, uniformité.</label></li>
+<li><label><input type="checkbox" checked="" />Choisir un développement
+principal : théorème de Riesz sur la compacité de la boule
+unité.</label></li>
+<li><label><input type="checkbox" />Créer les fiches notions
+prioritaires : [[Compacité]], [<a href="#théorème-de-heine">Théorème de
+Heine</a>], [[Équivalence des normes]], [[Théorème
+d’Ascoli]].</label></li>
+<li><label><input type="checkbox" />Ajouter des liens réciproques depuis
+les leçons proches.</label></li>
+</ul>
+</body>
+</html>

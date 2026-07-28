@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Recasage — Loi de réciprocité quadratique</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Recasage — Loi de réciprocité quadratique</h1>
+</header>
+<h1 id="recasage-loi-de-réciprocité-quadratique">Recasage — Loi de
+réciprocité quadratique</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="index.html">← Recasages</a> · <a
+href="../../d%C3%A9veloppements/loi-de-reciprocite-quadratique.html">Développement</a>
+· <a href="../matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="notes-par-leçon-créée">Notes par leçon créée</h2>
+<table>
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 36%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">Leçon</th>
+<th style="text-align: right;">Note</th>
+<th>Commentaire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">101</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Deux usages structurants des actions : action cyclique de <span
+class="math inline">\(\mathbb F_p\)</span> pour dénombrer, puis action
+de <span class="math inline">\(\mathrm{GL}_p(\mathbb F_q)\)</span> par
+congruence pour classifier les formes et choisir un représentant
+hyperbolique.</td>
+</tr>
+<tr>
+<td style="text-align: right;">104</td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td>Application arithmétique non triviale d’une action d’un groupe
+cyclique d’ordre premier ; le reste de la preuve relève toutefois
+surtout des corps finis et des formes quadratiques.</td>
+</tr>
+<tr>
+<td style="text-align: right;">105</td>
+<td style="text-align: right;" class="score score-2">2</td>
+<td>La permutation circulaire des <span class="math inline">\(p\)</span>
+coordonnées intervient réellement, mais la structure de <span
+class="math inline">\(\mathfrak S_p\)</span> reste périphérique.</td>
+</tr>
+<tr>
+<td style="text-align: right;">108</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun travail significatif sur des parties génératrices.</td>
+</tr>
+<tr>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Très bonne application de l’étude des carrés modulo un nombre
+premier et de la solvabilité de congruences quadratiques.</td>
+</tr>
+<tr>
+<td style="text-align: right;">121</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Recasage naturel et prioritaire : l’énoncé porte directement sur
+deux nombres premiers impairs et utilise la réduction modulo <span
+class="math inline">\(p\)</span>.</td>
+</tr>
+<tr>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Critère d’Euler, carrés dans les corps premiers, classification des
+formes quadratiques sur <span class="math inline">\(\mathbb F_q\)</span>
+et comptage d’une quadrique.</td>
+</tr>
+<tr>
+<td style="text-align: right;">161</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien naturel avec les distances ou les isométries euclidiennes
+réelles.</td>
+</tr>
+<tr>
+<td style="text-align: right;">170</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>L’action par congruence, le rang, le discriminant, les plans
+hyperboliques et la classification sur un corps fini sont au cœur du
+second comptage.</td>
+</tr>
+<tr>
+<td style="text-align: right;">190</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Double dénombrement substantiel, séparation en cas et action d’un
+groupe d’ordre premier pour obtenir une congruence de cardinaux.</td>
+</tr>
+<tr>
+<td style="text-align: right;">203</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien avec la compacité.</td>
+</tr>
+<tr>
+<td style="text-align: right;">206</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>La dimension finie intervient algébriquement, pas comme phénomène
+analytique.</td>
+</tr>
+<tr>
+<td style="text-align: right;">208</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien avec les espaces normés ou les applications linéaires
+continues.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="recasages-prioritaires">Recasages prioritaires</h2>
+<h3 id="groupe-opérant-sur-un-ensemble">101 — Groupe opérant sur un
+ensemble</h3>
+<p>Présenter explicitement les deux actions et leur complémentarité :
+<strong>agir pour dénombrer</strong> puis <strong>agir pour
+classifier</strong>. Ne pas réduire le second passage à la phrase «
+<span class="math inline">\(A\)</span> et <span
+class="math inline">\(I_p\)</span> sont congruentes ».</p>
+<h3 id="nombres-premiers">121 — Nombres premiers</h3>
+<p>Insister sur le sens arithmétique de la loi et préparer des calculs
+concrets de symboles de Legendre, avec les deux lois
+complémentaires.</p>
+<h3 id="corps-finis">123 — Corps finis</h3>
+<p>Mettre en avant le critère d’Euler, les carrés et le comptage de
+points. Compléter le plan par une vraie application avec <span
+class="math inline">\(q=p^n\)</span>, car la preuve utilise seulement
+des corps premiers.</p>
+<h3 id="formes-quadratiques">170 — Formes quadratiques</h3>
+<p>Faire de l’orbite de congruence le pivot : <span
+class="math inline">\(I_p\)</span> est remplacée par une somme de plans
+hyperboliques et d’une droite, représentante mieux adaptée au
+comptage.</p>
+<h2 id="recasages-secondaires-solides">Recasages secondaires
+solides</h2>
+<ul>
+<li>120 : orienter vers la solvabilité de <span
+class="math inline">\(x^2\equiv a\pmod p\)</span>.</li>
+<li>190 : annoncer clairement le double dénombrement et détailler les
+deux méthodes.</li>
+</ul>
+<h2 id="recasages-fragiles">Recasages fragiles</h2>
+<ul>
+<li>104 : défendable comme application d’un groupe fini cyclique, mais
+moins centré que 101.</li>
+<li>105 : la permutation cyclique est trop locale pour en faire un choix
+prioritaire.</li>
+</ul>
+<h2 id="points-de-décision">Points de décision</h2>
+<p>Le score 5 en 101 suppose que l’action par congruence soit formulée
+explicitement :</p>
+<p><span class="math display">\[
+\mathrm{GL}_p(\mathbb F_q)\curvearrowright\mathrm{Sym}_p(\mathbb F_q),
+\qquad P\cdot M={}^tPMP.
+\]</span></p>
+<p>Sans cette reformulation, la version source masque l’un des deux
+usages majeurs de l’action et ressemble plutôt à un recasage 4.</p>
+</body>
+</html>

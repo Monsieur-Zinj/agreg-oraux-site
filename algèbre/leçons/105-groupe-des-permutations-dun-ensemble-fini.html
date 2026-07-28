@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Leçon 105 — Groupe des permutations d'un ensemble fini. Applications.</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Leçon 105 — Groupe des permutations d'un ensemble
+fini. Applications.</h1>
+</header>
+<h1
+id="leçon-105-groupe-des-permutations-dun-ensemble-fini.-applications.">Leçon
+105 — Groupe des permutations d’un ensemble fini. Applications.</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../../index/lecons.html">← Index des leçons</a> · <a
+href="../../index/developpements.html">Développements</a> · <a
+href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="rôle-dans-le-graphe">Rôle dans le graphe</h2>
+<p>Leçon charnière entre théorie des groupes, combinatoire et géométrie.
+Elle doit montrer que les groupes de permutations ne sont pas seulement
+des objets abstraits : ils apparaissent via les actions de groupes, les
+symétries, les dénombrements et les invariants algébriques.</p>
+<h2 id="attendus-du-jury-à-garder-en-tête">Attendus du jury à garder en
+tête</h2>
+<p>D’après le rapport du jury 2025 :</p>
+<ul>
+<li>relier la leçon aux notions d’orbites et d’actions de groupes ;</li>
+<li>savoir décomposer une permutation en cycles à supports disjoints
+;</li>
+<li>savoir utiliser cette décomposition pour déterminer les classes de
+conjugaison ;</li>
+<li>donner des systèmes de générateurs ;</li>
+<li>l’existence de la signature ne peut pas constituer à elle seule un
+développement ;</li>
+<li>savoir calculer la signature dans des cas concrets ;</li>
+<li>le lien avec les groupes d’isométries des solides est naturel.</li>
+</ul>
+<h2 id="plan-possible-squelette">Plan possible — squelette</h2>
+<h3 id="groupe-symétrique-et-cycles">1. Groupe symétrique et cycles</h3>
+<ul>
+<li>Définition de <span class="math inline">\(\mathfrak S(E)\)</span>,
+puis <span class="math inline">\(\mathfrak S_n\)</span></li>
+<li>Cycles, supports, cycles disjoints</li>
+<li>Décomposition en cycles à supports disjoints</li>
+<li>Ordre d’une permutation</li>
+</ul>
+<h3 id="générateurs-et-signature">2. Générateurs et signature</h3>
+<ul>
+<li>Transpositions</li>
+<li>Génération de <span class="math inline">\(\mathfrak S_n\)</span> par
+les transpositions</li>
+<li>Génération par transpositions adjacentes, si utile</li>
+<li>Signature</li>
+<li>Groupe alterné <span class="math inline">\(\mathfrak
+A_n\)</span></li>
+</ul>
+<h3 id="conjugaison-et-classes">3. Conjugaison et classes</h3>
+<ul>
+<li>Type cyclique</li>
+<li>Classes de conjugaison dans <span class="math inline">\(\mathfrak
+S_n\)</span></li>
+<li>Centralisateurs, si maîtrisé</li>
+</ul>
+<h3 id="actions-et-plongements-dans-un-groupe-symétrique">4. Actions et
+plongements dans un groupe symétrique</h3>
+<ul>
+<li>Toute action de <span class="math inline">\(G\)</span> sur <span
+class="math inline">\(X\)</span> donne un morphisme <span
+class="math display">\[
+G o \mathfrak S(X).
+\]</span></li>
+<li>Cas d’une action fidèle</li>
+<li>Théorème de Cayley, si on veut l’évoquer</li>
+</ul>
+<h3 id="applications">5. Applications</h3>
+<ul>
+<li>Groupes d’isométries de polygones ou solides</li>
+<li>Dénombrements via cycles et points fixes</li>
+<li>Signature et déterminant</li>
+<li>Fonctions symétriques, selon le plan</li>
+</ul>
+<h2 id="développements-possibles">Développements possibles</h2>
+<ul>
+<li>[[Développement — Isométries du tétraèdre régulier]]
+<ul>
+<li>Recasage excellent : identification <span
+class="math inline">\(\operatorname{Is}(T)\simeq \mathfrak S_4\)</span>
+et dictionnaire entre permutations et isométries.</li>
+</ul></li>
+</ul>
+<p>La formule de Burnside peut être évoquée comme application des
+permutations induites et du calcul de points fixes, sans être retenue
+comme développement.</p>
+<h2 id="notions-liées">Notions liées</h2>
+<ul>
+<li>[[Groupe symétrique]]</li>
+<li>[[Permutation]]</li>
+<li>[[Cycle]]</li>
+<li>[[Transposition]]</li>
+<li>[[Signature]]</li>
+<li>[[Groupe alterné]]</li>
+<li>[[Action de groupe]]</li>
+<li>[[Classe de conjugaison]]</li>
+<li>[[Groupe d’isométries]]</li>
+</ul>
+<h2 id="leçons-liées">Leçons liées</h2>
+<ul>
+<li>[[Leçon 101 — Groupe opérant sur un ensemble]]</li>
+<li>[[Leçon 104 — Groupes finis]]</li>
+<li>[[Leçon 108 — Exemples de parties génératrices d’un groupe]]</li>
+<li>[[Leçon 190 — Méthodes combinatoires, problèmes de
+dénombrement]]</li>
+</ul>
+<h2 id="pièges-et-points-de-vigilance">Pièges et points de
+vigilance</h2>
+<ul>
+<li>Ne pas faire du calcul de permutations sans application.</li>
+<li>Savoir passer du langage permutation au langage action.</li>
+<li>Savoir calculer un ordre de permutation à partir des longueurs de
+cycles.</li>
+<li>Ne pas présenter la signature seule comme développement.</li>
+<li>Avoir un exemple géométrique solide, par exemple le tétraèdre.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Décomposer une permutation donnée en cycles disjoints.</li>
+<li>Calculer son ordre et sa signature.</li>
+<li>Montrer que les transpositions engendrent <span
+class="math inline">\(\mathfrak S_n\)</span>.</li>
+<li>Décrire les classes de conjugaison de <span
+class="math inline">\(\mathfrak S_n\)</span>.</li>
+<li>Quel morphisme est associé à une action de groupe sur un ensemble
+fini ?</li>
+<li>Comment voir un groupe d’isométries comme un groupe de permutations
+?</li>
+</ul>
+</body>
+</html>

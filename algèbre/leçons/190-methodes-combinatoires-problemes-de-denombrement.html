@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Leçon 190 — Méthodes combinatoires, problèmes de dénombrement.</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Leçon 190 — Méthodes combinatoires, problèmes de
+dénombrement.</h1>
+</header>
+<h1
+id="leçon-190-méthodes-combinatoires-problèmes-de-dénombrement.">Leçon
+190 — Méthodes combinatoires, problèmes de dénombrement.</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../../index/lecons.html">← Index des leçons</a> · <a
+href="../../index/developpements.html">Développements</a> · <a
+href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="rôle-dans-le-graphe">Rôle dans le graphe</h2>
+<p>Leçon de méthodes : elle doit présenter plusieurs façons de compter,
+avec des exemples significatifs. Les actions de groupes et la formule de
+Burnside y donnent un outil puissant pour dénombrer des objets modulo
+symétrie.</p>
+<h2 id="attendus-du-jury-à-garder-en-tête">Attendus du jury à garder en
+tête</h2>
+<p>D’après le rapport du jury 2025 :</p>
+<ul>
+<li>dégager clairement différentes méthodes de dénombrement ;</li>
+<li>illustrer ces méthodes par des exemples significatifs ;</li>
+<li>montrer que de nombreux domaines sont concernés par les problèmes de
+dénombrement ;</li>
+<li>l’utilisation de séries génératrices est un outil puissant ;</li>
+<li>calculer des cardinaux classiques et certaines probabilités ;</li>
+<li>pour aller plus loin, on peut présenter la formule d’inversion de
+Möbius ou la formule de Burnside ;</li>
+<li>les permutations aléatoires peuvent être évoquées si le bagage
+probabiliste est maîtrisé.</li>
+</ul>
+<h2 id="plan-possible-squelette">Plan possible — squelette</h2>
+<h3 id="méthodes-élémentaires-de-dénombrement">1. Méthodes élémentaires
+de dénombrement</h3>
+<ul>
+<li>Principe additif et multiplicatif</li>
+<li>Arrangements, permutations, combinaisons</li>
+<li>Coefficients binomiaux</li>
+<li>Partitions simples d’un ensemble fini</li>
+</ul>
+<h3 id="méthodes-par-récurrence-ou-bijection">2. Méthodes par récurrence
+ou bijection</h3>
+<ul>
+<li>Relations de récurrence</li>
+<li>Bijections classiques</li>
+<li>Invariants combinatoires</li>
+</ul>
+<h3 id="principe-dinclusion-exclusion">3. Principe
+d’inclusion-exclusion</h3>
+<ul>
+<li>Formule du crible</li>
+<li>Dérangements</li>
+<li>Surjections</li>
+<li>Indicatrice d’Euler, si souhaité</li>
+</ul>
+<h3 id="séries-génératrices">4. Séries génératrices</h3>
+<ul>
+<li>Séries génératrices ordinaires</li>
+<li>Extraction de coefficients</li>
+<li>Exemples : sommes contraintes, partitions simples</li>
+</ul>
+<h3 id="actions-de-groupes-et-dénombrement-modulo-symétrie">5. Actions
+de groupes et dénombrement modulo symétrie</h3>
+<ul>
+<li>Action sur un ensemble fini</li>
+<li>Orbites comme objets « à symétrie près »</li>
+<li>[[Formule de Burnside]]</li>
+<li>Coloriages, colliers, polygones</li>
+</ul>
+<p>La formule de Burnside demeure un résultat important à présenter ou à
+appliquer sur un exemple de coloriage modulo symétries, sans être
+retenue comme développement dans la matrice.</p>
+<h2 id="développement-actuel-recommandé">Développement actuel
+recommandé</h2>
+<ul>
+<li>[[Développement — Loi de réciprocité quadratique]] —
+<strong>4/5</strong>.
+<ul>
+<li>Le même ensemble fini est compté par deux méthodes : orbites d’une
+action cyclique, puis changement de représentant d’une forme quadratique
+et découpage en deux familles de points.</li>
+<li>Pour ce recasage, annoncer explicitement la méthode de double
+dénombrement et insister sur le cardinal des hyperplans affines.</li>
+</ul></li>
+</ul>
+<h2 id="notions-liées">Notions liées</h2>
+<ul>
+<li>[[Dénombrement]]</li>
+<li>[[Coefficient binomial]]</li>
+<li>[[Formule du crible]]</li>
+<li>[[Série génératrice]]</li>
+<li>[[Action de groupe]]</li>
+<li>[[Orbite]]</li>
+<li>[[Formule de Burnside]]</li>
+<li>[[Permutation]]</li>
+</ul>
+<h2 id="leçons-liées">Leçons liées</h2>
+<ul>
+<li>[[Leçon 101 — Groupe opérant sur un ensemble]]</li>
+<li>[[Leçon 104 — Groupes finis]]</li>
+<li>[[Leçon 105 — Groupe des permutations d’un ensemble fini]]</li>
+</ul>
+<h2 id="pièges-et-points-de-vigilance">Pièges et points de
+vigilance</h2>
+<ul>
+<li>Ne pas faire une liste de formules sans méthode clairement
+identifiée.</li>
+<li>Donner des exemples où la méthode choisie est vraiment
+pertinente.</li>
+<li>Bien distinguer objets étiquetés et objets modulo symétrie.</li>
+<li>Pour Burnside, ne pas confondre nombre d’orbites et nombre de points
+fixes.</li>
+<li>Savoir vérifier les résultats sur de petits cas.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Donner une preuve de la formule du crible.</li>
+<li>Compter les dérangements de <span class="math inline">\(n\)</span>
+éléments.</li>
+<li>Utiliser une série génératrice pour résoudre un problème de somme
+contrainte.</li>
+<li>Expliquer pourquoi Burnside compte des orbites.</li>
+<li>Compter des coloriages d’un polygone à symétrie près.</li>
+</ul>
+</body>
+</html>

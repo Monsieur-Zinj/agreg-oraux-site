@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Développement — Loi de réciprocité quadratique</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Développement — Loi de réciprocité quadratique</h1>
+</header>
+<h1 id="développement-loi-de-réciprocité-quadratique">Développement —
+Loi de réciprocité quadratique</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../index/developpements.html">← Index des développements</a> ·
+<a href="../index/lecons.html">Leçons</a> · <a
+href="../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../index/recasages/loi-de-reciprocite-quadratique.html">Recasage
+détaillé</a> · <a href="../index.html">Accueil</a></p>
+<h2 id="position-dans-le-graphe">Position dans le graphe</h2>
+<p>Ce développement prouve la loi de réciprocité quadratique par deux
+calculs du cardinal d’une même quadrique affine sur un corps fini. Son
+architecture repose sur deux usages complémentaires des actions de
+groupes :</p>
+<ol type="1">
+<li><strong>agir pour dénombrer</strong>, avec l’action cyclique de
+<span class="math inline">\((\mathbb F_p,+)\)</span> sur les coordonnées
+;</li>
+<li><strong>agir pour classifier</strong>, avec l’action par congruence
+de <span class="math inline">\(\mathrm{GL}_p(\mathbb F_q)\)</span> sur
+les matrices symétriques.</li>
+</ol>
+<p>Cette double lecture en fait un développement prioritaire pour les
+leçons 101, 121, 123 et 170.</p>
+<h2 id="énoncé">Énoncé</h2>
+<p>Soient <span class="math inline">\(p\)</span> et <span
+class="math inline">\(q\)</span> deux nombres premiers impairs
+distincts. Alors</p>
+<p><span class="math display">\[
+\boxed{
+\left(\frac pq\right)\left(\frac qp\right)
+=(-1)^{\frac{p-1}{2}\frac{q-1}{2}}
+}
+\]</span></p>
+<p>où, pour un nombre premier impair <span
+class="math inline">\(r\)</span>, le symbole de Legendre est défini
+par</p>
+<p><span class="math display">\[
+\left(\frac ar\right)=
+\begin{cases}
+1 &amp; \text{si }a\in(\mathbb F_r^\times)^2,\\
+0 &amp; \text{si }a=0,\\
+-1 &amp; \text{sinon.}
+\end{cases}
+\]</span></p>
+<h2 id="prérequis">Prérequis</h2>
+<ul>
+<li>symbole de Legendre et critère d’Euler ;</li>
+<li>équation des classes pour l’action d’un groupe d’ordre premier
+;</li>
+<li>formes quadratiques et matrices symétriques en caractéristique
+différente de <span class="math inline">\(2\)</span> ;</li>
+<li>classification des formes quadratiques non dégénérées sur un corps
+fini ;</li>
+<li>cardinal d’un hyperplan affine de <span
+class="math inline">\(\mathbb F_q^d\)</span>.</li>
+</ul>
+<h2 id="deux-lemmes-préparatoires">Deux lemmes préparatoires</h2>
+<h3 id="lemme-1-critère-deuler">Lemme 1 — Critère d’Euler</h3>
+<p>Pour <span class="math inline">\(a\in\mathbb F_r^\times\)</span>,</p>
+<p><span class="math display">\[
+a^{(r-1)/2}=\left(\frac ar\right)\quad\text{dans }\mathbb F_r.
+\]</span></p>
+<p>En particulier, pour <span class="math inline">\(a\neq0\)</span>,</p>
+<p><span class="math display">\[
+\#\{x\in\mathbb F_r:ax^2=1\}=1+\left(\frac ar\right).
+\]</span></p>
+<p>En effet, si <span class="math inline">\(a=b^2\)</span>, les
+solutions sont <span class="math inline">\(\pm b^{-1}\)</span> ; si
+<span class="math inline">\(a\)</span> n’est pas un carré, il n’y en a
+aucune.</p>
+<h3 id="lemme-2-classification-utilisée">Lemme 2 — Classification
+utilisée</h3>
+<p>Sur un corps fini <span class="math inline">\(\mathbb F_q\)</span> de
+caractéristique impaire, deux formes quadratiques non dégénérées de même
+dimension sont congruentes si et seulement si leurs déterminants ont
+même classe dans</p>
+<p><span class="math display">\[
+\mathbb F_q^\times/(\mathbb F_q^\times)^2.
+\]</span></p>
+<p>Autrement dit, pour l’action</p>
+<p><span class="math display">\[
+\mathrm{GL}_n(\mathbb F_q)\curvearrowright \mathrm{Sym}_n(\mathbb F_q),
+\qquad P\cdot M={}^tPMP,
+\]</span></p>
+<p>la dimension et la classe du déterminant caractérisent les orbites
+non dégénérées.</p>
+<h2 id="preuve-détaillée">Preuve détaillée</h2>
+<p>Posons</p>
+<p><span class="math display">\[
+X=\left\{(x_1,\ldots,x_p)\in\mathbb F_q^p:
+\sum_{i=1}^p x_i^2=1\right\}.
+\]</span></p>
+<p>Nous calculons <span class="math inline">\(|X|\)</span> de deux
+manières.</p>
+<h3 id="étape-1-action-cyclique-et-premier-calcul-modulo-p">Étape 1 —
+Action cyclique et premier calcul modulo <span
+class="math inline">\(p\)</span></h3>
+<p>Le groupe additif <span class="math inline">\((\mathbb
+F_p,+)\)</span> agit sur <span class="math inline">\(X\)</span> par
+décalage cyclique des coordonnées :</p>
+<p><span class="math display">\[
+k\cdot(x_i)_{i\in\mathbb F_p}=(x_{i+k})_{i\in\mathbb F_p}.
+\]</span></p>
+<p>Comme <span class="math inline">\(p\)</span> est premier, les orbites
+ont cardinal <span class="math inline">\(1\)</span> ou <span
+class="math inline">\(p\)</span>. Par conséquent,</p>
+<p><span class="math display">\[
+|X|\equiv |X^{\mathbb F_p}|\pmod p.
+\]</span></p>
+<p>Les points fixes sont exactement les vecteurs constants <span
+class="math inline">\((x,\ldots,x)\)</span>. Ils vérifient</p>
+<p><span class="math display">\[
+px^2=1\quad\text{dans }\mathbb F_q.
+\]</span></p>
+<p>Le lemme 1 donne donc</p>
+<p><span class="math display">\[
+\boxed{|X|\equiv 1+\left(\frac pq\right)\pmod p.}
+\tag{1}
+\]</span></p>
+<h3
+id="étape-2-choix-dun-représentant-simple-dans-lorbite-de-la-forme">Étape
+2 — Choix d’un représentant simple dans l’orbite de la forme</h3>
+<p>Posons</p>
+<p><span class="math display">\[
+d=\frac{p-1}{2},\qquad a=(-1)^d,
+\qquad J=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}
+\]</span></p>
+<p>et considérons</p>
+<p><span class="math display">\[
+A=\operatorname{diag}(\underbrace{J,\ldots,J}_{d\text{ blocs}},a).
+\]</span></p>
+<p>On a</p>
+<p><span class="math display">\[
+\det A=(-1)^d a=1=\det I_p.
+\]</span></p>
+<p>Les formes de matrices <span class="math inline">\(A\)</span> et
+<span class="math inline">\(I_p\)</span> sont non dégénérées, de même
+dimension et de même discriminant. Le lemme 2 assure donc l’existence de
+<span class="math inline">\(P\in\mathrm{GL}_p(\mathbb F_q)\)</span> tel
+que</p>
+<p><span class="math display">\[
+A={}^tP I_pP.
+\]</span></p>
+<p>Le changement de variables <span class="math inline">\(u\mapsto
+P^{-1}u\)</span> établit une bijection entre <span
+class="math inline">\(X\)</span> et</p>
+<p><span class="math display">\[
+X&#39;=\left\{(y_1,z_1,\ldots,y_d,z_d,t)\in\mathbb F_q^p:
+2\sum_{i=1}^d y_i z_i+at^2=1\right\}.
+\]</span></p>
+<p>Le représentant hyperbolique choisi dans l’orbite rend maintenant le
+comptage explicite.</p>
+<h3 id="étape-3-comptage-des-points-avec-y0">Étape 3 — Comptage des
+points avec <span class="math inline">\(y=0\)</span></h3>
+<p>Si <span class="math inline">\(y_1=\cdots=y_d=0\)</span>, alors <span
+class="math inline">\(at^2=1\)</span>. Le lemme 1 donne</p>
+<p><span class="math display">\[
+1+\left(\frac aq\right)
+=1+a^{(q-1)/2}
+=1+(-1)^{d(q-1)/2}
+\]</span></p>
+<p>choix pour <span class="math inline">\(t\)</span>. Les <span
+class="math inline">\(z_i\)</span> sont arbitraires, d’où</p>
+<p><span class="math display">\[
+q^d\left(1+(-1)^{d(q-1)/2}\right)
+\]</span></p>
+<p>points de ce type.</p>
+<h3 id="étape-4-comptage-des-points-avec-yneq0">Étape 4 — Comptage des
+points avec <span class="math inline">\(y\neq0\)</span></h3>
+<p>Il y a <span class="math inline">\(q^d-1\)</span> choix pour <span
+class="math inline">\(y=(y_1,\ldots,y_d)\neq0\)</span>, puis <span
+class="math inline">\(q\)</span> choix pour <span
+class="math inline">\(t\)</span>.</p>
+<p>Pour <span class="math inline">\(y\)</span> et <span
+class="math inline">\(t\)</span> fixés, l’équation</p>
+<p><span class="math display">\[
+2\sum_{i=1}^d y_i z_i=1-at^2
+\]</span></p>
+<p>définit un hyperplan affine de <span class="math inline">\(\mathbb
+F_q^d\)</span>, donc possède <span
+class="math inline">\(q^{d-1}\)</span> solutions en <span
+class="math inline">\(z\)</span>. On obtient</p>
+<p><span class="math display">\[
+(q^d-1)q\,q^{d-1}=(q^d-1)q^d
+\]</span></p>
+<p>points de ce type.</p>
+<h3 id="étape-5-second-calcul-et-conclusion">Étape 5 — Second calcul et
+conclusion</h3>
+<p>En additionnant les deux contributions,</p>
+<p><span class="math display">\[
+|X|=q^{2d}+(-1)^{d(q-1)/2}q^d
+=q^{p-1}+(-1)^{\frac{p-1}{2}\frac{q-1}{2}}q^{(p-1)/2}.
+\]</span></p>
+<p>Modulo <span class="math inline">\(p\)</span>, le petit théorème de
+Fermat et le critère d’Euler donnent</p>
+<p><span class="math display">\[
+q^{p-1}\equiv1\pmod p,
+\qquad
+q^{(p-1)/2}\equiv\left(\frac qp\right)\pmod p.
+\]</span></p>
+<p>Ainsi</p>
+<p><span class="math display">\[
+\boxed{|X|\equiv 1+(-1)^{\frac{p-1}{2}\frac{q-1}{2}}
+\left(\frac qp\right)\pmod p.}
+\tag{2}
+\]</span></p>
+<p>En comparant (1) et (2),</p>
+<p><span class="math display">\[
+\left(\frac pq\right)
+\equiv
+(-1)^{\frac{p-1}{2}\frac{q-1}{2}}
+\left(\frac qp\right)
+\pmod p.
+\]</span></p>
+<p>Les deux membres appartiennent à <span
+class="math inline">\(\{-1,1\}\)</span>. Leur différence appartient donc
+à <span class="math inline">\(\{-2,0,2\}\)</span> ; comme <span
+class="math inline">\(p\)</span> est impair et la divise, cette
+différence est nulle. Finalement,</p>
+<p><span class="math display">\[
+\boxed{
+\left(\frac pq\right)
+=(-1)^{\frac{p-1}{2}\frac{q-1}{2}}
+\left(\frac qp\right).}
+\]</span></p>
+<h2 id="lecture-spécifique-pour-la-leçon-101">Lecture spécifique pour la
+leçon 101</h2>
+<p>La preuve doit être présentée comme l’enchaînement de deux actions
+:</p>
+<ul>
+<li><span class="math inline">\((\mathbb F_p,+)\curvearrowright
+X\)</span>, dont les orbites donnent une congruence de cardinaux ;</li>
+<li><span class="math inline">\(\mathrm{GL}_p(\mathbb
+F_q)\curvearrowright\mathrm{Sym}_p(\mathbb F_q)\)</span> par congruence,
+dont les orbites classifient les formes et permettent de choisir un
+représentant simple.</li>
+</ul>
+<p>On illustre ainsi les deux fonctions majeures d’une action :
+<strong>dénombrer</strong> et <strong>classifier</strong>.</p>
+<h2 id="exemple-dapplication">Exemple d’application</h2>
+<p>Pour <span class="math inline">\(p=3\)</span> et <span
+class="math inline">\(q=11\)</span>,</p>
+<p><span class="math display">\[
+\left(\frac{11}{3}\right)=\left(\frac23\right)=-1
+\]</span></p>
+<p>et le signe de réciprocité vaut <span
+class="math inline">\((-1)^{1\cdot5}=-1\)</span>. Donc</p>
+<p><span class="math display">\[
+\left(\frac3{11}\right)=1.
+\]</span></p>
+<p>Effectivement, <span
+class="math inline">\(5^2\equiv3\pmod{11}\)</span>.</p>
+<h2 id="durée-cible">Durée cible</h2>
+<p>Environ 14 à 16 minutes :</p>
+<ul>
+<li>2 min : symbole de Legendre et lemme de comptage ;</li>
+<li>3 min : action cyclique et premier calcul ;</li>
+<li>3 min : action par congruence et choix de la forme hyperbolique
+;</li>
+<li>4 min : second comptage ;</li>
+<li>2 min : réduction modulo <span class="math inline">\(p\)</span> et
+conclusion.</li>
+</ul>
+<p>Pour tenir strictement en quinze minutes, la classification des
+formes quadratiques doit être placée dans le plan et énoncée sans
+démonstration pendant le développement.</p>
+<h2 id="points-sensibles-à-loral">Points sensibles à l’oral</h2>
+<ul>
+<li>Préciser l’action cyclique et expliquer pourquoi les orbites ont
+cardinal <span class="math inline">\(1\)</span> ou <span
+class="math inline">\(p\)</span>.</li>
+<li>Justifier que les points fixes sont exactement les vecteurs
+constants.</li>
+<li>Ne pas masquer l’action par congruence derrière la seule phrase «
+les matrices sont congruentes ».</li>
+<li>Savoir énoncer et défendre la classification des formes quadratiques
+sur un corps fini ; elle est fausse sous cette forme sur un corps
+quelconque.</li>
+<li>Dire où intervient la caractéristique impaire : symbole de Legendre,
+facteur <span class="math inline">\(2\)</span>, classification.</li>
+<li>Justifier que l’équation en <span class="math inline">\(z\)</span>
+définit un hyperplan affine non vide de cardinal <span
+class="math inline">\(q^{d-1}\)</span>.</li>
+<li>Expliquer le dernier passage d’une congruence modulo <span
+class="math inline">\(p\)</span> à une égalité dans <span
+class="math inline">\(\{-1,1\}\)</span>.</li>
+<li>Ne pas prétendre traiter le cas <span
+class="math inline">\(q=2\)</span> : la seconde loi complémentaire <span
+class="math inline">\(\left(\frac2p\right)=(-1)^{(p^2-1)/8}\)</span>
+demande un argument supplémentaire.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Pourquoi l’action de <span class="math inline">\(\mathbb
+F_p\)</span> préserve-t-elle <span class="math inline">\(X\)</span>
+?</li>
+<li>Pourquoi une orbite non fixe possède-t-elle exactement <span
+class="math inline">\(p\)</span> éléments ?</li>
+<li>Quel groupe agit sur les matrices symétriques par congruence ?</li>
+<li>Quels sont les invariants de cette action sur les formes non
+dégénérées sur <span class="math inline">\(\mathbb F_q\)</span> ?</li>
+<li>Pourquoi <span class="math inline">\(A\)</span> et <span
+class="math inline">\(I_p\)</span> sont-elles congruentes ?</li>
+<li>Quelle différence entre similitude et congruence de matrices ?</li>
+<li>Que représente géométriquement un bloc hyperbolique <span
+class="math inline">\(J\)</span> ?</li>
+<li>Comment applique-t-on la loi pour décider si une congruence <span
+class="math inline">\(x^2\equiv a\pmod p\)</span> est soluble ?</li>
+<li>Quelles sont les deux lois complémentaires ?</li>
+</ul>
+<h2 id="variantes">Variantes</h2>
+<ul>
+<li>Preuve par le lemme de Gauss.</li>
+<li>Preuve par sommes de Gauss.</li>
+<li>Présentation centrée sur la classification des formes quadratiques
+pour la leçon 170.</li>
+<li>Présentation centrée sur le double dénombrement pour la leçon
+190.</li>
+</ul>
+<h2 id="source">Source</h2>
+<ul>
+<li>Yoann Demesmay, « Loi de réciprocité quadratique », Université de
+Bourgogne Franche-Comté, 2022/2023, d’après Caldero [1], p. 319.</li>
+<li>PDF local :
+<code>raw data/développements/loi-reciprocite-quadratique-4378.pdf</code>.</li>
+<li>Extraction locale :
+<code>raw data/développements/loi-reciprocite-quadratique-4378.txt</code>,
+lignes 1-123.</li>
+<li>URL d’origine : <a
+href="https://agreg-maths.fr/uploads/versions/4378/Loi%20de%20r%C3%A9ciprocit%C3%A9%20quadratique.pdf"
+class="uri">https://agreg-maths.fr/uploads/versions/4378/Loi%20de%20r%C3%A9ciprocit%C3%A9%20quadratique.pdf</a>.</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Préparer une preuve courte de la
+classification des formes quadratiques sur <span
+class="math inline">\(\mathbb F_q\)</span>.</label></li>
+<li><label><input type="checkbox" />Répéter une version chronométrée en
+quinze minutes.</label></li>
+<li><label><input type="checkbox" />Préparer deux applications
+numériques et les deux lois complémentaires.</label></li>
+</ul>
+</body>
+</html>

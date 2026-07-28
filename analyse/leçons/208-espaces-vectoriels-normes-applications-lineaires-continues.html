@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Leçon 208 — Espaces vectoriels normés, applications linéaires continues</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Leçon 208 — Espaces vectoriels normés, applications
+linéaires continues</h1>
+</header>
+<h1
+id="leçon-208-espaces-vectoriels-normés-applications-linéaires-continues">Leçon
+208 — Espaces vectoriels normés, applications linéaires continues</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../../index/lecons.html">← Index des leçons</a> · <a
+href="../../index/developpements.html">Développements</a> · <a
+href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="rôle-dans-le-graphe">Rôle dans le graphe</h2>
+<p>Leçon-carrefour de l’analyse fonctionnelle élémentaire. Elle doit
+relier la géométrie induite par une norme à la continuité des
+applications linéaires, en présentant des résultats significatifs et des
+exemples calculés.</p>
+<h2 id="attendus-du-jury-à-garder-en-tête">Attendus du jury à garder en
+tête</h2>
+<p>D’après le rapport du jury 2025 :</p>
+<ul>
+<li>éviter les longs rappels formalistes sur les normes ;</li>
+<li>présenter des exemples bien choisis de normes équivalentes ou non
+;</li>
+<li>savoir calculer des normes subordonnées ;</li>
+<li>exploiter le cas de la dimension finie et l’intervention de la
+complétude ;</li>
+<li>étudier la compacité de la boule unité fermée ;</li>
+<li>relier continuité d’une forme linéaire, ou d’une application
+linéaire de rang fini, et fermeture du noyau ;</li>
+<li>pour aller plus loin : Baire, Banach–Steinhaus, Hahn–Banach,
+algèbres de Banach et duals topologiques.</li>
+</ul>
+<h2 id="plan-possible-squelette">Plan possible — squelette</h2>
+<h3 id="normes-et-topologies-associées">1. Normes et topologies
+associées</h3>
+<ul>
+<li>Exemples de normes sur <span class="math inline">\(\mathbb
+K^n\)</span>, <span class="math inline">\(C(K)\)</span>, <span
+class="math inline">\(\ell^p\)</span> et <span
+class="math inline">\(L^p\)</span></li>
+<li>[[Normes équivalentes]]</li>
+<li>Exemples de normes non équivalentes en dimension infinie</li>
+<li>Complétude et dépendance à la norme</li>
+</ul>
+<h3 id="applications-linéaires-continues">2. Applications linéaires
+continues</h3>
+<ul>
+<li>Continuité en zéro, continuité globale et caractère
+lipschitzien</li>
+<li>Critère de bornitude sur la boule unité</li>
+<li>Norme d’opérateur</li>
+<li>Calculs de normes subordonnées en dimension finie</li>
+<li>Continuité automatique en dimension finie</li>
+</ul>
+<h3 id="formes-linéaires-noyaux-et-rang-fini">3. Formes linéaires,
+noyaux et rang fini</h3>
+<ul>
+<li>Une forme linéaire non nulle est continue si et seulement si son
+noyau est fermé</li>
+<li>Applications linéaires de rang fini</li>
+<li>Quotients et codimension finie</li>
+</ul>
+<h3 id="compacité-et-dimension-finie">4. Compacité et dimension
+finie</h3>
+<ul>
+<li>Compacité de la boule unité fermée en dimension finie</li>
+<li>[[Lemme de Riesz]]</li>
+<li>Caractérisation de la dimension finie par compacité de la boule
+unité</li>
+<li>Opérateurs de rang fini et opérateurs compacts</li>
+</ul>
+<h3 id="ouvertures">5. Ouvertures</h3>
+<ul>
+<li>Espaces de Banach</li>
+<li>Théorème de Banach–Steinhaus</li>
+<li>Théorème de Hahn–Banach</li>
+<li>Dual topologique</li>
+</ul>
+<h2 id="notions-liées">Notions liées</h2>
+<ul>
+<li>[[Espace vectoriel normé]]</li>
+<li>[[Normes équivalentes]]</li>
+<li>[[Application linéaire continue]]</li>
+<li>[[Norme d’opérateur]]</li>
+<li>[[Forme linéaire continue]]</li>
+<li>[[Compacité]]</li>
+<li>[[Lemme de Riesz]]</li>
+<li>[[Opérateur compact]]</li>
+</ul>
+<h2 id="leçons-liées">Leçons liées</h2>
+<h3 id="très-proches">Très proches</h3>
+<ul>
+<li>[[Leçon 203 — Utilisation de la notion de compacité]]</li>
+<li>[[Leçon 205 — Espaces complets]]</li>
+<li>[[Leçon 206 — Exemples d’utilisation de la notion de dimension finie
+en analyse]]</li>
+<li>[[Leçon 213 — Espaces de Hilbert]]</li>
+</ul>
+<h3 id="liens-naturels">Liens naturels</h3>
+<ul>
+<li>[[Leçon 201 — Espaces de fonctions]]</li>
+<li>[[Leçon 214 — Inversion locale, fonctions implicites]]</li>
+<li>[[Leçon 241 — Suites et séries de fonctions]]</li>
+</ul>
+<h2 id="développements-possibles">Développements possibles</h2>
+<ul>
+<li>[[Développement — Théorème de Riesz : compacité de la boule unité et
+dimension finie]]</li>
+<li>[[Développement — Continuité d’une forme linéaire et fermeture du
+noyau]]</li>
+<li>[[Développement — Théorème de Banach–Steinhaus]]</li>
+<li>[[Développement — Théorème de Hahn–Banach]]</li>
+</ul>
+<h2 id="développement-actuel-recommandé">Développement actuel
+recommandé</h2>
+<p><a
+href="../../d%C3%A9veloppements/theoreme-riesz-compacite-boule-unite.html">Théorème
+de Riesz : compacité de la boule unité et dimension finie</a> — recasage
+5/5.</p>
+<p>Orientation : mettre en avant la distance à un sous-espace de
+dimension finie, la topologie de la boule unité et le contrepoint fourni
+par la dimension infinie. Garder l’équivalence des normes dans le
+plan.</p>
+<h2 id="résultats-clés-à-maîtriser">Résultats clés à maîtriser</h2>
+<ul>
+<li>Une application linéaire entre espaces normés est continue si et
+seulement si elle est bornée sur la boule unité.</li>
+<li>En dimension finie, toutes les normes sont équivalentes et toute
+application linéaire est continue.</li>
+<li>Une forme linéaire non nulle est continue si et seulement si son
+noyau est fermé.</li>
+<li>La boule unité fermée est compacte si et seulement si l’espace est
+de dimension finie.</li>
+</ul>
+<h2 id="exemples-à-préparer">Exemples à préparer</h2>
+<ul>
+<li>Calcul des normes subordonnées <span
+class="math inline">\(\|A\|_1\)</span>, <span
+class="math inline">\(\|A\|_\infty\)</span> et, dans un cas simple,
+<span class="math inline">\(\|A\|_2\)</span>.</li>
+<li>Deux normes non équivalentes sur un espace de fonctions.</li>
+<li>Une forme linéaire non continue sur un espace normé de dimension
+infinie.</li>
+<li>La suite canonique de <span class="math inline">\(\ell^p\)</span>
+comme obstruction à la compacité.</li>
+</ul>
+<h2 id="pièges-et-points-de-vigilance">Pièges et points de
+vigilance</h2>
+<ul>
+<li>Ne pas consacrer le début de la leçon à un catalogue de normes.</li>
+<li>Distinguer équivalence topologique et égalité des normes.</li>
+<li>Préciser les espaces de départ et d’arrivée dans les normes
+d’opérateur.</li>
+<li>Ne pas généraliser à la dimension infinie la continuité automatique
+des applications linéaires.</li>
+<li>Ne pas confondre les différentes formes du théorème de Riesz.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Donner deux normes non équivalentes sur un même espace
+vectoriel.</li>
+<li>Calculer une norme subordonnée d’une matrice.</li>
+<li>Pourquoi toute application linéaire en dimension finie est-elle
+continue ?</li>
+<li>Caractériser la continuité d’une forme linéaire par son noyau.</li>
+<li>Pourquoi la boule unité n’est-elle généralement pas compacte en
+dimension infinie ?</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Choisir des exemples de normes
+couvrant dimension finie et dimension infinie.</label></li>
+<li><label><input type="checkbox" />Préparer deux calculs complets de
+normes d’opérateur.</label></li>
+<li><label><input type="checkbox" />Ajouter un développement centré sur
+les formes linéaires ou Banach–Steinhaus.</label></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Leçon 120 — Anneaux \(\mathbb Z/n\mathbb Z\). Applications</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Leçon 120 — Anneaux \(\mathbb Z/n\mathbb Z\).
+Applications</h1>
+</header>
+<h1 id="leçon-120-anneaux-mathbb-znmathbb-z.-applications">Leçon 120 —
+Anneaux <span class="math inline">\(\mathbb Z/n\mathbb Z\)</span>.
+Applications</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../../index/lecons.html">← Index des leçons</a> · <a
+href="../../index/developpements.html">Développements</a> · <a
+href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="rôle-dans-le-graphe">Rôle dans le graphe</h2>
+<p>Leçon d’arithmétique modulaire : construction du quotient, structure
+de l’anneau, calcul effectif et applications aux congruences. Le cas
+premier conduit aux corps finis et aux résidus quadratiques.</p>
+<h2 id="attendus-du-jury-à-garder-en-tête">Attendus du jury à garder en
+tête</h2>
+<p>D’après le rapport du jury 2025 :</p>
+<ul>
+<li>construire rapidement <span class="math inline">\(\mathbb Z/n\mathbb
+Z\)</span> ;</li>
+<li>décrire inversibles, diviseurs de zéro et idéaux ;</li>
+<li>étudier le cas où <span class="math inline">\(n\)</span> est premier
+;</li>
+<li>présenter l’indicatrice d’Euler et le théorème chinois avec sa
+réciproque ;</li>
+<li>résoudre des systèmes de congruences ;</li>
+<li>proposer des applications : équations diophantiennes, RSA,
+morphismes, Frobenius ;</li>
+<li>pour aller plus loin, calculer des racines carrées modulo <span
+class="math inline">\(n\)</span>.</li>
+</ul>
+<h2 id="plan-possible-squelette">Plan possible — squelette</h2>
+<h3 id="construction-et-structure">1. Construction et structure</h3>
+<ul>
+<li>quotient de <span class="math inline">\(\mathbb Z\)</span> par <span
+class="math inline">\(n\mathbb Z\)</span> ;</li>
+<li>classes, opérations et propriété universelle ;</li>
+<li>idéaux, diviseurs de zéro ;</li>
+<li><span class="math inline">\(\overline a\)</span> inversible si et
+seulement si <span class="math inline">\(a\wedge n=1\)</span>.</li>
+</ul>
+<h3 id="groupe-des-unités">2. Groupe des unités</h3>
+<ul>
+<li><span class="math inline">\((\mathbb Z/n\mathbb Z)^\times\)</span>
+;</li>
+<li>indicatrice d’Euler ;</li>
+<li>théorème d’Euler et petit théorème de Fermat ;</li>
+<li>structure dans quelques cas simples.</li>
+</ul>
+<h3 id="théorème-chinois">3. Théorème chinois</h3>
+<ul>
+<li>cas de modules premiers entre eux ;</li>
+<li>réciproque et calcul effectif ;</li>
+<li>résolution de systèmes de congruences.</li>
+</ul>
+<h3 id="équations-modulaires-et-applications">4. Équations modulaires et
+applications</h3>
+<ul>
+<li>équations linéaires ;</li>
+<li>réduction d’équations diophantiennes ;</li>
+<li>résidus quadratiques modulo un nombre premier ;</li>
+<li>RSA ou logarithme discret selon le plan choisi.</li>
+</ul>
+<h2 id="développement-actuel-recommandé">Développement actuel
+recommandé</h2>
+<ul>
+<li>[[Développement — Loi de réciprocité quadratique]] —
+<strong>4/5</strong>.
+<ul>
+<li>Application profonde de l’étude des carrés dans <span
+class="math inline">\(\mathbb Z/p\mathbb Z\)</span>.</li>
+<li>Permet de décider la solvabilité de nombreuses congruences <span
+class="math inline">\(x^2\equiv a\pmod p\)</span>.</li>
+<li>À introduire après le critère d’Euler et le symbole de
+Legendre.</li>
+</ul></li>
+</ul>
+<h2 id="résultats-clés-à-maîtriser">Résultats clés à maîtriser</h2>
+<ul>
+<li>caractérisation des unités et des diviseurs de zéro ;</li>
+<li>théorème chinois, direct et réciproque ;</li>
+<li>théorèmes d’Euler et de Fermat ;</li>
+<li>critère d’Euler ;</li>
+<li>lois de réciprocité et lois complémentaires si elles figurent au
+plan.</li>
+</ul>
+<h2 id="notions-et-leçons-liées">Notions et leçons liées</h2>
+<ul>
+<li>[[Symbole de Legendre]]</li>
+<li>[[Résidu quadratique]]</li>
+<li>[[Critère d’Euler]]</li>
+<li>[[Leçon 121 — Nombres premiers]]</li>
+<li>[[Leçon 123 — Corps finis]]</li>
+<li>[[Leçon 142 — PGCD et PPCM]]</li>
+</ul>
+<h2 id="exemples-à-préparer">Exemples à préparer</h2>
+<ul>
+<li>unités et diviseurs de zéro dans <span class="math inline">\(\mathbb
+Z/12\mathbb Z\)</span> ;</li>
+<li>système chinois explicite ;</li>
+<li>obstruction modulaire à une équation diophantienne ;</li>
+<li>test de résidu quadratique par réciprocité.</li>
+</ul>
+<h2 id="pièges-et-points-de-vigilance">Pièges et points de
+vigilance</h2>
+<ul>
+<li>Ne pas confondre <span class="math inline">\(\mathbb Z/n\mathbb
+Z\)</span> comme groupe et comme anneau.</li>
+<li>Ne pas affirmer que tout élément non nul est inversible lorsque
+<span class="math inline">\(n\)</span> n’est pas premier.</li>
+<li>Énoncer la réciproque du théorème chinois.</li>
+<li>Conserver une part substantielle de calcul effectif.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Quels sont les idéaux de <span class="math inline">\(\mathbb
+Z/n\mathbb Z\)</span> ?</li>
+<li>Quand <span class="math inline">\(\mathbb Z/n\mathbb Z\)</span>
+est-il un corps ?</li>
+<li>Résoudre un système de congruences donné.</li>
+<li>Combien l’équation <span class="math inline">\(ax^2=1\)</span>
+a-t-elle de solutions modulo un nombre premier impair ?</li>
+<li>Comment la réciprocité quadratique aide-t-elle à calculer un symbole
+de Legendre ?</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Compléter le plan avec RSA ou une
+application diophantienne détaillée.</label></li>
+<li><label><input type="checkbox" />Préparer des calculs rapides de
+symboles de Legendre.</label></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Développement — Théorème de Riesz : compacité de la boule unité et dimension finie</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Développement — Théorème de Riesz : compacité de la
+boule unité et dimension finie</h1>
+</header>
+<h1
+id="développement-théorème-de-riesz-compacité-de-la-boule-unité-et-dimension-finie">Développement
+— Théorème de Riesz : compacité de la boule unité et dimension
+finie</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../index/developpements.html">← Index des développements</a> ·
+<a href="../index/lecons.html">Leçons</a> · <a
+href="../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../index/recasages/theoreme-riesz-compacite-boule-unite.html">Recasage
+détaillé</a> · <a href="../index.html">Accueil</a></p>
+<h2 id="position-dans-le-graphe">Position dans le graphe</h2>
+<p>Ce développement démontre la caractérisation de Riesz : un espace
+vectoriel normé est de dimension finie si et seulement si sa boule unité
+fermée est compacte.</p>
+<p>La réciproque construit, en dimension infinie, une suite de vecteurs
+unitaires deux à deux séparés. Sa particularité est d’obtenir une
+distance exactement égale à <span class="math inline">\(1\)</span>,
+grâce à l’existence d’un meilleur approximant dans tout sous-espace de
+dimension finie.</p>
+<p>Il ne faut pas confondre ce résultat avec le théorème de
+représentation de Riesz dans les espaces de Hilbert.</p>
+<h2 id="leçons-compatibles">Leçons compatibles</h2>
+<h3 id="recasages-principaux">Recasages principaux</h3>
+<ul>
+<li>[[Leçon 203 — Utilisation de la notion de compacité]]
+<ul>
+<li>Le théorème caractérise la dimension finie par une propriété de
+compacité et fournit un contre-exemple structurel en dimension
+infinie.</li>
+</ul></li>
+<li>[[Leçon 206 — Exemples d’utilisation de la notion de dimension finie
+en analyse]]
+<ul>
+<li>La dimension finie intervient dans l’existence du meilleur
+approximant et dans la caractérisation « fermé borné implique compact
+».</li>
+</ul></li>
+<li>[[Leçon 208 — Espaces vectoriels normés, applications linéaires
+continues]]
+<ul>
+<li>Le développement mobilise la boule unité, la distance à un
+sous-espace et la topologie des espaces normés.</li>
+</ul></li>
+</ul>
+<h2 id="prérequis">Prérequis</h2>
+<ul>
+<li>[[Espace vectoriel normé]]</li>
+<li>[[Compacité]] et compacité séquentielle dans un espace métrique</li>
+<li>Caractérisation des compacts en dimension finie : compact si et
+seulement si fermé et borné</li>
+<li>Continuité d’une norme, conséquence de <span class="math display">\[
+\bigl|\|x\|-\|y\|\bigr|\leq \|x-y\|
+\]</span></li>
+<li>Une suite bornée dans un espace normé de dimension finie possède une
+sous-suite convergente</li>
+</ul>
+<h2 id="énoncé">Énoncé</h2>
+<p>Soit <span class="math inline">\(E\)</span> un espace vectoriel normé
+sur <span class="math inline">\(\mathbb K=\mathbb R\)</span> ou <span
+class="math inline">\(\mathbb C\)</span>. Alors</p>
+<p><span class="math display">\[
+\boxed{
+E\text{ est de dimension finie}
+\iff
+\overline B_E(0,1)\text{ est compacte}.
+}
+\]</span></p>
+<h2 id="preuve-détaillée">Preuve détaillée</h2>
+<h3 id="sens-direct">1. Sens direct</h3>
+<p>Supposons <span class="math inline">\(E\)</span> de dimension finie.
+La boule unité fermée</p>
+<p><span class="math display">\[
+\overline B_E(0,1)=\{x\in E:\|x\|\leq 1\}
+\]</span></p>
+<p>est bornée par définition.</p>
+<p>La norme est <span class="math inline">\(1\)</span>-lipschitzienne
+puisque</p>
+<p><span class="math display">\[
+\bigl|\|x\|-\|y\|\bigr|\leq \|x-y\|.
+\]</span></p>
+<p>Elle est donc continue, et</p>
+<p><span class="math display">\[
+\overline B_E(0,1)=\|\cdot\|^{-1}([0,1])
+\]</span></p>
+<p>est fermée. En dimension finie, toute partie fermée et bornée est
+compacte. Ainsi <span class="math inline">\(\overline B_E(0,1)\)</span>
+est compacte.</p>
+<h3 id="la-distance-à-un-sous-espace-de-dimension-finie-est-atteinte">2.
+La distance à un sous-espace de dimension finie est atteinte</h3>
+<p>Soit <span class="math inline">\(F\)</span> un sous-espace vectoriel
+de dimension finie de <span class="math inline">\(E\)</span>, et soit
+<span class="math inline">\(a\in E\)</span>. Posons</p>
+<p><span class="math display">\[
+d(a,F)=\inf_{y\in F}\|a-y\|.
+\]</span></p>
+<p>Pour tout entier <span class="math inline">\(n\geq 1\)</span>,
+choisissons <span class="math inline">\(x_n\in F\)</span> tel que</p>
+<p><span class="math display">\[
+d(a,F)\leq \|a-x_n\|&lt;d(a,F)+\frac1n.
+\]</span></p>
+<p>La suite <span class="math inline">\((x_n)\)</span> est bornée,
+car</p>
+<p><span class="math display">\[
+\|x_n\|\leq \|x_n-a\|+\|a\|
+\leq d(a,F)+1+\|a\|.
+\]</span></p>
+<p>Comme <span class="math inline">\(F\)</span> est de dimension finie,
+une sous-suite <span class="math inline">\((x_{\varphi(n)})\)</span>
+converge vers un certain <span class="math inline">\(x\in F\)</span>.
+Par continuité de la norme,</p>
+<p><span class="math display">\[
+\|a-x\|
+=\lim_{n\to\infty}\|a-x_{\varphi(n)}\|
+=d(a,F).
+\]</span></p>
+<p>Ainsi, la distance de <span class="math inline">\(a\)</span> à <span
+class="math inline">\(F\)</span> est atteinte.</p>
+<h3 id="deux-propriétés-de-la-distance-à-un-sous-espace">3. Deux
+propriétés de la distance à un sous-espace</h3>
+<p>Pour <span class="math inline">\(u\in F\)</span>, le changement de
+variable <span class="math inline">\(y&#39;=y-u\)</span> dans <span
+class="math inline">\(F\)</span> donne</p>
+<p><span class="math display">\[
+\begin{aligned}
+d(a-u,F)
+&amp;=\inf_{y&#39;\in F}\|a-u-y&#39;\|\\
+&amp;=\inf_{y\in F}\|a-y\|\\
+&amp;=d(a,F).
+\end{aligned}
+\]</span></p>
+<p>Pour <span class="math inline">\(\lambda\in\mathbb K^*\)</span>, le
+changement de variable <span class="math inline">\(y=\lambda
+y&#39;\)</span> donne</p>
+<p><span class="math display">\[
+\begin{aligned}
+d(\lambda a,F)
+&amp;=\inf_{y\in F}\|\lambda a-y\|\\
+&amp;=\inf_{y&#39;\in F}\|\lambda(a-y&#39;)\|\\
+&amp;=|\lambda|d(a,F).
+\end{aligned}
+\]</span></p>
+<p>On retiendra donc</p>
+<p><span class="math display">\[
+\boxed{d(a-u,F)=d(a,F),\qquad d(\lambda a,F)=|\lambda|d(a,F).}
+\]</span></p>
+<h3 id="un-vecteur-unitaire-à-distance-1-de-f">4. Un vecteur unitaire à
+distance <span class="math inline">\(1\)</span> de <span
+class="math inline">\(F\)</span></h3>
+<p>Supposons que <span class="math inline">\(F\neq E\)</span>.
+Choisissons <span class="math inline">\(b\in E\setminus F\)</span>.
+D’après l’étape 2, il existe <span class="math inline">\(x\in F\)</span>
+tel que</p>
+<p><span class="math display">\[
+d(b,F)=\|b-x\|.
+\]</span></p>
+<p>Comme <span class="math inline">\(b\notin F\)</span>, on a <span
+class="math inline">\(b\neq x\)</span>, donc <span
+class="math inline">\(d(b,F)&gt;0\)</span>. Posons</p>
+<p><span class="math display">\[
+a=\frac{b-x}{\|b-x\|}.
+\]</span></p>
+<p>Alors <span class="math inline">\(\|a\|=1\)</span>, et les propriétés
+précédentes donnent</p>
+<p><span class="math display">\[
+\begin{aligned}
+d(a,F)
+&amp;=\frac{1}{\|b-x\|}d(b-x,F)\\
+&amp;=\frac{1}{\|b-x\|}d(b,F)\\
+&amp;=1.
+\end{aligned}
+\]</span></p>
+<p>Ainsi,</p>
+<p><span class="math display">\[
+\boxed{\|a\|=1\quad\text{et}\quad d(a,F)=1.}
+\]</span></p>
+<h3 id="construction-dune-suite-uniformément-séparée">5. Construction
+d’une suite uniformément séparée</h3>
+<p>Supposons désormais <span class="math inline">\(E\)</span> de
+dimension infinie.</p>
+<p>Choisissons un vecteur unitaire <span
+class="math inline">\(a_0\)</span>. Une fois <span
+class="math inline">\(a_0,\ldots,a_{n-1}\)</span> construits, posons</p>
+<p><span class="math display">\[
+F_{n-1}=\operatorname{Vect}(a_0,\ldots,a_{n-1}).
+\]</span></p>
+<p>Le sous-espace <span class="math inline">\(F_{n-1}\)</span> est de
+dimension finie et est strictement inclus dans <span
+class="math inline">\(E\)</span>. L’étape 4 fournit donc un vecteur
+<span class="math inline">\(a_n\)</span> tel que</p>
+<p><span class="math display">\[
+\|a_n\|=1,
+\qquad
+d(a_n,F_{n-1})=1.
+\]</span></p>
+<p>Pour <span class="math inline">\(n&gt;m\)</span>, on a <span
+class="math inline">\(a_m\in F_m\subset F_{n-1}\)</span>. Par
+conséquent,</p>
+<p><span class="math display">\[
+\|a_n-a_m\|
+\geq d(a_n,F_m)
+\geq d(a_n,F_{n-1})
+=1.
+\]</span></p>
+<p>Les termes de <span class="math inline">\((a_n)\)</span> sont donc
+deux à deux séparés par une distance au moins égale à <span
+class="math inline">\(1\)</span>.</p>
+<p>La suite est contenue dans la boule unité fermée, mais aucune de ses
+sous-suites n’est de Cauchy. Elle ne possède donc aucune sous-suite
+convergente. Dans un espace métrique, cela interdit la compacité de la
+boule unité.</p>
+<p>Ainsi, si <span class="math inline">\(E\)</span> est de dimension
+infinie, sa boule unité fermée n’est pas compacte. Par contraposition,
+la compacité de la boule unité implique que <span
+class="math inline">\(E\)</span> est de dimension finie.</p>
+<h2 id="où-intervient-exactement-la-dimension-finie">Où intervient
+exactement la dimension finie ?</h2>
+<ul>
+<li>Dans le sens direct : elle permet d’utiliser « fermé et borné
+implique compact ».</li>
+<li>Pour le meilleur approximant : une suite bornée dans <span
+class="math inline">\(F\)</span> possède une sous-suite
+convergente.</li>
+<li>Dans la récurrence : chaque <span
+class="math inline">\(F_{n-1}\)</span> est de dimension finie, donc
+strictement inclus dans l’espace <span class="math inline">\(E\)</span>
+de dimension infinie.</li>
+</ul>
+<h2 id="point-de-non-circularité">Point de non-circularité</h2>
+<p>Le sens direct suppose connue la caractérisation des compacts en
+dimension finie. Si celle-ci a été démontrée à l’aide de l’équivalence
+des normes, ce résultat doit apparaître auparavant dans le plan ou être
+clairement admis. On ne doit pas prétendre le redémontrer à partir du
+théorème de Riesz lui-même.</p>
+<h2 id="durée-cible">Durée cible</h2>
+<p>Environ 14 à 15 minutes :</p>
+<ul>
+<li>2 min : énoncé et sens direct ;</li>
+<li>4 min : existence du meilleur approximant ;</li>
+<li>2 min : invariances de la distance ;</li>
+<li>2 min : vecteur unitaire à distance <span
+class="math inline">\(1\)</span> ;</li>
+<li>4 min : construction de la suite séparée et conclusion.</li>
+</ul>
+<p>Pour une version courte, les deux invariances peuvent être vérifiées
+rapidement au tableau et la continuité de la norme peut être rappelée
+oralement.</p>
+<h2 id="points-sensibles-à-loral">Points sensibles à l’oral</h2>
+<ul>
+<li>Parler de la <strong>boule unité fermée</strong>, et non d’une boule
+unité ambiguë.</li>
+<li>Ne pas écrire un minimum avant d’avoir prouvé qu’il est atteint :
+commencer par l’infimum <span
+class="math inline">\(d(a,F)\)</span>.</li>
+<li>Justifier que la suite minimisante est bornée.</li>
+<li>Justifier que la limite de la sous-suite appartient à <span
+class="math inline">\(F\)</span> : la convergence est considérée dans
+l’espace de dimension finie <span class="math inline">\(F\)</span>, ou
+bien on utilise que <span class="math inline">\(F\)</span> est
+fermé.</li>
+<li>Pour <span class="math inline">\(F_m\subset F_{n-1}\)</span>, la
+distance vérifie <span class="math display">\[
+d(a_n,F_m)\geq d(a_n,F_{n-1}).
+\]</span></li>
+<li>Expliquer pourquoi une suite dont les termes sont séparés par une
+distance au moins égale à <span class="math inline">\(1\)</span> ne
+possède aucune sous-suite de Cauchy.</li>
+<li>Ne pas confondre cette caractérisation avec le théorème de
+représentation de Riesz.</li>
+</ul>
+<h2 id="variantes">Variantes</h2>
+<ul>
+<li>Utiliser le lemme de Riesz classique : pour tout sous-espace fermé
+propre <span class="math inline">\(F\)</span> et tout <span
+class="math inline">\(\alpha&lt;1\)</span>, il existe un vecteur
+unitaire <span class="math inline">\(x\)</span> tel que <span
+class="math inline">\(d(x,F)&gt;\alpha\)</span>. Cette version
+fonctionne sans supposer <span class="math inline">\(F\)</span> de
+dimension finie, mais ne donne pas nécessairement la distance exacte
+<span class="math inline">\(1\)</span>.</li>
+<li>Dans <span class="math inline">\(\ell^p\)</span>, illustrer la
+non-compacité par la suite canonique <span
+class="math inline">\((e_n)\)</span>.</li>
+<li>Conserver l’équivalence des normes en dimension finie comme résultat
+du plan, sans l’intégrer à ce développement.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Pourquoi la norme est-elle continue ?</li>
+<li>Où utilise-t-on précisément la dimension finie ?</li>
+<li>La distance à un fermé quelconque est-elle toujours atteinte dans un
+espace normé ?</li>
+<li>Pourquoi <span class="math inline">\(d(b,F)&gt;0\)</span> ici ?</li>
+<li>Quelle différence y a-t-il avec le lemme de Riesz classique ?</li>
+<li>Pourquoi les sous-espaces <span
+class="math inline">\(F_{n-1}\)</span> sont-ils propres ?</li>
+<li>Pourquoi la suite construite n’a-t-elle aucune sous-suite
+convergente ?</li>
+<li>Où se cacherait une circularité possible dans le sens direct ?</li>
+<li>Donner un exemple explicite dans <span
+class="math inline">\(\ell^2\)</span>.</li>
+<li>Quelle autre forme du théorème de Riesz connaissez-vous ?</li>
+</ul>
+<h2 id="source">Source</h2>
+<ul>
+<li><em>Carnet de voyage en Analystan</em>, Marie Peronnier, Kathie
+Tagliaro, Linda Decourt, Denis Roussillat, Jérôme Germoni, Tewfik
+Lahcene et Philippe Caldero, version du 27 novembre 2021.</li>
+<li>Exercice 65, « Théorème de Riesz », chapitre 9, pages imprimées 152
+à 154.</li>
+<li>Source originale : <a
+href="https://math.univ-lyon1.fr/irem/IMG/pdf/analysie.pdf"
+class="uri">https://math.univ-lyon1.fr/irem/IMG/pdf/analysie.pdf</a>.</li>
+<li>Copie locale :
+<code>raw data/développements/carnet-de-voyage-en-analystan-2021.pdf</code>.</li>
+<li>Extraction locale :
+<code>raw data/développements/carnet-de-voyage-en-analystan-2021.txt</code>,
+lignes 9073-9183.</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Chronométrer la preuve complète en
+15 minutes.</label></li>
+<li><label><input type="checkbox" />Préparer une version courte de
+l’étape du meilleur approximant.</label></li>
+<li><label><input type="checkbox" />Préparer l’exemple de la base
+canonique de <span class="math inline">\(\ell^2\)</span>.</label></li>
+<li><label><input type="checkbox" />Créer les fiches notions [[Distance
+à un sous-espace]], [[Lemme de Riesz]] et [[Boule unité]].</label></li>
+</ul>
+</body>
+</html>

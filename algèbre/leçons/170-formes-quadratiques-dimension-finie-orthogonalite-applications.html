@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Leçon 170 — Formes quadratiques en dimension finie. Orthogonalité. Applications</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Leçon 170 — Formes quadratiques en dimension finie.
+Orthogonalité. Applications</h1>
+</header>
+<h1
+id="leçon-170-formes-quadratiques-en-dimension-finie.-orthogonalité.-applications">Leçon
+170 — Formes quadratiques en dimension finie. Orthogonalité.
+Applications</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../../index/lecons.html">← Index des leçons</a> · <a
+href="../../index/developpements.html">Développements</a> · <a
+href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="rôle-dans-le-graphe">Rôle dans le graphe</h2>
+<p>Leçon de classification : l’action par congruence du groupe linéaire
+sur les matrices symétriques permet de dégager les invariants et les
+orbites des formes quadratiques. Les applications doivent dépasser le
+seul cas réel.</p>
+<h2 id="attendus-du-jury-à-garder-en-tête">Attendus du jury à garder en
+tête</h2>
+<p>D’après le rapport du jury 2025 :</p>
+<ul>
+<li>commencer par une étude indépendante du corps ;</li>
+<li>adopter éventuellement le point de vue de l’action par congruence de
+<span class="math inline">\(\mathrm{GL}(E)\)</span> ;</li>
+<li>dégager rang et discriminant et étudier les orbites ;</li>
+<li>savoir mettre en œuvre l’algorithme de Gauss ;</li>
+<li>classifier sur <span class="math inline">\(\mathbb R\)</span>,
+éventuellement sur <span class="math inline">\(\mathbb C\)</span> et les
+corps finis ;</li>
+<li>connaître isotropie et orthogonalité ;</li>
+<li>pouvoir évoquer le groupe orthogonal et les espaces
+hyperboliques.</li>
+</ul>
+<h2 id="plan-possible-squelette">Plan possible — squelette</h2>
+<h3 id="formes-quadratiques-et-polarisation">1. Formes quadratiques et
+polarisation</h3>
+<ul>
+<li>forme quadratique et forme bilinéaire symétrique associée ;</li>
+<li>matrice dans une base ;</li>
+<li>radical, rang et non-dégénérescence ;</li>
+<li>orthogonal d’un sous-espace.</li>
+</ul>
+<h3 id="action-par-congruence-et-invariants">2. Action par congruence et
+invariants</h3>
+<p><span class="math display">\[
+\mathrm{GL}(E)\curvearrowright\mathrm{Sym}(E),
+\qquad P\cdot A={}^tPAP.
+\]</span></p>
+<ul>
+<li>orbites comme classes d’isométrie ;</li>
+<li>rang et discriminant ;</li>
+<li>différence entre similitude et congruence.</li>
+</ul>
+<h3 id="réduction-de-gauss-et-classifications">3. Réduction de Gauss et
+classifications</h3>
+<ul>
+<li>diagonalisation par congruence ;</li>
+<li>loi d’inertie de Sylvester sur <span class="math inline">\(\mathbb
+R\)</span> ;</li>
+<li>classification sur <span class="math inline">\(\mathbb C\)</span>
+;</li>
+<li>classification sur les corps finis de caractéristique impaire.</li>
+</ul>
+<h3 id="orthogonalité-et-isotropie">4. Orthogonalité et isotropie</h3>
+<ul>
+<li>sous-espaces totalement isotropes ;</li>
+<li>plans hyperboliques ;</li>
+<li>décomposition orthogonale ;</li>
+<li>groupe orthogonal.</li>
+</ul>
+<h3 id="applications">5. Applications</h3>
+<ul>
+<li>quadriques ;</li>
+<li>géométrie euclidienne ou pseudo-euclidienne ;</li>
+<li>dénombrement sur les corps finis ;</li>
+<li>réciprocité quadratique.</li>
+</ul>
+<h2 id="développement-actuel-recommandé">Développement actuel
+recommandé</h2>
+<ul>
+<li>[[Développement — Loi de réciprocité quadratique]] —
+<strong>5/5</strong>.
+<ul>
+<li>Utilise explicitement l’action par congruence de <span
+class="math inline">\(\mathrm{GL}_p(\mathbb F_q)\)</span> sur les
+matrices symétriques.</li>
+<li>Rang et discriminant permettent de placer <span
+class="math inline">\(I_p\)</span> et une somme de plans hyperboliques
+dans la même orbite.</li>
+<li>Le choix de ce représentant rend possible le dénombrement d’une
+quadrique et débouche sur une application arithmétique majeure.</li>
+</ul></li>
+</ul>
+<h2 id="résultats-clés-à-maîtriser">Résultats clés à maîtriser</h2>
+<ul>
+<li>polarisation en caractéristique différente de <span
+class="math inline">\(2\)</span> ;</li>
+<li>réduction de Gauss ;</li>
+<li>loi d’inertie de Sylvester ;</li>
+<li>classification sur <span class="math inline">\(\mathbb C\)</span>
+;</li>
+<li>classification des formes non dégénérées sur <span
+class="math inline">\(\mathbb F_q\)</span>, <span
+class="math inline">\(q\)</span> impair ;</li>
+<li>propriétés de l’orthogonal et du radical.</li>
+</ul>
+<h2 id="notions-et-leçons-liées">Notions et leçons liées</h2>
+<ul>
+<li>[[Forme quadratique]]</li>
+<li>[[Forme bilinéaire symétrique]]</li>
+<li>[[Congruence de matrices]]</li>
+<li>[[Discriminant]]</li>
+<li>[[Plan hyperbolique]]</li>
+<li>[[Isotropie]]</li>
+<li>[[Leçon 101 — Groupe opérant sur un ensemble]]</li>
+<li>[[Leçon 123 — Corps finis]]</li>
+</ul>
+<h2 id="exemples-à-préparer">Exemples à préparer</h2>
+<ul>
+<li>réduction complète d’une forme simple par l’algorithme de Gauss
+;</li>
+<li>deux formes réelles de même rang mais de signatures différentes
+;</li>
+<li>représentants des deux classes non dégénérées sur <span
+class="math inline">\(\mathbb F_q\)</span> ;</li>
+<li>comptage des points de <span
+class="math inline">\(2yz+at^2=1\)</span>.</li>
+</ul>
+<h2 id="pièges-et-points-de-vigilance">Pièges et points de
+vigilance</h2>
+<ul>
+<li>Préciser les hypothèses sur la caractéristique du corps.</li>
+<li>Ne pas confondre diagonalisation par similitude et réduction par
+congruence.</li>
+<li>Le déterminant n’est invariant que modulo les carrés sous
+congruence.</li>
+<li>Savoir démontrer ou défendre le théorème de classification sur les
+corps finis.</li>
+<li>Ne pas réduire la leçon à la seule loi d’inertie sur <span
+class="math inline">\(\mathbb R\)</span>.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Quels invariants sont constants sur une orbite de congruence ?</li>
+<li>Classifier les formes non dégénérées sur <span
+class="math inline">\(\mathbb F_q\)</span>, <span
+class="math inline">\(q\)</span> impair.</li>
+<li>Pourquoi le bloc <span
+class="math inline">\(\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\)</span>
+représente-t-il un plan hyperbolique ?</li>
+<li>Quand a-t-on <span class="math inline">\(E=F\oplus F^\perp\)</span>
+?</li>
+<li>Où la non-dégénérescence intervient-elle dans le développement de
+réciprocité ?</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Rédiger une preuve autonome de la
+classification sur les corps finis.</label></li>
+<li><label><input type="checkbox" />Préparer une réduction de Gauss
+chronométrée.</label></li>
+</ul>
+</body>
+</html>
