@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Leçon 239 — Fonctions définies par une intégrale dépendant d’un paramètre</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Leçon 239 — Fonctions définies par une intégrale
+dépendant d’un paramètre</h1>
+</header>
+<h1
+id="leçon-239-fonctions-définies-par-une-intégrale-dépendant-dun-paramètre">Leçon
+239 — Fonctions définies par une intégrale dépendant d’un paramètre</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../../index/lecons.html">← Index des leçons</a> · <a
+href="../../index/developpements.html">Développements</a> · <a
+href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="rôle-dans-le-graphe">Rôle dans le graphe</h2>
+<p>Leçon de synthèse sur la régularité et l’étude asymptotique des
+fonctions <span class="math display">\[
+F(x)=\int_X f(x,t)\,d\mu(t).
+\]</span> Elle doit articuler hypothèses ponctuelles, domination
+uniforme, convergence sous l’intégrale et applications concrètes.</p>
+<h2 id="attendus-du-jury-à-garder-en-tête">Attendus du jury à garder en
+tête</h2>
+<p>Le rapport 2025 demande :</p>
+<ul>
+<li>les théorèmes usuels de continuité et de dérivation sous le signe
+intégral, ordonnés rationnellement ;</li>
+<li>des exemples et contre-exemples significatifs ;</li>
+<li>convolution et transformation de Fourier comme exemples naturels
+;</li>
+<li>fonctions caractéristiques, transformation de Laplace et fonctions
+spéciales ;</li>
+<li>techniques d’étude asymptotique d’intégrales à paramètre.</li>
+</ul>
+<h2 id="plan-possible-squelette">Plan possible — squelette</h2>
+<h3 id="continuité-sous-le-signe-intégral">1. Continuité sous le signe
+intégral</h3>
+<ul>
+<li>convergence dominée ;</li>
+<li>domination locale uniforme en paramètre ;</li>
+<li>continuité sur un compact ;</li>
+<li>contre-exemples sans domination.</li>
+</ul>
+<h3 id="dérivation-et-régularité">2. Dérivation et régularité</h3>
+<ul>
+<li>dérivation sous le signe intégral ;</li>
+<li>itération pour obtenir une régularité <span
+class="math inline">\(C^k\)</span> ;</li>
+<li>holomorphie sous l’intégrale, en ouverture.</li>
+</ul>
+<h3 id="convolutions">3. Convolutions</h3>
+<ul>
+<li>définition et domaines de validité ;</li>
+<li>support de la convolution ;</li>
+<li>continuité et dérivation ;</li>
+<li>approximations de l’unité ;</li>
+<li>régularisation et approximation polynomiale.</li>
+</ul>
+<h3 id="transformations-et-asymptotique">4. Transformations et
+asymptotique</h3>
+<ul>
+<li>Fourier et Laplace ;</li>
+<li>fonction Gamma et intégrales spéciales ;</li>
+<li>méthode de Laplace ;</li>
+<li>fonctions caractéristiques en probabilités.</li>
+</ul>
+<h2 id="développement-actuel-recommandé">Développement actuel
+recommandé</h2>
+<p><a
+href="../../d%C3%A9veloppements/theoreme-weierstrass-par-convolution.html">Théorème
+de Weierstrass par convolution</a> — recasage 4/5.</p>
+<p>Orientation : écrire explicitement <span class="math display">\[
+x\longmapsto\int_{\mathbb R}p_n(x-t)f(t)\,dt,
+\]</span> justifier la restriction au support de <span
+class="math inline">\(f\)</span>, puis montrer que la dépendance
+polynomiale en <span class="math inline">\(x\)</span> survit à
+l’intégration.</p>
+<h2 id="notions-liées">Notions liées</h2>
+<ul>
+<li>[[Intégrale dépendant d’un paramètre]]</li>
+<li>[[Convergence dominée]]</li>
+<li>[[Dérivation sous le signe intégral]]</li>
+<li>[[Convolution]]</li>
+<li>[[Approximation de l’unité]]</li>
+<li>[[Transformation de Fourier]]</li>
+<li>[[Transformation de Laplace]]</li>
+</ul>
+<h2 id="leçons-liées">Leçons liées</h2>
+<ul>
+<li>[[Leçon 201 — Espaces de fonctions]]</li>
+<li>[[Leçon 209 — Approximation d’une fonction par des fonctions
+régulières]]</li>
+<li>[[Leçon 234 — Fonctions et espaces de fonctions
+Lebesgue-intégrables]]</li>
+<li>[[Leçon 235 — Problèmes d’interversion de symboles en analyse]]</li>
+<li>[[Leçon 241 — Suites et séries de fonctions]]</li>
+<li>[[Leçon 246 — Séries de Fourier]]</li>
+</ul>
+<h2 id="résultats-clés-à-maîtriser">Résultats clés à maîtriser</h2>
+<ul>
+<li>Théorème de continuité sous l’intégrale avec domination intégrable
+locale uniforme.</li>
+<li>Théorème de dérivation sous l’intégrale.</li>
+<li>Inégalités de Young dans des cas simples.</li>
+<li>Régularité de <span class="math inline">\(f*g\)</span> lorsque l’un
+des facteurs est régulier.</li>
+<li>Convergence des approximations de l’unité.</li>
+</ul>
+<h2 id="exemples-à-préparer">Exemples à préparer</h2>
+<ul>
+<li>Fonction Gamma.</li>
+<li>Transformée de Laplace d’une fonction élémentaire.</li>
+<li>Convolution avec un mollificateur.</li>
+<li>Intégrale gaussienne dépendant d’un paramètre.</li>
+<li>Un contre-exemple où la limite et l’intégrale ne commutent pas.</li>
+</ul>
+<h2 id="pièges-et-points-de-vigilance">Pièges et points de
+vigilance</h2>
+<ul>
+<li>Préciser l’espace mesuré et les hypothèses d’intégrabilité.</li>
+<li>Une domination dépendant du paramètre n’est pas automatiquement
+utilisable.</li>
+<li>Distinguer domination globale et domination locale uniforme.</li>
+<li>Pour restreindre une convolution à un intervalle, identifier le
+facteur supporté dans cet intervalle.</li>
+<li>Ne pas dériver sous l’intégrale sans domination de la dérivée.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Énoncer un théorème de continuité sous l’intégrale.</li>
+<li>Pourquoi une convolution sur <span class="math inline">\(\mathbb
+R\)</span> peut-elle parfois s’écrire sur un compact ?</li>
+<li>Donner le support de <span class="math inline">\(f*g\)</span> en
+fonction des supports.</li>
+<li>Sous quelles hypothèses peut-on écrire <span
+class="math inline">\((f*g)&#39;=f&#39;*g\)</span> ?</li>
+<li>Donner un contre-exemple sans domination.</li>
+<li>Comment une approximation de l’unité agit-elle sur <span
+class="math inline">\(C_c\)</span> ou <span
+class="math inline">\(L^p\)</span> ?</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Préparer deux contre-exemples aux
+interversions injustifiées.</label></li>
+<li><label><input type="checkbox" />Fixer des versions précises des
+théorèmes de continuité et dérivation.</label></li>
+<li><label><input type="checkbox" />Calculer une transformée de Laplace
+et une convolution explicites.</label></li>
+<li><label><input type="checkbox" />Préparer la question du support
+d’une convolution.</label></li>
+</ul>
+</body>
+</html>

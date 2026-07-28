@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Leçon 228 — Continuité, dérivabilité des fonctions réelles d’une variable réelle</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Leçon 228 — Continuité, dérivabilité des fonctions
+réelles d’une variable réelle</h1>
+</header>
+<h1
+id="leçon-228-continuité-dérivabilité-des-fonctions-réelles-dune-variable-réelle">Leçon
+228 — Continuité, dérivabilité des fonctions réelles d’une variable
+réelle</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../../index/lecons.html">← Index des leçons</a> · <a
+href="../../index/developpements.html">Développements</a> · <a
+href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="rôle-dans-le-graphe">Rôle dans le graphe</h2>
+<p>Leçon fondamentale mais vaste : elle doit dépasser les définitions
+pour organiser des applications de la continuité, de la continuité
+uniforme et de la dérivabilité, tout en présentant des exemples
+pathologiques qui séparent clairement ces notions.</p>
+<h2 id="attendus-du-jury-à-garder-en-tête">Attendus du jury à garder en
+tête</h2>
+<p>Le rapport 2025 propose notamment :</p>
+<ul>
+<li>recherche d’extrema ;</li>
+<li>utilisations de la continuité uniforme ;</li>
+<li>fonctions convexes et régularité ;</li>
+<li>approximation par des fonctions régulières ;</li>
+<li>formules de Taylor et liens entre <span
+class="math inline">\(C^\infty\)</span> et analytique ;</li>
+<li>exemples de fonctions continues nulle part dérivables ou à dérivée
+presque partout nulle ;</li>
+<li>pour aller plus loin : dérivabilité des fonctions monotones ou
+lipschitziennes et applications de Baire.</li>
+</ul>
+<h2 id="plan-possible-squelette">Plan possible — squelette</h2>
+<h3 id="continuité-et-propriétés-globales">1. Continuité et propriétés
+globales</h3>
+<ul>
+<li>caractérisations séquentielles ;</li>
+<li>théorème des valeurs intermédiaires ;</li>
+<li>extrema sur un segment ;</li>
+<li>théorème de Heine et continuité uniforme.</li>
+</ul>
+<h3 id="dérivabilité-et-accroissements-finis">2. Dérivabilité et
+accroissements finis</h3>
+<ul>
+<li>théorèmes de Rolle et des accroissements finis ;</li>
+<li>monotonie et dérivée ;</li>
+<li>convexité ;</li>
+<li>formules de Taylor.</li>
+</ul>
+<h3 id="approximation-et-régularisation">3. Approximation et
+régularisation</h3>
+<ul>
+<li>approximation uniforme par des polynômes ;</li>
+<li>convolution et approximations de l’unité ;</li>
+<li>approximation simultanée en norme <span
+class="math inline">\(C^1\)</span> ;</li>
+<li>limites de fonctions régulières.</li>
+</ul>
+<h3 id="pathologies-et-ouvertures">4. Pathologies et ouvertures</h3>
+<ul>
+<li>fonction continue nulle part dérivable ;</li>
+<li>fonction de Cantor ;</li>
+<li>fonctions <span class="math inline">\(C^\infty\)</span> non
+analytiques ;</li>
+<li>applications du théorème de Baire.</li>
+</ul>
+<h2 id="développement-actuel-recommandé">Développement actuel
+recommandé</h2>
+<p><a
+href="../../d%C3%A9veloppements/theoreme-weierstrass-par-convolution.html">Théorème
+de Weierstrass par convolution</a> — recasage 3/5.</p>
+<p>Orientation : mettre au premier plan le théorème de Heine et
+l’approximation des fonctions continues par des fonctions régulières.
+Préparer l’extension <span class="math inline">\(C^1\)</span> en réponse
+aux questions.</p>
+<h2 id="notions-liées">Notions liées</h2>
+<ul>
+<li>[[Continuité uniforme]]</li>
+<li>[[Théorème de Heine]]</li>
+<li>[[Théorème des valeurs intermédiaires]]</li>
+<li>[[Théorème des accroissements finis]]</li>
+<li>[[Convexité]]</li>
+<li>[[Approximation uniforme]]</li>
+<li>[[Fonction nulle part dérivable]]</li>
+</ul>
+<h2 id="leçons-liées">Leçons liées</h2>
+<ul>
+<li>[[Leçon 203 — Utilisation de la notion de compacité]]</li>
+<li>[[Leçon 209 — Approximation d’une fonction par des fonctions
+régulières]]</li>
+<li>[[Leçon 218 — Formules de Taylor]]</li>
+<li>[[Leçon 219 — Extremums]]</li>
+<li>[[Leçon 229 — Fonctions monotones, fonctions convexes]]</li>
+<li>[[Leçon 241 — Suites et séries de fonctions]]</li>
+</ul>
+<h2 id="résultats-clés-à-maîtriser">Résultats clés à maîtriser</h2>
+<ul>
+<li>Une fonction continue sur un segment est bornée, atteint ses bornes
+et est uniformément continue.</li>
+<li>Le théorème des valeurs intermédiaires et ses conséquences.</li>
+<li>Les théorèmes de Rolle et des accroissements finis.</li>
+<li>Les polynômes sont denses dans <span
+class="math inline">\(C([a,b])\)</span>.</li>
+<li>Si <span class="math inline">\(f\in C^1([a,b])\)</span>, elle peut
+être approchée en norme <span class="math inline">\(C^1\)</span> par des
+polynômes.</li>
+</ul>
+<h2 id="exemples-à-préparer">Exemples à préparer</h2>
+<ul>
+<li>Fonction continue non uniformément continue sur un domaine non
+compact.</li>
+<li><span class="math inline">\(x\mapsto |x|\)</span>, continue mais non
+dérivable en <span class="math inline">\(0\)</span>.</li>
+<li>Une fonction <span class="math inline">\(C^\infty\)</span> plate en
+<span class="math inline">\(0\)</span> mais non analytique.</li>
+<li>Fonction de Cantor.</li>
+<li>Approximation polynomiale d’une fonction continue.</li>
+</ul>
+<h2 id="pièges-et-points-de-vigilance">Pièges et points de
+vigilance</h2>
+<ul>
+<li>Continuité sur un ensemble borné ne suffit pas à la continuité
+uniforme.</li>
+<li>Une limite uniforme de fonctions dérivables n’est pas nécessairement
+dérivable.</li>
+<li>Dérivée nulle presque partout n’implique pas constance sans
+hypothèse supplémentaire.</li>
+<li>Ne pas confondre <span class="math inline">\(C^\infty\)</span> et
+analytique.</li>
+<li>Dans le développement de Weierstrass, le prolongement affine n’est
+pas automatiquement <span class="math inline">\(C^1\)</span>.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Démontrer le théorème de Heine.</li>
+<li>Donner des applications de la continuité uniforme.</li>
+<li>Une limite uniforme de fonctions dérivables est-elle dérivable
+?</li>
+<li>Comment approcher une fonction <span
+class="math inline">\(C^1\)</span> et sa dérivée par des polynômes
+?</li>
+<li>Donner une fonction <span class="math inline">\(C^\infty\)</span>
+non analytique.</li>
+<li>Quelles hypothèses assurent qu’une fonction à dérivée nulle presque
+partout est constante ?</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Choisir deux exemples pathologiques
+maîtrisés.</label></li>
+<li><label><input type="checkbox" />Préparer les preuves de Heine par
+compacité et par suites.</label></li>
+<li><label><input type="checkbox" />Préparer un exemple d’utilisation
+quantitative du théorème des accroissements finis.</label></li>
+<li><label><input type="checkbox" />Écrire la preuve d’approximation en
+norme <span class="math inline">\(C^1\)</span>.</label></li>
+</ul>
+</body>
+</html>

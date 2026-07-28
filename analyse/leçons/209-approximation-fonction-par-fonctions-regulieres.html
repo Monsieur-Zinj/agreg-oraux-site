@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Leçon 209 — Approximation d’une fonction par des fonctions régulières</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Leçon 209 — Approximation d’une fonction par des
+fonctions régulières</h1>
+</header>
+<h1
+id="leçon-209-approximation-dune-fonction-par-des-fonctions-régulières">Leçon
+209 — Approximation d’une fonction par des fonctions régulières</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../../index/lecons.html">← Index des leçons</a> · <a
+href="../../index/developpements.html">Développements</a> · <a
+href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="rôle-dans-le-graphe">Rôle dans le graphe</h2>
+<p>Leçon consacrée aux mécanismes de densité et de régularisation. Elle
+doit comparer plusieurs cadres — uniforme, <span
+class="math inline">\(L^p\)</span>, périodique — et expliquer ce que
+l’on gagne en régularité ainsi que le sens précis de la convergence.</p>
+<h2 id="attendus-du-jury-à-garder-en-tête">Attendus du jury à garder en
+tête</h2>
+<p>Le rapport 2025 cite explicitement :</p>
+<ul>
+<li>l’approximation uniforme par des polynômes algébriques ou
+trigonométriques ;</li>
+<li>la régularisation par convolution ;</li>
+<li>l’approximation des fonctions intégrables par des fonctions
+continues ou régulières à support compact ;</li>
+<li>les séries de Fourier et le théorème de Fejér ;</li>
+<li>en ouverture : Runge, meilleure approximation de degré borné,
+qualité de l’approximation selon la régularité, approximation
+rationnelle ou lipschitzienne.</li>
+</ul>
+<h2 id="plan-possible-squelette">Plan possible — squelette</h2>
+<h3 id="approximation-uniforme-sur-un-compact">1. Approximation uniforme
+sur un compact</h3>
+<ul>
+<li>densité des polynômes dans <span
+class="math inline">\(C([a,b])\)</span> ;</li>
+<li>Stone–Weierstrass ;</li>
+<li>polynômes de Bernstein ;</li>
+<li>approximation polynomiale par convolution.</li>
+</ul>
+<h3 id="régularisation-par-convolution">2. Régularisation par
+convolution</h3>
+<ul>
+<li>approximations de l’unité ;</li>
+<li>convergence uniforme pour les fonctions uniformément continues
+;</li>
+<li>convergence dans <span class="math inline">\(L^p\)</span> ;</li>
+<li>dérivation d’une convolution ;</li>
+<li>troncature puis régularisation.</li>
+</ul>
+<h3 id="cadre-périodique">3. Cadre périodique</h3>
+<ul>
+<li>polynômes trigonométriques ;</li>
+<li>noyau de Fejér ;</li>
+<li>convergence de Cesàro uniforme ou dans <span
+class="math inline">\(L^p\)</span> ;</li>
+<li>densité des exponentielles complexes.</li>
+</ul>
+<h3 id="qualité-et-limites-de-lapproximation">4. Qualité et limites de
+l’approximation</h3>
+<ul>
+<li>module de continuité ;</li>
+<li>influence de la régularité ;</li>
+<li>approximation avec contrôle des dérivées ;</li>
+<li>meilleure approximation dans un espace de degré borné.</li>
+</ul>
+<h2 id="développement-actuel-recommandé">Développement actuel
+recommandé</h2>
+<p><a
+href="../../d%C3%A9veloppements/theoreme-weierstrass-par-convolution.html">Théorème
+de Weierstrass par convolution</a> — recasage 5/5.</p>
+<p>Il combine les deux pistes principales nommées par le jury :
+approximation uniforme par des polynômes algébriques et régularisation
+par convolution.</p>
+<h2 id="notions-liées">Notions liées</h2>
+<ul>
+<li>[[Approximation de l’unité]]</li>
+<li>[[Convolution]]</li>
+<li>[[Densité]]</li>
+<li>[[Norme uniforme]]</li>
+<li>[[Théorème de Stone-Weierstrass]]</li>
+<li>[[Polynômes de Bernstein]]</li>
+<li>[[Noyau de Fejér]]</li>
+<li>[[Module de continuité]]</li>
+</ul>
+<h2 id="leçons-liées">Leçons liées</h2>
+<ul>
+<li>[[Leçon 201 — Espaces de fonctions]]</li>
+<li>[[Leçon 203 — Utilisation de la notion de compacité]]</li>
+<li>[[Leçon 228 — Continuité, dérivabilité des fonctions réelles d’une
+variable réelle]]</li>
+<li>[[Leçon 234 — Fonctions et espaces de fonctions
+Lebesgue-intégrables]]</li>
+<li>[[Leçon 239 — Fonctions définies par une intégrale dépendant d’un
+paramètre]]</li>
+<li>[[Leçon 241 — Suites et séries de fonctions]]</li>
+<li>[[Leçon 246 — Séries de Fourier]]</li>
+</ul>
+<h2 id="résultats-clés-à-maîtriser">Résultats clés à maîtriser</h2>
+<ul>
+<li>Densité de <span class="math inline">\(\mathbb K[X]\)</span> dans
+<span class="math inline">\(C([a,b])\)</span>.</li>
+<li>Convergence d’une approximation de l’unité vers une fonction
+uniformément continue.</li>
+<li>Densité de <span class="math inline">\(C_c^\infty(\mathbb
+R^d)\)</span> dans <span class="math inline">\(L^p\)</span>, pour <span
+class="math inline">\(1\leq p&lt;\infty\)</span>.</li>
+<li>Théorème de Fejér.</li>
+<li>Approximation simultanée d’une fonction <span
+class="math inline">\(C^1\)</span> et de sa dérivée par des
+polynômes.</li>
+</ul>
+<h2 id="exemples-à-préparer">Exemples à préparer</h2>
+<ul>
+<li>Noyaux polynomiaux <span
+class="math inline">\((1-t^2)^n_+\)</span>.</li>
+<li>Mollificateur <span class="math inline">\(C^\infty\)</span>
+standard.</li>
+<li>Polynômes de Bernstein d’une fonction simple.</li>
+<li>Sommes de Fejér.</li>
+<li>Fonction de <span class="math inline">\(L^p\)</span> approchée
+successivement par troncature puis convolution.</li>
+</ul>
+<h2 id="pièges-et-points-de-vigilance">Pièges et points de
+vigilance</h2>
+<ul>
+<li>Toujours annoncer la norme ou le mode de convergence.</li>
+<li>Une approximation uniforme par des fonctions régulières ne conserve
+pas automatiquement les dérivées.</li>
+<li>Vérifier masse, positivité et concentration d’une approximation de
+l’unité.</li>
+<li>Séparer troncature, régularisation et restriction au domaine.</li>
+<li>Ne pas affirmer qu’une convolution avec un noyau seulement continu
+est <span class="math inline">\(C^\infty\)</span>.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Donner une approximation de l’unité et vérifier ses propriétés.</li>
+<li>Pourquoi la translation est-elle continue dans <span
+class="math inline">\(L^p\)</span> ?</li>
+<li>Peut-on approcher une fonction <span
+class="math inline">\(C^1\)</span> avec contrôle de la dérivée ?</li>
+<li>Comparer Stone–Weierstrass, Bernstein et Fejér.</li>
+<li>Pourquoi <span class="math inline">\(C_c^\infty\)</span> n’est-il
+pas dense dans <span class="math inline">\(L^\infty\)</span> en général
+?</li>
+<li>Comment la régularité contrôle-t-elle la vitesse d’approximation
+?</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Préparer une preuve complète de
+densité de <span class="math inline">\(C_c^\infty\)</span> dans <span
+class="math inline">\(L^p\)</span>.</label></li>
+<li><label><input type="checkbox" />Ajouter un exemple de noyau de
+Fejér.</label></li>
+<li><label><input type="checkbox" />Préparer un contre-exemple montrant
+l’importance du mode de convergence.</label></li>
+<li><label><input type="checkbox" />Comparer les estimations obtenues
+avec un module de continuité.</label></li>
+</ul>
+</body>
+</html>

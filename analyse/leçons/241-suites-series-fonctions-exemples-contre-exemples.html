@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Leçon 241 — Suites et séries de fonctions. Exemples et contre-exemples</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Leçon 241 — Suites et séries de fonctions. Exemples et
+contre-exemples</h1>
+</header>
+<h1
+id="leçon-241-suites-et-séries-de-fonctions.-exemples-et-contre-exemples">Leçon
+241 — Suites et séries de fonctions. Exemples et contre-exemples</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../../index/lecons.html">← Index des leçons</a> · <a
+href="../../index/developpements.html">Développements</a> · <a
+href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="rôle-dans-le-graphe">Rôle dans le graphe</h2>
+<p>Leçon centrée sur les modes de convergence et sur ce qu’ils
+permettent de transmettre à la limite. Le plan doit être conduit par des
+exemples et contre-exemples, non par un catalogue de théorèmes.</p>
+<h2 id="attendus-du-jury-à-garder-en-tête">Attendus du jury à garder en
+tête</h2>
+<p>D’après le rapport 2025 :</p>
+<ul>
+<li>comparer les différents modes de convergence à travers des exemples
+significatifs ;</li>
+<li>étudier des fonctions spéciales définies par des séries, y compris
+dans le champ complexe ;</li>
+<li>proposer des sommes de séries présentant des comportements
+pathologiques ;</li>
+<li>exploiter séries entières, fonctions génératrices et séries de
+Fourier par des applications ;</li>
+<li>en ouverture : séries de variables aléatoires, Poisson, theta de
+Jacobi et séries de Dirichlet.</li>
+</ul>
+<h2 id="plan-possible-squelette">Plan possible — squelette</h2>
+<h3 id="modes-de-convergence">1. Modes de convergence</h3>
+<ul>
+<li>convergence simple et uniforme ;</li>
+<li>convergence normale des séries ;</li>
+<li>convergence dans <span class="math inline">\(L^p\)</span> ;</li>
+<li>implications et contre-exemples.</li>
+</ul>
+<h3 id="passage-à-la-limite">2. Passage à la limite</h3>
+<ul>
+<li>continuité et convergence uniforme ;</li>
+<li>intégration terme à terme ;</li>
+<li>dérivation sous hypothèses renforcées ;</li>
+<li>échange de limites.</li>
+</ul>
+<h3 id="construction-et-approximation">3. Construction et
+approximation</h3>
+<ul>
+<li>suites de polynômes convergeant uniformément ;</li>
+<li>approximations de l’unité ;</li>
+<li>polynômes de Bernstein ;</li>
+<li>suites de sommes de Fejér.</li>
+</ul>
+<h3 id="séries-structurées">4. Séries structurées</h3>
+<ul>
+<li>séries entières ;</li>
+<li>séries de Fourier ;</li>
+<li>fonctions spéciales ;</li>
+<li>exemples nulle part dérivables.</li>
+</ul>
+<h2 id="développement-actuel-recommandé">Développement actuel
+recommandé</h2>
+<p><a
+href="../../d%C3%A9veloppements/theoreme-weierstrass-par-convolution.html">Théorème
+de Weierstrass par convolution</a> — recasage 3/5.</p>
+<p>Orientation : présenter la construction explicite d’une suite <span
+class="math inline">\((P_n)\)</span> de polynômes convergeant
+uniformément vers une fonction continue et expliquer le rôle de la
+convergence uniforme. Compléter le plan par des contre-exemples et par
+une vraie série de fonctions.</p>
+<h2 id="notions-liées">Notions liées</h2>
+<ul>
+<li>[[Convergence simple]]</li>
+<li>[[Convergence uniforme]]</li>
+<li>[[Convergence normale]]</li>
+<li>[[Série de fonctions]]</li>
+<li>[[Approximation uniforme]]</li>
+<li>[[Série entière]]</li>
+<li>[[Série de Fourier]]</li>
+</ul>
+<h2 id="leçons-liées">Leçons liées</h2>
+<ul>
+<li>[[Leçon 201 — Espaces de fonctions]]</li>
+<li>[[Leçon 205 — Espaces complets]]</li>
+<li>[[Leçon 209 — Approximation d’une fonction par des fonctions
+régulières]]</li>
+<li>[[Leçon 228 — Continuité, dérivabilité des fonctions réelles d’une
+variable réelle]]</li>
+<li>[[Leçon 235 — Problèmes d’interversion de symboles en analyse]]</li>
+<li>[[Leçon 239 — Fonctions définies par une intégrale dépendant d’un
+paramètre]]</li>
+<li>[[Leçon 243 — Séries entières]]</li>
+<li>[[Leçon 246 — Séries de Fourier]]</li>
+</ul>
+<h2 id="résultats-clés-à-maîtriser">Résultats clés à maîtriser</h2>
+<ul>
+<li>Une limite uniforme de fonctions continues est continue.</li>
+<li>Une série normalement convergente converge uniformément.</li>
+<li>Théorèmes d’intégration et de dérivation terme à terme avec leurs
+hypothèses exactes.</li>
+<li>Densité des polynômes dans <span
+class="math inline">\(C([a,b])\)</span>.</li>
+<li>Convergence uniforme des sommes de Fejér pour une fonction continue
+périodique.</li>
+</ul>
+<h2 id="exemples-et-contre-exemples-à-préparer">Exemples et
+contre-exemples à préparer</h2>
+<ul>
+<li><span class="math inline">\(x^n\)</span> sur <span
+class="math inline">\([0,1]\)</span> : convergence simple non
+uniforme.</li>
+<li>Une suite de fonctions continues dont la limite simple est
+discontinue.</li>
+<li>Une série uniformément mais non normalement convergente.</li>
+<li>Une série de fonctions dont la somme est continue mais non
+dérivable.</li>
+<li>Une suite de polynômes convergeant uniformément vers <span
+class="math inline">\(|x|\)</span>.</li>
+</ul>
+<h2 id="pièges-et-points-de-vigilance">Pièges et points de
+vigilance</h2>
+<ul>
+<li>Ne jamais écrire « la convergence » sans préciser laquelle.</li>
+<li>La convergence uniforme ne permet pas, à elle seule, de passer les
+dérivées à la limite.</li>
+<li>Ne pas confondre convergence normale et convergence uniforme.</li>
+<li>Vérifier les domaines complexes des séries entières.</li>
+<li>Équilibrer théorèmes, exemples et contre-exemples.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Donner une convergence simple non uniforme et la prouver.</li>
+<li>Une limite uniforme de fonctions dérivables est-elle dérivable
+?</li>
+<li>Comparer convergence normale et uniforme.</li>
+<li>Donner une suite de polynômes convergeant uniformément vers une
+fonction non dérivable.</li>
+<li>Sous quelles hypothèses peut-on dériver une série terme à terme
+?</li>
+<li>Pourquoi Weierstrass ne contredit-il pas la non-dérivabilité de
+certaines fonctions continues ?</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Préparer au moins quatre
+contre-exemples avec preuves courtes.</label></li>
+<li><label><input type="checkbox" />Choisir une fonction spéciale
+définie par une série.</label></li>
+<li><label><input type="checkbox" />Préparer les hypothèses exactes de
+dérivation terme à terme.</label></li>
+<li><label><input type="checkbox" />Ajouter un exemple probabiliste ou
+combinatoire.</label></li>
+</ul>
+</body>
+</html>
