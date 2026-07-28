@@ -72,6 +72,28 @@ td.score-3 { background: #dbeafe !important; color: #1e40af; }
 td.score-4 { background: #dcfce7 !important; color: #166534; }
 td.score-5 { background: #16a34a !important; color: white; }
 
+/* Couverture d'une leçon par ses deux meilleurs développements. */
+th.lesson-header {
+  cursor: help;
+  text-align: center;
+  white-space: nowrap;
+}
+th.lesson-header.coverage-4-4 {
+  background: #fde68a;
+  color: #78350f;
+  box-shadow: inset 0 -3px #d97706;
+}
+th.lesson-header.coverage-4-5 {
+  background: #99f6e4;
+  color: #134e4a;
+  box-shadow: inset 0 -3px #0d9488;
+}
+th.lesson-header.coverage-5-5 {
+  background: #16a34a;
+  color: white;
+  box-shadow: inset 0 -3px #166534;
+}
+
 code {
   background: var(--code-bg);
   border-radius: 4px;
