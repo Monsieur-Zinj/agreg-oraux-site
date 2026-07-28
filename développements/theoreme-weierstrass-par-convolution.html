@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Développement — Théorème de Weierstrass par convolution</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Développement — Théorème de Weierstrass par
+convolution</h1>
+</header>
+<h1
+id="développement-théorème-de-weierstrass-par-convolution">Développement
+— Théorème de Weierstrass par convolution</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../index/developpements.html">← Index des développements</a> ·
+<a href="../index/lecons.html">Leçons</a> · <a
+href="../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../index/recasages/theoreme-weierstrass-par-convolution.html">Recasage
+détaillé</a> · <a href="../index.html">Accueil</a></p>
+<h2 id="position-dans-le-graphe">Position dans le graphe</h2>
+<p>Ce développement donne une preuve constructive de la densité des
+polynômes dans l’espace des fonctions continues sur un segment, muni de
+la norme uniforme. Il combine trois mécanismes :</p>
+<ol type="1">
+<li>la compacité, via le théorème de Heine, transforme la continuité en
+continuité uniforme ;</li>
+<li>une approximation de l’unité transforme cette uniformité en
+convergence uniforme de convolutions ;</li>
+<li>un choix polynomial du noyau fait coïncider chaque convolution, sur
+le segment utile, avec un polynôme.</li>
+</ol>
+<p>La fiche source contient l’idée juste mais omet la preuve de
+concentration des noyaux et appelle abusivement la convolution « un
+polynôme » sur tout <span class="math inline">\(\mathbb R\)</span>. La
+version ci-dessous corrige ces deux points et est calibrée pour quinze
+minutes.</p>
+<h2 id="énoncé">Énoncé</h2>
+<p>Soient <span class="math inline">\(a&lt;b\)</span> et <span
+class="math inline">\(f\in C([a,b],\mathbb K)\)</span>, où <span
+class="math inline">\(\mathbb K=\mathbb R\)</span> ou <span
+class="math inline">\(\mathbb C\)</span>. Il existe une suite de
+polynômes <span class="math inline">\((P_n)\)</span> à coefficients dans
+<span class="math inline">\(\mathbb K\)</span> telle que</p>
+<p><span class="math display">\[
+\|P_n-f\|_{\infty,[a,b]}\longrightarrow 0.
+\]</span></p>
+<p>Autrement dit, <span class="math inline">\(\mathbb K[X]\)</span> est
+dense dans <span class="math inline">\(C([a,b],\mathbb K)\)</span> pour
+la norme uniforme.</p>
+<h2 id="prérequis">Prérequis</h2>
+<ul>
+<li>[[Convolution]] de fonctions intégrables ou d’une fonction bornée
+avec une fonction intégrable ;</li>
+<li>[[Approximation de l’unité]] ;</li>
+<li>[[Continuité uniforme]] et [[Théorème de Heine]] ;</li>
+<li>fonctions continues à support compact ;</li>
+<li>changement de variable affine.</li>
+</ul>
+<h2 id="preuve-détaillée">Preuve détaillée</h2>
+<h3 id="prolongement-et-normalisation">1. Prolongement et
+normalisation</h3>
+<p>Choisissons <span class="math inline">\(c&lt;a&lt;b&lt;d\)</span>.
+Prolongeons <span class="math inline">\(f\)</span> sur <span
+class="math inline">\([c,d]\)</span> :</p>
+<ul>
+<li>de façon affine entre <span class="math inline">\((c,0)\)</span> et
+<span class="math inline">\((a,f(a))\)</span> sur <span
+class="math inline">\([c,a]\)</span> ;</li>
+<li>sans changement sur <span class="math inline">\([a,b]\)</span>
+;</li>
+<li>de façon affine entre <span class="math inline">\((b,f(b))\)</span>
+et <span class="math inline">\((d,0)\)</span> sur <span
+class="math inline">\([b,d]\)</span>.</li>
+</ul>
+<p>Puis prolongeons cette fonction par <span
+class="math inline">\(0\)</span> hors de <span
+class="math inline">\([c,d]\)</span>. On obtient une fonction, encore
+notée <span class="math inline">\(f\)</span>, dans <span
+class="math inline">\(C_c(\mathbb R)\)</span>.</p>
+<p>Un changement de variable affine permet de supposer</p>
+<p><span class="math display">\[
+\operatorname{supp}(f)\subset I:=\left[-\frac12,\frac12\right].
+\]</span></p>
+<p>Il suffit de construire des polynômes convergeant uniformément vers
+cette fonction sur <span class="math inline">\(I\)</span>, puis
+d’effectuer le changement de variable inverse et de restreindre à <span
+class="math inline">\([a,b]\)</span>.</p>
+<p>Comme <span class="math inline">\(f\in C_c(\mathbb R)\)</span>, elle
+est uniformément continue sur <span class="math inline">\(\mathbb
+R\)</span>. En effet, on applique Heine sur un segment compact contenant
+le support et son voisinage d’épaisseur <span
+class="math inline">\(1\)</span> ; pour deux points assez proches situés
+hors de ce segment, les deux valeurs sont nulles.</p>
+<h3 id="construction-dune-approximation-de-lunité-polynomiale">2.
+Construction d’une approximation de l’unité polynomiale</h3>
+<p>Pour <span class="math inline">\(n\geq1\)</span>, posons</p>
+<p><span class="math display">\[
+a_n=\int_{-1}^{1}(1-t^2)^n\,dt
+\]</span></p>
+<p>et</p>
+<p><span class="math display">\[
+p_n(t)=\frac{(1-t^2)^n}{a_n}\,\mathbf 1_{[-1,1]}(t).
+\]</span></p>
+<p>On a immédiatement</p>
+<p><span class="math display">\[
+p_n\geq0,
+\qquad
+\int_{\mathbb R}p_n(t)\,dt=1.
+\]</span></p>
+<p>Vérifions la concentration en <span class="math inline">\(0\)</span>.
+Fixons <span class="math inline">\(0&lt;\eta&lt;1\)</span>. D’une
+part,</p>
+<p><span class="math display">\[
+\int_{|t|\geq\eta}(1-t^2)^n\,dt
+\leq 2(1-\eta^2)^n.
+\]</span></p>
+<p>D’autre part,</p>
+<p><span class="math display">\[
+\begin{aligned}
+a_n
+&amp;\geq \int_{-\eta/2}^{\eta/2}(1-t^2)^n\,dt\\
+&amp;\geq \eta\left(1-\frac{\eta^2}{4}\right)^n.
+\end{aligned}
+\]</span></p>
+<p>Par conséquent,</p>
+<p><span class="math display">\[
+\int_{|t|\geq\eta}p_n(t)\,dt
+\leq
+\frac{2}{\eta}
+\left(
+\frac{1-\eta^2}{1-\eta^2/4}
+\right)^n
+\longrightarrow0,
+\]</span></p>
+<p>car le quotient entre parenthèses appartient à <span
+class="math inline">\((0,1)\)</span>. Si <span
+class="math inline">\(\eta\geq1\)</span>, l’intégrale est nulle. Ainsi
+<span class="math inline">\((p_n)\)</span> est une approximation de
+l’unité.</p>
+<h3 id="convergence-uniforme-des-convolutions">3. Convergence uniforme
+des convolutions</h3>
+<p>Posons le module de continuité de <span
+class="math inline">\(f\)</span> :</p>
+<p><span class="math display">\[
+\omega_f(\eta)
+=
+\sup_{|x-y|\leq\eta}|f(x)-f(y)|.
+\]</span></p>
+<p>La continuité uniforme donne <span
+class="math inline">\(\omega_f(\eta)\to0\)</span> lorsque <span
+class="math inline">\(\eta\to0\)</span>.</p>
+<p>Pour tout <span class="math inline">\(x\in\mathbb R\)</span>, puisque
+<span class="math inline">\(\int p_n=1\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+|(p_n*f)(x)-f(x)|
+&amp;=\left|\int_{\mathbb R}p_n(t)\bigl(f(x-t)-f(x)\bigr)\,dt\right|\\
+&amp;\leq \int_{\mathbb R}p_n(t)|f(x-t)-f(x)|\,dt\\
+&amp;\leq \omega_f(\eta)
++2\|f\|_\infty\int_{|t|\geq\eta}p_n(t)\,dt.
+\end{aligned}
+\]</span></p>
+<p>Cette estimation est indépendante de <span
+class="math inline">\(x\)</span>. Étant donné <span
+class="math inline">\(\varepsilon&gt;0\)</span>, choisissons d’abord
+<span class="math inline">\(\eta&gt;0\)</span> tel que <span
+class="math inline">\(\omega_f(\eta)&lt;\varepsilon/2\)</span>, puis
+<span class="math inline">\(n\)</span> assez grand pour que le second
+terme soit inférieur à <span
+class="math inline">\(\varepsilon/2\)</span>. On obtient</p>
+<p><span class="math display">\[
+\boxed{\|p_n*f-f\|_{\infty,\mathbb R}\longrightarrow0.}
+\]</span></p>
+<h3 id="la-convolution-coïncide-avec-un-polynôme-sur-i">4. La
+convolution coïncide avec un polynôme sur <span
+class="math inline">\(I\)</span></h3>
+<p>Avec la convention</p>
+<p><span class="math display">\[
+(p_n*f)(x)=\int_{\mathbb R}p_n(x-t)f(t)\,dt,
+\]</span></p>
+<p>l’intégrale est bien définie sur <span class="math inline">\(\mathbb
+R\)</span>. Comme <span class="math inline">\(f(t)=0\)</span> pour <span
+class="math inline">\(t\notin I\)</span>, on peut la restreindre à <span
+class="math inline">\(I\)</span> :</p>
+<p><span class="math display">\[
+(p_n*f)(x)=\int_I p_n(x-t)f(t)\,dt.
+\]</span></p>
+<p>Si <span class="math inline">\(x,t\in I\)</span>, alors <span
+class="math inline">\(|x-t|\leq1\)</span>, donc la coupure du noyau
+n’intervient pas et</p>
+<p><span class="math display">\[
+p_n(x-t)=\frac{(1-(x-t)^2)^n}{a_n}.
+\]</span></p>
+<p>Pour <span class="math inline">\(t\)</span> fixé, cette expression
+est un polynôme en <span class="math inline">\(x\)</span> de degré au
+plus <span class="math inline">\(2n\)</span>. Écrivons</p>
+<p><span class="math display">\[
+\frac{(1-(x-t)^2)^n}{a_n}
+=
+\sum_{k=0}^{2n}q_{k,n}(t)x^k,
+\]</span></p>
+<p>où chaque <span class="math inline">\(q_{k,n}\)</span> est un
+polynôme en <span class="math inline">\(t\)</span>. Définissons alors le
+polynôme</p>
+<p><span class="math display">\[
+P_n(x)=
+\sum_{k=0}^{2n}
+\left(\int_I q_{k,n}(t)f(t)\,dt\right)x^k.
+\]</span></p>
+<p>Pour tout <span class="math inline">\(x\in I\)</span>, la somme étant
+finie,</p>
+<p><span class="math display">\[
+P_n(x)
+=
+\int_I p_n(x-t)f(t)\,dt
+=
+(p_n*f)(x).
+\]</span></p>
+<p>Attention : <span class="math inline">\(p_n*f\)</span> n’est pas
+nécessairement un polynôme sur tout <span class="math inline">\(\mathbb
+R\)</span> ; elle coïncide avec le polynôme <span
+class="math inline">\(P_n\)</span> sur le seul intervalle <span
+class="math inline">\(I\)</span>, ce qui suffit.</p>
+<p>Finalement,</p>
+<p><span class="math display">\[
+\|P_n-f\|_{\infty,I}
+\leq
+\|p_n*f-f\|_{\infty,\mathbb R}
+\longrightarrow0.
+\]</span></p>
+<p>Le changement de variable affine inverse conclut sur <span
+class="math inline">\([a,b]\)</span>.</p>
+<h2 id="où-intervient-exactement-la-compacité">Où intervient exactement
+la compacité ?</h2>
+<p>La compacité ne sert pas à extraire une sous-suite. Elle sert à
+produire une uniformité :</p>
+<p><span class="math display">\[
+\boxed{
+[a,b]\text{ compact}
+\xRightarrow{\text{Heine}}
+f\text{ uniformément continue}
+\Longrightarrow
+p_n*f\to f\text{ uniformément}.
+}
+\]</span></p>
+<p>Cette chaîne logique, qui reprend l’un des deux axes explicitement
+recommandés par le rapport du jury 2025 pour la leçon 203, justifie le
+recasage 4/5 demandé pour cette leçon.</p>
+<h2 id="durée-cible-15-minutes">Durée cible : 15 minutes</h2>
+<ul>
+<li>0:00–2:00 — énoncé, prolongement continu et réduction à <span
+class="math inline">\(I=[-1/2,1/2]\)</span> ;</li>
+<li>2:00–5:30 — définition de <span class="math inline">\(p_n\)</span>,
+masse totale et preuve complète de la concentration ;</li>
+<li>5:30–9:00 — convergence uniforme par le module de continuité ;</li>
+<li>9:00–13:30 — restriction de l’intégrale à <span
+class="math inline">\(I\)</span>, disparition de la coupure et
+construction de <span class="math inline">\(P_n\)</span> ;</li>
+<li>13:30–15:00 — conclusion, rôle exact de la compacité et distinction
+avec la version abstraite de Stone–Weierstrass.</li>
+</ul>
+<p>À ne pas sacrifier pour tenir le temps : la concentration de <span
+class="math inline">\(p_n\)</span>, la justification de l’intégrale sur
+<span class="math inline">\(I\)</span>, et le fait que <span
+class="math inline">\(P_n=p_n*f\)</span> seulement sur <span
+class="math inline">\(I\)</span>.</p>
+<h2 id="points-sensibles-à-loral">Points sensibles à l’oral</h2>
+<ul>
+<li>Écrire <span class="math inline">\(\operatorname{supp}(f)\subset
+I\)</span>, et non <span
+class="math inline">\(\operatorname{supp}(f)=I\)</span>.</li>
+<li>Justifier la continuité du prolongement aux points <span
+class="math inline">\(c,a,b,d\)</span>.</li>
+<li>Ne pas affirmer sans preuve que <span
+class="math inline">\((p_n)\)</span> est une approximation de
+l’unité.</li>
+<li>Expliquer où sont utilisées la positivité et la masse <span
+class="math inline">\(1\)</span> du noyau.</li>
+<li>La convolution est initialement une intégrale sur <span
+class="math inline">\(\mathbb R\)</span> ; elle se réduit à <span
+class="math inline">\(I\)</span> parce que <span
+class="math inline">\(f\)</span> y est supportée.</li>
+<li>Ne pas dire que <span class="math inline">\(p_n*f\)</span> est
+globalement polynomiale.</li>
+<li>Distinguer la convergence uniforme sur <span
+class="math inline">\(I\)</span> d’une éventuelle convergence sur tout
+<span class="math inline">\(\mathbb R\)</span>.</li>
+<li>Le prolongement affine compactement supporté d’une fonction <span
+class="math inline">\(C^1([a,b])\)</span> n’est généralement pas <span
+class="math inline">\(C^1\)</span> aux points de raccordement.</li>
+</ul>
+<h2 id="retour-doral-questions-effectivement-posées">Retour d’oral —
+questions effectivement posées</h2>
+<p>Le développement a été tiré le jour de l’oral pour la leçon 203. Les
+questions rapportées ont été :</p>
+<ol type="1">
+<li>« Dans votre définition de la convolution, l’intégrale est sur <span
+class="math inline">\(\mathbb R\)</span>, or ici elle est sur <span
+class="math inline">\([-1/2,1/2]\)</span>. Comment le justifiez-vous ?
+»</li>
+<li>« Pourrait-on montrer que le coefficient <span
+class="math inline">\(a_n\)</span> tend vers <span
+class="math inline">\(0\)</span>, indépendamment de ce que vous avez
+fait ? »</li>
+<li>« Que peut-on dire du résultat si <span
+class="math inline">\(f\)</span> est cette fois-ci de classe <span
+class="math inline">\(C^1\)</span> ? »</li>
+<li>« Comment démontrez-vous le théorème de Heine ? »</li>
+<li>« Connaissez-vous des applications du théorème de Heine ? »</li>
+</ol>
+<p>Aucun exercice utilisant le théorème de Weierstrass n’a ensuite été
+demandé dans cette expérience d’oral.</p>
+<h2 id="réponses-préparées-aux-questions">Réponses préparées aux
+questions</h2>
+<h3 id="pourquoi-lintégrale-peut-elle-être-prise-sur-i">Pourquoi
+l’intégrale peut-elle être prise sur <span
+class="math inline">\(I\)</span> ?</h3>
+<p>Par définition,</p>
+<p><span class="math display">\[
+(p_n*f)(x)=\int_{\mathbb R}p_n(x-t)f(t)\,dt.
+\]</span></p>
+<p>Or <span class="math inline">\(f(t)=0\)</span> presque partout hors
+de <span class="math inline">\(I\)</span>, donc</p>
+<p><span class="math display">\[
+\int_{\mathbb R}p_n(x-t)f(t)\,dt
+=
+\int_I p_n(x-t)f(t)\,dt.
+\]</span></p>
+<p>Ce n’est pas le support de <span class="math inline">\(p_n\)</span>
+qui autorise cette restriction, mais celui de <span
+class="math inline">\(f\)</span>.</p>
+<h3 id="peut-on-montrer-directement-que-a_nto0">Peut-on montrer
+directement que <span class="math inline">\(a_n\to0\)</span> ?</h3>
+<p>Oui. Pour presque tout <span
+class="math inline">\(t\in[-1,1]\)</span>, on a <span
+class="math inline">\((1-t^2)^n\to0\)</span>, et la suite est dominée
+par la fonction intégrable <span class="math inline">\(1\)</span>. Le
+théorème de convergence dominée donne donc</p>
+<p><span class="math display">\[
+a_n=\int_{-1}^{1}(1-t^2)^n\,dt\longrightarrow0.
+\]</span></p>
+<p>Une preuve élémentaire consiste, pour <span
+class="math inline">\(0&lt;\delta&lt;1\)</span>, à écrire</p>
+<p><span class="math display">\[
+a_n
+\leq 2\delta+2(1-\delta^2)^n.
+\]</span></p>
+<p>On fait tendre <span class="math inline">\(n\)</span> vers l’infini,
+puis <span class="math inline">\(\delta\)</span> vers <span
+class="math inline">\(0\)</span>. On peut aussi obtenir l’équivalent</p>
+<p><span class="math display">\[
+a_n\sim\sqrt{\frac{\pi}{n}},
+\]</span></p>
+<p>mais il est inutile pour le développement. Surtout, le fait que <span
+class="math inline">\(a_n\to0\)</span> ne suffit pas à prouver la
+concentration du noyau normalisé <span
+class="math inline">\(p_n\)</span>.</p>
+<h3 id="que-peut-on-dire-si-fin-c1ab">Que peut-on dire si <span
+class="math inline">\(f\in C^1([a,b])\)</span> ?</h3>
+<p>On peut approcher simultanément <span
+class="math inline">\(f\)</span> et <span
+class="math inline">\(f&#39;\)</span>. Par Weierstrass appliqué à <span
+class="math inline">\(f&#39;\)</span>, choisissons des polynômes <span
+class="math inline">\(Q_n\)</span> tels que</p>
+<p><span class="math display">\[
+\|Q_n-f&#39;\|_\infty\longrightarrow0.
+\]</span></p>
+<p>Posons</p>
+<p><span class="math display">\[
+P_n(x)=f(a)+\int_a^x Q_n(t)\,dt.
+\]</span></p>
+<p>Alors <span class="math inline">\(P_n\)</span> est un polynôme, <span
+class="math inline">\(P_n&#39;=Q_n\)</span>, et</p>
+<p><span class="math display">\[
+\|P_n&#39;-f&#39;\|_\infty\longrightarrow0,
+\]</span></p>
+<p>ainsi que</p>
+<p><span class="math display">\[
+\|P_n-f\|_\infty
+\leq (b-a)\|Q_n-f&#39;\|_\infty
+\longrightarrow0.
+\]</span></p>
+<p>Les polynômes sont donc denses dans <span
+class="math inline">\(C^1([a,b])\)</span> pour la norme <span
+class="math inline">\(\|g\|_{C^1}=\|g\|_\infty+\|g&#39;\|_\infty\)</span>.</p>
+<h3 id="comment-démontrer-le-théorème-de-heine">Comment démontrer le
+théorème de Heine ?</h3>
+<p>Soit <span class="math inline">\(f:K\to Y\)</span> continue, avec
+<span class="math inline">\(K\)</span> compact métrique. Pour <span
+class="math inline">\(\varepsilon&gt;0\)</span>, chaque <span
+class="math inline">\(x\in K\)</span> possède un rayon <span
+class="math inline">\(r_x&gt;0\)</span> tel que</p>
+<p><span class="math display">\[
+d(x,y)&lt;2r_x\Longrightarrow d(f(x),f(y))&lt;\varepsilon/2.
+\]</span></p>
+<p>Les boules <span class="math inline">\(B(x,r_x)\)</span> recouvrent
+<span class="math inline">\(K\)</span>. Par compacité, on en extrait un
+sous-recouvrement fini. Un nombre de Lebesgue <span
+class="math inline">\(\delta&gt;0\)</span> pour ce recouvrement assure
+que deux points de <span class="math inline">\(K\)</span> distants de
+moins de <span class="math inline">\(\delta\)</span> appartiennent à une
+même boule <span class="math inline">\(B(x,r_x)\)</span>. L’inégalité
+triangulaire donne alors une distance entre leurs images inférieure à
+<span class="math inline">\(\varepsilon\)</span>.</p>
+<p>En espace métrique, une autre preuve procède par contradiction avec
+deux suites <span class="math inline">\((x_n),(y_n)\)</span> telles que
+<span class="math inline">\(d(x_n,y_n)\to0\)</span>, puis extrait de
+<span class="math inline">\((x_n)\)</span> une sous-suite
+convergente.</p>
+<h3 id="applications-de-heine-à-citer">Applications de Heine à
+citer</h3>
+<ul>
+<li>convergence uniforme des approximations de l’unité vers une fonction
+continue à support compact ;</li>
+<li>intégrabilité de Riemann des fonctions continues sur un segment
+;</li>
+<li>contrôle uniforme des translations d’une fonction continue sur un
+compact ;</li>
+<li>prolongement d’une application uniformément continue à l’adhérence
+de son domaine dans un espace complet ;</li>
+<li>continuité uniforme de l’inverse d’un homéomorphisme entre espaces
+métriques compacts ;</li>
+<li>passage de contrôles locaux à des estimations globales sur un
+compact.</li>
+</ul>
+<h2 id="variantes">Variantes</h2>
+<ul>
+<li>Preuve abstraite par le théorème de Stone–Weierstrass.</li>
+<li>Polynômes de Bernstein, qui fournissent une autre preuve
+constructive et une estimation via le module de continuité.</li>
+<li>Noyaux de Fejér pour l’approximation par des polynômes
+trigonométriques.</li>
+<li>Approximations de l’unité usuelles dans <span
+class="math inline">\(L^p\)</span>, où la convergence est obtenue dans
+la norme <span class="math inline">\(L^p\)</span>.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Pourquoi le prolongement à support compact est-il uniformément
+continu sur tout <span class="math inline">\(\mathbb R\)</span> ?</li>
+<li>Où utilise-t-on exactement la compacité ?</li>
+<li>Pourquoi <span class="math inline">\((p_n)\)</span> est-elle une
+approximation de l’unité ?</li>
+<li>Pourquoi <span class="math inline">\(a_n\)</span> ne peut-il pas
+être remplacé par une constante indépendante de <span
+class="math inline">\(n\)</span> ?</li>
+<li>La convolution <span class="math inline">\(p_n*f\)</span> est-elle
+un polynôme sur tout <span class="math inline">\(\mathbb R\)</span>
+?</li>
+<li>Quel est le degré de <span class="math inline">\(P_n\)</span> ?</li>
+<li>Que devient le résultat pour une fonction à valeurs complexes ?</li>
+<li>Peut-on obtenir une vitesse de convergence ?</li>
+<li>Comparer cette preuve à Stone–Weierstrass et aux polynômes de
+Bernstein.</li>
+<li>Que donne une approximation de l’unité dans <span
+class="math inline">\(L^p\)</span> ?</li>
+</ul>
+<h2 id="source">Source</h2>
+<ul>
+<li>« Théorème de Weierstrass par la convolution », fiche de deux pages,
+version 1197 sur agreg-maths.fr.</li>
+<li>Référence indiquée dans la fiche : Gourdon, <em>Analyse</em>,
+p. 284.</li>
+<li>Source originale : <a
+href="https://agreg-maths.fr/uploads/versions/1197/Th%C3%A9or%C3%A8me%20de%20Weiestrass%20par%20la%20convolution.pdf"
+class="uri">https://agreg-maths.fr/uploads/versions/1197/Th%C3%A9or%C3%A8me%20de%20Weiestrass%20par%20la%20convolution.pdf</a>.</li>
+<li>Copie locale :
+<code>raw data/développements/theoreme-weierstrass-par-convolution-1197.pdf</code>.</li>
+<li>Extraction locale brute :
+<code>raw data/développements/theoreme-weierstrass-par-convolution-1197-extraction-brute.txt</code>.</li>
+<li>SHA-256 du PDF :
+<code>7680caee87d850de9a82b3906568d38df5a9282ff9a281559e0964d15c392fa9</code>.</li>
+<li>SHA-256 de l’extraction :
+<code>4eea6b29f6ae668560a3c7d7dc380b17c4b1d5124d9af0403de2c68ba387885a</code>.</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Chronométrer la version complète au
+tableau en visant 15 minutes.</label></li>
+<li><label><input type="checkbox" />Savoir donner sans notes les deux
+preuves de <span class="math inline">\(a_n\to0\)</span>.</label></li>
+<li><label><input type="checkbox" />Préparer une preuve de Heine par
+sous-recouvrement fini et une preuve séquentielle.</label></li>
+<li><label><input type="checkbox" />Comparer en une minute cette
+construction aux polynômes de Bernstein.</label></li>
+<li><label><input type="checkbox" />Créer les fiches notions
+[[Approximation de l’unité]], [[Module de continuité]] et [[Densité des
+polynômes]].</label></li>
+</ul>
+</body>
+</html>
