@@ -351,6 +351,141 @@ pour la leçon <a href="../alg%C3%A8bre/le%C3%A7ons/170-formes-quadratiques-dime
 <li>Présentation centrée sur le double dénombrement pour la leçon
 <a href="../alg%C3%A8bre/le%C3%A7ons/190-methodes-combinatoires-problemes-de-denombrement.html">190</a>.</li>
 </ul>
+<h2 id="démonstration-des-deux-lemmes-préparatoires">Démonstration des
+deux lemmes préparatoires</h2>
+<p>Ces démonstrations peuvent être gardées en réserve pour les questions
+du jury. Dans une présentation de quinze minutes, on énonce les deux
+lemmes sans les démontrer.</p>
+<h3 id="démonstration-du-lemme-1-critère-deuler">Démonstration du lemme
+1 — Critère d’Euler</h3>
+<p>Soit <span class="math inline">\(a\in\mathbb F_r^\times\)</span>,
+avec <span class="math inline">\(r\)</span> premier impair. Par le petit
+théorème de Fermat,</p>
+<p><span class="math display">\[
+\left(a^{(r-1)/2}\right)^2=a^{r-1}=1.
+\]</span></p>
+<p>Ainsi <span
+class="math inline">\(a^{(r-1)/2}\in\{1,-1\}\)</span>.</p>
+<p>Les <span class="math inline">\((r-1)/2\)</span> carrés non nuls de
+<span class="math inline">\(\mathbb F_r\)</span> sont tous racines du
+polynôme</p>
+<p><span class="math display">\[
+T^{(r-1)/2}-1 :
+\qquad
+(b^2)^{(r-1)/2}=b^{r-1}=1.
+\]</span></p>
+<p>Comme ce polynôme est de degré <span
+class="math inline">\((r-1)/2\)</span>, il n’a pas d’autres racines. Par
+conséquent,</p>
+<p><span class="math display">\[
+a^{(r-1)/2}=
+\begin{cases}
+1&amp;\text{si }a\text{ est un carré},\\
+-1&amp;\text{si }a\text{ n&#39;est pas un carré},
+\end{cases}
+\]</span></p>
+<p>ce qui est exactement</p>
+<p><span class="math display">\[
+a^{(r-1)/2}=\left(\frac ar\right).
+\]</span></p>
+<p>Enfin, <span class="math inline">\(ax^2=1\)</span> équivaut à <span
+class="math inline">\(x^2=a^{-1}\)</span>. Or <span
+class="math inline">\(a^{-1}\)</span> est un carré si et seulement si
+<span class="math inline">\(a\)</span> en est un. Dans ce cas,
+l’équation possède exactement deux solutions opposées, puisque la
+caractéristique est différente de <span class="math inline">\(2\)</span>
+; sinon, elle n’en possède aucune. On obtient donc</p>
+<p><span class="math display">\[
+\#\{x\in\mathbb F_r:ax^2=1\}
+=1+\left(\frac ar\right).
+\]</span></p>
+<h3
+id="démonstration-du-lemme-2-classification-par-le-déterminant">Démonstration
+du lemme 2 — Classification par le déterminant</h3>
+<p>Soit <span class="math inline">\(Q\)</span> une forme quadratique non
+dégénérée de dimension <span class="math inline">\(n\)</span> sur <span
+class="math inline">\(\mathbb F_q\)</span>, où <span
+class="math inline">\(q\)</span> est impair. Comme <span
+class="math inline">\(2\)</span> est inversible, le procédé
+d’orthogonalisation permet de diagonaliser <span
+class="math inline">\(Q\)</span> :</p>
+<p><span class="math display">\[
+Q\simeq\langle a_1,\ldots,a_n\rangle,
+\qquad a_i\in\mathbb F_q^\times.
+\]</span></p>
+<p>Il suffit alors d’établir la réduction binaire</p>
+<p><span class="math display">\[
+\boxed{\langle a,b\rangle\simeq\langle1,ab\rangle}
+\qquad(a,b\in\mathbb F_q^\times).
+\tag{3}
+\]</span></p>
+<p>Considérons les deux parties de <span class="math inline">\(\mathbb
+F_q\)</span></p>
+<p><span class="math display">\[
+E=\{ax^2:x\in\mathbb F_q\},
+\qquad
+F=\{1-by^2:y\in\mathbb F_q\}.
+\]</span></p>
+<p>Chacune a cardinal <span class="math inline">\((q+1)/2\)</span>, car
+l’ensemble des carrés de <span class="math inline">\(\mathbb
+F_q\)</span>, zéro compris, a ce cardinal. Ainsi</p>
+<p><span class="math display">\[
+|E|+|F|=q+1&gt;q,
+\]</span></p>
+<p>et donc <span class="math inline">\(E\cap F\neq\varnothing\)</span>.
+Il existe <span class="math inline">\(x,y\in\mathbb F_q\)</span> tels
+que</p>
+<p><span class="math display">\[
+ax^2+by^2=1.
+\]</span></p>
+<p>Le vecteur <span class="math inline">\(v=(x,y)\)</span> est donc de
+norme quadratique <span class="math inline">\(1\)</span>. Puisque la
+forme bilinéaire associée à <span class="math inline">\(\langle
+a,b\rangle\)</span> est non dégénérée, l’orthogonal <span
+class="math inline">\(v^\perp\)</span> est une droite non dégénérée : si
+<span class="math inline">\(w\neq0\)</span> l’engendre, alors</p>
+<p><span class="math display">\[
+\langle a,b\rangle\simeq\langle1,c\rangle,
+\qquad c=Q(w)\neq0.
+\]</span></p>
+<p>Le déterminant d’une matrice de forme quadratique est multiplié par
+un carré lors d’un changement de base. Par conséquent, <span
+class="math inline">\(c\)</span> et <span
+class="math inline">\(ab\)</span> ont la même classe dans <span
+class="math inline">\(\mathbb F_q^\times/(\mathbb
+F_q^\times)^2\)</span>. Il existe donc <span
+class="math inline">\(\lambda\in\mathbb F_q^\times\)</span> tel que
+<span class="math inline">\(\lambda^2c=ab\)</span>. En remplaçant <span
+class="math inline">\(w\)</span> par <span class="math inline">\(\lambda
+w\)</span>, on obtient (3).</p>
+<p>En appliquant (3) successivement aux coefficients diagonaux,</p>
+<p><span class="math display">\[
+\langle a_1,\ldots,a_n\rangle
+\simeq
+\langle1,\ldots,1,a_1\cdots a_n\rangle.
+\tag{4}
+\]</span></p>
+<p>Ainsi toute forme non dégénérée est congruente à une forme</p>
+<p><span class="math display">\[
+\langle1,\ldots,1,\delta\rangle,
+\]</span></p>
+<p>où la classe de <span class="math inline">\(\delta\)</span> est celle
+de son déterminant.</p>
+<p>Réciproquement, si deux matrices symétriques inversibles <span
+class="math inline">\(M\)</span> et <span
+class="math inline">\(N\)</span> sont congruentes, avec <span
+class="math inline">\(N={}^tPMP\)</span>, alors</p>
+<p><span class="math display">\[
+\det N=(\det P)^2\det M,
+\]</span></p>
+<p>donc leurs déterminants ont la même classe modulo les carrés. Si,
+inversement, leurs déterminants ont la même classe, leurs formes se
+réduisent par (4) à <span
+class="math inline">\(\langle1,\ldots,1,\delta\rangle\)</span> et <span
+class="math inline">\(\langle1,\ldots,1,\delta&#39;\rangle\)</span>,
+avec <span class="math inline">\(\delta&#39;/\delta\)</span> carré ; une
+dilatation de la dernière coordonnée rend ces deux formes congruentes.
+Cela démontre le lemme 2.</p>
 <h2 id="source">Source</h2>
 <ul>
 <li>Yoann Demesmay, « <a href="loi-de-reciprocite-quadratique.html">Loi de réciprocité quadratique</a> », Université de
@@ -366,9 +501,6 @@ class="uri">https://agreg-maths.fr/uploads/versions/4378/Loi%20de%20r%C3%A9cipro
 </ul>
 <h2 id="à-faire">À faire</h2>
 <ul class="task-list">
-<li><label><input type="checkbox" />Préparer une preuve courte de la
-classification des formes quadratiques sur <span
-class="math inline">\(\mathbb F_q\)</span>.</label></li>
 <li><label><input type="checkbox" />Répéter une version chronométrée en
 quinze minutes.</label></li>
 <li><label><input type="checkbox" />Préparer deux applications
