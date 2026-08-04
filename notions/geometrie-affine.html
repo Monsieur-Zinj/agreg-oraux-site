@@ -60,41 +60,118 @@ développement : les isométries permutent les sommets, puis l’action sur
 les sommets est fidèle.</p>
 <h2 id="espace-affine-et-application-affine">1. Espace affine et
 application affine</h2>
-<p>Soit <span class="math inline">\(E\)</span> un espace vectoriel réel.
-On identifie ici l’espace affine associé à <span
-class="math inline">\(E\)</span> à <span
-class="math inline">\(E\)</span> lui-même, après choix d’une
-origine.</p>
-<p>Une application <span class="math inline">\(f:E\to E\)</span> est
-<strong>affine</strong> s’il existe une application linéaire <span
-class="math inline">\(u:E\to E\)</span> et un vecteur <span
-class="math inline">\(b\in E\)</span> tels que</p>
+<p>Soit <span class="math inline">\(\mathcal E\)</span> un espace affine
+dirigé par un espace vectoriel réel <span
+class="math inline">\(E\)</span>.</p>
+<h3 id="point-important-on-ne-peut-pas-additionner-des-points">Point
+important : on ne peut pas additionner des points</h3>
+<p>Dans un espace affine abstrait, les expressions <span
+class="math inline">\(A+B\)</span> et <span
+class="math inline">\(\lambda A\)</span> n’ont <strong>aucun sens
+intrinsèque</strong> : un point n’est pas un vecteur. Les opérations
+fondamentales sont :</p>
+<ul>
+<li>la différence de deux points, qui est un vecteur <span
+class="math inline">\(\overrightarrow{AB}\in E\)</span> ;</li>
+<li>l’addition d’un point et d’un vecteur, qui donne un point <span
+class="math inline">\(A+v\in\mathcal E\)</span>.</li>
+</ul>
+<p>En revanche, si des scalaires <span
+class="math inline">\(\lambda_1,\ldots,\lambda_r\)</span> vérifient</p>
 <p><span class="math display">\[
-f(x)=u(x)+b.
+\sum_{i=1}^r\lambda_i=1,
+\]</span></p>
+<p>alors on peut donner un sens intrinsèque à la <strong>combinaison
+affine</strong></p>
+<p><span class="math display">\[
+\sum_{i=1}^r\lambda_iA_i.
+\]</span></p>
+<p>On choisit provisoirement un point origine <span
+class="math inline">\(O\in\mathcal E\)</span> et l’on définit cette
+combinaison comme l’unique point <span class="math inline">\(G\)</span>
+tel que</p>
+<p><span class="math display">\[
+\overrightarrow{OG}
+=
+\sum_{i=1}^r\lambda_i\overrightarrow{OA_i},
+\]</span></p>
+<p>c’est-à-dire</p>
+<p><span class="math display">\[
+G=O+\sum_{i=1}^r\lambda_i\overrightarrow{OA_i}.
+\]</span></p>
+<p>Il faut vérifier que <span class="math inline">\(G\)</span> ne dépend
+pas de l’origine auxiliaire <span class="math inline">\(O\)</span>. Soit
+donc <span class="math inline">\(O&#39;\)</span> une autre origine et
+posons <span class="math inline">\(w=\overrightarrow{OO&#39;}\)</span>.
+Comme</p>
+<p><span class="math display">\[
+\overrightarrow{O&#39;A_i}=\overrightarrow{OA_i}-w,
+\]</span></p>
+<p>le point obtenu à partir de <span
+class="math inline">\(O&#39;\)</span> est</p>
+<p><span class="math display">\[
+\begin{aligned}
+O&#39;+\sum_i\lambda_i\overrightarrow{O&#39;A_i}
+&amp;=O+w+\sum_i\lambda_i\bigl(\overrightarrow{OA_i}-w\bigr)\\
+&amp;=O+\sum_i\lambda_i\overrightarrow{OA_i}
+  +\left(1-\sum_i\lambda_i\right)w\\
+&amp;=O+\sum_i\lambda_i\overrightarrow{OA_i}.
+\end{aligned}
+\]</span></p>
+<p>C’est précisément la condition <span
+class="math inline">\(\sum_i\lambda_i=1\)</span> qui fait disparaître
+l’origine choisie. Si cette somme n’est pas égale à <span
+class="math inline">\(1\)</span>, l’expression <span
+class="math inline">\(\sum_i\lambda_iA_i\)</span> n’a en général pas de
+sens comme point de l’espace affine.</p>
+<p>Le point <span class="math inline">\(G\)</span> ainsi défini est le
+<strong>barycentre</strong> des points pondérés <span
+class="math inline">\((A_i,\lambda_i)\)</span>. Une fois une origine
+fixée et <span class="math inline">\(\mathcal E\)</span> identifié à
+<span class="math inline">\(E\)</span>, on peut calculer comme si les
+points étaient des vecteurs ; l’écriture <span
+class="math inline">\(G=\sum_i\lambda_iA_i\)</span> reste toutefois une
+abréviation de la définition précédente.</p>
+<h3 id="applications-affines">Applications affines</h3>
+<p>Une application <span class="math inline">\(f:\mathcal E\to\mathcal
+E\)</span> est <strong>affine</strong> s’il existe une application
+linéaire <span class="math inline">\(u:E\to E\)</span> telle que, pour
+tous points <span class="math inline">\(A,B\)</span>,</p>
+<p><span class="math display">\[
+\overrightarrow{f(A)f(B)}=u\bigl(\overrightarrow{AB}\bigr).
 \]</span></p>
 <p>L’application <span class="math inline">\(u\)</span> est la
 <strong>partie linéaire</strong> de <span
-class="math inline">\(f\)</span>. Plus intrinsèquement, pour tous points
-<span class="math inline">\(A,B\)</span>,</p>
+class="math inline">\(f\)</span>. Après choix d’une origine et
+identification de <span class="math inline">\(\mathcal E\)</span> à
+<span class="math inline">\(E\)</span>, cette définition équivaut à
+l’existence d’un vecteur <span class="math inline">\(b\in E\)</span> tel
+que</p>
 <p><span class="math display">\[
-\overrightarrow{f(A)f(B)}=u\bigl(\overrightarrow{AB}\bigr).
+f(x)=u(x)+b.
 \]</span></p>
 <h3 id="caractérisation-par-les-barycentres">Caractérisation par les
 barycentres</h3>
 <p>Une application affine préserve les combinaisons affines : si <span
 class="math inline">\(\lambda_1+\cdots+\lambda_r=1\)</span>, alors</p>
 <p><span class="math display">\[
-f\left(\sum_{i=1}^r \lambda_i x_i\right)
-=\sum_{i=1}^r \lambda_i f(x_i).
+f\left(\sum_{i=1}^r \lambda_i A_i\right)
+=\sum_{i=1}^r \lambda_i f(A_i).
 \]</span></p>
-<p><strong>Preuve succincte.</strong> En écrivant <span
-class="math inline">\(f(x)=u(x)+b\)</span> et en utilisant la linéarité
-de <span class="math inline">\(u\)</span>,</p>
+<p>Les deux sommes désignent ici des barycentres, au sens défini
+ci-dessus.</p>
+<p><strong>Preuve succincte.</strong> Après avoir choisi une origine, on
+peut écrire <span class="math inline">\(f(x)=u(x)+b\)</span>. La
+linéarité de <span class="math inline">\(u\)</span> et la condition sur
+les poids donnent</p>
 <p><span class="math display">\[
-\sum_i\lambda_i f(x_i)
-=u\left(\sum_i\lambda_i x_i\right)+\left(\sum_i\lambda_i\right)b
-=f\left(\sum_i\lambda_i x_i\right).
+\sum_i\lambda_i f(A_i)
+=u\left(\sum_i\lambda_i A_i\right)+\left(\sum_i\lambda_i\right)b
+=f\left(\sum_i\lambda_i A_i\right).
 \]</span></p>
+<p>Ce calcul est indépendant de l’origine puisque les sommes de points
+qui y figurent ont toutes un poids total égal à <span
+class="math inline">\(1\)</span>.</p>
 <h3 id="conséquences">Conséquences</h3>
 <p>Pour <span class="math inline">\(t\in[0,1]\)</span>,</p>
 <p><span class="math display">\[
