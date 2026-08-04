@@ -1,0 +1,404 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Géométrie affine — prérequis pour les isométries du tétraèdre</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Géométrie affine — prérequis pour les isométries du
+tétraèdre</h1>
+</header>
+<h1
+id="géométrie-affine-prérequis-pour-les-isométries-du-tétraèdre">Géométrie
+affine — prérequis pour les isométries du tétraèdre</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="index.html">← Index des notions</a> · <a
+href="../d%C3%A9veloppements/isometries-du-tetraedre.html">Développement —
+Isométries du tétraèdre régulier</a> · <a
+href="../index.html">Accueil</a></p>
+<h2 id="rôle-dans-le-développement">Rôle dans le développement</h2>
+<p>Cette fiche rassemble exactement les faits de géométrie affine
+utilisés dans le développement sur les isométries du tétraèdre :</p>
+<ol type="1">
+<li>une isométrie de l’espace euclidien est affine ;</li>
+<li>une application affine préserve les barycentres, les segments et la
+convexité ;</li>
+<li>une bijection affine préserve les points extrémaux ;</li>
+<li>les sommets d’un tétraèdre plein forment un repère affine ;</li>
+<li>une application affine qui fixe un repère affine est l’identité
+;</li>
+<li>les points extrémaux d’un tétraèdre plein sont exactement ses
+sommets.</li>
+</ol>
+<p>Ces résultats justifient les deux étapes géométriques du
+développement : les isométries permutent les sommets, puis l’action sur
+les sommets est fidèle.</p>
+<h2 id="espace-affine-et-application-affine">1. Espace affine et
+application affine</h2>
+<p>Soit <span class="math inline">\(E\)</span> un espace vectoriel réel.
+On identifie ici l’espace affine associé à <span
+class="math inline">\(E\)</span> à <span
+class="math inline">\(E\)</span> lui-même, après choix d’une
+origine.</p>
+<p>Une application <span class="math inline">\(f:E\to E\)</span> est
+<strong>affine</strong> s’il existe une application linéaire <span
+class="math inline">\(u:E\to E\)</span> et un vecteur <span
+class="math inline">\(b\in E\)</span> tels que</p>
+<p><span class="math display">\[
+f(x)=u(x)+b.
+\]</span></p>
+<p>L’application <span class="math inline">\(u\)</span> est la
+<strong>partie linéaire</strong> de <span
+class="math inline">\(f\)</span>. Plus intrinsèquement, pour tous points
+<span class="math inline">\(A,B\)</span>,</p>
+<p><span class="math display">\[
+\overrightarrow{f(A)f(B)}=u\bigl(\overrightarrow{AB}\bigr).
+\]</span></p>
+<h3 id="caractérisation-par-les-barycentres">Caractérisation par les
+barycentres</h3>
+<p>Une application affine préserve les combinaisons affines : si <span
+class="math inline">\(\lambda_1+\cdots+\lambda_r=1\)</span>, alors</p>
+<p><span class="math display">\[
+f\left(\sum_{i=1}^r \lambda_i x_i\right)
+=\sum_{i=1}^r \lambda_i f(x_i).
+\]</span></p>
+<p><strong>Preuve succincte.</strong> En écrivant <span
+class="math inline">\(f(x)=u(x)+b\)</span> et en utilisant la linéarité
+de <span class="math inline">\(u\)</span>,</p>
+<p><span class="math display">\[
+\sum_i\lambda_i f(x_i)
+=u\left(\sum_i\lambda_i x_i\right)+\left(\sum_i\lambda_i\right)b
+=f\left(\sum_i\lambda_i x_i\right).
+\]</span></p>
+<h3 id="conséquences">Conséquences</h3>
+<p>Pour <span class="math inline">\(t\in[0,1]\)</span>,</p>
+<p><span class="math display">\[
+f((1-t)x+ty)=(1-t)f(x)+tf(y).
+\]</span></p>
+<p>Ainsi une application affine :</p>
+<ul>
+<li>envoie le segment <span class="math inline">\([x,y]\)</span> sur le
+segment <span class="math inline">\([f(x),f(y)]\)</span> si elle est
+bijective, et dans ce segment en général ;</li>
+<li>envoie toute partie convexe sur une partie convexe ;</li>
+<li>envoie l’enveloppe convexe d’une famille sur l’enveloppe convexe de
+son image : <span class="math display">\[
+f\bigl(\operatorname{Conv}(A)\bigr)=\operatorname{Conv}(f(A)).
+\]</span></li>
+</ul>
+<p>La dernière égalité découle directement de la conservation des
+combinaisons convexes ; pour l’inclusion réciproque, toute combinaison
+convexe des <span class="math inline">\(f(a)\)</span> est l’image de la
+même combinaison des <span class="math inline">\(a\)</span>.</p>
+<h2 id="toute-isométrie-euclidienne-est-affine">2. Toute isométrie
+euclidienne est affine</h2>
+<h3 id="théorème">Théorème</h3>
+<p>Soit <span class="math inline">\(E\)</span> un espace euclidien de
+dimension finie. Toute application <span class="math inline">\(f:E\to
+E\)</span> qui préserve les distances,</p>
+<p><span class="math display">\[
+\|f(x)-f(y)\|=\|x-y\|,
+\]</span></p>
+<p>est affine. Sa partie linéaire est orthogonale.</p>
+<h3 id="preuve-succincte">Preuve succincte</h3>
+<p>Une isométrie est <span
+class="math inline">\(1\)</span>-lipschitzienne, donc continue.</p>
+<p>Elle préserve d’abord les milieux. Si <span
+class="math inline">\(m=(x+y)/2\)</span>, alors</p>
+<p><span class="math display">\[
+\|f(m)-f(x)\|=\|f(m)-f(y)\|=\frac12\|f(x)-f(y)\|.
+\]</span></p>
+<p>Or le milieu de deux points <span class="math inline">\(a,b\)</span>
+est l’unique point <span class="math inline">\(z\)</span> tel que</p>
+<p><span class="math display">\[
+\|z-a\|=\|z-b\|=\frac12\|a-b\|.
+\]</span></p>
+<p>En effet, l’égalité dans l’inégalité triangulaire</p>
+<p><span class="math display">\[
+\|a-b\|\leq \|a-z\|+\|z-b\|
+\]</span></p>
+<p>impose que <span class="math inline">\(z-a\)</span> et <span
+class="math inline">\(b-z\)</span> soient colinéaires, de même sens et
+de même norme. Par conséquent,</p>
+<p><span class="math display">\[
+f\left(\frac{x+y}{2}\right)=\frac{f(x)+f(y)}2.
+\]</span></p>
+<p>Par itération, <span class="math inline">\(f\)</span> préserve les
+combinaisons affines à coefficients dyadiques ; par continuité, elle
+préserve <span class="math inline">\((1-t)x+ty\)</span> pour tout <span
+class="math inline">\(t\in\mathbb R\)</span>. Elle est donc affine.</p>
+<p>Fixons <span class="math inline">\(a\in E\)</span> et posons</p>
+<p><span class="math display">\[
+u(h)=f(a+h)-f(a).
+\]</span></p>
+<p>L’affinité montre que <span class="math inline">\(u\)</span> est
+linéaire, et la conservation des distances donne <span
+class="math inline">\(\|u(h)\|=\|h\|\)</span>. Par l’identité de
+polarisation,</p>
+<p><span class="math display">\[
+\langle u(h),u(k)\rangle
+=\frac12\bigl(\|u(h)\|^2+\|u(k)\|^2-\|u(h)-u(k)\|^2\bigr)
+=\langle h,k\rangle.
+\]</span></p>
+<p>Ainsi <span class="math inline">\(u\)</span> est orthogonale.</p>
+<blockquote>
+<p>À l’oral, on peut annoncer ce théorème comme résultat connu et ne
+développer que l’argument des milieux si le jury demande une
+justification.</p>
+</blockquote>
+<h2 id="repères-affines-et-coordonnées-barycentriques">3. Repères
+affines et coordonnées barycentriques</h2>
+<p>Dans un espace affine de dimension <span
+class="math inline">\(n\)</span>, une famille de <span
+class="math inline">\(n+1\)</span> points <span
+class="math inline">\((A_0,\ldots,A_n)\)</span> est un <strong>repère
+affine</strong> lorsque les vecteurs</p>
+<p><span class="math display">\[
+\overrightarrow{A_0A_1},\ldots,\overrightarrow{A_0A_n}
+\]</span></p>
+<p>forment une base de l’espace vectoriel directeur.</p>
+<p>Tout point <span class="math inline">\(x\)</span> possède alors
+d’uniques <strong>coordonnées barycentriques</strong> <span
+class="math inline">\((\lambda_0,\ldots,\lambda_n)\)</span> telles
+que</p>
+<p><span class="math display">\[
+\sum_{i=0}^n\lambda_i=1,
+\qquad
+x=\sum_{i=0}^n\lambda_iA_i.
+\]</span></p>
+<p><strong>Preuve succincte.</strong> Écrire</p>
+<p><span class="math display">\[
+\overrightarrow{A_0x}=
+\sum_{i=1}^n\lambda_i\overrightarrow{A_0A_i}
+\]</span></p>
+<p>revient à décomposer un vecteur dans une base. Les <span
+class="math inline">\(\lambda_i\)</span> pour <span
+class="math inline">\(i\geq1\)</span> sont donc uniques, puis <span
+class="math inline">\(\lambda_0=1-\sum_{i=1}^n\lambda_i\)</span>.</p>
+<h3
+id="détermination-dune-application-affine-par-un-repère">Détermination
+d’une application affine par un repère</h3>
+<p>Une application affine est entièrement déterminée par l’image d’un
+repère affine. En particulier :</p>
+<blockquote>
+<p>Si une application affine fixe tous les points d’un repère affine,
+elle est l’identité.</p>
+</blockquote>
+<p><strong>Preuve succincte.</strong> Pour <span
+class="math inline">\(x=\sum_i\lambda_iA_i\)</span> avec <span
+class="math inline">\(\sum_i\lambda_i=1\)</span>,</p>
+<p><span class="math display">\[
+f(x)=\sum_i\lambda_i f(A_i).
+\]</span></p>
+<p>Si chaque <span class="math inline">\(A_i\)</span> est fixe, alors
+<span class="math inline">\(f(x)=x\)</span>.</p>
+<h3 id="cas-de-lespace-de-dimension-3">Cas de l’espace de dimension
+<span class="math inline">\(3\)</span></h3>
+<p>Quatre points <span class="math inline">\((S_1,S_2,S_3,S_4)\)</span>
+forment un repère affine si et seulement s’ils ne sont pas coplanaires.
+Les sommets d’un tétraèdre plein sont, par définition, non coplanaires :
+ils forment donc un repère affine de <span class="math inline">\(\mathbb
+R^3\)</span>.</p>
+<p>C’est le fait utilisé pour montrer qu’une isométrie du tétraèdre
+fixant ses quatre sommets est l’identité.</p>
+<h2 id="convexité-et-points-extrémaux">4. Convexité et points
+extrémaux</h2>
+<p>Soit <span class="math inline">\(C\)</span> une partie convexe. Un
+point <span class="math inline">\(x\in C\)</span> est
+<strong>extrémal</strong> si</p>
+<p><span class="math display">\[
+x=(1-t)a+tb,\quad a,b\in C,\quad 0&lt;t&lt;1
+\]</span></p>
+<p>implique <span class="math inline">\(a=b=x\)</span>.</p>
+<p>Autrement dit, <span class="math inline">\(x\)</span> n’est à
+l’intérieur d’aucun segment non trivial contenu dans <span
+class="math inline">\(C\)</span>.</p>
+<h3 id="une-bijection-affine-préserve-les-points-extrémaux">Une
+bijection affine préserve les points extrémaux</h3>
+<p>Soit <span class="math inline">\(f:C\to f(C)\)</span> une bijection
+affine. Alors</p>
+<p><span class="math display">\[
+x\text{ est extrémal dans }C
+\quad\Longleftrightarrow\quad
+f(x)\text{ est extrémal dans }f(C).
+\]</span></p>
+<p><strong>Preuve succincte.</strong> Si</p>
+<p><span class="math display">\[
+f(x)=(1-t)y+tz
+\]</span></p>
+<p>avec <span class="math inline">\(y=f(a)\)</span> et <span
+class="math inline">\(z=f(b)\)</span>, l’affinité de <span
+class="math inline">\(f^{-1}\)</span> donne</p>
+<p><span class="math display">\[
+x=(1-t)a+tb.
+\]</span></p>
+<p>L’extrémalité de <span class="math inline">\(x\)</span> impose <span
+class="math inline">\(a=b=x\)</span>, donc <span
+class="math inline">\(y=z=f(x)\)</span>. La réciproque s’obtient en
+appliquant le même raisonnement à <span
+class="math inline">\(f^{-1}\)</span>.</p>
+<h2 id="points-extrémaux-dun-tétraèdre-plein">5. Points extrémaux d’un
+tétraèdre plein</h2>
+<p>Soit</p>
+<p><span class="math display">\[
+T=\operatorname{Conv}(S_1,S_2,S_3,S_4)
+\]</span></p>
+<p>un tétraèdre plein. Tout <span class="math inline">\(x\in T\)</span>
+possède d’uniques coordonnées barycentriques</p>
+<p><span class="math display">\[
+x=\sum_{i=1}^4\lambda_iS_i,
+\qquad
+\lambda_i\geq0,
+\qquad
+\sum_{i=1}^4\lambda_i=1.
+\]</span></p>
+<h3 id="proposition">Proposition</h3>
+<p>Les points extrémaux de <span class="math inline">\(T\)</span> sont
+exactement <span class="math inline">\(S_1,S_2,S_3,S_4\)</span>.</p>
+<h3 id="preuve-succincte-1">Preuve succincte</h3>
+<p><strong>Les sommets sont extrémaux.</strong> Supposons</p>
+<p><span class="math display">\[
+S_i=(1-t)a+tb,
+\qquad a,b\in T,
+\qquad 0&lt;t&lt;1.
+\]</span></p>
+<p>La <span class="math inline">\(i\)</span>-ème coordonnée
+barycentrique vaut <span class="math inline">\(1\)</span> au membre de
+gauche. À droite, elle est une moyenne stricte de deux nombres
+appartenant à <span class="math inline">\([0,1]\)</span>. Elle ne peut
+valoir <span class="math inline">\(1\)</span> que si ces deux nombres
+valent <span class="math inline">\(1\)</span>, donc <span
+class="math inline">\(a=b=S_i\)</span>.</p>
+<p><strong>Tout autre point n’est pas extrémal.</strong> Si <span
+class="math inline">\(x\)</span> n’est pas un sommet, au moins deux de
+ses coordonnées barycentriques, disons <span
+class="math inline">\(\lambda_i\)</span> et <span
+class="math inline">\(\lambda_j\)</span>, sont strictement positives.
+Pour <span
+class="math inline">\(0&lt;\varepsilon&lt;\min(\lambda_i,\lambda_j)\)</span>,
+on définit deux points <span class="math inline">\(a,b\in T\)</span> en
+remplaçant dans leurs coordonnées barycentriques</p>
+<p><span class="math display">\[
+(\lambda_i,\lambda_j)
+\quad\text{par}\quad
+(\lambda_i+\varepsilon,\lambda_j-\varepsilon)
+\]</span></p>
+<p>pour <span class="math inline">\(a\)</span>, et par</p>
+<p><span class="math display">\[
+(\lambda_i-\varepsilon,\lambda_j+\varepsilon)
+\]</span></p>
+<p>pour <span class="math inline">\(b\)</span>. Alors <span
+class="math inline">\(a\neq b\)</span> et <span
+class="math inline">\(x=(a+b)/2\)</span>. Donc <span
+class="math inline">\(x\)</span> n’est pas extrémal.</p>
+<h2 id="application-immédiate-au-tétraèdre-régulier">6. Application
+immédiate au tétraèdre régulier</h2>
+<p>Soit <span class="math inline">\(g\)</span> une isométrie de <span
+class="math inline">\(\mathbb R^3\)</span> telle que <span
+class="math inline">\(g(T)=T\)</span>.</p>
+<ul>
+<li>Le théorème de la section 2 montre que <span
+class="math inline">\(g\)</span> est une bijection affine.</li>
+<li>Une bijection affine préserve les points extrémaux.</li>
+<li>Les points extrémaux de <span class="math inline">\(T\)</span> sont
+exactement ses quatre sommets.</li>
+</ul>
+<p>Donc <span class="math inline">\(g\)</span> permute les sommets :</p>
+<p><span class="math display">\[
+g\bigl(\{S_1,S_2,S_3,S_4\}\bigr)
+=
+\{S_1,S_2,S_3,S_4\}.
+\]</span></p>
+<p>Si <span class="math inline">\(g\)</span> fixe les quatre sommets,
+elle fixe un repère affine de <span class="math inline">\(\mathbb
+R^3\)</span>, donc <span
+class="math inline">\(g=\operatorname{Id}\)</span>.</p>
+<p>On obtient ainsi, sans raccourci, les deux faits nécessaires à la
+construction du morphisme injectif</p>
+<p><span class="math display">\[
+\operatorname{Is}(T)\longrightarrow\mathfrak S_4.
+\]</span></p>
+<h2 id="pièges-à-éviter">Pièges à éviter</h2>
+<ul>
+<li>Dire « une isométrie envoie automatiquement les sommets sur les
+sommets » sans invoquer les points extrémaux ou une autre
+caractérisation intrinsèque des sommets.</li>
+<li>Confondre indépendance linéaire de quatre vecteurs de <span
+class="math inline">\(\mathbb R^3\)</span> — impossible — et
+indépendance affine de quatre points.</li>
+<li>Oublier la condition <span
+class="math inline">\(\sum_i\lambda_i=1\)</span> dans une combinaison
+affine.</li>
+<li>Dire qu’une application affine quelconque préserve l’extrémalité :
+il faut une bijection affine entre les convexes considérés.</li>
+<li>Utiliser « une application affine fixant quatre points est
+l’identité » sans préciser que ces points sont affinement
+indépendants.</li>
+<li>Confondre une isométrie affine <span class="math inline">\(x\mapsto
+u(x)+b\)</span> avec sa partie linéaire orthogonale <span
+class="math inline">\(u\)</span>.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Pourquoi une isométrie de l’espace euclidien est-elle affine ?</li>
+<li>Pourquoi le milieu est-il caractérisé uniquement par les distances à
+ses extrémités ?</li>
+<li>Qu’est-ce qu’un repère affine en dimension <span
+class="math inline">\(3\)</span> ?</li>
+<li>Pourquoi quatre points non coplanaires déterminent-ils une
+application affine ?</li>
+<li>Une application affine préserve-t-elle toujours les points extrémaux
+?</li>
+<li>Pourquoi les sommets d’un simplexe sont-ils exactement ses points
+extrémaux ?</li>
+<li>Où intervient précisément la régularité du tétraèdre ?</li>
+</ul>
+<p>Pour la dernière question : les arguments affines ci-dessus valent
+pour tout tétraèdre plein. La régularité intervient ensuite pour
+réaliser les transpositions par des symétries orthogonales et obtenir la
+surjectivité sur <span class="math inline">\(\mathfrak S_4\)</span>.</p>
+<h2 id="notions-voisines">Notions voisines</h2>
+<ul>
+<li>[[Isométrie affine]]</li>
+<li>[[Repère affine]]</li>
+<li>[[Barycentre]]</li>
+<li>[[Convexité]]</li>
+<li>[[Point extrémal]]</li>
+<li>[[Simplexe]]</li>
+<li>[[Groupe d’isométries]]</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Ajouter un schéma des coordonnées
+barycentriques d’un tétraèdre.</label></li>
+<li><label><input type="checkbox" />Relier cette fiche à une future page
+générale sur les simplexes en dimension <span
+class="math inline">\(n\)</span>.</label></li>
+</ul>
+</body>
+</html>
