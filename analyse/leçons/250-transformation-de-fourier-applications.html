@@ -1,0 +1,182 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Leçon 250 — Transformation de Fourier. Applications</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Leçon <a href="250-transformation-de-fourier-applications.html">250</a> — Transformation de Fourier.
+Applications</h1>
+</header>
+<h1 id="leçon-250-transformation-de-fourier.-applications">Leçon <a href="250-transformation-de-fourier-applications.html">250</a> —
+Transformation de Fourier. Applications</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../../index/lecons.html">← Index des leçons</a> · <a
+href="../../index/developpements.html">Développements</a> · <a
+href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="rôle-dans-le-graphe">Rôle dans le graphe</h2>
+<p>Organiser l’analyse de Fourier sur <span
+class="math inline">\(\mathbb R\)</span> dans les cadres <span
+class="math inline">\(L^1\)</span>, <span class="math inline">\(\mathcal
+S\)</span> et <span class="math inline">\(L^2\)</span>, puis montrer
+comment la transformation échange régularité et décroissance,
+convolution et produit, localisation et étalement.</p>
+<h2 id="attendus-du-jury-à-garder-en-tête">Attendus du jury à garder en
+tête</h2>
+<p>D’après le rapport 2025 :</p>
+<ul>
+<li>distinguer clairement les cadres <span
+class="math inline">\(L^1\)</span>, <span class="math inline">\(\mathcal
+S\)</span> et <span class="math inline">\(L^2\)</span> ;</li>
+<li>rappeler le lien avec la convolution ;</li>
+<li>présenter des applications significatives : Poisson, EDP, fonctions
+caractéristiques ;</li>
+<li>pour Shannon, comprendre qu’il traduit une isométrie entre deux
+espaces de Hilbert ;</li>
+<li>réserver Paley–Wiener, vecteurs propres et principes d’incertitude
+aux ouvertures maîtrisées.</li>
+</ul>
+<h2 id="plan-possible-squelette">Plan possible — squelette</h2>
+<h3 id="transformation-dans-l1">1. Transformation dans <span
+class="math inline">\(L^1\)</span></h3>
+<ul>
+<li>définition, continuité et Riemann–Lebesgue ;</li>
+<li>translations, modulations, dilatations ;</li>
+<li>convolution et produit.</li>
+</ul>
+<h3 id="classe-de-schwartz">2. Classe de Schwartz</h3>
+<ul>
+<li>stabilité de <span class="math inline">\(\mathcal S(\mathbb
+R)\)</span> ;</li>
+<li>dérivation et multiplication polynomiale ;</li>
+<li>inversion de Fourier ;</li>
+<li>transformée de la gaussienne.</li>
+</ul>
+<h3 id="cadre-hilbertien">3. Cadre hilbertien</h3>
+<ul>
+<li>prolongement à <span class="math inline">\(L^2\)</span> et
+Plancherel ;</li>
+<li>isométrie et inversion ;</li>
+<li>sous-espaces à bande limitée.</li>
+</ul>
+<h3 id="applications">4. Applications</h3>
+<ul>
+<li>formule sommatoire de Poisson et fonction thêta ;</li>
+<li>échantillonnage de Shannon ;</li>
+<li>résolution d’EDP ;</li>
+<li>fonctions caractéristiques en probabilités.</li>
+</ul>
+<h2 id="développement-actuel-recommandé">Développement actuel
+recommandé</h2>
+<p><a href="../../d%C3%A9veloppements/formules-poisson-shannon.html">Formules
+de Poisson et de Shannon</a> — recasage 5/5.</p>
+<p>Orientation : annoncer Poisson comme le pont <span
+class="math inline">\(\mathbb R\leftrightarrow\mathbb T\)</span>, puis
+conclure Shannon par l’isométrie entre l’espace de Paley–Wiener <span
+class="math inline">\(PW_{1/2}\)</span> et <span
+class="math inline">\(\ell^2(\mathbb Z)\)</span>.</p>
+<h2 id="notions-liées">Notions liées</h2>
+<ul>
+<li>[[Transformation de Fourier]]</li>
+<li>[[Classe de Schwartz]]</li>
+<li>[[Convolution]]</li>
+<li>[[Théorème de Plancherel]]</li>
+<li>[[Formule sommatoire de Poisson]]</li>
+<li>[[Théorème d’échantillonnage de Shannon]]</li>
+</ul>
+<h2 id="leçons-liées">Leçons liées</h2>
+<ul>
+<li>[[Leçon <a href="201-espaces-de-fonctions-exemples-applications.html">201</a> — Espaces de fonctions]]</li>
+<li>[[Leçon <a href="208-espaces-vectoriels-normes-applications-lineaires-continues.html">208</a> — Espaces vectoriels normés, applications linéaires
+continues]]</li>
+<li>[[Leçon 213 — Espaces de Hilbert]]</li>
+<li>[[Leçon <a href="235-problemes-dinterversion-de-symboles-en-analyse.html">235</a> — Problèmes d’interversion de symboles en analyse]]</li>
+<li>[[Leçon <a href="239-fonctions-definies-par-integrale-parametre.html">239</a> — Fonctions définies par une intégrale dépendant d’un
+paramètre]]</li>
+<li>[[Leçon <a href="246-series-de-fourier-exemples-applications.html">246</a> — Séries de Fourier]]</li>
+</ul>
+<h2 id="résultats-clés-à-maîtriser">Résultats clés à maîtriser</h2>
+<ul>
+<li>Riemann–Lebesgue dans <span class="math inline">\(L^1\)</span>
+;</li>
+<li>inversion sur <span class="math inline">\(\mathcal S\)</span> ;</li>
+<li>Plancherel dans <span class="math inline">\(L^2\)</span> ;</li>
+<li>formule de convolution ;</li>
+<li>transformation de la gaussienne ;</li>
+<li>formules de Poisson et de Shannon.</li>
+</ul>
+<h2 id="exemples-à-préparer">Exemples à préparer</h2>
+<ul>
+<li>transformées de la gaussienne, d’une indicatrice et d’une
+exponentielle ;</li>
+<li>résolution de l’équation de la chaleur ;</li>
+<li>équation fonctionnelle de la fonction thêta ;</li>
+<li>reconstruction d’un signal à bande limitée ;</li>
+<li>fonction caractéristique d’une loi normale.</li>
+</ul>
+<h2 id="pièges-et-points-de-vigilance">Pièges et points de
+vigilance</h2>
+<ul>
+<li>Fixer une convention et conserver tous les facteurs <span
+class="math inline">\(2\pi\)</span>.</li>
+<li>Ne pas énoncer l’inversion dans <span
+class="math inline">\(L^1\)</span> sans hypothèses supplémentaires.</li>
+<li>Distinguer égalité ponctuelle, presque partout et dans <span
+class="math inline">\(L^2\)</span>.</li>
+<li>Pour Shannon, préciser la largeur de bande et le pas
+d’échantillonnage.</li>
+<li>Ne pas omettre l’interprétation hilbertienne explicitement demandée
+par le jury.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Pourquoi la transformée d’une fonction <span
+class="math inline">\(L^1\)</span> tend-elle vers <span
+class="math inline">\(0\)</span> à l’infini ?</li>
+<li>Comment la transformation agit-elle sur une convolution ?</li>
+<li>Pourquoi <span class="math inline">\(\mathcal S\)</span> est-elle
+stable ?</li>
+<li>En quel sens Plancherel étend-il la transformation ?</li>
+<li>Pourquoi Shannon est-il une isométrie ?</li>
+<li>Comment remettre à l’échelle la formule pour une bande <span
+class="math inline">\([-B,B]\)</span> ?</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Préparer une table courte de
+transformées avec la convention choisie.</label></li>
+<li><label><input type="checkbox" />Savoir prouver Plancherel à partir
+d’un sous-espace dense.</label></li>
+<li><label><input type="checkbox" />Préparer une EDP résolue par
+Fourier.</label></li>
+<li><label><input type="checkbox" />Chronométrer Poisson–Shannon avec la
+conclusion hilbertienne.</label></li>
+</ul>
+</body>
+</html>

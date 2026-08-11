@@ -1,0 +1,169 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Leçon 246 — Séries de Fourier. Exemples et applications</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Leçon <a href="246-series-de-fourier-exemples-applications.html">246</a> — Séries de Fourier. Exemples et
+applications</h1>
+</header>
+<h1 id="leçon-246-séries-de-fourier.-exemples-et-applications">Leçon <a href="246-series-de-fourier-exemples-applications.html">246</a>
+— Séries de Fourier. Exemples et applications</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../../index/lecons.html">← Index des leçons</a> · <a
+href="../../index/developpements.html">Développements</a> · <a
+href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="rôle-dans-le-graphe">Rôle dans le graphe</h2>
+<p>Relier l’analyse harmonique sur le tore aux questions de convergence,
+de régularité et aux applications. La formule de Poisson fournit un pont
+naturel vers la transformation de Fourier sur <span
+class="math inline">\(\mathbb R\)</span>.</p>
+<h2 id="attendus-du-jury-à-garder-en-tête">Attendus du jury à garder en
+tête</h2>
+<p>D’après le rapport 2025 :</p>
+<ul>
+<li>placer les théorèmes de convergence au centre et distinguer
+convergence simple, uniforme, de Cesàro et <span
+class="math inline">\(L^p\)</span> ;</li>
+<li>expliquer les propriétés des noyaux utilisés ;</li>
+<li>présenter le point de vue <span class="math inline">\(L^2\)</span>
+et Parseval comme une isométrie ;</li>
+<li>maîtriser le lien entre régularité et décroissance des coefficients
+;</li>
+<li>donner de vraies applications, notamment la formule sommatoire de
+Poisson.</li>
+</ul>
+<h2 id="plan-possible-squelette">Plan possible — squelette</h2>
+<h3 id="coefficients-et-premières-propriétés">1. Coefficients et
+premières propriétés</h3>
+<ul>
+<li>définition sur <span class="math inline">\(\mathbb T=\mathbb
+R/\mathbb Z\)</span> ;</li>
+<li>Riemann–Lebesgue ;</li>
+<li>translation, dérivation, convolution.</li>
+</ul>
+<h3 id="convergences-ponctuelle-et-uniforme">2. Convergences ponctuelle
+et uniforme</h3>
+<ul>
+<li>noyaux de Dirichlet ;</li>
+<li>théorème de Dirichlet–Jordan ;</li>
+<li>régularité et convergence normale.</li>
+</ul>
+<h3 id="sommation-de-cesàro">3. Sommation de Cesàro</h3>
+<ul>
+<li>noyau de Fejér, positivité et masse <span
+class="math inline">\(1\)</span> ;</li>
+<li>convergence uniforme dans <span class="math inline">\(C(\mathbb
+T)\)</span> ;</li>
+<li>densité des polynômes trigonométriques.</li>
+</ul>
+<h3 id="point-de-vue-hilbertien-et-applications">4. Point de vue
+hilbertien et applications</h3>
+<ul>
+<li>orthonormalité des exponentielles et Parseval ;</li>
+<li>équations de la chaleur et de Dirichlet ;</li>
+<li>formule de Poisson et fonction thêta.</li>
+</ul>
+<h2 id="développement-actuel-recommandé">Développement actuel
+recommandé</h2>
+<p><a href="../../d%C3%A9veloppements/formules-poisson-shannon.html">Formules
+de Poisson et de Shannon</a> — recasage 5/5.</p>
+<p>Orientation : construire la périodisée d’une fonction de Schwartz,
+calculer exactement ses coefficients de Fourier et conclure par la
+convergence normale permise par sa régularité.</p>
+<h2 id="notions-liées">Notions liées</h2>
+<ul>
+<li>[[Série de Fourier]]</li>
+<li>[[Coefficients de Fourier]]</li>
+<li>[[Noyau de Dirichlet]]</li>
+<li>[[Noyau de Fejér]]</li>
+<li>[[Identité de Parseval]]</li>
+<li>[[Transformation de Fourier]]</li>
+</ul>
+<h2 id="leçons-liées">Leçons liées</h2>
+<ul>
+<li>[[Leçon <a href="201-espaces-de-fonctions-exemples-applications.html">201</a> — Espaces de fonctions]]</li>
+<li>[[Leçon <a href="209-approximation-fonction-par-fonctions-regulieres.html">209</a> — Approximation d’une fonction par des fonctions
+régulières]]</li>
+<li>[[Leçon <a href="235-problemes-dinterversion-de-symboles-en-analyse.html">235</a> — Problèmes d’interversion de symboles en analyse]]</li>
+<li>[[Leçon <a href="241-suites-series-fonctions-exemples-contre-exemples.html">241</a> — Suites et séries de fonctions]]</li>
+<li>[[Leçon <a href="250-transformation-de-fourier-applications.html">250</a> — Transformation de Fourier]]</li>
+</ul>
+<h2 id="résultats-clés-à-maîtriser">Résultats clés à maîtriser</h2>
+<ul>
+<li>lemme de Riemann–Lebesgue ;</li>
+<li>théorèmes de Dirichlet–Jordan et de Fejér ;</li>
+<li>Parseval et complétude des exponentielles dans <span
+class="math inline">\(L^2(\mathbb T)\)</span> ;</li>
+<li>effet de la dérivation sur les coefficients ;</li>
+<li>formule sommatoire de Poisson sous des hypothèses explicites.</li>
+</ul>
+<h2 id="exemples-à-préparer">Exemples à préparer</h2>
+<ul>
+<li>série de Fourier d’une fonction créneau ou triangulaire ;</li>
+<li>calcul de <span class="math inline">\(\sum n^{-2}\)</span> par
+Parseval ;</li>
+<li>phénomène de Gibbs ;</li>
+<li>résolution de l’équation de la chaleur sur le cercle ;</li>
+<li>équation fonctionnelle de la fonction thêta par Poisson.</li>
+</ul>
+<h2 id="pièges-et-points-de-vigilance">Pièges et points de
+vigilance</h2>
+<ul>
+<li>Toujours annoncer le mode de convergence.</li>
+<li>Une fonction <span class="math inline">\(C^1\)</span> n’a pas
+nécessairement une série de Fourier absolument convergente.</li>
+<li>Ne pas confondre les rôles des noyaux de Dirichlet et de Fejér.</li>
+<li>Justifier la complétude des exponentielles avant de parler de base
+hilbertienne.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Comparer convergence simple, uniforme, normale et <span
+class="math inline">\(L^2\)</span>.</li>
+<li>Pourquoi le noyau de Fejér est-il positif ?</li>
+<li>Que donne une dérivation sur les coefficients ?</li>
+<li>Pourquoi la formule de Poisson est-elle une application des séries
+de Fourier ?</li>
+<li>Donner un exemple de divergence ou de phénomène de Gibbs.</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Préparer deux calculs explicites de
+coefficients.</label></li>
+<li><label><input type="checkbox" />Savoir démontrer Fejér avec une
+approximation de l’identité.</label></li>
+<li><label><input type="checkbox" />Préparer une application à une
+EDP.</label></li>
+<li><label><input type="checkbox" />Chronométrer Poisson–Shannon en
+privilégiant la partie Poisson.</label></li>
+</ul>
+</body>
+</html>

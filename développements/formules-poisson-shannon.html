@@ -1,0 +1,375 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Développement — Formules de Poisson et de Shannon</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title"><a href="formules-poisson-shannon.html">Développement — Formules de Poisson et de Shannon</a></h1>
+</header>
+<h1 id="développement-formules-de-poisson-et-de-shannon">Développement —
+<a href="formules-poisson-shannon.html">Formules de Poisson et de Shannon</a></h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../index/developpements.html">← Index des développements</a> ·
+<a href="../index/lecons.html">Leçons</a> · <a
+href="../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../index/recasages/formules-poisson-shannon.html">Recasage
+détaillé</a> · <a href="../index.html">Accueil</a></p>
+<h2 id="position-dans-le-graphe">Position dans le graphe</h2>
+<p>Ce développement relie trois objets : la périodisation d’une fonction
+de Schwartz, sa série de Fourier et l’échantillonnage d’une fonction à
+spectre borné. La formule de Poisson identifie les coefficients de
+Fourier d’une périodisée ; la formule de Shannon en découle en
+appliquant Poisson à la transformée de Fourier.</p>
+<p>La version ci-dessous corrige un raccourci de la source : une
+fonction périodique seulement <span class="math inline">\(C^1\)</span>
+n’a pas nécessairement une série de Fourier normalement convergente. Ici
+la périodisée est en fait <span class="math inline">\(C^\infty\)</span>
+; deux dérivations suffisent pour obtenir des coefficients en <span
+class="math inline">\(O(k^{-2})\)</span> et donc la convergence
+normale.</p>
+<h2 id="convention-et-énoncé">Convention et énoncé</h2>
+<p>Pour <span class="math inline">\(f\in L^1(\mathbb R)\)</span>, on
+pose</p>
+<p><span class="math display">\[
+\widehat f(\xi)=\int_{\mathbb R}f(x)e^{-2i\pi x\xi}\,dx,
+\qquad
+\operatorname{sinc}(u)=
+\begin{cases}
+1,&amp;u=0,\\
+\dfrac{\sin u}{u},&amp;u\ne0.
+\end{cases}
+\]</span></p>
+<h3 id="formule-sommatoire-de-poisson">Formule sommatoire de
+Poisson</h3>
+<p>Pour toute <span class="math inline">\(f\in\mathcal S(\mathbb
+R)\)</span> et tout <span class="math inline">\(t\in\mathbb
+R\)</span>,</p>
+<p><span class="math display">\[
+\boxed{
+\sum_{n\in\mathbb Z}f(t+n)
+=
+\sum_{k\in\mathbb Z}\widehat f(k)e^{2i\pi kt}.}
+\]</span></p>
+<p>Les deux séries convergent normalement sur tout compact en <span
+class="math inline">\(t\)</span>, et la série de droite converge
+normalement sur <span class="math inline">\(\mathbb R\)</span>.</p>
+<h3 id="formule-déchantillonnage-de-shannon">Formule d’échantillonnage
+de Shannon</h3>
+<p>Si, de plus,</p>
+<p><span class="math display">\[
+\operatorname{supp}(\widehat f)
+\subset\left[-\frac12,\frac12\right],
+\]</span></p>
+<p>alors, pour tout <span class="math inline">\(t\in\mathbb
+R\)</span>,</p>
+<p><span class="math display">\[
+\boxed{
+f(t)=\sum_{n\in\mathbb Z}f(n)\operatorname{sinc}\!\bigl(\pi(t-n)\bigr).}
+\]</span></p>
+<p>Sous l’hypothèse <span class="math inline">\(f\in\mathcal S(\mathbb
+R)\)</span>, cette série converge absolument et uniformément en <span
+class="math inline">\(t\)</span>.</p>
+<h2 id="prérequis">Prérequis</h2>
+<ul>
+<li>[[Classe de Schwartz]] et stabilité par transformation de Fourier
+;</li>
+<li>[[Transformation de Fourier]] et formule d’inversion sur <span
+class="math inline">\(\mathcal S(\mathbb R)\)</span> ;</li>
+<li>[[Série de Fourier]] d’une fonction périodique régulière ;</li>
+<li>convergence normale sur les compacts et dérivation terme à terme
+;</li>
+<li>théorèmes autorisant l’interversion série–intégrale ;</li>
+<li>pour le prolongement : [[Identité de Parseval]] dans <span
+class="math inline">\(L^2\)</span>.</li>
+</ul>
+<h2 id="preuve-détaillée">Preuve détaillée</h2>
+<h3 id="périodisation-et-régularité">1. Périodisation et régularité</h3>
+<p>Posons</p>
+<p><span class="math display">\[
+g(t)=\sum_{n\in\mathbb Z}f(t+n).
+\]</span></p>
+<p>Soit <span class="math inline">\(K\subset\mathbb R\)</span> compact.
+Choisissons <span class="math inline">\(N\ge1\)</span> tel que <span
+class="math inline">\(K\subset[-N,N]\)</span>. Pour <span
+class="math inline">\(j\in\{0,1,2\}\)</span>, puisque <span
+class="math inline">\(f\in\mathcal S(\mathbb R)\)</span>, il existe
+<span class="math inline">\(M_j&gt;0\)</span> tel que</p>
+<p><span class="math display">\[
+|f^{(j)}(x)|\le \frac{M_j}{1+x^2}
+\qquad(x\in\mathbb R).
+\]</span></p>
+<p>Si <span class="math inline">\(t\in K\)</span> et <span
+class="math inline">\(|n|\ge N+1\)</span>, alors <span
+class="math inline">\(|t+n|\ge |n|-N\)</span>, donc</p>
+<p><span class="math display">\[
+|f^{(j)}(t+n)|
+\le \frac{M_j}{(|n|-N)^2}.
+\]</span></p>
+<p>Le critère de Weierstrass montre que les séries</p>
+<p><span class="math display">\[
+\sum_{n\in\mathbb Z}f^{(j)}(t+n),
+\qquad j=0,1,2,
+\]</span></p>
+<p>convergent normalement sur <span class="math inline">\(K\)</span>.
+Ainsi <span class="math inline">\(g\in C^2(\mathbb R)\)</span>, et même
+<span class="math inline">\(g\in C^\infty(\mathbb R)\)</span> en
+répétant l’argument. Enfin,</p>
+<p><span class="math display">\[
+g(t+1)=\sum_{n\in\mathbb Z}f(t+1+n)=g(t)
+\]</span></p>
+<p>par le changement d’indice <span
+class="math inline">\(m=n+1\)</span>. La fonction <span
+class="math inline">\(g\)</span> est donc <span
+class="math inline">\(1\)</span>-périodique.</p>
+<h3 id="coefficients-de-fourier-de-la-périodisée">2. Coefficients de
+Fourier de la périodisée</h3>
+<p>Pour <span class="math inline">\(k\in\mathbb Z\)</span>,</p>
+<p><span class="math display">\[
+c_k(g)=\int_{-1/2}^{1/2}g(t)e^{-2i\pi kt}\,dt.
+\]</span></p>
+<p>La convergence normale de <span class="math inline">\(\sum_n
+f(t+n)\)</span> sur <span class="math inline">\([-1/2,1/2]\)</span>
+autorise l’interversion :</p>
+<p><span class="math display">\[
+\begin{aligned}
+c_k(g)
+&amp;=\sum_{n\in\mathbb Z}
+\int_{-1/2}^{1/2}f(t+n)e^{-2i\pi kt}\,dt\\
+&amp;=\sum_{n\in\mathbb Z}
+\int_{n-1/2}^{n+1/2}f(x)e^{-2i\pi k(x-n)}\,dx.
+\end{aligned}
+\]</span></p>
+<p>Comme <span class="math inline">\(k,n\in\mathbb Z\)</span>, <span
+class="math inline">\(e^{2i\pi kn}=1\)</span>. Les intervalles <span
+class="math inline">\([n-1/2,n+1/2]\)</span> pavent <span
+class="math inline">\(\mathbb R\)</span>, à leurs extrémités près,
+d’où</p>
+<p><span class="math display">\[
+c_k(g)=\int_{\mathbb R}f(x)e^{-2i\pi kx}\,dx=\widehat f(k).
+\]</span></p>
+<h3 id="reconstruction-de-g">3. Reconstruction de <span
+class="math inline">\(g\)</span></h3>
+<p>Puisque <span class="math inline">\(g\in C^2\)</span> et est <span
+class="math inline">\(1\)</span>-périodique, deux intégrations par
+parties donnent, pour <span class="math inline">\(k\ne0\)</span>,</p>
+<p><span class="math display">\[
+|c_k(g)|
+\le \frac{\|g&#39;&#39;\|_{L^1([0,1])}}{4\pi^2k^2}.
+\]</span></p>
+<p>La série de Fourier de <span class="math inline">\(g\)</span>
+converge donc normalement. Le théorème de convergence des séries de
+Fourier pour une fonction <span class="math inline">\(C^1\)</span>, ou
+l’unicité des coefficients après convergence uniforme, identifie sa
+somme à <span class="math inline">\(g\)</span>. Ainsi</p>
+<p><span class="math display">\[
+g(t)=\sum_{k\in\mathbb Z}c_k(g)e^{2i\pi kt}
+=\sum_{k\in\mathbb Z}\widehat f(k)e^{2i\pi kt},
+\]</span></p>
+<p>ce qui prouve la formule de Poisson.</p>
+<h3 id="déduction-de-shannon">4. Déduction de Shannon</h3>
+<p>Appliquons Poisson à <span class="math inline">\(\widehat
+f\in\mathcal S(\mathbb R)\)</span>. Avec la convention choisie,</p>
+<p><span class="math display">\[
+\widehat{\widehat f}(n)=f(-n),
+\]</span></p>
+<p>et donc, pour tout <span class="math inline">\(\xi\in\mathbb
+R\)</span>,</p>
+<p><span class="math display">\[
+\sum_{k\in\mathbb Z}\widehat f(\xi+k)
+=
+\sum_{n\in\mathbb Z}f(-n)e^{2i\pi n\xi}.
+\]</span></p>
+<p>Pour <span class="math inline">\(\xi\in[-1/2,1/2]\)</span>, le membre
+de gauche se réduit à <span class="math inline">\(\widehat
+f(\xi)\)</span>. Aux extrémités, il n’y a pas d’ambiguïté : la
+continuité de <span class="math inline">\(\widehat f\)</span>, jointe à
+la nullité hors de l’intervalle, impose <span
+class="math inline">\(\widehat f(-1/2)=\widehat f(1/2)=0\)</span>.</p>
+<p>Par inversion de Fourier,</p>
+<p><span class="math display">\[
+\begin{aligned}
+f(t)
+&amp;=\int_{-1/2}^{1/2}\widehat f(\xi)e^{2i\pi t\xi}\,d\xi\\
+&amp;=\sum_{n\in\mathbb Z}f(-n)
+\int_{-1/2}^{1/2}e^{2i\pi(n+t)\xi}\,d\xi.
+\end{aligned}
+\]</span></p>
+<p>L’interversion est licite car <span
+class="math inline">\(\sum_n|f(n)|&lt;\infty\)</span>, puisque <span
+class="math inline">\(f\)</span> est de Schwartz. Or, pour tout <span
+class="math inline">\(u\in\mathbb R\)</span>,</p>
+<p><span class="math display">\[
+\int_{-1/2}^{1/2}e^{2i\pi u\xi}\,d\xi
+=\operatorname{sinc}(\pi u).
+\]</span></p>
+<p>Après le changement d’indice <span
+class="math inline">\(m=-n\)</span>, et puisque <span
+class="math inline">\(\operatorname{sinc}\)</span> est paire,</p>
+<p><span class="math display">\[
+f(t)=\sum_{m\in\mathbb Z}f(m)
+\operatorname{sinc}\!\bigl(\pi(t-m)\bigr).
+\]</span></p>
+<h2 id="lecture-hilbertienne-de-shannon">Lecture hilbertienne de
+Shannon</h2>
+<p>Soit</p>
+<p><span class="math display">\[
+PW_{1/2}
+=\{f\in L^2(\mathbb R):\operatorname{supp}(\widehat f)
+\subset[-1/2,1/2]\}.
+\]</span></p>
+<p>Plancherel puis Parseval sur <span
+class="math inline">\([-1/2,1/2]\)</span> donnent, d’abord sur les
+fonctions régulières puis par densité,</p>
+<p><span class="math display">\[
+\boxed{
+\|f\|_{L^2(\mathbb R)}^2
+=\|\widehat f\|_{L^2([-1/2,1/2])}^2
+=\sum_{n\in\mathbb Z}|f(n)|^2.}
+\]</span></p>
+<p>L’application d’échantillonnage</p>
+<p><span class="math display">\[
+PW_{1/2}\longrightarrow\ell^2(\mathbb Z),
+\qquad f\longmapsto(f(n))_{n\in\mathbb Z},
+\]</span></p>
+<p>est donc une isométrie ; elle est surjective par la théorie des
+séries de Fourier. La formule de Shannon est la formule de
+reconstruction associée à la base orthonormée des sinus cardinaux. Cette
+interprétation est explicitement exigée par le rapport du jury 2025 pour
+la leçon <a href="../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">250</a>.</p>
+<h2 id="durée-cible-15-minutes">Durée cible : 15 minutes</h2>
+<ul>
+<li>0:00–2:30 — conventions, énoncés et définition de la périodisée
+;</li>
+<li>2:30–6:00 — convergence normale des séries de dérivées et
+périodicité ;</li>
+<li>6:00–9:30 — calcul des coefficients et formule de Poisson ;</li>
+<li>9:30–13:30 — application à <span class="math inline">\(\widehat
+f\)</span>, inversion et Shannon ;</li>
+<li>13:30–15:00 — identité de norme et lecture hilbertienne.</li>
+</ul>
+<p>À ne pas sacrifier : la justification des deux interversions, la
+régularité <span class="math inline">\(C^2\)</span> de la périodisée et
+le rôle du support dans Shannon.</p>
+<h2 id="points-sensibles-à-loral">Points sensibles à l’oral</h2>
+<ul>
+<li>Une fonction périodique <span class="math inline">\(C^1\)</span> n’a
+pas automatiquement une série de Fourier normalement convergente ;
+utiliser ici <span class="math inline">\(g\in C^2\)</span>.</li>
+<li>Distinguer convergence normale sur tout compact pour la périodisée
+et convergence normale sur <span class="math inline">\(\mathbb
+R\)</span> pour la série de Fourier.</li>
+<li>Dans le calcul de <span class="math inline">\(c_k(g)\)</span>,
+écrire le facteur <span class="math inline">\(e^{2i\pi
+kn}=1\)</span>.</li>
+<li>Justifier le pavage de <span class="math inline">\(\mathbb
+R\)</span> par les intervalles <span
+class="math inline">\([n-1/2,n+1/2]\)</span>.</li>
+<li>Le support fermé ne crée pas de terme parasite aux bornes : la
+continuité force <span class="math inline">\(\widehat
+f(\pm1/2)=0\)</span>.</li>
+<li>Ne pas présenter Shannon comme une simple « formule magique » :
+expliquer l’isométrie <span
+class="math inline">\(PW_{1/2}\simeq\ell^2(\mathbb Z)\)</span>.</li>
+<li>La version ponctuelle prouvée ici suppose <span
+class="math inline">\(f\in\mathcal S\)</span> ; l’extension à tout <span
+class="math inline">\(PW_{1/2}\)</span> relève de <span
+class="math inline">\(L^2\)</span> et de la continuité des
+évaluations.</li>
+</ul>
+<h2 id="variante-application-fonction-thêta-de-jacobi">Variante /
+application : fonction thêta de Jacobi</h2>
+<p>Pour <span class="math inline">\(x&gt;0\)</span>, appliquons Poisson
+à</p>
+<p><span class="math display">\[
+f_x(t)=e^{-\pi xt^2},
+\qquad
+\widehat f_x(\xi)=x^{-1/2}e^{-\pi\xi^2/x}.
+\]</span></p>
+<p>En évaluant en <span class="math inline">\(t=0\)</span>, on obtient
+pour <span class="math inline">\(\Theta(x)=\sum_{n\in\mathbb Z}e^{-\pi
+n^2x}\)</span> :</p>
+<p><span class="math display">\[
+\boxed{\Theta(x)=\frac1{\sqrt x}\Theta\!\left(\frac1x\right).}
+\]</span></p>
+<p>C’est l’application recommandée par le rapport du jury pour la leçon
+<a href="../analyse/le%C3%A7ons/241-suites-series-fonctions-exemples-contre-exemples.html">241</a>.</p>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Pourquoi la périodisée est-elle <span
+class="math inline">\(C^2\)</span>, et même <span
+class="math inline">\(C^\infty\)</span> ?</li>
+<li>Pourquoi <span class="math inline">\(C^1\)</span> ne suffit-il pas à
+assurer la convergence normale de la série de Fourier ?</li>
+<li>Où intervient exactement le caractère entier de <span
+class="math inline">\(k\)</span> ?</li>
+<li>Quelles interversions effectue-t-on, et quel théorème les autorise
+?</li>
+<li>Pourquoi <span class="math inline">\(\widehat f(\pm1/2)=0\)</span>
+?</li>
+<li>Comment adapter la formule à une bande de fréquences <span
+class="math inline">\([-B,B]\)</span> ?</li>
+<li>En quel sens la formule reste-t-elle vraie pour <span
+class="math inline">\(f\in PW_{1/2}\)</span> ?</li>
+<li>Pourquoi l’échantillonnage est-il une isométrie ? Est-il surjectif
+?</li>
+<li>Retrouver l’équation fonctionnelle de la fonction thêta.</li>
+</ul>
+<h2 id="source">Source</h2>
+<ul>
+<li>« <a href="formules-poisson-shannon.html">Formules de Poisson et de Shannon</a> », version 6931 sur
+agreg-maths.fr, 2 pages.</li>
+<li>Référence indiquée dans la fiche : Bernis, <em>40
+développements</em>, p. 253–258.</li>
+<li>Source originale : <a
+href="https://agreg-maths.fr/uploads/versions/6931/Poisson%20et%20Shannon"
+class="uri">https://agreg-maths.fr/uploads/versions/6931/Poisson%20et%20Shannon</a>.</li>
+<li>Copie locale :
+<code>raw data/développements/poisson-et-shannon-6931.pdf</code>.</li>
+<li>Extraction locale brute :
+<code>raw data/développements/poisson-et-shannon-6931-extraction-brute.txt</code>,
+lignes 1–146.</li>
+<li>SHA-256 du PDF :
+<code>6e82589193081df66e70ddd2956a0374db040151ff0e9f72156829230ed07e74</code>.</li>
+<li>SHA-256 de l’extraction :
+<code>6dce69d3e6cd4abcf6b629b37e2821f6a7aeb44ade8fe3bd1ba5efbba22d3749</code>.</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Chronométrer la preuve complète au
+tableau.</label></li>
+<li><label><input type="checkbox" />Préparer la version remise à
+l’échelle pour une bande <span
+class="math inline">\([-B,B]\)</span>.</label></li>
+<li><label><input type="checkbox" />Savoir démontrer rapidement
+l’isométrie d’échantillonnage.</label></li>
+<li><label><input type="checkbox" />Refaire sans notes le calcul de la
+transformée de Fourier d’une gaussienne.</label></li>
+</ul>
+</body>
+</html>

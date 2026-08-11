@@ -1,0 +1,227 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Recasage — Formules de Poisson et de Shannon</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Recasage — <a href="../../d%C3%A9veloppements/formules-poisson-shannon.html">Formules de Poisson et de Shannon</a></h1>
+</header>
+<h1 id="recasage-formules-de-poisson-et-de-shannon">Recasage — Formules
+de Poisson et de Shannon</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="index.html">← Recasages</a> · <a
+href="../../d%C3%A9veloppements/formules-poisson-shannon.html">Développement</a>
+· <a href="../matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="notes-par-leçon-créée">Notes par leçon créée</h2>
+<table>
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 36%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">Leçon</th>
+<th style="text-align: right;">Note</th>
+<th>Commentaire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien naturel avec les actions de groupes.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/104-groupes-finis.html">104</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien naturel avec les groupes finis.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/105-groupe-des-permutations-dun-ensemble-fini.html">105</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien naturel avec les permutations.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun travail sur des parties génératrices.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/120-anneaux-z-sur-nz-applications.html">120</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien avec les anneaux <span class="math inline">\(\mathbb
+Z/n\mathbb Z\)</span>.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/121-nombres-premiers-applications.html">121</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien naturel avec les nombres premiers.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/123-corps-finis-applications.html">123</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien naturel avec les corps finis.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/161-espaces-vectoriels-et-affines-euclidiens-distances-isometries.html">161</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun contenu substantiel sur les espaces euclidiens.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/170-formes-quadratiques-dimension-finie-orthogonalite-applications.html">170</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun usage des formes quadratiques.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/190-methodes-combinatoires-problemes-de-denombrement.html">190</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun problème de dénombrement central.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/201-espaces-de-fonctions-exemples-applications.html">201</a></td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td>Le développement manipule les espaces <span
+class="math inline">\(\mathcal S\)</span>, périodiques et à bande
+limitée, mais la structure des espaces de fonctions n’est pas le cœur
+annoncé.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/203-utilisation-de-la-notion-de-compacite.html">203</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun usage structurant de la compacité.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/206-exemples-dutilisation-de-la-notion-de-dimension-finie-en-analyse.html">206</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun usage de la dimension finie en analyse.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/208-espaces-vectoriels-normes-applications-lineaires-continues.html">208</a></td>
+<td style="text-align: right;" class="score score-2">2</td>
+<td>La transformation de Fourier et l’isométrie sont des opérateurs
+linéaires continus, mais ce cadre reste secondaire.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/209-approximation-fonction-par-fonctions-regulieres.html">209</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun procédé d’approximation par des fonctions régulières.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/228-continuite-derivabilite-fonctions-reelles-une-variable.html">228</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien central avec les fonctions réelles d’une variable.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a></td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Très bon recasage : convergence normale, dérivation terme à terme et
+deux interversions série–intégrale sont les mécanismes de la
+preuve.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">239</a></td>
+<td style="text-align: right;" class="score score-2">2</td>
+<td>Des intégrales dépendant de <span class="math inline">\(t\)</span>
+et <span class="math inline">\(\xi\)</span> apparaissent, mais leur
+régularité n’est pas la question centrale.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/241-suites-series-fonctions-exemples-contre-exemples.html">241</a></td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Le rapport cite explicitement Poisson et la fonction thêta ; la
+preuve mobilise séries de fonctions, convergence normale et séries de
+Fourier.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/246-series-de-fourier-exemples-applications.html">246</a></td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Recasage prioritaire : la formule de Poisson est obtenue en
+calculant la série de Fourier de la périodisée, exactement parmi les
+applications recommandées par le jury.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">250</a></td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Recasage prioritaire : transformation de Fourier sur <span
+class="math inline">\(\mathcal S\)</span>, formule de Poisson et Shannon
+; le jury cite explicitement ces deux applications.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="recasages-prioritaires">Recasages prioritaires</h2>
+<h3 id="séries-de-fourier"><a href="../../analyse/le%C3%A7ons/246-series-de-fourier-exemples-applications.html">246</a> — Séries de Fourier</h3>
+<p>Le pivot est la périodisation</p>
+<p><span class="math display">\[
+g(t)=\sum_{n\in\mathbb Z}f(t+n),
+\]</span></p>
+<p>puis l’identification <span class="math inline">\(c_k(g)=\widehat
+f(k)\)</span>. Insister sur les types de convergence et sur le gain
+<span class="math inline">\(O(k^{-2})\)</span> fourni par deux
+dérivations.</p>
+<h3 id="transformation-de-fourier"><a href="../../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">250</a> — Transformation de Fourier</h3>
+<p>Présenter Poisson comme un pont entre transformation de Fourier sur
+<span class="math inline">\(\mathbb R\)</span> et série de Fourier sur
+le tore. Pour Shannon, conclure impérativement par l’isométrie</p>
+<p><span class="math display">\[
+PW_{1/2}\simeq\ell^2(\mathbb Z),
+\qquad f\mapsto(f(n))_{n\in\mathbb Z},
+\]</span></p>
+<p>conformément à l’avertissement explicite du jury.</p>
+<h2 id="très-bons-recasages">Très bons recasages</h2>
+<h3 id="problèmes-dinterversion-de-symboles-45"><a href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a> — Problèmes
+d’interversion de symboles — 4/5</h3>
+<p>Le développement contient une chaîne cohérente d’interversions :
+dérivation de la périodisée, somme–intégrale dans le calcul des
+coefficients, puis somme–intégrale dans Shannon. Il faut nommer à chaque
+fois l’hypothèse dominante. Le plan de la leçon devra néanmoins fournir
+d’autres familles d’interversions et des contre-exemples.</p>
+<h3 id="suites-et-séries-de-fonctions-45"><a href="../../analyse/le%C3%A7ons/241-suites-series-fonctions-exemples-contre-exemples.html">241</a> — Suites et séries de
+fonctions — 4/5</h3>
+<p>La formule de Poisson est explicitement recommandée par le rapport du
+jury, notamment avec l’équation fonctionnelle de la fonction thêta.
+Orienter le développement vers la convergence normale sur les compacts,
+la série de Fourier de la périodisée et l’application à <span
+class="math inline">\(\Theta\)</span>.</p>
+<h2 id="adaptation-au-format-quinze-minutes">Adaptation au format quinze
+minutes</h2>
+<ul>
+<li>2 min 30 : conventions, énoncés, périodisation ;</li>
+<li>3 min 30 : convergence normale et régularité ;</li>
+<li>3 min 30 : coefficients de Fourier et Poisson ;</li>
+<li>4 min : Shannon ;</li>
+<li>1 min 30 : lecture hilbertienne ou fonction thêta selon la
+leçon.</li>
+</ul>
+<p>Pour <a href="../../analyse/le%C3%A7ons/241-suites-series-fonctions-exemples-contre-exemples.html">241</a>, remplacer la lecture hilbertienne par l’application à <span
+class="math inline">\(\Theta\)</span>. Pour <a href="../../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">250</a>, conserver l’isométrie
+de Shannon ; pour <a href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a>, annoter explicitement chaque interversion.</p>
+</body>
+</html>
