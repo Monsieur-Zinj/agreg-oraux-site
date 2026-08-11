@@ -46,13 +46,14 @@ de Schwartz, sa série de Fourier et l’échantillonnage d’une fonction à
 spectre borné. La formule de Poisson identifie les coefficients de
 Fourier d’une périodisée ; la formule de Shannon en découle en
 appliquant Poisson à la transformée de Fourier.</p>
-<p>La version ci-dessous corrige un raccourci de la source : une
-fonction périodique seulement <span class="math inline">\(C^1\)</span>
-n’a pas nécessairement une série de Fourier normalement convergente. Ici
-la périodisée est en fait <span class="math inline">\(C^\infty\)</span>
-; deux dérivations suffisent pour obtenir des coefficients en <span
-class="math inline">\(O(k^{-2})\)</span> et donc la convergence
-normale.</p>
+<p>La source invoque un « théorème de convergence normale de Dirichlet
+», appellation trompeuse : le théorème usuel de Dirichlet donne une
+convergence ponctuelle, pas directement la sommabilité absolue des
+coefficients. La conclusion est néanmoins vraie pour une fonction
+périodique <span class="math inline">\(C^1\)</span>, par intégration par
+parties, Bessel et Cauchy–Schwarz. La version ci-dessous donne cette
+justification ; ici, la périodisée est même <span
+class="math inline">\(C^\infty\)</span>.</p>
 <h2 id="convention-et-énoncé">Convention et énoncé</h2>
 <p>Pour <span class="math inline">\(f\in L^1(\mathbb R)\)</span>, on
 pose</p>
@@ -175,18 +176,31 @@ c_k(g)=\int_{\mathbb R}f(x)e^{-2i\pi kx}\,dx=\widehat f(k).
 \]</span></p>
 <h3 id="reconstruction-de-g">3. Reconstruction de <span
 class="math inline">\(g\)</span></h3>
-<p>Puisque <span class="math inline">\(g\in C^2\)</span> et est <span
-class="math inline">\(1\)</span>-périodique, deux intégrations par
-parties donnent, pour <span class="math inline">\(k\ne0\)</span>,</p>
+<p>Comme <span class="math inline">\(g\in C^1(\mathbb T)\)</span>, une
+intégration par parties donne, pour <span
+class="math inline">\(k\ne0\)</span>,</p>
 <p><span class="math display">\[
-|c_k(g)|
-\le \frac{\|g&#39;&#39;\|_{L^1([0,1])}}{4\pi^2k^2}.
+c_k(g&#39;)=2i\pi k\,c_k(g).
+\]</span></p>
+<p>Par Cauchy–Schwarz puis Bessel appliqué à <span
+class="math inline">\(g&#39;\in L^2(\mathbb T)\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{k\ne0}|c_k(g)|
+&amp;=\frac1{2\pi}\sum_{k\ne0}\frac{|c_k(g&#39;)|}{|k|}\\
+&amp;\le \frac1{2\pi}
+\left(\sum_{k\ne0}\frac1{k^2}\right)^{1/2}
+\left(\sum_{k\ne0}|c_k(g&#39;)|^2\right)^{1/2}\\
+&amp;\le C\,\|g&#39;\|_{L^2(\mathbb T)}&lt;\infty.
+\end{aligned}
 \]</span></p>
 <p>La série de Fourier de <span class="math inline">\(g\)</span>
-converge donc normalement. Le théorème de convergence des séries de
-Fourier pour une fonction <span class="math inline">\(C^1\)</span>, ou
-l’unicité des coefficients après convergence uniforme, identifie sa
-somme à <span class="math inline">\(g\)</span>. Ainsi</p>
+converge donc normalement, donc uniformément, vers une fonction continue
+<span class="math inline">\(h\)</span>. Par ailleurs, les sommes
+partielles convergent vers <span class="math inline">\(g\)</span> dans
+<span class="math inline">\(L^2(\mathbb T)\)</span>, par complétude du
+système trigonométrique. Ainsi <span class="math inline">\(h=g\)</span>
+presque partout, puis partout par continuité. On obtient</p>
 <p><span class="math display">\[
 g(t)=\sum_{k\in\mathbb Z}c_k(g)e^{2i\pi kt}
 =\sum_{k\in\mathbb Z}\widehat f(k)e^{2i\pi kt},
@@ -273,14 +287,15 @@ périodicité ;</li>
 f\)</span>, inversion et Shannon ;</li>
 <li>13:30–15:00 — identité de norme et lecture hilbertienne.</li>
 </ul>
-<p>À ne pas sacrifier : la justification des deux interversions, la
-régularité <span class="math inline">\(C^2\)</span> de la périodisée et
-le rôle du support dans Shannon.</p>
+<p>À ne pas sacrifier : la justification des deux interversions,
+l’argument Bessel–Cauchy–Schwarz pour la convergence normale et le rôle
+du support dans Shannon.</p>
 <h2 id="points-sensibles-à-loral">Points sensibles à l’oral</h2>
 <ul>
-<li>Une fonction périodique <span class="math inline">\(C^1\)</span> n’a
-pas automatiquement une série de Fourier normalement convergente ;
-utiliser ici <span class="math inline">\(g\in C^2\)</span>.</li>
+<li>Une fonction périodique <span class="math inline">\(C^1\)</span> a
+bien des coefficients de Fourier absolument sommables, mais ce n’est pas
+une conséquence directe du théorème usuel de Dirichlet : utiliser
+intégration par parties, Bessel et Cauchy–Schwarz.</li>
 <li>Distinguer convergence normale sur tout compact pour la périodisée
 et convergence normale sur <span class="math inline">\(\mathbb
 R\)</span> pour la série de Fourier.</li>
@@ -322,9 +337,9 @@ n^2x}\)</span> :</p>
 <h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
 <ul>
 <li>Pourquoi la périodisée est-elle <span
-class="math inline">\(C^2\)</span>, et même <span
+class="math inline">\(C^1\)</span>, et même <span
 class="math inline">\(C^\infty\)</span> ?</li>
-<li>Pourquoi <span class="math inline">\(C^1\)</span> ne suffit-il pas à
+<li>Pourquoi <span class="math inline">\(C^1\)</span> suffit-il à
 assurer la convergence normale de la série de Fourier ?</li>
 <li>Où intervient exactement le caractère entier de <span
 class="math inline">\(k\)</span> ?</li>
