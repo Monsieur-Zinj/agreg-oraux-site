@@ -54,6 +54,127 @@ périodique <span class="math inline">\(C^1\)</span>, par intégration par
 parties, Bessel et Cauchy–Schwarz. La version ci-dessous donne cette
 justification ; ici, la périodisée est même <span
 class="math inline">\(C^\infty\)</span>.</p>
+<h2 id="lien-avec-la-théorie-du-signal-et-léchantillonnage">Lien avec la
+théorie du signal et l’échantillonnage</h2>
+<p>Le sens concret du développement est le suivant : <strong>la formule
+de Poisson décrit l’effet de l’échantillonnage dans le domaine
+fréquentiel, puis la formule de Shannon montre comment reconstruire le
+signal lorsque son spectre est assez étroit</strong>.</p>
+<h3 id="un-signal-à-bande-limitée">1. Un signal à bande limitée</h3>
+<p>On interprète <span class="math inline">\(f(t)\)</span> comme un
+signal dépendant du temps et <span class="math inline">\(\widehat
+f(\xi)\)</span> comme son spectre. L’hypothèse</p>
+<p><span class="math display">\[
+\operatorname{supp}(\widehat f)\subset\left[-\frac12,\frac12\right]
+\]</span></p>
+<p>signifie que le signal ne contient aucune fréquence en dehors de
+cette bande. On ne conserve pourtant que les valeurs discrètes <span
+class="math inline">\((f(n))_{n\in\mathbb Z}\)</span>, appelées
+<strong>échantillons</strong>. La question est de savoir si cette suite
+permet de retrouver tout le signal continu.</p>
+<h3 id="poisson-échantillonner-périodise-le-spectre">2. Poisson :
+échantillonner périodise le spectre</h3>
+<p>Appliquée à <span class="math inline">\(\widehat f\)</span>, la
+formule de Poisson donne</p>
+<p><span class="math display">\[
+\sum_{k\in\mathbb Z}\widehat f(\xi+k)
+=
+\sum_{n\in\mathbb Z}f(-n)e^{2i\pi n\xi}.
+\]</span></p>
+<p>Le membre de droite ne dépend que des échantillons <span
+class="math inline">\(f(n)\)</span>, tandis que le membre de gauche est
+obtenu en recopiant le spectre <span class="math inline">\(\widehat
+f\)</span> à tous les entiers. Ainsi,</p>
+<p><span class="math display">\[
+\boxed{\text{échantillonnage dans le temps}
+\quad\longleftrightarrow\quad
+\text{périodisation du spectre}.}
+\]</span></p>
+<p>C’est le rôle conceptuel de Poisson dans le théorème
+d’échantillonnage.</p>
+<h3 id="absence-de-repliement-spectral">3. Absence de repliement
+spectral</h3>
+<p>Si le spectre est contenu dans <span
+class="math inline">\([-1/2,1/2]\)</span>, ses copies translatées ne se
+chevauchent pas. Sur la bande centrale, on peut donc isoler la copie
+originale et écrire</p>
+<p><span class="math display">\[
+\widehat f(\xi)
+=
+\sum_{n\in\mathbb Z}f(-n)e^{2i\pi n\xi},
+\qquad |\xi|\le\frac12.
+\]</span></p>
+<p>Les échantillons sont donc, à un changement d’indice près, les
+coefficients de Fourier de <span class="math inline">\(\widehat
+f\)</span> sur sa bande de fréquences. Ils déterminent entièrement <span
+class="math inline">\(\widehat f\)</span>, donc <span
+class="math inline">\(f\)</span> par inversion de Fourier.</p>
+<p>Si les copies se chevauchent, des fréquences différentes deviennent
+indiscernables à partir des échantillons : c’est le <strong>repliement
+spectral</strong>, ou <em>aliasing</em>. Par exemple, aux instants
+entiers,</p>
+<p><span class="math display">\[
+e^{2i\pi(\nu+k)n}=e^{2i\pi\nu n}
+\qquad(k,n\in\mathbb Z),
+\]</span></p>
+<p>de sorte que les fréquences <span class="math inline">\(\nu\)</span>
+et <span class="math inline">\(\nu+k\)</span> produisent les mêmes
+échantillons.</p>
+<h3 id="shannon-reconstruire-avec-les-sinus-cardinaux">4. Shannon :
+reconstruire avec les sinus cardinaux</h3>
+<p>Après inversion de Fourier, chaque coefficient <span
+class="math inline">\(f(n)\)</span> multiplie le noyau</p>
+<p><span class="math display">\[
+\int_{-1/2}^{1/2}e^{2i\pi(t-n)\xi}\,d\xi
+=
+\operatorname{sinc}\!\bigl(\pi(t-n)\bigr).
+\]</span></p>
+<p>On obtient ainsi</p>
+<p><span class="math display">\[
+f(t)=\sum_{n\in\mathbb Z}f(n)
+\operatorname{sinc}\!\bigl(\pi(t-n)\bigr).
+\]</span></p>
+<p>Les sinus cardinaux jouent le rôle de fonctions d’interpolation,
+car</p>
+<p><span class="math display">\[
+\operatorname{sinc}\!\bigl(\pi(m-n)\bigr)=\delta_{mn}.
+\]</span></p>
+<p>La série reconstruite passe donc exactement par toutes les valeurs
+échantillonnées.</p>
+<h3 id="fréquence-de-nyquist">5. Fréquence de Nyquist</h3>
+<p>Plus généralement, si</p>
+<p><span class="math display">\[
+\operatorname{supp}(\widehat f)\subset[-B,B]
+\]</span></p>
+<p>et si l’on échantillonne avec un pas <span
+class="math inline">\(T\)</span>, donc à la fréquence <span
+class="math inline">\(F_e=1/T\)</span>, les copies du spectre sont
+espacées de <span class="math inline">\(F_e\)</span>. Elles ne se
+chevauchent pas lorsque</p>
+<p><span class="math display">\[
+F_e\ge 2B.
+\]</span></p>
+<p>C’est la condition de Nyquist–Shannon. À la fréquence critique <span
+class="math inline">\(F_e=2B\)</span>, la reconstruction s’écrit</p>
+<p><span class="math display">\[
+f(t)=
+\sum_{n\in\mathbb Z}f(nT)
+\operatorname{sinc}\!\left(\pi\left(\frac{t}{T}-n\right)\right).
+\]</span></p>
+<p>La chaîne logique à retenir est donc</p>
+<p><span class="math display">\[
+\boxed{
+\text{échantillonnage}
+\xrightarrow{\text{Poisson}}
+\text{copies périodiques du spectre}
+\xrightarrow{\text{absence de chevauchement}}
+\text{reconstruction par Shannon}.}
+\]</span></p>
+<p>La lecture hilbertienne <span
+class="math inline">\(PW_{1/2}\simeq\ell^2(\mathbb Z)\)</span>, donnée
+plus loin, formalise finalement que le signal à bande limitée et la
+suite de ses échantillons contiennent exactement la même
+information.</p>
 <h2 id="convention-et-énoncé">Convention et énoncé</h2>
 <p>Pour <span class="math inline">\(f\in L^1(\mathbb R)\)</span>, on
 pose</p>
