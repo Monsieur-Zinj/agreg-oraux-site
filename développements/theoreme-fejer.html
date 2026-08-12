@@ -1,0 +1,269 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Développement — Théorème de Fejér</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css?v=2394f0dea55e" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title"><a href="theoreme-fejer.html">Développement — Théorème de Fejér</a></h1>
+</header>
+<h1 id="développement-théorème-de-fejér">Développement — Théorème de
+Fejér</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../index/developpements.html">← Index des développements</a> ·
+<a href="../index/lecons.html">Leçons</a> · <a
+href="../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../index/recasages/theoreme-fejer.html">Recasage détaillé</a> · <a
+href="../index.html">Accueil</a></p>
+<h2 id="position-dans-le-graphe">Position dans le graphe</h2>
+<p>Ce développement transforme les moyennes de Cesàro des sommes
+partielles de Fourier en convolution par un noyau positif. La
+positivité, la masse unité et la concentration du noyau de Fejér donnent
+alors une approximation de l’identité sur le cercle. Il relie ainsi
+séries de Fourier, convergence uniforme et approximation par polynômes
+trigonométriques.</p>
+<h2 id="énoncé">Énoncé</h2>
+<p>Soit <span class="math inline">\(f:\mathbb R\to\mathbb C\)</span>
+continue et <span class="math inline">\(2\pi\)</span>-périodique. On
+pose</p>
+<p><span class="math display">\[
+c_k(f)=\frac1{2\pi}\int_{-\pi}^{\pi}f(t)e^{-ikt}\,dt,
+\qquad
+S_n(f)=\sum_{k=-n}^{n}c_k(f)e_k,
+\quad e_k(t)=e^{ikt},
+\]</span></p>
+<p>et la moyenne de Cesàro</p>
+<p><span class="math display">\[
+\sigma_n(f)=\frac1{n+1}\sum_{j=0}^{n}S_j(f).
+\]</span></p>
+<p>Alors</p>
+<p><span class="math display">\[
+\boxed{\|\sigma_n(f)-f\|_\infty\longrightarrow0.}
+\]</span></p>
+<p>En particulier, les polynômes trigonométriques sont denses dans <span
+class="math inline">\(C(\mathbb T)\)</span> pour la norme uniforme.</p>
+<h2 id="prérequis">Prérequis</h2>
+<ul>
+<li>coefficients et sommes partielles de Fourier ;</li>
+<li>somme géométrique complexe ;</li>
+<li>continuité uniforme d’une fonction continue sur le cercle compact
+;</li>
+<li>convolution périodique ;</li>
+<li>principe d’approximation de l’identité.</li>
+</ul>
+<h2 id="preuve-détaillée">Preuve détaillée</h2>
+<h3 id="écriture-comme-convolution">1. Écriture comme convolution</h3>
+<p>Le noyau de Dirichlet est</p>
+<p><span class="math display">\[
+D_j(y)=\sum_{k=-j}^{j}e^{iky}.
+\]</span></p>
+<p>Comme la somme est finie,</p>
+<p><span class="math display">\[
+S_j(f)(t)=\frac1{2\pi}\int_{-\pi}^{\pi}f(t-y)D_j(y)\,dy.
+\]</span></p>
+<p>En moyennant de <span class="math inline">\(j=0\)</span> à <span
+class="math inline">\(n\)</span>, on obtient</p>
+<p><span class="math display">\[
+\sigma_n(f)(t)=\frac1{2\pi}\int_{-\pi}^{\pi}f(t-y)F_n(y)\,dy,
+\]</span></p>
+<p>où</p>
+<p><span class="math display">\[
+F_n(y)=\frac1{n+1}\sum_{j=0}^{n}D_j(y)
+\]</span></p>
+<p>est le noyau de Fejér.</p>
+<h3 id="formule-explicite-et-positivité">2. Formule explicite et
+positivité</h3>
+<p>Pour <span class="math inline">\(y\notin2\pi\mathbb Z\)</span>, une
+somme géométrique donne</p>
+<p><span class="math display">\[
+\sum_{k=0}^{n}e^{iky}
+=e^{iny/2}\frac{\sin((n+1)y/2)}{\sin(y/2)}.
+\]</span></p>
+<p>En réordonnant la double somme définissant <span
+class="math inline">\(F_n\)</span>, ou en développant le carré du
+module, on trouve</p>
+<p><span class="math display">\[
+\boxed{F_n(y)=\frac1{n+1}
+\left(\frac{\sin((n+1)y/2)}{\sin(y/2)}\right)^2.}
+\]</span></p>
+<p>La valeur en <span class="math inline">\(0\)</span> est obtenue par
+continuité : <span class="math inline">\(F_n(0)=n+1\)</span>. Ainsi
+<span class="math inline">\(F_n\ge0\)</span>.</p>
+<h3 id="masse-unité">3. Masse unité</h3>
+<p>Dans l’expression</p>
+<p><span class="math display">\[
+F_n(y)=\sum_{|k|\le n}\left(1-\frac{|k|}{n+1}\right)e^{iky},
+\]</span></p>
+<p>seul le coefficient constant contribue à l’intégrale sur une période.
+Donc</p>
+<p><span class="math display">\[
+\boxed{\frac1{2\pi}\int_{-\pi}^{\pi}F_n(y)\,dy=1.}
+\]</span></p>
+<h3 id="concentration-au-voisinage-de-zéro">4. Concentration au
+voisinage de zéro</h3>
+<p>Fixons <span class="math inline">\(0&lt;\delta&lt;\pi\)</span>. Pour
+<span class="math inline">\(\delta\le |y|\le\pi\)</span>,</p>
+<p><span class="math display">\[
+F_n(y)
+\le \frac1{(n+1)\sin^2(\delta/2)}.
+\]</span></p>
+<p>Par conséquent,</p>
+<p><span class="math display">\[
+\frac1{2\pi}\int_{\delta\le|y|\le\pi}F_n(y)\,dy
+\le\frac1{(n+1)\sin^2(\delta/2)}
+\longrightarrow0.
+\]</span></p>
+<p>Les trois propriétés <span class="math inline">\(F_n\ge0\)</span>,
+masse unité et concentration montrent que <span
+class="math inline">\((F_n)\)</span> est une approximation de l’identité
+sur <span class="math inline">\(\mathbb T\)</span>.</p>
+<h3 id="convergence-uniforme">5. Convergence uniforme</h3>
+<p>Grâce à la masse unité,</p>
+<p><span class="math display">\[
+\sigma_n(f)(t)-f(t)
+=\frac1{2\pi}\int_{-\pi}^{\pi}
+\bigl(f(t-y)-f(t)\bigr)F_n(y)\,dy.
+\]</span></p>
+<p>Soit <span class="math inline">\(\varepsilon&gt;0\)</span>. La
+continuité uniforme de <span class="math inline">\(f\)</span> fournit
+<span class="math inline">\(0&lt;\delta&lt;\pi\)</span> tel que</p>
+<p><span class="math display">\[
+|y|&lt;\delta\Longrightarrow
+|f(t-y)-f(t)|&lt;\varepsilon
+\quad\text{pour tout }t.
+\]</span></p>
+<p>On scinde l’intégrale :</p>
+<p><span class="math display">\[
+|\sigma_n(f)(t)-f(t)|
+\le \varepsilon
++2\|f\|_\infty\frac1{2\pi}
+\int_{\delta\le|y|\le\pi}F_n(y)\,dy.
+\]</span></p>
+<p>Le second terme tend vers <span class="math inline">\(0\)</span>
+indépendamment de <span class="math inline">\(t\)</span>. Ainsi</p>
+<p><span class="math display">\[
+\limsup_{n\to\infty}\|\sigma_n(f)-f\|_\infty\le\varepsilon.
+\]</span></p>
+<p>Comme <span class="math inline">\(\varepsilon\)</span> est
+arbitraire, le théorème est démontré.</p>
+<h2 id="corollaires-et-variantes">Corollaires et variantes</h2>
+<h3 id="densité-et-unicité">Densité et unicité</h3>
+<p>Chaque <span class="math inline">\(\sigma_n(f)\)</span> est un
+polynôme trigonométrique. Fejér prouve donc leur densité dans <span
+class="math inline">\(C(\mathbb T)\)</span>. Si tous les coefficients de
+Fourier de <span class="math inline">\(f\)</span> sont nuls, alors <span
+class="math inline">\(\sigma_n(f)=0\)</span> pour tout <span
+class="math inline">\(n\)</span>, donc <span
+class="math inline">\(f=0\)</span> : les coefficients déterminent une
+fonction continue.</p>
+<h3 id="version-lp">Version <span
+class="math inline">\(L^p\)</span></h3>
+<p>Pour <span class="math inline">\(1\le p&lt;\infty\)</span>, la
+continuité des translations dans <span class="math inline">\(L^p(\mathbb
+T)\)</span> permet de reprendre l’argument et d’obtenir <span
+class="math inline">\(\sigma_n(f)\to f\)</span> dans <span
+class="math inline">\(L^p\)</span>.</p>
+<h2 id="durée-cible-15-minutes">Durée cible : 15 minutes</h2>
+<ul>
+<li>0:00–2:30 — énoncé, sommes de Fourier et moyenne de Cesàro ;</li>
+<li>2:30–5:00 — écriture en convolution ;</li>
+<li>5:00–9:00 — formule du noyau, positivité et masse ;</li>
+<li>9:00–11:00 — concentration hors de <span
+class="math inline">\(0\)</span> ;</li>
+<li>11:00–14:00 — découpage de l’intégrale et convergence uniforme
+;</li>
+<li>14:00–15:00 — densité ou unicité des coefficients.</li>
+</ul>
+<p>À ne pas sacrifier : la masse unité, la concentration uniforme hors
+de zéro et le découpage <span
+class="math inline">\(|y|&lt;\delta\)</span> / <span
+class="math inline">\(|y|\ge\delta\)</span>.</p>
+<h2 id="points-sensibles-à-loral">Points sensibles à l’oral</h2>
+<ul>
+<li>Les sommes partielles <span class="math inline">\(S_n(f)\)</span> ne
+convergent pas uniformément pour toute fonction continue ; ce sont leurs
+moyennes de Cesàro qui convergent.</li>
+<li><span class="math inline">\(F_n\)</span> est une approximation de
+l’identité sur le cercle, pas directement pour la convolution sur <span
+class="math inline">\(\mathbb R\)</span>.</li>
+<li>Écrire correctement <span class="math inline">\(F_n(0)=n+1\)</span>
+; la formule avec le quotient de sinus vaut d’abord hors de <span
+class="math inline">\(2\pi\mathbb Z\)</span>.</li>
+<li>La positivité est essentielle pour majorer l’intégrale sans valeur
+absolue du noyau.</li>
+<li>La concentration doit être uniforme sur <span
+class="math inline">\([-\pi,-\delta]\cup[\delta,\pi]\)</span>.</li>
+<li>Préciser que la périodicité permet de remplacer l’intervalle
+d’intégration après le changement de variable.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Pourquoi les noyaux de Dirichlet ne donnent-ils pas le même argument
+?</li>
+<li>Démontrer la formule explicite du noyau de Fejér.</li>
+<li>Où utilise-t-on la compacité du cercle ?</li>
+<li>Comment déduire l’unicité d’une fonction continue à partir de ses
+coefficients ?</li>
+<li>Quelle version subsiste dans <span
+class="math inline">\(L^p\)</span> ?</li>
+<li>Peut-on estimer la vitesse de convergence avec le module de
+continuité de <span class="math inline">\(f\)</span> ?</li>
+</ul>
+<h2 id="source">Source</h2>
+<ul>
+<li>Page de référence : <a
+href="https://agreg-maths.fr/ressources/references/371"
+class="uri">https://agreg-maths.fr/ressources/references/371</a>.</li>
+<li>Développement : <a href="https://agreg-maths.fr/developpements/265"
+class="uri">https://agreg-maths.fr/developpements/265</a>.</li>
+<li>Version choisie : « Théorème de Féjèr », version 2080, 3 pages.</li>
+<li>Référence indiquée : El Amrani, <em>Suites et séries numériques.
+Suites et séries de fonctions</em>, p. 409.</li>
+<li>Copie locale :
+<code>raw data/développements/fejer-2080.pdf</code>.</li>
+<li>Extraction :
+<code>raw data/développements/fejer-2080-extraction-brute.txt</code>,
+lignes 1–<a href="../alg%C3%A8bre/le%C3%A7ons/190-methodes-combinatoires-problemes-de-denombrement.html">190</a>.</li>
+<li>SHA-256 du PDF :
+<code>abb30bc6b25781210dd7145a62bf28c43e0c5369b19db1b972a2edb78b947854</code>.</li>
+<li>SHA-256 de l’extraction :
+<code>4be022f87f732bd9b9b00f89ca3c0d334f4db418dcdfbe30ed1f4002c331ee06</code>.</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Chronométrer la preuve complète au
+tableau.</label></li>
+<li><label><input type="checkbox" />Préparer la démonstration en une
+minute de l’unicité des coefficients.</label></li>
+<li><label><input type="checkbox" />Savoir adapter l’argument à <span
+class="math inline">\(L^p(\mathbb T)\)</span>.</label></li>
+<li><label><input type="checkbox" />Relier la vitesse de convergence au
+module de continuité.</label></li>
+</ul>
+</body>
+</html>
