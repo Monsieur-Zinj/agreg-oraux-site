@@ -1,0 +1,294 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Leçon 218 — Formules de Taylor. Exemples et applications</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css?v=2394f0dea55e" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Leçon <a href="218-formules-de-taylor-exemples-applications.html">218</a> — Formules de Taylor. Exemples et
+applications</h1>
+</header>
+<h1 id="leçon-218-formules-de-taylor.-exemples-et-applications">Leçon
+<a href="218-formules-de-taylor-exemples-applications.html">218</a> — Formules de Taylor. Exemples et applications</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../../index/lecons.html">← Index des leçons</a> · <a
+href="../../index/developpements.html">Développements</a> · <a
+href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="rôle-dans-le-graphe">Rôle dans le graphe</h2>
+<p>Organiser les différentes formules de Taylor, leurs hypothèses et
+leurs restes, puis montrer comment elles transforment une information
+différentielle locale en approximation quantitative. La leçon doit
+articuler calcul local, relations de comparaison et applications en
+analyse, géométrie, probabilités et calcul numérique.</p>
+<h2 id="attendus-du-jury-à-garder-en-tête">Attendus du jury à garder en
+tête</h2>
+<p>D’après le rapport 2025 :</p>
+<ul>
+<li>connaître les différentes formules de Taylor en une et plusieurs
+variables, leurs différences et leurs domaines d’emploi ;</li>
+<li>faire des applications le cœur de la leçon, de la géométrie
+jusqu’aux probabilités, notamment le théorème central limite ;</li>
+<li>analyser réellement le terme de reste et maîtriser les notations
+<span class="math inline">\(o\)</span> et <span
+class="math inline">\(O\)</span> ;</li>
+<li>connaître le lien — et l’absence d’équivalence générale — entre
+développement limité d’ordre <span class="math inline">\(n\)</span> et
+existence d’une dérivée <span class="math inline">\(n\)</span>-ième
+;</li>
+<li>expliquer comment le contrôle des dérivées successives permet
+d’établir l’analyticité ;</li>
+<li>réserver aux ouvertures maîtrisées le lemme de Morse, les méthodes
+de Laplace, du col ou de phase stationnaire, et l’intégration
+numérique.</li>
+</ul>
+<h2 id="plan-possible-squelette">Plan possible — squelette</h2>
+<h3 id="formules-en-une-variable-et-choix-du-reste">1. Formules en une
+variable et choix du reste</h3>
+<ul>
+<li>Taylor avec reste de Peano : information asymptotique locale ;</li>
+<li>Taylor avec reste intégral : contrôle quantitatif et changement
+d’ordre intégrale–somme finie ;</li>
+<li>Taylor–Lagrange : majoration simple du reste ;</li>
+<li>Taylor–Young et développements limités ;</li>
+<li>comparaison précise des hypothèses et conclusions.</li>
+</ul>
+<h3 id="calculs-locaux-et-applications-élémentaires">2. Calculs locaux
+et applications élémentaires</h3>
+<ul>
+<li>équivalents et développements asymptotiques ;</li>
+<li>étude locale du signe et position par rapport à une tangente ;</li>
+<li>prolongements et calculs de limites ;</li>
+<li>caractère analytique sous contrôle uniforme des dérivées ;</li>
+<li>contre-exemple <span class="math inline">\(C^\infty\)</span> mais
+non analytique.</li>
+</ul>
+<h3 id="plusieurs-variables">3. Plusieurs variables</h3>
+<ul>
+<li>formule le long du segment <span class="math inline">\(t\mapsto
+f(a+th)\)</span> ;</li>
+<li>développement d’ordre deux</li>
+</ul>
+<p><span class="math display">\[
+f(a+h)=f(a)+df(a)h+\frac12d^2f(a)(h,h)+o(\|h\|^2) ;
+\]</span></p>
+<ul>
+<li>espace tangent, position locale d’une surface ;</li>
+<li>points critiques, Hessienne et extrema locaux ;</li>
+<li>ouverture vers le lemme de Morse.</li>
+</ul>
+<h3 id="applications-structurantes">4. Applications structurantes</h3>
+<ul>
+<li>théorème central limite par développement de Taylor de la fonction
+caractéristique ;</li>
+<li>méthode de Laplace ;</li>
+<li>erreurs des méthodes des rectangles et du trapèze ;</li>
+<li>approximation locale et méthodes numériques.</li>
+</ul>
+<h2 id="développement-actuel-recommandé">Développement actuel
+recommandé</h2>
+<p><a
+href="../../d%C3%A9veloppements/theoreme-levy-tcl-application.html">Théorème de
+Lévy, théorème central limite et application</a> — recasage 4/5.</p>
+<p>Orientation : annoncer le théorème de Lévy, puis mettre au premier
+plan les deux développements</p>
+<p><span class="math display">\[
+\Phi_X(h)=1-\frac{h^2}{2}+o(h^2)
+\]</span></p>
+<p>pour une variable centrée réduite, et</p>
+<p><span class="math display">\[
+\operatorname{Log}(1+z)=z+o(z).
+\]</span></p>
+<p>Ils conduisent à</p>
+<p><span class="math display">\[
+\left[\Phi_X\left(\frac{t}{\sqrt n}\right)\right]^n
+\longrightarrow e^{-t^2/2}.
+\]</span></p>
+<p>Le jury cite explicitement le TCL comme application des formules de
+Taylor. Pour que le recasage reste centré sur la leçon, ne pas consacrer
+l’essentiel du temps à la preuve technique de Lévy et expliquer
+soigneusement la composition des restes.</p>
+<h2 id="notions-liées">Notions liées</h2>
+<ul>
+<li>[[Formule de Taylor avec reste intégral]]</li>
+<li>[[Formule de Taylor-Lagrange]]</li>
+<li>[[Formule de Taylor-Young]]</li>
+<li>[[Développement limité]]</li>
+<li>[[Relations de comparaison]]</li>
+<li>[[Fonction analytique]]</li>
+<li>[[Hessienne]]</li>
+<li>[[Théorème central limite]]</li>
+</ul>
+<h2 id="leçons-liées">Leçons liées</h2>
+<ul>
+<li>[[Leçon 215 — Applications différentiables sur un ouvert de
+Rn]]</li>
+<li>[[Leçon 219 — Extremums]]</li>
+<li><a
+href="228-continuite-derivabilite-fonctions-reelles-une-variable.html">Leçon
+228 — Continuité et dérivabilité</a></li>
+<li>[[Leçon 224 — Développements asymptotiques]]</li>
+<li><a href="239-fonctions-definies-par-integrale-parametre.html">Leçon
+239 — Intégrales dépendant d’un paramètre</a></li>
+<li><a href="250-transformation-de-fourier-applications.html">Leçon 250 —
+Transformation de Fourier</a></li>
+<li><a
+href="262-convergences-variables-aleatoires-theoremes-limite.html">Leçon
+262 — Convergences de variables aléatoires</a></li>
+</ul>
+<h2 id="résultats-clés-à-maîtriser">Résultats clés à maîtriser</h2>
+<h3 id="taylor-avec-reste-intégral">Taylor avec reste intégral</h3>
+<p>Si <span class="math inline">\(f\in C^{n+1}([a,x])\)</span>,</p>
+<p><span class="math display">\[
+f(x)=\sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(x-a)^k
++\frac1{n!}\int_a^x f^{(n+1)}(t)(x-t)^n\,dt.
+\]</span></p>
+<h3 id="taylorlagrange">Taylor–Lagrange</h3>
+<p>Sous les hypothèses adaptées, il existe <span
+class="math inline">\(\xi\)</span> entre <span
+class="math inline">\(a\)</span> et <span
+class="math inline">\(x\)</span> tel que</p>
+<p><span class="math display">\[
+f(x)=\sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(x-a)^k
++\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{n+1}.
+\]</span></p>
+<p>Cette formule donne notamment</p>
+<p><span class="math display">\[
+|R_n(x)|\le
+\frac{\sup_{[a,x]}|f^{(n+1)}|}{(n+1)!}|x-a|^{n+1}.
+\]</span></p>
+<h3 id="tayloryoung">Taylor–Young</h3>
+<p>Si <span class="math inline">\(f\)</span> est <span
+class="math inline">\(n\)</span> fois dérivable en <span
+class="math inline">\(a\)</span>, alors</p>
+<p><span class="math display">\[
+f(a+h)=\sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}h^k+o(h^n).
+\]</span></p>
+<p>Attention : posséder un développement limité d’ordre <span
+class="math inline">\(n\)</span> n’implique pas en général être <span
+class="math inline">\(n\)</span> fois dérivable. Par exemple,</p>
+<p><span class="math display">\[
+f(x)=x^3\sin(1/x^2),\qquad f(0)=0,
+\]</span></p>
+<p>satisfait <span class="math inline">\(f(x)=o(x^2)\)</span>, donc
+possède un développement limité d’ordre deux en zéro, mais n’est même
+pas dérivable sur un voisinage ponctué avec un comportement régulier
+jusqu’à l’ordre deux en zéro.</p>
+<h3 id="formule-en-plusieurs-variables">Formule en plusieurs
+variables</h3>
+<p>Pour <span class="math inline">\(f\in C^2\)</span> au voisinage de
+<span class="math inline">\(a\)</span>,</p>
+<p><span class="math display">\[
+f(a+h)=f(a)+\langle\nabla f(a),h\rangle
++\frac12\langle \nabla^2f(a)h,h\rangle
++o(\|h\|^2).
+\]</span></p>
+<p>Au voisinage d’un point critique, la signature de la Hessienne
+fournit des conditions suffisantes d’extremum strict lorsque la forme
+quadratique est définie.</p>
+<h2 id="exemples-à-préparer">Exemples à préparer</h2>
+<ul>
+<li>développements de <span class="math inline">\(e^x\)</span>, <span
+class="math inline">\(\log(1+x)\)</span>, <span
+class="math inline">\((1+x)^\alpha\)</span>, <span
+class="math inline">\(\sin x\)</span> et <span
+class="math inline">\(\cos x\)</span>, avec domaines et restes ;</li>
+<li>comparaison de <span class="math inline">\(e^x\)</span> avec sa
+tangente et ses polynômes de Taylor ;</li>
+<li>fonction plate</li>
+</ul>
+<p><span class="math display">\[
+f(x)=
+\begin{cases}
+e^{-1/x^2},&amp;x\ne0,\\0,&amp;x=0,
+\end{cases}
+\]</span></p>
+<p>qui est <span class="math inline">\(C^\infty\)</span>, dont toutes
+les dérivées en zéro sont nulles, mais qui n’est pas analytique en zéro
+; - classification locale d’un point critique par la Hessienne ; - TCL
+par fonctions caractéristiques ; - erreur de la méthode du trapèze sous
+contrôle de <span class="math inline">\(f&#39;&#39;\)</span>.</p>
+<h2 id="pièges-et-points-de-vigilance">Pièges et points de
+vigilance</h2>
+<ul>
+<li>Toujours annoncer le point de développement, l’ordre et le sens du
+reste.</li>
+<li>Ne pas écrire <span class="math inline">\(o(h^n)\)</span> sans
+préciser la variable et la limite.</li>
+<li>Distinguer reste exact, reste majoré et reste asymptotique.</li>
+<li>Un développement limité peut exister sans toutes les dérivées
+suggérées par le polynôme.</li>
+<li><span class="math inline">\(C^\infty\)</span> n’implique pas
+analytique ; il faut contrôler les restes uniformément.</li>
+<li>En plusieurs variables, <span
+class="math inline">\(d^2f(a)(h,h)\)</span> est une forme quadratique,
+pas le produit naïf d’une « dérivée seconde » par <span
+class="math inline">\(h^2\)</span>.</li>
+<li>Une Hessienne semi-définie ne suffit généralement pas à conclure à
+un extremum.</li>
+<li>Dans le TCL, justifier la dérivabilité de <span
+class="math inline">\(\Phi_X\)</span> par les moments et la dérivation
+sous l’intégrale.</li>
+<li>Pour le logarithme complexe, préciser pourquoi les valeurs restent
+dans un voisinage de <span class="math inline">\(1\)</span> où une
+branche est définie.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Comparer précisément Taylor–Lagrange, Taylor avec reste intégral et
+Taylor–Young.</li>
+<li>Donner une fonction possédant un développement limité d’ordre deux
+mais qui n’est pas deux fois dérivable.</li>
+<li>Donner une fonction <span class="math inline">\(C^\infty\)</span>
+non analytique.</li>
+<li>Comment obtenir une formule de Taylor en plusieurs variables à
+partir du cas d’une variable ?</li>
+<li>Que peut-on conclure lorsque la Hessienne est définie positive ?
+Semi-définie ? Indéfinie ?</li>
+<li>Où les formules de Taylor interviennent-elles exactement dans la
+preuve du TCL ?</li>
+<li>Comment contrôler le reste dans le développement de la fonction
+caractéristique ?</li>
+<li>Déduire une erreur d’intégration numérique d’une formule de
+Taylor.</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Préparer une table « formule /
+hypothèses / forme du reste / usage ».</label></li>
+<li><label><input type="checkbox" />Choisir deux contre-exemples sur
+dérivabilité, développement limité et analyticité.</label></li>
+<li><label><input type="checkbox" />Préparer une application géométrique
+en plusieurs variables avec dessin.</label></li>
+<li><label><input type="checkbox" />Chronométrer la version TCL centrée
+sur les deux développements limités.</label></li>
+<li><label><input type="checkbox" />Préparer une application
+quantitative à l’intégration numérique.</label></li>
+</ul>
+</body>
+</html>
