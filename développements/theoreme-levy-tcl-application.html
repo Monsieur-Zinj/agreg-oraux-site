@@ -1,0 +1,525 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Développement — Théorème de Lévy, théorème central limite et application</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css?v=2394f0dea55e" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Développement — Théorème de Lévy, théorème central
+limite et application</h1>
+</header>
+<h1
+id="développement-théorème-de-lévy-théorème-central-limite-et-application">Développement
+— <a href="theoreme-levy-tcl-application.html">Théorème de Lévy, théorème central limite et application</a></h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../index/developpements.html">← Index des développements</a> ·
+<a href="../index/lecons.html">Leçons</a> · <a
+href="../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../index/recasages/theoreme-levy-tcl-application.html">Recasage
+détaillé</a> · <a href="../index.html">Accueil</a></p>
+<h2 id="position-dans-le-graphe">Position dans le graphe</h2>
+<p>Ce développement fait de la fonction caractéristique le pont entre
+analyse de Fourier et probabilités :</p>
+<p><span class="math display">\[
+\boxed{
+\text{indépendance}
+\Longrightarrow
+\text{produit des fonctions caractéristiques}
+\Longrightarrow
+\text{limite gaussienne}
+\Longrightarrow
+\text{convergence en loi}.}
+\]</span></p>
+<p>Il contient trois blocs cohérents :</p>
+<ol type="1">
+<li>le théorème de continuité de Lévy lorsque la fonction
+caractéristique limite est déjà celle d’une variable aléatoire ;</li>
+<li>la preuve du théorème central limite par fonctions caractéristiques
+;</li>
+<li>une application statistique : un intervalle de confiance
+asymptotique pour un paramètre de Bernoulli.</li>
+</ol>
+<p>Pour tenir en quinze minutes, il faut annoncer le lemme de
+caractérisation de la convergence en loi, démontrer le cœur Fourier du
+théorème de Lévy, puis privilégier le TCL. L’application statistique
+peut être gardée comme conclusion brève ou comme variante selon la
+leçon.</p>
+<h2 id="conventions-et-prérequis">Conventions et prérequis</h2>
+<p>Pour une variable aléatoire réelle <span
+class="math inline">\(X\)</span>, on note</p>
+<p><span class="math display">\[
+\Phi_X(t)=\mathbb E(e^{itX})
+=\int_{\mathbb R}e^{itx}\,dP_X(x)
+\]</span></p>
+<p>sa fonction caractéristique. On utilise la convention</p>
+<p><span class="math display">\[
+\widehat\varphi(t)=\int_{\mathbb R}\varphi(x)e^{-itx}\,dx,
+\qquad
+\varphi(x)=\frac1{2\pi}\int_{\mathbb R}\widehat\varphi(t)e^{itx}\,dt.
+\]</span></p>
+<p>Prérequis à connaître ou à annoncer :</p>
+<ul>
+<li>caractérisation de la convergence en loi par les fonctions continues
+bornées ;</li>
+<li>densité de <span class="math inline">\(C_c^\infty(\mathbb
+R)\)</span> dans <span class="math inline">\(C_0(\mathbb R)\)</span>
+pour la norme uniforme ;</li>
+<li>inversion de Fourier sur <span class="math inline">\(\mathcal
+S(\mathbb R)\)</span> ;</li>
+<li>Fubini–Tonelli et convergence dominée ;</li>
+<li>lemme de Slutsky pour l’application statistique.</li>
+</ul>
+<h2 id="énoncés">Énoncés</h2>
+<h3 id="lemme-fonctions-tests-qui-sannulent-à-linfini">Lemme — fonctions
+tests qui s’annulent à l’infini</h3>
+<p>Pour des variables aléatoires réelles <span
+class="math inline">\((X_n)\)</span> et <span
+class="math inline">\(X\)</span>,</p>
+<p><span class="math display">\[
+X_n\xrightarrow{\mathcal L}X
+\quad\Longleftrightarrow\quad
+\forall\varphi\in C_0(\mathbb R),
+\quad
+\mathbb E[\varphi(X_n)]\longrightarrow\mathbb E[\varphi(X)].
+\]</span></p>
+<h3 id="théorème-de-lévy-version-utilisée">Théorème de Lévy — version
+utilisée</h3>
+<p><span class="math display">\[
+\boxed{
+X_n\xrightarrow{\mathcal L}X
+\quad\Longleftrightarrow\quad
+\forall t\in\mathbb R,
+\quad
+\Phi_{X_n}(t)\longrightarrow\Phi_X(t).}
+\]</span></p>
+<p>Cette version suppose que la limite est déjà identifiée comme la
+fonction caractéristique d’une variable <span
+class="math inline">\(X\)</span>. La forme plus générale du théorème de
+continuité de Lévy part d’une limite simple continue en <span
+class="math inline">\(0\)</span> et conclut simultanément à l’existence
+de la loi limite.</p>
+<h3 id="théorème-central-limite-de-lindeberglévy">Théorème central
+limite de Lindeberg–Lévy</h3>
+<p>Soient <span class="math inline">\((X_n)_{n\ge1}\)</span> des
+variables aléatoires réelles i.i.d. de carré intégrable. On pose</p>
+<p><span class="math display">\[
+\mu=\mathbb E(X_1),
+\qquad
+\sigma^2=\operatorname{Var}(X_1)&gt;0,
+\qquad
+\overline X_n=\frac1n\sum_{k=1}^nX_k.
+\]</span></p>
+<p>Alors</p>
+<p><span class="math display">\[
+\boxed{
+\sqrt n\,\frac{\overline X_n-\mu}{\sigma}
+\xrightarrow{\mathcal L}\mathcal N(0,1).}
+\]</span></p>
+<h2 id="preuve-détaillée">Preuve détaillée</h2>
+<h3 id="réduction-de-la-convergence-en-loi-à-c_0mathbb-r">1. Réduction
+de la convergence en loi à <span class="math inline">\(C_0(\mathbb
+R)\)</span></h3>
+<p>L’implication directe est immédiate puisque <span
+class="math inline">\(C_0(\mathbb R)\subset C_b(\mathbb R)\)</span>.</p>
+<p>Réciproquement, supposons la convergence des espérances pour toute
+fonction de <span class="math inline">\(C_0(\mathbb R)\)</span>, et
+fixons <span class="math inline">\(\varphi\in C_b(\mathbb R)\)</span>.
+Pour <span class="math inline">\(\varepsilon&gt;0\)</span>, choisissons
+<span class="math inline">\(A&gt;0\)</span> tel que</p>
+<p><span class="math display">\[
+\mathbb P(|X|\ge A)\le\varepsilon.
+\]</span></p>
+<p>Soit <span class="math inline">\(\psi\in C_c(\mathbb R)\)</span>
+telle que <span class="math inline">\(0\le\psi\le1\)</span>, <span
+class="math inline">\(\psi=1\)</span> sur <span
+class="math inline">\([-A,A]\)</span> et <span
+class="math inline">\(\psi=0\)</span> hors de <span
+class="math inline">\([-2A,2A]\)</span>. Comme <span
+class="math inline">\(\psi\in C_0\)</span>,</p>
+<p><span class="math display">\[
+\mathbb E[\psi(X_n)]\longrightarrow\mathbb E[\psi(X)].
+\]</span></p>
+<p>Or</p>
+<p><span class="math display">\[
+\mathbb E(1-\psi(X))\le\mathbb P(|X|\ge A)\le\varepsilon,
+\]</span></p>
+<p>et donc</p>
+<p><span class="math display">\[
+\limsup_n\mathbb E(1-\psi(X_n))\le\varepsilon.
+\]</span></p>
+<p>En décomposant <span
+class="math inline">\(\varphi=\varphi\psi+\varphi(1-\psi)\)</span>, avec
+<span class="math inline">\(\varphi\psi\in C_0\)</span>, on obtient</p>
+<p><span class="math display">\[
+\limsup_n
+\left|\mathbb E[\varphi(X_n)]-\mathbb E[\varphi(X)]\right|
+\le 2\varepsilon\|\varphi\|_\infty.
+\]</span></p>
+<p>Puisque <span class="math inline">\(\varepsilon\)</span> est
+arbitraire, la convergence vaut pour toute <span
+class="math inline">\(varphi\in C_b(\mathbb R)\)</span>.</p>
+<h3 id="théorème-de-lévy-sens-direct">2. Théorème de Lévy : sens
+direct</h3>
+<p>Si <span class="math inline">\(X_n\xrightarrow{\mathcal L}X\)</span>,
+alors, pour tout <span class="math inline">\(t\in\mathbb R\)</span>, la
+fonction <span class="math inline">\(x\mapsto e^{itx}\)</span> est
+continue et bornée. Ainsi</p>
+<p><span class="math display">\[
+\Phi_{X_n}(t)=\mathbb E(e^{itX_n})
+\longrightarrow
+\mathbb E(e^{itX})=\Phi_X(t).
+\]</span></p>
+<h3 id="théorème-de-lévy-cœur-fourier-de-la-réciproque">3. Théorème de
+Lévy : cœur Fourier de la réciproque</h3>
+<p>Supposons maintenant</p>
+<p><span class="math display">\[
+\forall t\in\mathbb R,
+\qquad
+\Phi_{X_n}(t)\longrightarrow\Phi_X(t).
+\]</span></p>
+<p>Fixons d’abord <span class="math inline">\(\varphi\in
+C_c^\infty(\mathbb R)\)</span>. Alors <span
+class="math inline">\(\varphi\in\mathcal S(\mathbb R)\)</span> et <span
+class="math inline">\(\widehat\varphi\in\mathcal S(\mathbb R)\subset
+L^1(\mathbb R)\)</span>. L’inversion de Fourier donne</p>
+<p><span class="math display">\[
+\varphi(x)=\frac1{2\pi}
+\int_{\mathbb R}\widehat\varphi(t)e^{itx}\,dt.
+\]</span></p>
+<p>Par Fubini,</p>
+<p><span class="math display">\[
+\mathbb E[\varphi(X_n)]
+=
+\frac1{2\pi}
+\int_{\mathbb R}\widehat\varphi(t)\Phi_{X_n}(t)\,dt.
+\]</span></p>
+<p>Comme <span class="math inline">\(|\Phi_{X_n}(t)|\le1\)</span>, on
+domine l’intégrande par</p>
+<p><span class="math display">\[
+\frac1{2\pi}|\widehat\varphi(t)|\in L^1(\mathbb R).
+\]</span></p>
+<p>La convergence dominée donne donc</p>
+<p><span class="math display">\[
+\mathbb E[\varphi(X_n)]
+\longrightarrow
+\frac1{2\pi}
+\int_{\mathbb R}\widehat\varphi(t)\Phi_X(t)\,dt
+=
+\mathbb E[\varphi(X)].
+\]</span></p>
+<p>Soit maintenant <span class="math inline">\(\varphi\in C_0(\mathbb
+R)\)</span>. Par densité, pour tout <span
+class="math inline">\(\varepsilon&gt;0\)</span>, il existe <span
+class="math inline">\(\widetilde\varphi\in C_c^\infty(\mathbb
+R)\)</span> telle que</p>
+<p><span class="math display">\[
+\|\varphi-\widetilde\varphi\|_\infty\le\varepsilon.
+\]</span></p>
+<p>Alors</p>
+<p><span class="math display">\[
+\begin{aligned}
+|\mathbb E[\varphi(X_n)]-\mathbb E[\varphi(X)]|
+&amp;\le
+2\varepsilon
++|\mathbb E[\widetilde\varphi(X_n)]-\mathbb E[\widetilde\varphi(X)]|.
+\end{aligned}
+\]</span></p>
+<p>Le dernier terme tend vers zéro. On conclut par le lemme précédent
+que</p>
+<p><span class="math display">\[
+X_n\xrightarrow{\mathcal L}X.
+\]</span></p>
+<h3 id="deux-propriétés-des-fonctions-caractéristiques">4. Deux
+propriétés des fonctions caractéristiques</h3>
+<p>Si <span class="math inline">\(X\in L^k\)</span>, alors on peut
+dériver sous l’intégrale jusqu’à l’ordre <span
+class="math inline">\(k\)</span>, car</p>
+<p><span class="math display">\[
+\left|\frac{\partial^k}{\partial t^k}e^{itx}\right|=|x|^k.
+\]</span></p>
+<p>Ainsi</p>
+<p><span class="math display">\[
+\Phi_X^{(k)}(t)=i^k\mathbb E(X^ke^{itX}),
+\qquad
+\Phi_X^{(k)}(0)=i^k\mathbb E(X^k).
+\]</span></p>
+<p>En particulier, si <span class="math inline">\(X\in L^2\)</span>,</p>
+<p><span class="math display">\[
+\Phi_X&#39;(0)=i\mathbb E(X),
+\qquad
+\Phi_X&#39;&#39;(0)=-\mathbb E(X^2).
+\]</span></p>
+<p>Par ailleurs, si <span class="math inline">\(X_1,\ldots,X_n\)</span>
+sont indépendantes, alors les variables <span
+class="math inline">\(e^{itX_j}\)</span> sont indépendantes et bornées ;
+par conséquent</p>
+<p><span class="math display">\[
+\boxed{
+\Phi_{X_1+\cdots+X_n}(t)
+=
+\prod_{j=1}^n\Phi_{X_j}(t).}
+\]</span></p>
+<p>C’est ici que l’indépendance transforme la convolution des lois en
+produit de leurs transformées de Fourier.</p>
+<h3 id="preuve-du-théorème-central-limite">5. Preuve du théorème central
+limite</h3>
+<p>Après avoir remplacé chaque <span class="math inline">\(X_k\)</span>
+par <span class="math inline">\((X_k-\mu)/\sigma\)</span>, on peut
+supposer</p>
+<p><span class="math display">\[
+\mathbb E(X_1)=0,
+\qquad
+\mathbb E(X_1^2)=1.
+\]</span></p>
+<p>Posons</p>
+<p><span class="math display">\[
+Y_n=\frac{X_1+\cdots+X_n}{\sqrt n}.
+\]</span></p>
+<p>La formule précédente et l’identité en loi des <span
+class="math inline">\(X_k\)</span> donnent, pour tout <span
+class="math inline">\(t\in\mathbb R\)</span>,</p>
+<p><span class="math display">\[
+\Phi_{Y_n}(t)
+=
+\left[
+\Phi_{X_1}\left(\frac t{\sqrt n}\right)
+\right]^n.
+\]</span></p>
+<p>Comme <span class="math inline">\(\Phi_{X_1}\)</span> est deux fois
+dérivable en zéro,</p>
+<p><span class="math display">\[
+\Phi_{X_1}(h)
+=
+1+ih\mathbb E(X_1)-\frac{h^2}{2}\mathbb E(X_1^2)+o(h^2)
+=
+1-\frac{h^2}{2}+o(h^2).
+\]</span></p>
+<p>Pour <span class="math inline">\(h=t/\sqrt n\)</span>,</p>
+<p><span class="math display">\[
+\Phi_{X_1}\left(\frac t{\sqrt n}\right)
+=
+1-\frac{t^2}{2n}+o\left(\frac1n\right).
+\]</span></p>
+<p>On peut alors utiliser la détermination principale du logarithme
+complexe dans un voisinage de <span class="math inline">\(1\)</span>,
+puisque les termes précédents convergent vers <span
+class="math inline">\(1\)</span>. Comme</p>
+<p><span class="math display">\[
+\operatorname{Log}(1+z)=z+o(z),
+\qquad z\to0,
+\]</span></p>
+<p>on obtient</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Phi_{Y_n}(t)
+&amp;=
+\exp\left(
+n\operatorname{Log}
+\left[
+1-\frac{t^2}{2n}+o\left(\frac1n\right)
+\right]
+\right)\\
+&amp;\longrightarrow e^{-t^2/2}.
+\end{aligned}
+\]</span></p>
+<p>Or <span class="math inline">\(e^{-t^2/2}\)</span> est la fonction
+caractéristique de <span class="math inline">\(Z\sim\mathcal
+N(0,1)\)</span>. Le théorème de Lévy donne</p>
+<p><span class="math display">\[
+Y_n\xrightarrow{\mathcal L}Z,
+\]</span></p>
+<p>ce qui prouve le TCL.</p>
+<h2
+id="application-intervalle-de-confiance-asymptotique-de-bernoulli">Application
+— intervalle de confiance asymptotique de Bernoulli</h2>
+<p>Soient <span class="math inline">\(X_1,\ldots,X_n\)</span> i.i.d. de
+loi <span class="math inline">\(\mathcal B(p)\)</span>, où <span
+class="math inline">\(p\in(0,1)\)</span> est inconnu, et</p>
+<p><span class="math display">\[
+\overline X_n=\frac1n\sum_{k=1}^nX_k.
+\]</span></p>
+<p>Le TCL donne</p>
+<p><span class="math display">\[
+\sqrt n\,\frac{\overline X_n-p}{\sqrt{p(1-p)}}
+\xrightarrow{\mathcal L}\mathcal N(0,1).
+\]</span></p>
+<p>La loi forte des grands nombres entraîne</p>
+<p><span class="math display">\[
+\overline X_n(1-\overline X_n)
+\xrightarrow{\mathrm{p.s.}}p(1-p).
+\]</span></p>
+<p>Par le lemme de Slutsky,</p>
+<p><span class="math display">\[
+\sqrt n\,
+\frac{\overline X_n-p}
+{\sqrt{\overline X_n(1-\overline X_n)}}
+\xrightarrow{\mathcal L}\mathcal N(0,1).
+\]</span></p>
+<p>Si <span class="math inline">\(q\)</span> est le quantile d’ordre
+<span class="math inline">\(1-\alpha/2\)</span> de <span
+class="math inline">\(\mathcal N(0,1)\)</span>, alors</p>
+<p><span class="math display">\[
+\boxed{
+\left[
+\overline X_n-q\sqrt{\frac{\overline X_n(1-\overline X_n)}n},
+\quad
+\overline X_n+q\sqrt{\frac{\overline X_n(1-\overline X_n)}n}
+\right]}
+\]</span></p>
+<p>est un intervalle de confiance <strong>asymptotique</strong> de
+niveau <span class="math inline">\(1-\alpha\)</span> pour <span
+class="math inline">\(p\)</span>.</p>
+<p>Cet intervalle est l’intervalle de Wald. Il peut sortir de <span
+class="math inline">\([0,1]\)</span> et se comporte mal pour de petits
+échantillons ou lorsque <span class="math inline">\(p\)</span> est
+proche de <span class="math inline">\(0\)</span> ou de <span
+class="math inline">\(1\)</span> : il ne faut pas le présenter comme un
+intervalle exact.</p>
+<h2 id="durée-estimée-et-découpage-oral">Durée estimée et découpage
+oral</h2>
+<h3 id="version-recommandée-en-quinze-minutes">Version recommandée en
+quinze minutes</h3>
+<ul>
+<li>1 min 30 : conventions, énoncés du lemme et de Lévy ;</li>
+<li>4 min : preuve de Lévy sur <span
+class="math inline">\(C_c^\infty\)</span>, puis densité dans <span
+class="math inline">\(C_0\)</span> ;</li>
+<li>2 min : dérivation des fonctions caractéristiques et produit sous
+indépendance ;</li>
+<li>5 min : preuve du TCL ;</li>
+<li>2 min 30 : application de Bernoulli et avertissement sur
+l’intervalle de Wald.</li>
+</ul>
+<p>La preuve détaillée du lemme <span
+class="math inline">\(C_0\leftrightarrow C_b\)</span> est à connaître,
+mais peut être annoncée avec son argument de troncature si le temps est
+limité.</p>
+<h3 id="orientation-selon-la-leçon">Orientation selon la leçon</h3>
+<ul>
+<li><strong><a href="../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">250</a></strong> : développer intégralement l’inversion de
+Fourier, Fubini et la domination ; l’application statistique devient
+facultative.</li>
+<li><strong><a href="../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a></strong> : insister sur la caractérisation de la loi par
+<span class="math inline">\(\Phi_X\)</span>, la somme indépendante et la
+loi gaussienne.</li>
+<li><strong><a href="../analyse/le%C3%A7ons/262-convergences-variables-aleatoires-theoremes-limite.html">262</a></strong> : privilégier Lévy, le TCL, puis Slutsky et
+l’intervalle asymptotique.</li>
+<li><strong><a href="../analyse/le%C3%A7ons/266-independance-probabilites.html">266</a></strong> : mettre en évidence le seul passage qui
+utilise l’indépendance et expliquer convolution contre produit.</li>
+<li><strong><a href="../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a> ou <a href="../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">239</a></strong> : expliciter chaque Fubini, convergence
+dominée et dérivation sous l’intégrale.</li>
+</ul>
+<h2 id="points-sensibles-à-loral">Points sensibles à l’oral</h2>
+<ol type="1">
+<li><strong>Version exacte de Lévy.</strong> La preuve donnée suppose
+que la limite est <span class="math inline">\(\Phi_X\)</span>. Ne pas
+prétendre avoir prouvé la version générale « limite continue en zéro
+<span class="math inline">\(\Rightarrow\)</span> existence d’une loi
+».</li>
+<li><strong>Convention de Fourier.</strong> Le facteur <span
+class="math inline">\(2\pi\)</span> dépend de la convention ; l’annoncer
+avant l’inversion.</li>
+<li><strong>Fubini.</strong> La justification est <span
+class="math inline">\(\widehat\varphi\in L^1\)</span> et <span
+class="math inline">\(|e^{itX_n}|=1\)</span>.</li>
+<li><strong>Convergence dominée.</strong> Utiliser <span
+class="math inline">\(|\Phi_{X_n}|\le1\)</span>, donc le dominant <span
+class="math inline">\(|\widehat\varphi|/(2\pi)\)</span>.</li>
+<li><strong>Dérivation sous l’intégrale.</strong> Le moment d’ordre
+<span class="math inline">\(k\)</span> fournit le dominant <span
+class="math inline">\(|x|^k\)</span> pour la mesure <span
+class="math inline">\(P_X\)</span>.</li>
+<li><strong>Développement limité complexe.</strong> Expliquer pourquoi
+la branche principale de <span
+class="math inline">\(\operatorname{Log}\)</span> est définie près de
+<span class="math inline">\(1\)</span> ; on peut aussi citer directement
+le lemme <span class="math inline">\((1+a/n+o(1/n))^n\to e^a\)</span>
+dans <span class="math inline">\(\mathbb C\)</span>.</li>
+<li><strong>Fonction caractéristique gaussienne.</strong> Savoir
+retrouver <span class="math inline">\(e^{-t^2/2}\)</span>, par exemple
+grâce à une intégration par parties donnant une équation
+différentielle.</li>
+<li><strong>Intervalle asymptotique.</strong> Le niveau tend vers <span
+class="math inline">\(1-\alpha\)</span> ; il n’est pas égal à <span
+class="math inline">\(1-\alpha\)</span> pour tout <span
+class="math inline">\(n\)</span>.</li>
+<li><strong>Notation.</strong> Ne pas confondre <span
+class="math inline">\(X_n\)</span>, terme de la suite, et <span
+class="math inline">\(\overline X_n\)</span>, moyenne empirique ; la
+source emploie une notation visuellement ambiguë.</li>
+</ol>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Où intervient exactement l’indépendance ?</li>
+<li>Pourquoi une fonction caractéristique détermine-t-elle la loi ?</li>
+<li>Quelle différence y a-t-il entre la version démontrée de Lévy et sa
+version générale ?</li>
+<li>Pourquoi peut-on appliquer Fubini dans la preuve de Lévy ?</li>
+<li>Pourquoi <span class="math inline">\(\widehat\varphi\)</span>
+est-elle intégrable ?</li>
+<li>Comment calculer la fonction caractéristique de <span
+class="math inline">\(\mathcal N(0,1)\)</span> sans connaître
+l’intégrale de Fourier gaussienne ?</li>
+<li>Le TCL reste-t-il vrai sans hypothèse de variance finie ?</li>
+<li>Quel mode de convergence intervient dans le TCL ?</li>
+<li>Pourquoi Slutsky s’applique-t-il à la variance empirique de
+Bernoulli ?</li>
+<li>L’intervalle obtenu reste-t-il toujours inclus dans <span
+class="math inline">\([0,1]\)</span> ?</li>
+</ul>
+<h2 id="variantes-et-prolongements">Variantes et prolongements</h2>
+<ul>
+<li>théorème de continuité de Lévy dans sa forme générale ;</li>
+<li>formule de De Moivre–Laplace pour les lois binomiales ;</li>
+<li>vecteurs aléatoires et TCL dans <span class="math inline">\(\mathbb
+R^d\)</span> ;</li>
+<li>lois stables et infiniment divisibles ;</li>
+<li>correction de continuité et comparaison avec les intervalles de
+Wilson ou de Clopper–Pearson.</li>
+</ul>
+<h2 id="source-et-traçabilité">Source et traçabilité</h2>
+<p>Source fournie : <a
+href="https://agreg-maths.fr/uploads/versions/6928/Le%CC%81vy,%20TCL%20et%20applications">fiche
+agreg-maths.fr, version 6928</a>.</p>
+<ul>
+<li>PDF archivé :
+<code>raw data/développements/levy-tcl-et-applications.pdf</code> ;</li>
+<li>extraction texte :
+<code>raw data/développements/levy-tcl-et-applications.txt</code> ;</li>
+<li>contenu principal : lignes 11-277 de l’extraction ;</li>
+<li>SHA-256 du PDF :
+<code>888a4014912ce46185a514bcd954644155d4c2f282d80b3ae451b338bbd1f718</code>
+;</li>
+<li>SHA-256 du texte :
+<code>be24791793b8b1987f54108da1fd42dc9c7740590f7836b833f3e996e46a44e9</code>.</li>
+</ul>
+<p>La fiche source indique comme références : Zuily–Queffélec,
+<em>Analyse pour l’agrégation</em>, p. 542-545, et Bernis, <em>40
+développements</em>, p. 207-215.</p>
+</body>
+</html>
