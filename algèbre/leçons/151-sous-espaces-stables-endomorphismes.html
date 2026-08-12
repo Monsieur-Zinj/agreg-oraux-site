@@ -1,0 +1,143 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Leçon 151 — Sous-espaces stables par un endomorphisme ou une famille d’endomorphismes d’un espace vectoriel de dimension finie. Applications.</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css?v=2394f0dea55e" />
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Leçon <a href="151-sous-espaces-stables-endomorphismes.html">151</a> — Sous-espaces stables par un endomorphisme
+ou une famille d’endomorphismes d’un espace vectoriel de dimension
+finie. Applications.</h1>
+</header>
+<h1
+id="leçon-151-sous-espaces-stables-par-un-endomorphisme-ou-une-famille-dendomorphismes-dun-espace-vectoriel-de-dimension-finie.-applications.">Leçon
+<a href="151-sous-espaces-stables-endomorphismes.html">151</a> — Sous-espaces stables par un endomorphisme ou une famille
+d’endomorphismes d’un espace vectoriel de dimension finie.
+Applications.</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../../index/lecons.html">← Index des leçons</a> · <a
+href="../../index/lecons-utiles-pour-les-ecrits.html">Leçons utiles pour
+les écrits</a> · <a
+href="../../index/developpements.html">Développements</a> · <a
+href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="rôle-dans-le-graphe">Rôle dans le graphe</h2>
+<p>Leçon transversale de réduction : les sous-espaces stables permettent
+de décomposer un endomorphisme, d’étudier les familles commutantes et de
+relier polynômes d’endomorphisme, cyclicité, semi-simplicité et
+représentations.</p>
+<h2 id="attendus-du-jury-à-garder-en-tête">Attendus du jury à garder en
+tête</h2>
+<ul>
+<li>présenter des propriétés de l’ensemble des sous-espaces stables
+;</li>
+<li>traiter en détail au moins un cas, par exemple un endomorphisme
+diagonalisable ou un nilpotent d’indice maximal ;</li>
+<li>connaître les endomorphismes cycliques et semi-simples ;</li>
+<li>étudier les sous-espaces stables par une famille d’endomorphismes,
+notamment commutants ;</li>
+<li>proposer des applications : réduction des endomorphismes normaux,
+équations matricielles ou décomposition de Frobenius.</li>
+</ul>
+<h2 id="plan-possible-squelette">Plan possible — squelette</h2>
+<h3 id="stabilité-et-opérations-sur-les-sous-espaces">1. Stabilité et
+opérations sur les sous-espaces</h3>
+<p>Définitions, restrictions, quotients, sommes et intersections
+stables, matrices par blocs.</p>
+<h3 id="sous-espaces-stables-et-réduction">2. Sous-espaces stables et
+réduction</h3>
+<p>Sous-espaces propres et caractéristiques, lemme des noyaux, cas
+diagonalisable, cas nilpotent, cyclicité.</p>
+<h3 id="familles-dendomorphismes-et-applications">3. Familles
+d’endomorphismes et applications</h3>
+<p>Commutants, diagonalisation ou trigonalisation simultanée sous
+hypothèses, endomorphismes normaux, ouverture vers les
+représentations.</p>
+<h2 id="notions-liées">Notions liées</h2>
+<ul>
+<li>[[Sous-espace stable]]</li>
+<li>[[Endomorphisme cyclique]]</li>
+<li>[[Endomorphisme semi-simple]]</li>
+<li>[[Commutant]]</li>
+<li>[[Décomposition de Frobenius]]</li>
+</ul>
+<h2 id="leçons-liées">Leçons liées</h2>
+<ul>
+<li>[[Leçon <a href="150-polynomes-endomorphisme-reduction.html">150</a> — Polynômes d’endomorphisme et réduction]]</li>
+<li>[[Leçon <a href="152-endomorphismes-diagonalisables-dimension-finie.html">152</a> — Endomorphismes diagonalisables]]</li>
+<li>[[Leçon <a href="156-endomorphismes-trigonalisables-nilpotents.html">156</a> — Endomorphismes trigonalisables et nilpotents]]</li>
+<li>[[Leçon <a href="158-endomorphismes-remarquables-espace-euclidien.html">158</a> — Endomorphismes remarquables d’un espace
+euclidien]]</li>
+</ul>
+<h2 id="développements-possibles">Développements possibles</h2>
+<p>Aucun développement du dépôt n’est actuellement recommandé avec une
+note supérieure ou égale à 4.</p>
+<h2 id="résultats-clés-à-maîtriser">Résultats clés à maîtriser</h2>
+<ul>
+<li>stabilité de la somme et de l’intersection ;</li>
+<li>matrice par blocs associée à un sous-espace stable ;</li>
+<li>décomposition en sous-espaces caractéristiques ;</li>
+<li>restriction d’un endomorphisme diagonalisable à un sous-espace
+stable ;</li>
+<li>existence de vecteurs propres communs pour certaines familles
+commutantes.</li>
+</ul>
+<h2 id="exemples-à-préparer">Exemples à préparer</h2>
+<ul>
+<li>sous-espaces stables d’un endomorphisme à spectre simple ;</li>
+<li>nilpotent constitué d’un seul bloc de Jordan ;</li>
+<li>deux matrices commutantes ;</li>
+<li>décomposition primaire d’un endomorphisme.</li>
+</ul>
+<h2 id="pièges-et-points-de-vigilance">Pièges et points de
+vigilance</h2>
+<ul>
+<li>un supplémentaire d’un sous-espace stable n’est pas nécessairement
+stable ;</li>
+<li>distinguer stabilité par un endomorphisme et par toute une algèbre
+d’endomorphismes ;</li>
+<li>préciser les hypothèses sur le corps dans les résultats de réduction
+simultanée.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Décrire tous les sous-espaces stables d’un endomorphisme
+diagonalisable à valeurs propres distinctes.</li>
+<li>Quand un sous-espace stable admet-il un supplémentaire stable ?</li>
+<li>Que peut-on dire de deux endomorphismes diagonalisables qui
+commutent ?</li>
+<li>Caractériser les sous-espaces stables d’un nilpotent cyclique.</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Choisir deux développements
+compatibles.</label></li>
+<li><label><input type="checkbox" />Détailler un exemple complet dans
+les cas diagonalisable et nilpotent.</label></li>
+<li><label><input type="checkbox" />Ajouter une fiche notion sur les
+endomorphismes cycliques.</label></li>
+</ul>
+</body>
+</html>

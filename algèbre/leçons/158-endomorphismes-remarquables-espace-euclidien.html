@@ -1,0 +1,155 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Leçon 158 — Endomorphismes remarquables d’un espace vectoriel euclidien (de dimension finie).</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css?v=2394f0dea55e" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Leçon <a href="158-endomorphismes-remarquables-espace-euclidien.html">158</a> — Endomorphismes remarquables d’un espace
+vectoriel euclidien (de dimension finie).</h1>
+</header>
+<h1
+id="leçon-158-endomorphismes-remarquables-dun-espace-vectoriel-euclidien-de-dimension-finie.">Leçon
+<a href="158-endomorphismes-remarquables-espace-euclidien.html">158</a> — Endomorphismes remarquables d’un espace vectoriel euclidien (de
+dimension finie).</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../../index/lecons.html">← Index des leçons</a> · <a
+href="../../index/lecons-utiles-pour-les-ecrits.html">Leçons utiles pour
+les écrits</a> · <a
+href="../../index/developpements.html">Développements</a> · <a
+href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="rôle-dans-le-graphe">Rôle dans le graphe</h2>
+<p>Leçon centrale d’algèbre bilinéaire : le produit scalaire permet de
+définir adjoint, auto-adjoints, endomorphismes orthogonaux, projections
+et symétries, puis d’obtenir des réductions plus fines que dans un
+espace vectoriel quelconque.</p>
+<h2 id="attendus-du-jury-à-garder-en-tête">Attendus du jury à garder en
+tête</h2>
+<ul>
+<li>faire du caractère euclidien une hypothèse réellement utilisée
+;</li>
+<li>présenter le théorème spectral pour les auto-adjoints ;</li>
+<li>connaître la réduction des endomorphismes orthogonaux ;</li>
+<li>mettre en valeur la stabilité de l’orthogonal d’un sous-espace
+stable par l’adjoint ;</li>
+<li>traiter projections orthogonales, rotations, réflexions et
+renversements ;</li>
+<li>proposer une application comme les moindres carrés et expliquer le
+rôle du rang plein de <span class="math inline">\(A\)</span> dans
+l’inversibilité de <span class="math inline">\(A^\top A\)</span>.</li>
+</ul>
+<h2 id="plan-possible-squelette">Plan possible — squelette</h2>
+<h3 id="adjoint-et-décompositions-orthogonales">1. Adjoint et
+décompositions orthogonales</h3>
+<p>Adjoint, stabilité des orthogonaux, endomorphismes auto-adjoints,
+antisymétriques et normaux.</p>
+<h3 id="réductions-euclidiennes">2. Réductions euclidiennes</h3>
+<p>Théorème spectral, réduction orthogonale, classification des
+endomorphismes orthogonaux, rotations et réflexions.</p>
+<h3 id="projections-et-applications">3. Projections et applications</h3>
+<p>Projection orthogonale, distance à un sous-espace, moindres carrés,
+isométries de configurations finies.</p>
+<h2 id="notions-liées">Notions liées</h2>
+<ul>
+<li>[[Adjoint]]</li>
+<li>[[Théorème spectral]]</li>
+<li>[[Endomorphisme orthogonal]]</li>
+<li>[[Projection orthogonale]]</li>
+<li>[[Moindres carrés]]</li>
+</ul>
+<h2 id="leçons-liées">Leçons liées</h2>
+<ul>
+<li>[[Leçon <a href="151-sous-espaces-stables-endomorphismes.html">151</a> — Sous-espaces stables]]</li>
+<li>[[Leçon <a href="157-matrices-symetriques-reelles-hermitiennes.html">157</a> — Matrices symétriques réelles, matrices
+hermitiennes]]</li>
+<li>[[Leçon <a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/161-espaces-vectoriels-et-affines-euclidiens-distances-isometries.html">161</a> — Espaces vectoriels et affines euclidiens]]</li>
+<li>[[Leçon <a href="170-formes-quadratiques-dimension-finie-orthogonalite-applications.html">170</a> — Formes quadratiques et orthogonalité]]</li>
+</ul>
+<h2 id="développements-possibles">Développements possibles</h2>
+<h3 id="développement-actuel-recommandé">Développement actuel
+recommandé</h3>
+<ul>
+<li><a href="../../d%C3%A9veloppements/isometries-du-tetraedre.html">Isométries
+du tétraèdre régulier</a> — <strong>4/5</strong> : les symétries,
+réflexions et rotations donnent une étude concrète d’endomorphismes
+orthogonaux en dimension 3.</li>
+</ul>
+<h2 id="résultats-clés-à-maîtriser">Résultats clés à maîtriser</h2>
+<ul>
+<li>existence et unicité de l’adjoint ;</li>
+<li>théorème spectral réel ;</li>
+<li>stabilité de <span class="math inline">\(F^\perp\)</span> par <span
+class="math inline">\(u^*\)</span> lorsque <span
+class="math inline">\(F\)</span> est stable par <span
+class="math inline">\(u\)</span> ;</li>
+<li>décomposition d’un endomorphisme orthogonal en blocs de rotations et
+blocs <span class="math inline">\(\pm1\)</span> ;</li>
+<li>caractérisation de la projection orthogonale ;</li>
+<li>équations normales des moindres carrés.</li>
+</ul>
+<h2 id="exemples-à-préparer">Exemples à préparer</h2>
+<ul>
+<li>projection sur un plan ;</li>
+<li>réflexion hyperplane ;</li>
+<li>rotation en dimension 2 et rotation d’axe donné en dimension 3
+;</li>
+<li>matrice de permutation comme endomorphisme orthogonal ;</li>
+<li>symétries du tétraèdre régulier.</li>
+</ul>
+<h2 id="pièges-et-points-de-vigilance">Pièges et points de
+vigilance</h2>
+<ul>
+<li>le lemme des noyaux ou Dunford ne sont pas des développements
+adaptés à cette leçon ;</li>
+<li>distinguer endomorphisme orthogonal, auto-adjoint et normal ;</li>
+<li>une matrice orthogonale réelle n’est pas toujours diagonalisable sur
+<span class="math inline">\(\mathbb R\)</span> ;</li>
+<li>préciser le produit scalaire avant de parler d’adjoint ou
+d’orthogonalité.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Pourquoi l’orthogonal d’un sous-espace stable par <span
+class="math inline">\(u\)</span> est-il stable par <span
+class="math inline">\(u^*\)</span> ?</li>
+<li>Classifier les endomorphismes orthogonaux du plan.</li>
+<li>Quand une projection est-elle orthogonale ?</li>
+<li>Justifier les équations normales des moindres carrés.</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Choisir un second développement
+compatible.</label></li>
+<li><label><input type="checkbox" />Détailler la classification en
+dimensions 2 et 3.</label></li>
+<li><label><input type="checkbox" />Préparer un exemple complet de
+moindres carrés.</label></li>
+</ul>
+</body>
+</html>
