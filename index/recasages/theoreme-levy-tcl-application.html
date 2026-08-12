@@ -1,0 +1,402 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Recasage — Théorème de Lévy, théorème central limite et application</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css?v=2394f0dea55e" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Recasage — Théorème de Lévy, théorème central limite
+et application</h1>
+</header>
+<h1
+id="recasage-théorème-de-lévy-théorème-central-limite-et-application">Recasage
+— <a href="../../d%C3%A9veloppements/theoreme-levy-tcl-application.html">Théorème de Lévy, théorème central limite et application</a></h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="index.html">← Recasages</a> · <a
+href="../../d%C3%A9veloppements/theoreme-levy-tcl-application.html">Développement</a>
+· <a href="../matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="notes-par-leçon-créée">Notes par leçon créée</h2>
+<table>
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 36%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">Leçon</th>
+<th style="text-align: right;">Note</th>
+<th>Commentaire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien avec les actions de groupes.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/104-groupes-finis.html">104</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien avec les groupes finis.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/105-groupe-des-permutations-dun-ensemble-fini.html">105</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien avec les permutations.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun travail sur des parties génératrices.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/120-anneaux-z-sur-nz-applications.html">120</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien avec les anneaux <span class="math inline">\(\mathbb
+Z/n\mathbb Z\)</span>.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/121-nombres-premiers-applications.html">121</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien avec les nombres premiers.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/123-corps-finis-applications.html">123</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien avec les corps finis.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/148-dimension-espace-vectoriel-rang.html">148</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun rôle substantiel de la dimension d’un espace vectoriel.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun déterminant.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/150-polynomes-endomorphisme-reduction.html">150</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun polynôme d’endomorphisme ni réduction.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/151-sous-espaces-stables-endomorphismes.html">151</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun sous-espace stable.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/152-endomorphismes-diagonalisables-dimension-finie.html">152</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucune diagonalisation.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/153-valeurs-propres-vecteurs-propres-calculs-applications.html">153</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucune étude d’éléments propres.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/155-exponentielle-de-matrices-applications.html">155</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>L’exponentielle complexe apparaît, mais pas l’exponentielle de
+matrices.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/156-endomorphismes-trigonalisables-nilpotents.html">156</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun endomorphisme nilpotent ou trigonalisable.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/157-matrices-symetriques-reelles-hermitiennes.html">157</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucune matrice symétrique ou hermitienne.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun endomorphisme euclidien remarquable.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/159-formes-lineaires-dualite-dimension-finie.html">159</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun usage substantiel de la dualité en dimension finie.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/161-espaces-vectoriels-et-affines-euclidiens-distances-isometries.html">161</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun contenu sur les espaces euclidiens et leurs isométries.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun système linéaire.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/170-formes-quadratiques-dimension-finie-orthogonalite-applications.html">170</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucune forme quadratique.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/190-methodes-combinatoires-problemes-de-denombrement.html">190</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun dénombrement central.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/201-espaces-de-fonctions-exemples-applications.html">201</a></td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td><span class="math inline">\(C_0\)</span>, <span
+class="math inline">\(C_c^\infty\)</span>, <span
+class="math inline">\(\mathcal S\)</span> et leurs relations
+interviennent, mais servent surtout d’outils à Lévy.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/203-utilisation-de-la-notion-de-compacite.html">203</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme de compacité.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/206-exemples-dutilisation-de-la-notion-de-dimension-finie-en-analyse.html">206</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun usage de la dimension finie en analyse.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/208-espaces-vectoriels-normes-applications-lineaires-continues.html">208</a></td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>Quelques applications linéaires continues sont sous-jacentes, sans
+structurer le développement.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/209-approximation-fonction-par-fonctions-regulieres.html">209</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>La densité de <span class="math inline">\(C_c^\infty\)</span> dans
+<span class="math inline">\(C_0\)</span> est admise et aucune
+approximation régulière n’est construite.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/213-espaces-hilbert-exemples-applications.html">213</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun argument hilbertien substantiel.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/228-continuite-derivabilite-fonctions-reelles-une-variable.html">228</a></td>
+<td style="text-align: right;" class="score score-2">2</td>
+<td>La dérivabilité de la fonction caractéristique et son développement
+limité interviennent, mais dans un cadre probabiliste et sous
+l’intégrale.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/230-series-nombres-reels-complexes.html">230</a></td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>La limite complexe <span class="math inline">\((1+a/n+o(1/n))^n\to
+e^a\)</span> est trop locale pour porter la leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/234-fonctions-espaces-lebesgue-integrables.html">234</a></td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td>Fonctions caractéristiques, lois images, Fubini et dérivation sous
+une intégrale contre <span class="math inline">\(P_X\)</span> mobilisent
+réellement l’intégration de Lebesgue.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a></td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Fubini, convergence dominée, dérivation sous l’intégrale et passage
+limite–intégrale sont les mécanismes répétés de Lévy et du TCL.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/236-methodes-calcul-integrales.html">236</a></td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>Aucun calcul d’intégrale significatif n’est développé ; la fonction
+caractéristique gaussienne est rappelée.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">239</a></td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>La fonction caractéristique est une intégrale dépendant de <span
+class="math inline">\(t\)</span>, dont la continuité et la dérivabilité
+sous hypothèses de moments sont utilisées décisivement.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/241-suites-series-fonctions-exemples-contre-exemples.html">241</a></td>
+<td style="text-align: right;" class="score score-2">2</td>
+<td>Une suite de fonctions caractéristiques converge simplement, mais la
+leçon exige une étude plus riche des suites et séries de fonctions.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/246-series-de-fourier-exemples-applications.html">246</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Il s’agit de transformation de Fourier sur <span
+class="math inline">\(\mathbb R\)</span>, non de séries de Fourier.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">250</a></td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Inversion de Fourier sur <span class="math inline">\(\mathcal
+S\)</span>, transformée de la loi, convolution-produit et application
+probabiliste structurent Lévy et le TCL.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a></td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>La caractérisation d’une loi par sa fonction caractéristique, les
+sommes indépendantes et la loi normale sont au cœur du
+développement.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/262-convergences-variables-aleatoires-theoremes-limite.html">262</a></td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Lévy caractérise la convergence en loi et le TCL est explicitement
+au cœur de la leçon selon le jury ; Slutsky fournit une application
+supplémentaire.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/266-independance-probabilites.html">266</a></td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>L’indépendance permet la factorisation des fonctions
+caractéristiques et rend possible la preuve du TCL ; le jury cite
+explicitement ce mécanisme.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="recasages-prioritaires">Recasages prioritaires</h2>
+<h3 id="transformation-de-fourier-55"><a href="../../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">250</a> — Transformation de Fourier —
+5/5</h3>
+<p>La fonction caractéristique est la transformée de Fourier de la loi
+:</p>
+<p><span class="math display">\[
+\Phi_X(t)=\int_{\mathbb R}e^{itx}\,dP_X(x).
+\]</span></p>
+<p>La preuve de Lévy utilise réellement l’inversion sur <span
+class="math inline">\(\mathcal S\)</span>, Fubini et la convergence
+dominée. Le TCL exploite ensuite la règle</p>
+<p><span class="math display">\[
+P_{X+Y}=P_X*P_Y
+\quad\Longrightarrow\quad
+\Phi_{X+Y}=\Phi_X\Phi_Y.
+\]</span></p>
+<p>Le rapport du jury 2025, lignes 1665-1669, indique explicitement que
+les fonctions caractéristiques et leurs applications en probabilités ont
+toute leur place dans cette leçon.</p>
+<h3 id="loi-dune-variable-aléatoire-55"><a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a> — Loi d’une variable
+aléatoire — 5/5</h3>
+<p>Le développement traite exactement la caractérisation de la loi par
+la fonction caractéristique, recommandée par le jury aux lignes
+1689-1697. Il relie loi image, convolution, sommes indépendantes et
+caractérisation de la loi normale. Pour cette leçon, faire du TCL
+l’application de la caractérisation plutôt que le titre unique de
+l’exposé.</p>
+<h3 id="convergences-de-variables-aléatoires-55"><a href="../../analyse/le%C3%A7ons/262-convergences-variables-aleatoires-theoremes-limite.html">262</a> — Convergences de
+variables aléatoires — 5/5</h3>
+<p>Le théorème de Lévy est un critère central de convergence en loi ; le
+TCL est explicitement placé « au cœur » de la leçon par le rapport 2025,
+lignes 1708-1715. L’intervalle de confiance ajoute Slutsky et une
+application statistique, elle aussi recommandée par le jury.</p>
+<h3 id="indépendance-55"><a href="../../analyse/le%C3%A7ons/266-independance-probabilites.html">266</a> — Indépendance — 5/5</h3>
+<p>Le passage</p>
+<p><span class="math display">\[
+\Phi_{X_1+\cdots+X_n}
+=
+\prod_{k=1}^n\Phi_{X_k}
+\]</span></p>
+<p>est le pivot du TCL. Il faut souligner que tout ce qui précède reste
+valable sans indépendance, tandis que la factorisation et donc la limite
+gaussienne en dépendent. Le rapport 2025, lignes 1733-1737, associe
+explicitement indépendance, stabilité des lois, fonctions
+caractéristiques et TCL.</p>
+<h2 id="très-bons-recasages-analytiques">Très bons recasages
+analytiques</h2>
+<h3 id="problèmes-dinterversion-de-symboles-55"><a href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a> — Problèmes
+d’interversion de symboles — 5/5</h3>
+<p>La preuve concentre plusieurs mécanismes différents et identifiables
+:</p>
+<ol type="1">
+<li>deux usages de Fubini dans la preuve de Lévy ;</li>
+<li>une convergence dominée en fréquence grâce à <span
+class="math inline">\(|\Phi_{X_n}|\le1\)</span> ;</li>
+<li>une dérivation sous l’intégrale, dominée par le moment <span
+class="math inline">\(|X|^k\)</span> ;</li>
+<li>un passage à la limite dans l’intégrale qui transforme la
+convergence simple des fonctions caractéristiques en convergence des
+espérances.</li>
+</ol>
+<p>Pour mériter 5/5 à l’oral, nommer précisément chaque dominant et
+distinguer Fubini, Tonelli et convergence dominée.</p>
+<h3 id="intégrales-dépendant-dun-paramètre-45"><a href="../../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">239</a> — Intégrales
+dépendant d’un paramètre — 4/5</h3>
+<p>Le paramètre est <span class="math inline">\(t\)</span> dans</p>
+<p><span class="math display">\[
+\Phi_X(t)=\int e^{itx}\,dP_X(x).
+\]</span></p>
+<p>Les moments contrôlent la régularité de cette intégrale, puis les
+dérivées en zéro produisent le développement limité nécessaire au TCL.
+L’intégrale à paramètre est décisive, mais l’objectif final reste
+probabiliste : 4/5 plutôt que 5/5.</p>
+<h2 id="adaptation-au-format-quinze-minutes">Adaptation au format quinze
+minutes</h2>
+<ul>
+<li>1 min 30 : énoncés et conventions ;</li>
+<li>4 min : réciproque de Lévy sur <span
+class="math inline">\(C_c^\infty\)</span>, puis argument de densité
+;</li>
+<li>2 min : dérivation et produit sous indépendance ;</li>
+<li>5 min : TCL ;</li>
+<li>2 min 30 : intervalle asymptotique de Bernoulli.</li>
+</ul>
+<p>Le lemme de réduction de <span class="math inline">\(C_b\)</span> à
+<span class="math inline">\(C_0\)</span> peut être énoncé avec son idée
+de troncature. Pour <a href="../../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">250</a> et <a href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a>, sacrifier plutôt l’application
+statistique ; pour <a href="../../analyse/le%C3%A7ons/262-convergences-variables-aleatoires-theoremes-limite.html">262</a>, la conserver et abréger la densité de <span
+class="math inline">\(C_c^\infty\)</span> dans <span
+class="math inline">\(C_0\)</span>.</p>
+<h2
+id="corrections-et-avertissements-par-rapport-à-la-source">Corrections
+et avertissements par rapport à la source</h2>
+<ul>
+<li>La fiche source annonce les anciennes leçons <a href="../../analyse/le%C3%A7ons/209-approximation-fonction-par-fonctions-regulieres.html">209</a> et 218 : elles ne
+correspondent pas nécessairement aux intitulés 2025. Dans la liste
+actuelle, <a href="../../analyse/le%C3%A7ons/209-approximation-fonction-par-fonctions-regulieres.html">209</a> porte sur l’approximation régulière et n’est pas un
+recasage naturel puisque la densité utilisée est admise.</li>
+<li>L’intégrabilité de <span class="math inline">\(X\)</span> et <span
+class="math inline">\(Y\)</span> n’est pas nécessaire pour factoriser
+<span class="math inline">\(\Phi_{X+Y}\)</span> : les exponentielles
+complexes sont toujours bornées. Elle n’intervient dans la source que
+via une preuve préalable plus générale de <span
+class="math inline">\(\mathbb E(XY)=\mathbb E(X)\mathbb
+E(Y)\)</span>.</li>
+<li>La version démontrée de Lévy suppose une limite <span
+class="math inline">\(\Phi_X\)</span> déjà identifiée. La version
+générale demande un argument supplémentaire d’existence de la loi
+limite.</li>
+<li>L’intervalle final est un intervalle de Wald asymptotique, non un
+intervalle exact, et peut sortir de <span
+class="math inline">\([0,1]\)</span>.</li>
+</ul>
+</body>
+</html>
