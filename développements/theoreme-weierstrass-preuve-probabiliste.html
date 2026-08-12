@@ -1,0 +1,340 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Développement — Théorème de Weierstrass : preuve probabiliste</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css?v=2394f0dea55e" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title"><a href="theoreme-weierstrass-preuve-probabiliste.html">Développement — Théorème de Weierstrass : preuve
+probabiliste</a></h1>
+</header>
+<h1
+id="développement-théorème-de-weierstrass-preuve-probabiliste"><a href="theoreme-weierstrass-preuve-probabiliste.html">Développement
+— Théorème de Weierstrass : preuve probabiliste</a></h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../index/developpements.html">← Index des développements</a> ·
+<a href="../index/lecons.html">Leçons</a> · <a
+href="../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../index/recasages/theoreme-weierstrass-preuve-probabiliste.html">Recasage
+détaillé</a> · <a href="../index.html">Accueil</a></p>
+<h2 id="position-dans-le-graphe">Position dans le graphe</h2>
+<p>Cette preuve constructive relie l’approximation uniforme et les
+probabilités. Pour chaque point <span class="math inline">\(x\)</span>,
+le polynôme de Bernstein s’écrit comme une espérance</p>
+<p><span class="math display">\[
+B_n(f)(x)=\mathbb E\!\left[f\!\left(\frac{S_n}{n}\right)\right],
+\qquad S_n\sim\mathcal B(n,x).
+\]</span></p>
+<p>La concentration de <span class="math inline">\(S_n/n\)</span> autour
+de son espérance <span class="math inline">\(x\)</span>, contrôlée
+uniformément en <span class="math inline">\(x\)</span> par
+Bienaymé–Tchebychev, entraîne la convergence uniforme de <span
+class="math inline">\(B_n(f)\)</span> vers <span
+class="math inline">\(f\)</span>.</p>
+<p>La source contient plusieurs coquilles corrigées ici : indice de la
+somme définissant <span class="math inline">\(S_n\)</span>, changement
+de variable affine final, formulation du cas complexe et majoration de
+<span class="math inline">\(x(1-x)\)</span>.</p>
+<h2 id="énoncé">Énoncé</h2>
+<p>Pour <span class="math inline">\(f\in C([0,1],\mathbb R)\)</span>, on
+définit son <span class="math inline">\(n\)</span>-ième polynôme de
+Bernstein par</p>
+<p><span class="math display">\[
+B_n(f)(x)=\sum_{k=0}^{n}f\!\left(\frac{k}{n}\right)\binom nk
+x^k(1-x)^{n-k}.
+\]</span></p>
+<p>Alors <span class="math inline">\((B_n(f))\)</span> converge
+uniformément vers <span class="math inline">\(f\)</span> sur <span
+class="math inline">\([0,1]\)</span>.</p>
+<p>Par changement de variable affine, pour tout segment <span
+class="math inline">\([a,b]\)</span>, les polynômes sont denses dans
+<span class="math inline">\(C([a,b],\mathbb R)\)</span> pour la norme
+uniforme. Le résultat vaut aussi pour les fonctions à valeurs complexes,
+en approchant séparément parties réelle et imaginaire.</p>
+<h2 id="prérequis">Prérequis</h2>
+<ul>
+<li>[[Continuité uniforme]] et [[Théorème de Heine]] ;</li>
+<li>[[Loi de Bernoulli]] et [[Loi binomiale]] ;</li>
+<li>[[Théorème de transfert]] ;</li>
+<li>espérance et variance d’une somme de variables indépendantes ;</li>
+<li>[[Inégalité de Bienaymé–Tchebychev]].</li>
+</ul>
+<h2 id="preuve-détaillée">Preuve détaillée</h2>
+<h3 id="interprétation-probabiliste-des-polynômes-de-bernstein">1.
+Interprétation probabiliste des polynômes de Bernstein</h3>
+<p>Fixons <span class="math inline">\(x\in[0,1]\)</span>. Soient <span
+class="math inline">\(X_1,\ldots,X_n\)</span> indépendantes, de même loi
+de Bernoulli de paramètre <span class="math inline">\(x\)</span>, et</p>
+<p><span class="math display">\[
+S_n=X_1+\cdots+X_n.
+\]</span></p>
+<p>Alors <span class="math inline">\(S_n\sim\mathcal B(n,x)\)</span>,
+donc</p>
+<p><span class="math display">\[
+\mathbb P(S_n=k)=\binom nk x^k(1-x)^{n-k},
+\qquad 0\leq k\leq n.
+\]</span></p>
+<p>Le théorème de transfert donne</p>
+<p><span class="math display">\[
+\boxed{B_n(f)(x)=\mathbb E\!\left[f\!\left(\frac{S_n}{n}\right)\right].}
+\]</span></p>
+<p>De plus,</p>
+<p><span class="math display">\[
+\mathbb E\!\left(\frac{S_n}{n}\right)=x,
+\qquad
+\operatorname{Var}\!\left(\frac{S_n}{n}\right)
+=\frac{x(1-x)}{n}\leq\frac{1}{4n}.
+\]</span></p>
+<p>L’indépendance intervient précisément dans l’égalité <span
+class="math inline">\(\operatorname{Var}(S_n)=\sum_{i=1}^n\operatorname{Var}(X_i)\)</span>.</p>
+<h3 id="continuité-uniforme">2. Continuité uniforme</h3>
+<p>Le segment <span class="math inline">\([0,1]\)</span> est compact.
+Par le théorème de Heine, <span class="math inline">\(f\)</span> est
+uniformément continue. Soit <span
+class="math inline">\(\varepsilon&gt;0\)</span>. Il existe <span
+class="math inline">\(\delta&gt;0\)</span> tel que</p>
+<p><span class="math display">\[
+|u-v|&lt;\delta\Longrightarrow |f(u)-f(v)|&lt;\varepsilon
+\qquad(u,v\in[0,1]).
+\]</span></p>
+<h3 id="séparation-des-événements-proche-et-lointain">3. Séparation des
+événements proche et lointain</h3>
+<p>Par l’interprétation probabiliste,</p>
+<p><span class="math display">\[
+|B_n(f)(x)-f(x)|
+\leq
+\mathbb E\!\left[
+\left|f\!\left(\frac{S_n}{n}\right)-f(x)\right|
+\right].
+\]</span></p>
+<p>On sépare selon l’événement</p>
+<p><span class="math display">\[
+A_{n,x}=\left\{\left|\frac{S_n}{n}-x\right|&lt;\delta\right\}.
+\]</span></p>
+<p>Sur <span class="math inline">\(A_{n,x}\)</span>, l’intégrande est
+inférieur à <span class="math inline">\(\varepsilon\)</span>. Sur
+l’événement complémentaire, il est inférieur à <span
+class="math inline">\(2\|f\|_\infty\)</span>. Ainsi</p>
+<p><span class="math display">\[
+|B_n(f)(x)-f(x)|
+\leq \varepsilon
++2\|f\|_\infty
+\mathbb P\!\left(\left|\frac{S_n}{n}-x\right|\geq\delta\right).
+\]</span></p>
+<p>Bienaymé–Tchebychev donne</p>
+<p><span class="math display">\[
+\mathbb P\!\left(\left|\frac{S_n}{n}-x\right|\geq\delta\right)
+\leq
+\frac{\operatorname{Var}(S_n/n)}{\delta^2}
+\leq\frac{1}{4n\delta^2}.
+\]</span></p>
+<p>Par conséquent, pour tout <span
+class="math inline">\(x\in[0,1]\)</span>,</p>
+<p><span class="math display">\[
+|B_n(f)(x)-f(x)|
+\leq
+\varepsilon+\frac{\|f\|_\infty}{2n\delta^2}.
+\]</span></p>
+<p>Le majorant ne dépend pas de <span class="math inline">\(x\)</span>.
+Pour <span class="math inline">\(n\)</span> assez grand, le second terme
+est inférieur à <span class="math inline">\(\varepsilon\)</span>,
+donc</p>
+<p><span class="math display">\[
+\|B_n(f)-f\|_\infty\leq2\varepsilon.
+\]</span></p>
+<p>Comme <span class="math inline">\(\varepsilon\)</span> est
+arbitraire,</p>
+<p><span class="math display">\[
+\boxed{B_n(f)\xrightarrow[n\to\infty]{}f\quad\text{uniformément sur
+}[0,1].}
+\]</span></p>
+<h3 id="retour-à-un-segment-quelconque">4. Retour à un segment
+quelconque</h3>
+<p>Soit <span class="math inline">\(g\in C([a,b],\mathbb R)\)</span>,
+avec <span class="math inline">\(a&lt;b\)</span>, et posons</p>
+<p><span class="math display">\[
+f(x)=g(a+(b-a)x),\qquad x\in[0,1].
+\]</span></p>
+<p>Définissons</p>
+<p><span class="math display">\[
+Q_n(y)=B_n(f)\!\left(\frac{y-a}{b-a}\right),
+\qquad y\in[a,b].
+\]</span></p>
+<p><span class="math inline">\(Q_n\)</span> est un polynôme en <span
+class="math inline">\(y\)</span> et</p>
+<p><span class="math display">\[
+\|Q_n-g\|_{\infty,[a,b]}
+\leq\|B_n(f)-f\|_{\infty,[0,1]}
+\longrightarrow0.
+\]</span></p>
+<h2 id="où-interviennent-exactement-les-hypothèses">Où interviennent
+exactement les hypothèses ?</h2>
+<ul>
+<li><strong>Compacité</strong> : <span
+class="math inline">\([0,1]\)</span> compact <span
+class="math inline">\(\Rightarrow\)</span> <span
+class="math inline">\(f\)</span> uniformément continue par Heine ; cette
+uniformité permet de choisir un même <span
+class="math inline">\(\delta\)</span> pour tous les <span
+class="math inline">\(x\)</span>.</li>
+<li><strong>Loi binomiale</strong> : elle identifie exactement les
+coefficients de Bernstein à une loi de probabilité.</li>
+<li><strong>Indépendance</strong> : elle permet le calcul additif de la
+variance de <span class="math inline">\(S_n\)</span>.</li>
+<li><strong>Concentration</strong> : Tchebychev fournit un contrôle
+<span class="math inline">\(O(1/n)\)</span> uniforme en <span
+class="math inline">\(x\)</span>.</li>
+<li><strong>Positivité et masse <span
+class="math inline">\(1\)</span></strong> : <span
+class="math inline">\(B_n(f)(x)\)</span> est une moyenne pondérée des
+valeurs <span class="math inline">\(f(k/n)\)</span>.</li>
+</ul>
+<h2 id="durée-cible-15-minutes">Durée cible : 15 minutes</h2>
+<ul>
+<li>0:00–2:00 — énoncé et définition de <span
+class="math inline">\(B_n(f)\)</span> ;</li>
+<li>2:00–5:00 — Bernoulli, loi binomiale et formule d’espérance ;</li>
+<li>5:00–7:00 — Heine et choix uniforme de <span
+class="math inline">\(\delta\)</span> ;</li>
+<li>7:00–11:30 — séparation proche/loin et Tchebychev ;</li>
+<li>11:30–13:00 — passage au supremum et convergence uniforme ;</li>
+<li>13:00–15:00 — changement de segment et rôle exact des
+hypothèses.</li>
+</ul>
+<p>À ne pas sacrifier : expliquer pourquoi le contrôle probabiliste est
+uniforme en <span class="math inline">\(x\)</span>, indiquer où
+intervient l’indépendance et écrire correctement <span
+class="math inline">\((y-a)/(b-a)\)</span> dans le changement de
+variable final.</p>
+<h2 id="points-sensibles-à-loral">Points sensibles à l’oral</h2>
+<ul>
+<li>La loi des <span class="math inline">\(X_i\)</span> dépend du point
+<span class="math inline">\(x\)</span> fixé : pour chaque <span
+class="math inline">\(x\)</span>, on peut choisir un espace probabilisé
+portant des Bernoulli de paramètre <span
+class="math inline">\(x\)</span> ; aucune construction simultanée en
+<span class="math inline">\(x\)</span> n’est nécessaire.</li>
+<li>Ne pas confondre la loi de Bernoulli <span
+class="math inline">\(\mathcal B(x)\)</span> et la loi binomiale <span
+class="math inline">\(\mathcal B(n,x)\)</span>.</li>
+<li>Le théorème de transfert justifie l’identité entre <span
+class="math inline">\(B_n(f)(x)\)</span> et l’espérance.</li>
+<li>L’indépendance est nécessaire au calcul de la variance, mais pas à
+l’écriture formelle de l’espérance.</li>
+<li>La convergence est uniforme parce que <span
+class="math inline">\(x(1-x)\leq1/4\)</span> et que <span
+class="math inline">\(\delta\)</span> vient de la continuité
+uniforme.</li>
+<li>Tchebychev est appliqué à <span
+class="math inline">\(S_n/n\)</span>, dont la variance vaut <span
+class="math inline">\(x(1-x)/n\)</span>.</li>
+<li>Pour le cas complexe, approcher séparément <span
+class="math inline">\(\Re f\)</span> et <span class="math inline">\(\Im
+f\)</span>.</li>
+<li>La source écrit un changement de variable final incorrect ; la bonne
+coordonnée est <span class="math inline">\((y-a)/(b-a)\)</span>.</li>
+</ul>
+<h2 id="variantes-et-compléments">Variantes et compléments</h2>
+<ul>
+<li>Estimation par le module de continuité : pour tout <span
+class="math inline">\(\delta&gt;0\)</span>, <span
+class="math display">\[
+\|B_n(f)-f\|_\infty
+\leq \omega_f(\delta)+\frac{\|f\|_\infty}{2n\delta^2}.
+\]</span></li>
+<li>Si <span class="math inline">\(f\)</span> est convexe, <span
+class="math inline">\(B_n(f)\geq f\)</span> par Jensen.</li>
+<li>Les opérateurs <span class="math inline">\(B_n\)</span> sont
+linéaires, positifs, de norme <span class="math inline">\(1\)</span>, et
+reproduisent les fonctions affines.</li>
+<li>Le théorème de Korovkin permet de déduire la convergence à partir de
+la reproduction asymptotique de <span class="math inline">\(1\)</span>,
+<span class="math inline">\(x\)</span> et <span
+class="math inline">\(x^2\)</span>.</li>
+<li>Comparaison avec la preuve par convolution : Bernstein mobilise lois
+binomiales et concentration ; la convolution mobilise une approximation
+de l’unité intégrale.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Pourquoi <span class="math inline">\(B_n(f)\)</span> est-il bien un
+polynôme ?</li>
+<li>Comment obtenir la représentation de <span
+class="math inline">\(B_n(f)(x)\)</span> comme espérance ?</li>
+<li>Où utilise-t-on l’indépendance ?</li>
+<li>Pourquoi la borne de Tchebychev est-elle uniforme en <span
+class="math inline">\(x\)</span> ?</li>
+<li>Peut-on remplacer Tchebychev par la loi faible des grands nombres ?
+Pourquoi faut-il alors conserver une uniformité en <span
+class="math inline">\(x\)</span> ?</li>
+<li>Que valent <span class="math inline">\(B_n(1)\)</span>, <span
+class="math inline">\(B_n(X)\)</span> et <span
+class="math inline">\(B_n(X^2)\)</span> ?</li>
+<li>Que se passe-t-il si <span class="math inline">\(f\)</span> est
+convexe ?</li>
+<li>Peut-on donner une vitesse de convergence lorsque <span
+class="math inline">\(f\)</span> est lipschitzienne ?</li>
+<li>Comment traiter une fonction à valeurs complexes ?</li>
+<li>Comparer cette preuve à Stone–Weierstrass et à la preuve par
+convolution.</li>
+</ul>
+<h2 id="source">Source</h2>
+<ul>
+<li>« Théorème de Weierstrass — preuve probabiliste », fiche de quatre
+pages, version 7343 sur agreg-maths.fr.</li>
+<li>Référence indiquée : Caldero et al., <em>Carnet de voyage en
+Analystan</em>, p. 321–324.</li>
+<li>Source originale : <a
+href="https://agreg-maths.fr/uploads/versions/7343/Th%C3%A9or%C3%A8me_de_Weierstrass___preuve_probabiliste.pdf"
+class="uri">https://agreg-maths.fr/uploads/versions/7343/Th%C3%A9or%C3%A8me_de_Weierstrass___preuve_probabiliste.pdf</a>.</li>
+<li>Copie locale :
+<code>raw data/développements/theoreme-weierstrass-preuve-probabiliste-7343.pdf</code>.</li>
+<li>Extraction locale :
+<code>raw data/développements/theoreme-weierstrass-preuve-probabiliste-7343.txt</code>,
+lignes 1–263.</li>
+<li>SHA-256 du PDF :
+<code>2e324f5a2374bd205f2d223a2af96df43df51a2a4da7d9c4b01777b0f9c3f7e6</code>.</li>
+<li>SHA-256 de l’extraction :
+<code>22129ffc3f5da6888ae5ee0ba16028fa673bbc0348b90031cab51dcd842f8d0c</code>.</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Chronométrer la preuve au
+tableau.</label></li>
+<li><label><input type="checkbox" />Savoir démontrer sans notes
+l’espérance et la variance d’une loi binomiale.</label></li>
+<li><label><input type="checkbox" />Préparer les propriétés de
+positivité, reproduction des fonctions affines et
+convexité.</label></li>
+<li><label><input type="checkbox" />Comparer en une minute les preuves
+par Bernstein et par convolution.</label></li>
+<li><label><input type="checkbox" />Créer les fiches notions [[Polynômes
+de Bernstein]] et [[Inégalité de Bienaymé–Tchebychev]].</label></li>
+</ul>
+</body>
+</html>
