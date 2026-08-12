@@ -1,0 +1,387 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Recasage — Théorème de Weierstrass : preuve probabiliste</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css?v=2394f0dea55e" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Recasage — <a href="../../d%C3%A9veloppements/theoreme-weierstrass-preuve-probabiliste.html">Théorème de Weierstrass : preuve
+probabiliste</a></h1>
+</header>
+<h1 id="recasage-théorème-de-weierstrass-preuve-probabiliste">Recasage —
+<a href="../../d%C3%A9veloppements/theoreme-weierstrass-preuve-probabiliste.html">Théorème de Weierstrass : preuve probabiliste</a></h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="index.html">← Recasages</a> · <a
+href="../../d%C3%A9veloppements/theoreme-weierstrass-preuve-probabiliste.html">Développement</a>
+· <a href="../matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="notes-par-leçon-créée">Notes par leçon créée</h2>
+<table>
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 36%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">Leçon</th>
+<th style="text-align: right;">Note</th>
+<th>Commentaire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien avec les actions de groupes.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/104-groupes-finis.html">104</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien avec les groupes finis.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/105-groupe-des-permutations-dun-ensemble-fini.html">105</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun usage des groupes de permutations.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun travail sur des parties génératrices.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/120-anneaux-z-sur-nz-applications.html">120</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien avec les anneaux <span class="math inline">\(\mathbb
+Z/n\mathbb Z\)</span>.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/121-nombres-premiers-applications.html">121</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien naturel avec les nombres premiers.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/123-corps-finis-applications.html">123</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien naturel avec les corps finis.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/148-dimension-espace-vectoriel-rang.html">148</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun rôle de la dimension d’un espace vectoriel.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun déterminant.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/150-polynomes-endomorphisme-reduction.html">150</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun endomorphisme ni réduction.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/151-sous-espaces-stables-endomorphismes.html">151</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun sous-espace stable.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/152-endomorphismes-diagonalisables-dimension-finie.html">152</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun problème de diagonalisation.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/153-valeurs-propres-vecteurs-propres-calculs-applications.html">153</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun calcul d’éléments propres.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/155-exponentielle-de-matrices-applications.html">155</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucune exponentielle de matrices.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/156-endomorphismes-trigonalisables-nilpotents.html">156</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun endomorphisme nilpotent ou trigonalisable.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/157-matrices-symetriques-reelles-hermitiennes.html">157</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucune matrice symétrique ou hermitienne.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun endomorphisme euclidien.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/159-formes-lineaires-dualite-dimension-finie.html">159</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun rôle de la dualité.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/161-espaces-vectoriels-et-affines-euclidiens-distances-isometries.html">161</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun contenu substantiel sur les espaces euclidiens ou les
+isométries.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun système linéaire.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/170-formes-quadratiques-dimension-finie-orthogonalite-applications.html">170</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucune forme quadratique.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/190-methodes-combinatoires-problemes-de-denombrement.html">190</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Les coefficients binomiaux apparaissent, mais aucun problème
+combinatoire ne structure la preuve.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/201-espaces-de-fonctions-exemples-applications.html">201</a></td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Recasage prioritaire : opérateurs positifs sur <span
+class="math inline">\(C([0,1])\)</span>, norme uniforme et densité
+constructive des polynômes.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/203-utilisation-de-la-notion-de-compacite.html">203</a></td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Très bon recasage : Heine fournit le même <span
+class="math inline">\(\delta\)</span> pour tous les points, condition
+décisive de la convergence uniforme.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/206-exemples-dutilisation-de-la-notion-de-dimension-finie-en-analyse.html">206</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>La dimension finie ne joue aucun rôle.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/208-espaces-vectoriels-normes-applications-lineaires-continues.html">208</a></td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>Les opérateurs de Bernstein sont linéaires continus de norme <span
+class="math inline">\(1\)</span>, mais cet aspect reste périphérique à
+la preuve.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/209-approximation-fonction-par-fonctions-regulieres.html">209</a></td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Recasage prioritaire : approximation explicite d’une fonction
+continue par des polynômes, avec contrôle uniforme.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/213-espaces-hilbert-exemples-applications.html">213</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme hilbertien.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/218-formules-de-taylor-exemples-applications.html">218</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucune formule de Taylor dans la preuve.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/228-continuite-derivabilite-fonctions-reelles-une-variable.html">228</a></td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Très bon recasage : continuité uniforme par Heine, module de
+continuité et conséquences quantitatives de la régularité.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/230-series-nombres-reels-complexes.html">230</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucune série numérique structurante.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/234-fonctions-espaces-lebesgue-integrables.html">234</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Le langage de l’espérance apparaît, mais pas la théorie des espaces
+de fonctions intégrables.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucune interversion de limite, somme ou intégrale ne structure la
+preuve.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/236-methodes-calcul-integrales.html">236</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun calcul d’intégrale.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">239</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucune fonction définie par une intégrale à paramètre.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/241-suites-series-fonctions-exemples-contre-exemples.html">241</a></td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Très bon recasage : suite explicite de fonctions polynomiales et
+démonstration quantitative de la convergence uniforme.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/246-series-de-fourier-exemples-applications.html">246</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun contenu de séries de Fourier.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">250</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucune transformation de Fourier.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a></td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Recasage prioritaire : Bernoulli, binomiale, théorème de transfert,
+espérance et variance sont au cœur de la preuve.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/262-convergences-variables-aleatoires-theoremes-limite.html">262</a></td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Très bon recasage : concentration de <span
+class="math inline">\(S_n/n\)</span> par Tchebychev, proche du mécanisme
+de la loi faible des grands nombres, avec un enjeu d’uniformité en <span
+class="math inline">\(x\)</span>.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/266-independance-probabilites.html">266</a></td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Recasage prioritaire : l’indépendance des Bernoulli est
+indispensable à l’additivité des variances et au contrôle de
+concentration.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="recasages-prioritaires">Recasages prioritaires</h2>
+<h3 id="espaces-de-fonctions-55"><a href="../../analyse/le%C3%A7ons/201-espaces-de-fonctions-exemples-applications.html">201</a> — Espaces de fonctions — 5/5</h3>
+<p>Présenter les opérateurs</p>
+<p><span class="math display">\[
+B_n:C([0,1])\longrightarrow \mathbb R[X]
+\]</span></p>
+<p>comme des opérateurs linéaires positifs, de norme <span
+class="math inline">\(1\)</span>, qui fournissent une approximation
+constructive dans la norme uniforme. La preuve illustre directement la
+structure de <span class="math inline">\(C([0,1])\)</span> et la densité
+des polynômes.</p>
+<h3 id="approximation-par-des-fonctions-régulières-55"><a href="../../analyse/le%C3%A7ons/209-approximation-fonction-par-fonctions-regulieres.html">209</a> —
+Approximation par des fonctions régulières — 5/5</h3>
+<p>C’est l’un des exemples classiques explicitement attendus : une suite
+de polynômes est construite et sa convergence uniforme est prouvée par
+un contrôle quantitatif. Comparer avec Stone–Weierstrass, la convolution
+et Fejér.</p>
+<h3 id="loi-dune-variable-aléatoire-55"><a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a> — Loi d’une variable
+aléatoire — 5/5</h3>
+<p>Le théorème de transfert transforme la loi binomiale en opérateur
+d’approximation. Il faut détailler la loi de <span
+class="math inline">\(S_n\)</span>, son espérance et sa variance, puis
+expliquer pourquoi cette interprétation donne exactement les
+coefficients de Bernstein.</p>
+<h3 id="indépendance-en-probabilités-55"><a href="../../analyse/le%C3%A7ons/266-independance-probabilites.html">266</a> — Indépendance en
+probabilités — 5/5</h3>
+<p>Le mécanisme à annoncer est</p>
+<p><span class="math display">\[
+X_i\text{ indépendantes}
+\Longrightarrow
+\operatorname{Var}(S_n)=\sum_i\operatorname{Var}(X_i)
+\Longrightarrow
+\mathbb P\!\left(\left|S_n/n-x\right|\geq\delta\right)=O(1/n).
+\]</span></p>
+<p>L’indépendance n’est donc pas décorative : elle produit la
+concentration qui conclut la preuve.</p>
+<h2 id="très-bons-recasages">Très bons recasages</h2>
+<h3 id="utilisation-de-la-notion-de-compacité-45"><a href="../../analyse/le%C3%A7ons/203-utilisation-de-la-notion-de-compacite.html">203</a> — Utilisation de
+la notion de compacité — 4/5</h3>
+<p>La compacité n’intervient pas par extraction mais par uniformisation
+:</p>
+<p><span class="math display">\[
+[0,1]\text{ compact}
+\xRightarrow{\mathrm{Heine}}
+f\text{ uniformément continue}
+\Longrightarrow
+\delta\text{ indépendant de }x
+\Longrightarrow
+\|B_n(f)-f\|_\infty\to0.
+\]</span></p>
+<h3 id="continuité-et-dérivabilité-45"><a href="../../analyse/le%C3%A7ons/228-continuite-derivabilite-fonctions-reelles-une-variable.html">228</a> — Continuité et dérivabilité
+— 4/5</h3>
+<p>La preuve met au premier plan le passage de la continuité à la
+continuité uniforme et permet d’introduire le module de continuité. En
+complément, préparer l’influence d’une hypothèse lipschitzienne sur la
+vitesse de convergence.</p>
+<h3 id="suites-et-séries-de-fonctions-45"><a href="../../analyse/le%C3%A7ons/241-suites-series-fonctions-exemples-contre-exemples.html">241</a> — Suites et séries de
+fonctions — 4/5</h3>
+<p>La suite <span class="math inline">\((B_n(f))\)</span> donne une
+convergence uniforme non triviale, avec un majorant uniforme en <span
+class="math inline">\(x\)</span>. Il faut compléter le plan de leçon par
+des exemples de convergence simple non uniforme et par des séries de
+fonctions.</p>
+<h3 id="convergences-de-variables-aléatoires-45"><a href="../../analyse/le%C3%A7ons/262-convergences-variables-aleatoires-theoremes-limite.html">262</a> — Convergences de
+variables aléatoires — 4/5</h3>
+<p>Pour chaque <span class="math inline">\(x\)</span>, <span
+class="math inline">\(S_n/n\to x\)</span> en probabilité par Tchebychev.
+Mais la preuve de Weierstrass exige davantage qu’une invocation
+ponctuelle de la loi faible : le contrôle doit être uniforme en <span
+class="math inline">\(x\)</span>, ce que garantit <span
+class="math inline">\(x(1-x)\leq1/4\)</span>.</p>
+<h2 id="comparaison-avec-le-développement-par-convolution">Comparaison
+avec le développement par convolution</h2>
+<p>Les deux développements prouvent le même théorème, mais leurs
+mécanismes et leurs meilleurs recasages diffèrent :</p>
+<ul>
+<li><strong>Bernstein</strong> : lois binomiales, transfert,
+indépendance, variance et concentration ; très fort pour <a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>, <a href="../../analyse/le%C3%A7ons/262-convergences-variables-aleatoires-theoremes-limite.html">262</a> et <a href="../../analyse/le%C3%A7ons/266-independance-probabilites.html">266</a>
+;</li>
+<li><strong>convolution</strong> : approximation de l’unité, intégrale à
+paramètre et support ; très fort pour <a href="../../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">239</a> et plus naturel pour la
+régularisation par convolution.</li>
+</ul>
+<p>Ils se complètent thématiquement, mais ils se recouvrent par leur
+énoncé final. Pour une paire de développements d’une même leçon, éviter
+de choisir les deux comme seuls développements : garder l’un des deux et
+un développement portant sur un résultat distinct.</p>
+<h2 id="adaptation-au-format-quinze-minutes">Adaptation au format quinze
+minutes</h2>
+<ul>
+<li>2 min : énoncé et polynômes de Bernstein ;</li>
+<li>3 min : représentation binomiale et théorème de transfert ;</li>
+<li>2 min : Heine ;</li>
+<li>4 min 30 : séparation proche/loin et Tchebychev ;</li>
+<li>1 min 30 : convergence uniforme ;</li>
+<li>2 min : segment général et orientation selon la leçon.</li>
+</ul>
+<p>Les points non négociables sont l’identité d’espérance, le calcul de
+variance utilisant l’indépendance, la borne uniforme <span
+class="math inline">\(x(1-x)\leq1/4\)</span> et le changement de
+variable final correct.</p>
+</body>
+</html>
