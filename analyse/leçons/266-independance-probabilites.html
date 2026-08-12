@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Leçon 266 — Utilisation de la notion d’indépendance en probabilités.</title>
+  <title>Leçon 266 — Utilisation de la notion d’indépendance en probabilités</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -22,20 +22,145 @@
     }
   </style>
   <link rel="stylesheet" href="../../assets/style.css?v=2394f0dea55e" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
 </head>
 <body>
 <nav class="topnav"><a href="../../index.html">Accueil</a></nav>
 
 <header id="title-block-header">
 <h1 class="title">Leçon <a href="266-independance-probabilites.html">266</a> — Utilisation de la notion d’indépendance en
-probabilités.</h1>
+probabilités</h1>
 </header>
 <h1
-id="leçon-266-utilisation-de-la-notion-dindépendance-en-probabilités.">Leçon
-<a href="266-independance-probabilites.html">266</a> — Utilisation de la notion d’indépendance en probabilités.</h1>
+id="leçon-266-utilisation-de-la-notion-dindépendance-en-probabilités">Leçon
+<a href="266-independance-probabilites.html">266</a> — Utilisation de la notion d’indépendance en probabilités</h1>
 <h2 id="navigation">Navigation</h2>
 <p><a href="../../index/lecons.html">← Index des leçons</a> · <a
+href="../../index/developpements.html">Développements</a> · <a
 href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
 href="../../index.html">Accueil</a></p>
+<h2 id="rôle-dans-le-graphe">Rôle dans le graphe</h2>
+<p>Leçon de synthèse sur le concept qui distingue la théorie des
+probabilités de la seule intégration : définitions équivalentes,
+constructions et conséquences sur les lois, les moments et les théorèmes
+limites.</p>
+<h2 id="attendus-du-jury-à-garder-en-tête">Attendus du jury à garder en
+tête</h2>
+<p>D’après le rapport 2025 :</p>
+<ul>
+<li>maîtriser probabilités conditionnelles, indépendance d’événements,
+de familles et de variables ;</li>
+<li>relier indépendance, espérance, variance, covariance et corrélation
+;</li>
+<li>présenter loi faible des grands nombres et lemmes de Borel–Cantelli
+;</li>
+<li>montrer la stabilité de lois par fonctions génératrices ou
+caractéristiques ;</li>
+<li>pouvoir aborder TCL ou marche aléatoire symétrique ;</li>
+<li>réserver loi du <span class="math inline">\(0\)</span>-<span
+class="math inline">\(1\)</span>, séries indépendantes et vecteurs
+gaussiens aux ouvertures maîtrisées.</li>
+</ul>
+<h2 id="plan-possible-squelette">Plan possible — squelette</h2>
+<h3 id="définitions-et-caractérisations">1. Définitions et
+caractérisations</h3>
+<ul>
+<li>événements et familles d’événements ;</li>
+<li>tribus indépendantes ;</li>
+<li>variables et vecteurs aléatoires ;</li>
+<li>factorisation des espérances de fonctions tests.</li>
+</ul>
+<h3 id="conséquences-sur-les-lois-et-moments">2. Conséquences sur les
+lois et moments</h3>
+<ul>
+<li>produit des lois jointes ;</li>
+<li>convolution des lois ;</li>
+<li>factorisation des fonctions génératrices et caractéristiques ;</li>
+<li>variance d’une somme et décorrélation.</li>
+</ul>
+<h3 id="théorèmes-limites">3. Théorèmes limites</h3>
+<ul>
+<li>loi faible des grands nombres ;</li>
+<li>théorème central limite ;</li>
+<li>Borel–Cantelli et loi forte.</li>
+</ul>
+<h3 id="exemples-et-applications">4. Exemples et applications</h3>
+<ul>
+<li>sommes de Bernoulli ;</li>
+<li>stabilité des lois de Poisson et gaussiennes ;</li>
+<li>marche aléatoire symétrique ;</li>
+<li>estimation statistique.</li>
+</ul>
+<h2 id="développement-actuel-recommandé">Développement actuel
+recommandé</h2>
+<p><a
+href="../../d%C3%A9veloppements/theoreme-levy-tcl-application.html">Théorème de
+Lévy, théorème central limite et application</a> — recasage 5/5.</p>
+<p>Orientation : isoler clairement le passage</p>
+<p><span class="math display">\[
+\Phi_{X_1+\cdots+X_n}(t)=\prod_{k=1}^n\Phi_{X_k}(t),
+\]</span></p>
+<p>qui transforme l’indépendance en mécanisme analytique et rend
+possible la preuve du TCL.</p>
+<h2 id="notions-liées">Notions liées</h2>
+<ul>
+<li>[[Indépendance]]</li>
+<li>[[Probabilité conditionnelle]]</li>
+<li>[[Convolution]]</li>
+<li>[[Fonction caractéristique]]</li>
+<li>[[Lemme de Borel-Cantelli]]</li>
+<li>[[Loi des grands nombres]]</li>
+<li>[[Théorème central limite]]</li>
+</ul>
+<h2 id="leçons-liées">Leçons liées</h2>
+<ul>
+<li>[[Leçon <a href="235-problemes-dinterversion-de-symboles-en-analyse.html">235</a> — Problèmes d’interversion de symboles en analyse]]</li>
+<li>[[Leçon <a href="250-transformation-de-fourier-applications.html">250</a> — Transformation de Fourier]]</li>
+<li>[[Leçon <a href="261-loi-variable-aleatoire.html">261</a> — Loi d’une variable aléatoire]]</li>
+<li>[[Leçon <a href="262-convergences-variables-aleatoires-theoremes-limite.html">262</a> — Convergences de variables aléatoires]]</li>
+</ul>
+<h2 id="résultats-clés-à-maîtriser">Résultats clés à maîtriser</h2>
+<ul>
+<li>critère de factorisation des espérances ;</li>
+<li>loi d’une somme indépendante ;</li>
+<li>variance d’une somme indépendante ;</li>
+<li>lemmes de Borel–Cantelli ;</li>
+<li>loi faible des grands nombres ;</li>
+<li>factorisation des fonctions caractéristiques et TCL.</li>
+</ul>
+<h2 id="pièges-et-points-de-vigilance">Pièges et points de
+vigilance</h2>
+<ul>
+<li>Indépendance deux à deux et indépendance mutuelle sont
+différentes.</li>
+<li>Décorrélation n’implique pas indépendance, sauf cadres particuliers
+comme le gaussien.</li>
+<li>L’indépendance est une propriété des tribus engendrées, pas
+seulement des valeurs prises.</li>
+<li>Dans le TCL, identifier exactement l’étape impossible sans
+indépendance.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Donner des événements deux à deux indépendants mais non mutuellement
+indépendants.</li>
+<li>Montrer que des fonctions mesurables de variables indépendantes
+restent indépendantes.</li>
+<li>Pourquoi la covariance de variables indépendantes est-elle nulle
+?</li>
+<li>Comment l’indépendance transforme-t-elle une convolution en produit
+?</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Préparer un exemple d’indépendance
+deux à deux non mutuelle.</label></li>
+<li><label><input type="checkbox" />Ajouter une preuve des deux lemmes
+de Borel–Cantelli.</label></li>
+<li><label><input type="checkbox" />Préparer une marche aléatoire
+symétrique.</label></li>
+</ul>
 </body>
 </html>
