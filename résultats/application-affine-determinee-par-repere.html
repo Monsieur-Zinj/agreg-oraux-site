@@ -1,0 +1,104 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Résultat — Une application affine est déterminée par l'image d'un repère affine</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css?v=2394f0dea55e" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Résultat — Une application affine est déterminée par
+l&#x27;image d&#x27;un repère affine</h1>
+</header>
+<h1
+id="résultat-une-application-affine-est-déterminée-par-limage-dun-repère-affine">Résultat
+— Une application affine est déterminée par l’image d’un repère
+affine</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../index/resultats.html">← Index des résultats</a> · <a
+href="../index/lecons.html">Leçons</a> · <a
+href="../index/developpements.html">Développements</a> · <a
+href="../index.html">Accueil</a></p>
+<h2 id="énoncé">Énoncé</h2>
+<p>Soient <span class="math inline">\(\mathcal E\)</span> et <span
+class="math inline">\(\mathcal F\)</span> des espaces affines, avec
+<span class="math inline">\(\dim\mathcal E=n\)</span>, et <span
+class="math inline">\((A_0,\ldots,A_n)\)</span> un repère affine de
+<span class="math inline">\(\mathcal E\)</span>. Deux applications
+affines <span class="math inline">\(f,g:\mathcal E\to\mathcal F\)</span>
+qui coïncident sur les <span class="math inline">\(A_i\)</span> sont
+égales. En particulier, une application affine qui fixe un repère affine
+est l’identité.</p>
+<h2 id="preuve">Preuve</h2>
+<p>Tout <span class="math inline">\(M\in\mathcal E\)</span> s’écrit de
+manière unique</p>
+<p><span class="math display">\[
+\overrightarrow{A_0M}=\sum_{i=1}^n\lambda_i\overrightarrow{A_0A_i}.
+\]</span></p>
+<p>Si <span class="math inline">\(f\)</span> est affine de partie
+linéaire <span class="math inline">\(L_f\)</span>, alors</p>
+<p><span class="math display">\[
+\overrightarrow{f(A_0)f(M)}
+=L_f(\overrightarrow{A_0M})
+=\sum_{i=1}^n\lambda_i\overrightarrow{f(A_0)f(A_i)}.
+\]</span></p>
+<p>Les images du repère déterminent donc <span
+class="math inline">\(f(M)\)</span> pour tout <span
+class="math inline">\(M\)</span>.</p>
+<h2 id="contre-exemples-et-nécessité-des-hypothèses">Contre-exemples et
+nécessité des hypothèses</h2>
+<ul>
+<li><strong>Moins de <span class="math inline">\(n+1\)</span> points ne
+suffisent pas en général.</strong> Dans le plan, l’identité et la
+réflexion par rapport à une droite coïncident sur cette droite mais
+diffèrent ailleurs.</li>
+<li><strong>Les points doivent être affinement indépendants.</strong>
+Trois points alignés du plan ne déterminent pas une application
+affine.</li>
+<li><strong>Sans affinité</strong>, fixer un repère ne suffit pas : sur
+<span class="math inline">\(\mathbb R\)</span>, <span
+class="math inline">\(x\mapsto x+x(x-1)\)</span> fixe <span
+class="math inline">\(0\)</span> et <span
+class="math inline">\(1\)</span> sans être l’identité.</li>
+</ul>
+<h2 id="application-aux-isométries-du-tétraèdre">Application aux
+isométries du tétraèdre</h2>
+<p>Les quatre sommets d’un tétraèdre plein forment un repère affine de
+<span class="math inline">\(\mathbb R^3\)</span>. Une isométrie affine
+qui les fixe est donc l’identité, et le morphisme</p>
+<p><span class="math display">\[
+\operatorname{Is}(T)\longrightarrow\mathfrak S_4
+\]</span></p>
+<p>est injectif.</p>
+<h2 id="pièges-et-questions-doral">Pièges et questions d’oral</h2>
+<ul>
+<li>Distinguer indépendance linéaire des vecteurs et indépendance affine
+des points.</li>
+<li>Justifier qu’une isométrie de l’espace euclidien est affine.</li>
+<li>Pourquoi faut-il un tétraèdre non aplati ?</li>
+</ul>
+</body>
+</html>

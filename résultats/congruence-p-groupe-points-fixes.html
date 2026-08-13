@@ -1,0 +1,107 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Résultat — Congruence des orbites d'un $p$-groupe et points fixes</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css?v=2394f0dea55e" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Résultat — Congruence des orbites d&#x27;un $p$-groupe et
+points fixes</h1>
+</header>
+<h1
+id="résultat-congruence-des-orbites-dun-p-groupe-et-points-fixes">Résultat
+— Congruence des orbites d’un <span
+class="math inline">\(p\)</span>-groupe et points fixes</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../index/resultats.html">← Index des résultats</a> · <a
+href="../index/lecons.html">Leçons</a> · <a
+href="../index/developpements.html">Développements</a> · <a
+href="../index.html">Accueil</a></p>
+<h2 id="énoncé">Énoncé</h2>
+<p>Soit <span class="math inline">\(G\)</span> un <span
+class="math inline">\(p\)</span>-groupe fini agissant sur un ensemble
+fini <span class="math inline">\(X\)</span>. Alors</p>
+<p><span class="math display">\[
+|X|\equiv |X^G|\pmod p,
+\qquad X^G=\{x\in X:\forall g\in G,\ g\cdot x=x\}.
+\]</span></p>
+<h2 id="preuve">Preuve</h2>
+<p>L’équation des classes décompose <span
+class="math inline">\(X\)</span> en orbites. Pour <span
+class="math inline">\(x\in X\)</span>,</p>
+<p><span class="math display">\[
+|G\cdot x|=[G:G_x]
+\]</span></p>
+<p>divise <span class="math inline">\(|G|\)</span>, donc est une
+puissance de <span class="math inline">\(p\)</span>. Une orbite a
+cardinal <span class="math inline">\(1\)</span> exactement lorsque son
+point est fixé par tout <span class="math inline">\(G\)</span> ; toute
+autre orbite a un cardinal divisible par <span
+class="math inline">\(p\)</span>. La congruence suit en sommant.</p>
+<h2 id="contre-exemples-et-nécessité-des-hypothèses">Contre-exemples et
+nécessité des hypothèses</h2>
+<ul>
+<li><strong>Si <span class="math inline">\(G\)</span> n’est pas un <span
+class="math inline">\(p\)</span>-groupe</strong>, la congruence peut
+échouer. Le groupe cyclique <span class="math inline">\(C_6\)</span>
+agit transitivement sur lui-même par translations : <span
+class="math inline">\(|X|=6\)</span>, <span
+class="math inline">\(|X^G|=0\)</span>, et modulo <span
+class="math inline">\(5\)</span> on n’a pas <span
+class="math inline">\(6\equiv0\)</span>.</li>
+<li><strong>Si <span class="math inline">\(X\)</span> est
+infini</strong>, les cardinaux modulo <span
+class="math inline">\(p\)</span> ne sont plus définis sous cette
+forme.</li>
+<li>Pour un groupe d’ordre premier, les orbites ont tailles <span
+class="math inline">\(1\)</span> ou <span
+class="math inline">\(p\)</span> ; pour un <span
+class="math inline">\(p\)</span>-groupe général, elles peuvent avoir
+tailles <span class="math inline">\(1,p,p^2,\ldots\)</span>.</li>
+</ul>
+<h2 id="application-dans-la-réciprocité-quadratique">Application dans la
+réciprocité quadratique</h2>
+<p>Le groupe <span class="math inline">\((\mathbb F_p,+)\)</span> agit
+par décalage cyclique sur</p>
+<p><span class="math display">\[
+X=\{(x_i)_{i\in\mathbb F_p}\in\mathbb F_q^p:\sum_i x_i^2=1\}.
+\]</span></p>
+<p>Les points fixes sont les vecteurs constants, d’où</p>
+<p><span class="math display">\[
+|X|\equiv 1+\left(\frac pq\right)\pmod p.
+\]</span></p>
+<h2 id="pièges-et-questions-doral">Pièges et questions d’oral</h2>
+<ul>
+<li>Une orbite de taille <span class="math inline">\(1\)</span> est
+fixée par tout le groupe.</li>
+<li>Ne pas confondre <span class="math inline">\(X^G\)</span> avec les
+points dont le stabilisateur est seulement non trivial.</li>
+<li>Donner une autre application de la congruence.</li>
+</ul>
+</body>
+</html>

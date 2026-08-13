@@ -1,0 +1,96 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Résultat — Fonction caractéristique d'une somme de variables indépendantes</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css?v=2394f0dea55e" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Résultat — Fonction caractéristique d&#x27;une somme de
+variables indépendantes</h1>
+</header>
+<h1
+id="résultat-fonction-caractéristique-dune-somme-de-variables-indépendantes">Résultat
+— Fonction caractéristique d’une somme de variables indépendantes</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../index/resultats.html">← Index des résultats</a> · <a
+href="../index/lecons.html">Leçons</a> · <a
+href="../index/developpements.html">Développements</a> · <a
+href="../index.html">Accueil</a></p>
+<h2 id="énoncé">Énoncé</h2>
+<p>Si <span class="math inline">\(X_1,\ldots,X_n\)</span> sont
+indépendantes, alors, pour tout <span class="math inline">\(t\in\mathbb
+R\)</span>,</p>
+<p><span class="math display">\[
+\Phi_{X_1+\cdots+X_n}(t)=\prod_{j=1}^n\Phi_{X_j}(t),
+\qquad \Phi_X(t)=\mathbb E(e^{itX}).
+\]</span></p>
+<p>Aucune hypothèse de moment n’est nécessaire.</p>
+<h2 id="preuve">Preuve</h2>
+<p>Les variables <span class="math inline">\(e^{itX_j}\)</span> sont
+indépendantes, bornées et intégrables. Ainsi</p>
+<p><span class="math display">\[
+\Phi_{\sum_jX_j}(t)
+=\mathbb E\!\left(\prod_{j=1}^ne^{itX_j}\right)
+=\prod_{j=1}^n\mathbb E(e^{itX_j}).
+\]</span></p>
+<h2 id="contre-exemples-et-limites">Contre-exemples et limites</h2>
+<ul>
+<li><strong>Sans indépendance</strong>, la formule est fausse en
+général. Si <span class="math inline">\(Y=X\)</span> avec <span
+class="math inline">\(X\)</span> de Rademacher, alors <span
+class="math display">\[
+\Phi_{X+Y}(t)=\cos(2t),\qquad \Phi_X(t)\Phi_Y(t)=\cos^2t.
+\]</span></li>
+<li>L’égalité concernant seulement la somme ne caractérise pas à elle
+seule l’indépendance. Le vrai critère est la factorisation de la
+fonction caractéristique jointe : <span class="math display">\[
+\Phi_{(X,Y)}(s,t)=\Phi_X(s)\Phi_Y(t)\quad\forall(s,t).
+\]</span></li>
+<li>Même une variable de Cauchy possède une fonction caractéristique :
+<span class="math inline">\(|e^{itX}|=1\)</span>, bien que ses moments
+usuels n’existent pas.</li>
+</ul>
+<h2 id="application-dans-lévytcl">Application dans <a href="../d%C3%A9veloppements/theoreme-levy-tcl-application.html">Lévy–TCL</a></h2>
+<p>Pour des variables i.i.d. centrées réduites <span
+class="math inline">\(Y_k\)</span>,</p>
+<p><span class="math display">\[
+\Phi_{(Y_1+\cdots+Y_n)/\sqrt n}(t)
+=\left[\Phi_{Y_1}(t/\sqrt n)\right]^n.
+\]</span></p>
+<p>Le développement de <span class="math inline">\(\Phi_{Y_1}\)</span>
+en <span class="math inline">\(0\)</span> conduit à <span
+class="math inline">\(e^{-t^2/2}\)</span>.</p>
+<h2 id="pièges-et-questions-doral">Pièges et questions d’oral</h2>
+<ul>
+<li>L’indépendance intervient dans la factorisation, pas dans
+l’existence des fonctions caractéristiques.</li>
+<li>Distinguer transformée d’une densité et transformée de la loi.</li>
+<li>Quelle identité caractérise réellement l’indépendance ?</li>
+</ul>
+</body>
+</html>
