@@ -17,7 +17,7 @@
 <script>
 (() => {
  const data=JSON.parse(document.getElementById('graph-data').textContent), svg=document.getElementById('knowledge-graph'), viewport=document.getElementById('graph-viewport'), linksG=document.getElementById('graph-links'), nodesG=document.getElementById('graph-nodes');
- const colors={'leçon':'#2563eb','développement':'#dc2626','notion':'#7c3aed','résultat':'#059669'}, active=new Set(Object.keys(colors)), byId=new Map(data.nodes.map(n=>[n.id,n])); let transform={x:0,y:0,k:1}, drag=null, pan=null;
+ const colors={'leçon':'#2563eb','développement':'#dc2626','notion':'#7c3aed','résultat':'#059669'}, active=new Set(Object.keys(colors)), byId=new Map(data.nodes.map(n=>[n.id,n])), nodeElements=new Map(), linkElements=new Map(); let transform={x:0,y:0,k:1}, drag=null, pan=null, lastSignature='';
  const seed=s=>[...s].reduce((a,c)=>(a*31+c.charCodeAt(0))>>>0,2166136261), w=1200,h=720;
  data.nodes.forEach(n=>{const z=seed(n.id);n.x=100+(z%1000);n.y=70+((z>>>10)%580);n.vx=n.vy=0;});
  data.links.forEach(l=>{l.a=byId.get(l.source);l.b=byId.get(l.target);});
