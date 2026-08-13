@@ -1,0 +1,119 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Résultat — Théorème de Heine : continuité uniforme sur un compact</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css?v=2394f0dea55e" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Résultat — Théorème de Heine : continuité uniforme sur
+un compact</h1>
+</header>
+<h1
+id="résultat-théorème-de-heine-continuité-uniforme-sur-un-compact">Résultat
+— Théorème de Heine : continuité uniforme sur un compact</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../index/resultats.html">← Index des résultats</a> · <a
+href="../index/lecons.html">Leçons</a> · <a
+href="../index/developpements.html">Développements</a> · <a
+href="../index.html">Accueil</a></p>
+<h2 id="énoncé">Énoncé</h2>
+<p>Soient <span class="math inline">\((K,d)\)</span> un espace métrique
+compact, <span class="math inline">\((Y,\delta)\)</span> un espace
+métrique et <span class="math inline">\(f:K\to Y\)</span> continue.
+Alors <span class="math inline">\(f\)</span> est uniformément continue
+:</p>
+<p><span class="math display">\[
+\forall\varepsilon&gt;0,\ \exists\eta&gt;0,\ \forall x,y\in K,
+\quad d(x,y)&lt;\eta\Longrightarrow\delta(f(x),f(y))&lt;\varepsilon.
+\]</span></p>
+<h2 id="preuve">Preuve</h2>
+<p>Sinon, il existe <span
+class="math inline">\(\varepsilon_0&gt;0\)</span> et, pour tout <span
+class="math inline">\(n\ge1\)</span>, des points <span
+class="math inline">\(x_n,y_n\in K\)</span> tels que</p>
+<p><span class="math display">\[
+d(x_n,y_n)&lt;\frac1n,
+\qquad
+\delta(f(x_n),f(y_n))\ge\varepsilon_0.
+\]</span></p>
+<p>Par compacité séquentielle, une sous-suite <span
+class="math inline">\((x_{n_k})\)</span> converge vers <span
+class="math inline">\(x\in K\)</span>. Comme <span
+class="math inline">\(d(x_{n_k},y_{n_k})\to0\)</span>, on a aussi <span
+class="math inline">\(y_{n_k}\to x\)</span>. La continuité de <span
+class="math inline">\(f\)</span> en <span
+class="math inline">\(x\)</span> donne alors <span
+class="math inline">\(f(x_{n_k})\to f(x)\)</span> et <span
+class="math inline">\(f(y_{n_k})\to f(x)\)</span>, donc <span
+class="math inline">\(\delta(f(x_{n_k}),f(y_{n_k}))\to0\)</span>,
+contradiction.</p>
+<h2 id="contre-exemples-et-nécessité-des-hypothèses">Contre-exemples et
+nécessité des hypothèses</h2>
+<ul>
+<li><strong>Sans compacité du domaine</strong>, la continuité ne suffit
+pas : <span class="math inline">\(f(x)=x^2\)</span> est continue sur
+<span class="math inline">\(\mathbb R\)</span> mais non uniformément
+continue, car <span class="math inline">\(x_n=n\)</span>, <span
+class="math inline">\(y_n=n+1/n\)</span> vérifient <span
+class="math inline">\(|x_n-y_n|\to0\)</span> tandis que <span
+class="math inline">\(|f(y_n)-f(x_n)|=2+1/n^2\)</span>.</li>
+<li><strong>Sans continuité</strong>, même un compact ne suffit pas :
+<span class="math inline">\(f=\mathbf 1_{\{0\}}\)</span> sur <span
+class="math inline">\([0,1]\)</span> n’est pas uniformément
+continue.</li>
+<li>La compacité n’est pas nécessaire dans tous les cas : toute
+application lipschitzienne est uniformément continue, même sur un espace
+non compact.</li>
+</ul>
+<h2 id="applications-dans-les-développements">Applications dans les
+développements</h2>
+<ul>
+<li><a
+href="../d%C3%A9veloppements/theoreme-weierstrass-par-convolution.html">Weierstrass
+par convolution</a> : un même voisinage contrôle les translations de la
+fonction sur tout le segment.</li>
+<li><a
+href="../d%C3%A9veloppements/theoreme-weierstrass-preuve-probabiliste.html">Weierstrass
+probabiliste</a> : un même <span class="math inline">\(\eta\)</span>
+convient pour tous les paramètres <span class="math inline">\(x\)</span>
+dans la séparation proche/loin.</li>
+<li><a href="../d%C3%A9veloppements/theoreme-fejer.html">Théorème de Fejér</a>
+: la continuité sur le cercle compact fournit le contrôle uniforme des
+translations.</li>
+</ul>
+<h2 id="pièges-et-questions-doral">Pièges et questions d’oral</h2>
+<ul>
+<li>Ne pas confondre continuité en chaque point et choix d’un rayon
+uniforme sur tout le domaine.</li>
+<li>Dans un espace métrique, la preuve séquentielle utilise la compacité
+séquentielle, équivalente à la compacité.</li>
+<li>Où la compacité intervient-elle exactement dans chacune des trois
+applications ?</li>
+</ul>
+</body>
+</html>
