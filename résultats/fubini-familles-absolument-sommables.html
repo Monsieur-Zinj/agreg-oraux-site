@@ -1,0 +1,104 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Résultat — Fubini pour les familles absolument sommables</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css?v=2394f0dea55e" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Résultat — Fubini pour les familles absolument
+sommables</h1>
+</header>
+<h1 id="résultat-fubini-pour-les-familles-absolument-sommables">Résultat
+— Fubini pour les familles absolument sommables</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../index/resultats.html">← Index des résultats</a> · <a
+href="../index/lecons.html">Leçons</a> · <a
+href="../index/developpements.html">Développements</a> · <a
+href="../index.html">Accueil</a></p>
+<h2 id="énoncé">Énoncé</h2>
+<p>Si <span class="math inline">\((a_{m,n})_{(m,n)\in\mathbb
+N^2}\)</span> vérifie</p>
+<p><span class="math display">\[
+\sum_{m,n\ge0}|a_{m,n}|&lt;\infty,
+\]</span></p>
+<p>alors les séries itérées convergent absolument et</p>
+<p><span class="math display">\[
+\sum_m\sum_n a_{m,n}=\sum_n\sum_m a_{m,n}
+=\sum_{(m,n)\in\mathbb N^2}a_{m,n}.
+\]</span></p>
+<p>Toute réindexation bijective donne la même somme.</p>
+<h2 id="preuve">Preuve</h2>
+<p>Pour une famille positive, les sommes sur les rectangles croissent
+vers le supremum des sommes sur les parties finies ; Tonelli autorise
+les deux ordres. On applique cela à <span
+class="math inline">\(|a_{m,n}|\)</span>. Les sommes de <span
+class="math inline">\(a_{m,n}\)</span> forment alors une famille de
+Cauchy, toute queue étant majorée par la queue correspondante de <span
+class="math inline">\(|a_{m,n}|\)</span>. Toutes les procédures
+d’épuisement ont donc la même limite.</p>
+<h2 id="contre-exemple-sans-convergence-absolue">Contre-exemple sans
+convergence absolue</h2>
+<p>Posons</p>
+<p><span class="math display">\[
+a_{m,n}=\begin{cases}
+1,&amp;n=m,\\
+-1,&amp;n=m+1,\\
+0,&amp;\text{sinon}.
+\end{cases}
+\]</span></p>
+<p>Chaque ligne a pour somme <span class="math inline">\(0\)</span>,
+donc <span class="math inline">\(\sum_m\sum_n a_{m,n}=0\)</span>. La
+colonne <span class="math inline">\(0\)</span> a pour somme <span
+class="math inline">\(1\)</span> et toutes les autres ont pour somme
+<span class="math inline">\(0\)</span>, donc <span
+class="math inline">\(\sum_n\sum_m a_{m,n}=1\)</span>. Or <span
+class="math inline">\(\sum_{m,n}|a_{m,n}|=\infty\)</span>. La
+convergence de chaque ligne et de chaque colonne ne suffit donc pas.</p>
+<h2 id="applications-dans-les-développements">Applications dans les
+développements</h2>
+<ul>
+<li><a href="../d%C3%A9veloppements/nombres-de-bell.html">Nombres de Bell et
+Dobinski</a> : pour <span
+class="math inline">\(a_{m,k}=m^kz^k/(m!k!)\)</span>, la somme des
+modules vaut <span class="math inline">\(\exp(e^{|z|})\)</span>.</li>
+<li><a
+href="../d%C3%A9veloppements/formules-poisson-shannon.html">Poisson–Shannon</a>
+: les interversions série–intégrale reposent sur le même principe de
+contrôle absolu.</li>
+</ul>
+<h2 id="pièges-et-questions-doral">Pièges et questions d’oral</h2>
+<ul>
+<li>Pour une famille positive, Tonelli s’applique sans finitude
+préalable, mais la valeur peut être <span
+class="math inline">\(+\infty\)</span>.</li>
+<li>« Chaque série converge » ne suffit jamais à justifier une
+permutation.</li>
+<li>Savoir expliquer le contre-exemple diagonal.</li>
+</ul>
+</body>
+</html>

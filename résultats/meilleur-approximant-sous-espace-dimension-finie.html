@@ -1,0 +1,111 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Résultat — Existence d'un meilleur approximant dans un sous-espace de dimension finie</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css?v=2394f0dea55e" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Résultat — Existence d&#x27;un meilleur approximant dans un
+sous-espace de dimension finie</h1>
+</header>
+<h1
+id="résultat-existence-dun-meilleur-approximant-dans-un-sous-espace-de-dimension-finie">Résultat
+— Existence d’un meilleur approximant dans un sous-espace de dimension
+finie</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../index/resultats.html">← Index des résultats</a> · <a
+href="../index/lecons.html">Leçons</a> · <a
+href="../index/developpements.html">Développements</a> · <a
+href="../index.html">Accueil</a></p>
+<h2 id="énoncé">Énoncé</h2>
+<p>Soit <span class="math inline">\(E\)</span> un espace vectoriel
+normé, <span class="math inline">\(F\subset E\)</span> un sous-espace de
+dimension finie et <span class="math inline">\(a\in E\)</span>. Il
+existe <span class="math inline">\(x\in F\)</span> tel que</p>
+<p><span class="math display">\[
+\|a-x\|=d(a,F):=\inf_{y\in F}\|a-y\|.
+\]</span></p>
+<p>L’existence est garantie ; l’unicité ne l’est pas en norme
+quelconque.</p>
+<h2 id="preuve">Preuve</h2>
+<p>Choisissons <span class="math inline">\(x_n\in F\)</span> avec <span
+class="math inline">\(d(a,F)\le\|a-x_n\|&lt;d(a,F)+1/n\)</span>. La
+suite est bornée puisque <span
+class="math inline">\(\|x_n\|\le\|a\|+d(a,F)+1\)</span>. En dimension
+finie, elle possède une sous-suite convergente vers <span
+class="math inline">\(x\in F\)</span>. Par continuité de la norme, <span
+class="math inline">\(\|a-x\|=d(a,F)\)</span>.</p>
+<h2 id="contre-exemples-et-nécessité-des-hypothèses">Contre-exemples et
+nécessité des hypothèses</h2>
+<ul>
+<li><strong>Un sous-espace fermé de dimension infinie peut ne pas
+admettre de meilleur approximant.</strong> Dans <span
+class="math inline">\(c_0\)</span>, soit <span
+class="math inline">\(\varphi(x)=\sum_{n\ge1}2^{-n}x_n\)</span>. On a
+<span class="math inline">\(\|\varphi\|=1\)</span>, mais <span
+class="math inline">\(\varphi\)</span> n’atteint pas sa norme sur la
+boule unité de <span class="math inline">\(c_0\)</span>. Le sous-espace
+fermé <span class="math inline">\(F=\ker\varphi\)</span> n’est pas
+proximinal : pour tout <span class="math inline">\(a\)</span> tel que
+<span class="math inline">\(\varphi(a)\ne0\)</span>, la formule <span
+class="math inline">\(d(a,F)=|\varphi(a)|\)</span> vaut, mais une
+distance atteinte fournirait un vecteur où <span
+class="math inline">\(\varphi\)</span> atteint sa norme,
+contradiction.</li>
+<li><strong>Sans fermeture</strong>, l’échec est immédiat : dans <span
+class="math inline">\(\mathbb R\)</span>, la distance de <span
+class="math inline">\(\sqrt2\)</span> à <span
+class="math inline">\(\mathbb Q\)</span> vaut <span
+class="math inline">\(0\)</span> sans être atteinte.</li>
+<li><strong>L’unicité peut échouer</strong> : dans <span
+class="math inline">\((\mathbb R^2,\|\cdot\|_\infty)\)</span>, pour
+<span class="math inline">\(F=\mathbb R\times\{0\}\)</span> et <span
+class="math inline">\(a=(0,1)\)</span>, tous les <span
+class="math inline">\((t,0)\)</span> avec <span
+class="math inline">\(|t|\le1\)</span> sont meilleurs approximants.</li>
+</ul>
+<h2 id="application-dans-le-théorème-de-riesz">Application dans le
+théorème de Riesz</h2>
+<p>Pour <span class="math inline">\(b\notin F\)</span>, un meilleur
+approximant <span class="math inline">\(x\)</span> permet de poser <span
+class="math inline">\(u=(b-x)/\|b-x\|\)</span> et d’obtenir
+exactement</p>
+<p><span class="math display">\[
+\|u\|=1,
+\qquad d(u,F)=1.
+\]</span></p>
+<h2 id="pièges-et-questions-doral">Pièges et questions d’oral</h2>
+<ul>
+<li>Commencer par un infimum ; ne parler de minimum qu’après la
+preuve.</li>
+<li>En espace de Hilbert, la projection orthogonale donne existence et
+unicité pour tout sous-espace fermé : c’est une hypothèse structurelle
+plus forte.</li>
+</ul>
+</body>
+</html>

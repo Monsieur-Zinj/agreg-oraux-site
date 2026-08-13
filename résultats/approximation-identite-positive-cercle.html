@@ -1,0 +1,126 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Résultat — Approximation de l'identité positive sur le cercle</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css?v=2394f0dea55e" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Résultat — Approximation de l&#x27;identité positive sur le
+cercle</h1>
+</header>
+<h1
+id="résultat-approximation-de-lidentité-positive-sur-le-cercle">Résultat
+— Approximation de l’identité positive sur le cercle</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../index/resultats.html">← Index des résultats</a> · <a
+href="../index/lecons.html">Leçons</a> · <a
+href="../index/developpements.html">Développements</a> · <a
+href="../index.html">Accueil</a></p>
+<h2 id="énoncé">Énoncé</h2>
+<p>Soit <span class="math inline">\((K_n)\)</span> une suite de
+fonctions intégrables, <span
+class="math inline">\(2\pi\)</span>-périodiques, telle que :</p>
+<ol type="1">
+<li><span class="math inline">\(K_n\ge0\)</span> presque partout ;</li>
+<li><span
+class="math inline">\(\frac1{2\pi}\int_{-\pi}^{\pi}K_n(t)\,dt=1\)</span>
+;</li>
+<li>pour tout <span class="math inline">\(\delta\in(0,\pi)\)</span>,
+<span class="math display">\[
+\frac1{2\pi}\int_{\delta\le |t|\le\pi}K_n(t)\,dt\longrightarrow0.
+\]</span></li>
+</ol>
+<p>Alors, pour toute fonction continue <span
+class="math inline">\(2\pi\)</span>-périodique <span
+class="math inline">\(f\)</span>, <span class="math inline">\(f*K_n\to
+f\)</span> uniformément.</p>
+<h2 id="preuve">Preuve</h2>
+<p>Par la masse unité,</p>
+<p><span class="math display">\[
+(f*K_n)(x)-f(x)=\frac1{2\pi}\int_{-\pi}^{\pi}[f(x-t)-f(x)]K_n(t)\,dt.
+\]</span></p>
+<p>Fixons <span class="math inline">\(\varepsilon&gt;0\)</span>. Par
+Heine, choisissons <span class="math inline">\(\delta&gt;0\)</span> tel
+que <span class="math inline">\(|t|&lt;\delta\)</span> implique <span
+class="math inline">\(|f(x-t)-f(x)|&lt;\varepsilon\)</span> pour tout
+<span class="math inline">\(x\)</span>. Positivité et masse unité
+donnent</p>
+<p><span class="math display">\[
+|(f*K_n)(x)-f(x)|
+\le \varepsilon+2\|f\|_\infty
+\frac1{2\pi}\int_{\delta\le|t|\le\pi}K_n(t)\,dt.
+\]</span></p>
+<p>Le second terme tend vers <span class="math inline">\(0\)</span>
+indépendamment de <span class="math inline">\(x\)</span>.</p>
+<h2 id="contre-exemples-et-nécessité-des-hypothèses">Contre-exemples et
+nécessité des hypothèses</h2>
+<ul>
+<li><strong>Sans concentration</strong>, prendre <span
+class="math inline">\(K_n\equiv1\)</span>. Alors <span
+class="math inline">\(f*K_n\)</span> est la moyenne de <span
+class="math inline">\(f\)</span> ; pour <span
+class="math inline">\(f(x)=\cos x\)</span>, on obtient <span
+class="math inline">\(0\)</span> au lieu de <span
+class="math inline">\(f\)</span>.</li>
+<li><strong>Sans normalisation</strong>, prendre <span
+class="math inline">\(K_n=2F_n\)</span>, où <span
+class="math inline">\(F_n\)</span> est le noyau de Fejér : <span
+class="math inline">\(f*K_n\to2f\)</span>.</li>
+<li><strong>Sans positivité</strong>, la conclusion peut échouer avec
+une simple concentration signée. Les noyaux de Dirichlet ont masse <span
+class="math inline">\(1\)</span> et leur intégrale signée hors de tout
+voisinage de <span class="math inline">\(0\)</span> tend vers <span
+class="math inline">\(0\)</span>, mais il existe des fonctions continues
+dont les sommes partielles de Fourier divergent en un point. Il faut
+alors supposer un contrôle uniforme des normes <span
+class="math inline">\(L^1\)</span> et une concentration en valeur
+absolue.</li>
+<li>Sans continuité uniforme de <span class="math inline">\(f\)</span>,
+on ne peut espérer en général une convergence uniforme.</li>
+</ul>
+<h2 id="applications-dans-les-développements">Applications dans les
+développements</h2>
+<ul>
+<li><a href="../d%C3%A9veloppements/theoreme-fejer.html">Théorème de Fejér</a>
+: <span class="math inline">\(K_n=F_n\)</span>.</li>
+<li><a
+href="../d%C3%A9veloppements/theoreme-weierstrass-par-convolution.html">Weierstrass
+par convolution</a> : même schéma proche/loin avec un noyau
+polynomial.</li>
+</ul>
+<h2 id="pièges-et-questions-doral">Pièges et questions d’oral</h2>
+<ul>
+<li>La concentration pertinente porte sur la masse en valeur absolue ;
+la positivité permet de l’écrire sans valeurs absolues.</li>
+<li>Distinguer convolution sur le cercle et convolution sur <span
+class="math inline">\(\mathbb R\)</span>.</li>
+<li>Pourquoi le noyau de Dirichlet n’entre-t-il pas dans ce théorème
+?</li>
+</ul>
+</body>
+</html>
