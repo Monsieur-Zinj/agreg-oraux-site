@@ -135,4 +135,32 @@ blockquote {
   padding-left: 1rem;
 }
 
+/* Visualisation interactive du graphe de connaissances. */
+.graph-page { max-width: 1440px; }
+.graph-header { display: flex; gap: 1rem; align-items: end; justify-content: space-between; }
+.graph-header p { color: var(--muted); margin-bottom: .4rem; }
+.graph-controls { display: flex; gap: .7rem; align-items: end; flex-wrap: wrap; }
+.graph-controls label { display: grid; gap: .2rem; color: var(--muted); font-size: .82rem; }
+.graph-controls input { min-width: 240px; }
+.graph-controls input, .graph-controls button, .graph-legend button {
+  padding: .55rem .75rem; border: 1px solid var(--border); border-radius: 8px; background: white; color: var(--fg);
+}
+.graph-legend { display: flex; gap: .45rem; align-items: center; flex-wrap: wrap; margin: 1rem 0; }
+.graph-legend button { opacity: .45; cursor: pointer; }
+.graph-legend button.is-active { opacity: 1; box-shadow: 0 1px 4px rgba(0,0,0,.12); }
+.graph-legend i { display: inline-block; width: .7rem; height: .7rem; border-radius: 50%; margin-right: .25rem; }
+.node-lesson { background: #2563eb; } .node-development { background: #dc2626; }
+.node-notion { background: #7c3aed; } .node-result { background: #059669; }
+#graph-count { margin-left: auto; color: var(--muted); font-size: .9rem; }
+#graph-shell { position: relative; height: min(72vh, 760px); min-height: 520px; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: radial-gradient(circle at center, #fff, #f5f7fa); }
+#knowledge-graph { width: 100%; height: 100%; cursor: grab; touch-action: none; }
+#knowledge-graph:active { cursor: grabbing; }
+#graph-links line { stroke: #94a3b8; stroke-width: 1; opacity: .35; }
+.graph-node { cursor: pointer; outline: none; }
+.graph-node circle { stroke: white; stroke-width: 2; transition: r .12s, opacity .12s; }
+.graph-node:hover circle, .graph-node:focus circle, .graph-node.is-neighbour circle { stroke: #111827; stroke-width: 3; }
+#graph-details { position: absolute; left: 1rem; bottom: 1rem; display: grid; gap: .15rem; max-width: min(430px, calc(100% - 2rem)); padding: .75rem 1rem; border: 1px solid var(--border); border-radius: 10px; background: rgba(255,255,255,.94); box-shadow: 0 6px 20px rgba(0,0,0,.1); }
+#graph-details span { color: var(--muted); font-size: .85rem; }
+@media (max-width: 700px) { .graph-header { display: block; } .graph-controls input { min-width: 0; width: 100%; } #graph-shell { min-height: 480px; } }
+
 /* Ce fichier est surveillé et publié automatiquement. */
