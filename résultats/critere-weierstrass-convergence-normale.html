@@ -1,0 +1,179 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Résultat — Critère de Weierstrass pour la convergence normale</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css?v=2394f0dea55e" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Résultat — Critère de Weierstrass pour la convergence
+normale</h1>
+</header>
+<h1
+id="résultat-critère-de-weierstrass-pour-la-convergence-normale">Résultat
+— Critère de Weierstrass pour la convergence normale</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../index/resultats.html">← Index des résultats</a> · <a
+href="../index/lecons.html">Leçons</a> · <a
+href="../notions/index.html">Notions</a> · <a
+href="../index/developpements.html">Développements</a> · <a
+href="../index.html">Accueil</a></p>
+<h2 id="énoncé">Énoncé</h2>
+<p>Soit <span class="math inline">\(E\)</span> un ensemble et soit <span
+class="math inline">\((f_n)_{n\geq 0}\)</span> une suite de fonctions de
+<span class="math inline">\(E\)</span> dans <span
+class="math inline">\(\mathbb K\)</span>, où <span
+class="math inline">\(\mathbb K=\mathbb R\)</span> ou <span
+class="math inline">\(\mathbb C\)</span>. On suppose qu’il existe une
+suite <span class="math inline">\((M_n)_{n\geq 0}\)</span> de réels
+positifs telle que</p>
+<p><span class="math display">\[
+\forall n\geq 0,\qquad \sup_{x\in E}|f_n(x)|\leq M_n
+\]</span></p>
+<p>et que la série numérique <span class="math inline">\(\sum_{n\geq
+0}M_n\)</span> converge. Alors</p>
+<p><span class="math display">\[
+\sum_{n\geq 0}\|f_n\|_{\infty}&lt;+\infty.
+\]</span></p>
+<p>La série de fonctions <span class="math inline">\(\sum f_n\)</span>
+converge donc <strong>normalement</strong> sur <span
+class="math inline">\(E\)</span>. En particulier, elle converge
+absolument en tout point et uniformément sur <span
+class="math inline">\(E\)</span>.</p>
+<h2 id="preuve">Preuve</h2>
+<p>Pour <span class="math inline">\(p&gt;q\)</span> et tout <span
+class="math inline">\(x\in E\)</span>,</p>
+<p><span class="math display">\[
+\left|\sum_{n=q+1}^{p}f_n(x)\right|
+\leq \sum_{n=q+1}^{p}|f_n(x)|
+\leq \sum_{n=q+1}^{p}M_n.
+\]</span></p>
+<p>Ainsi,</p>
+<p><span class="math display">\[
+\left\|\sum_{n=q+1}^{p}f_n\right\|_\infty
+\leq \sum_{n=q+1}^{p}M_n.
+\]</span></p>
+<p>Le reste de la série numérique tend vers <span
+class="math inline">\(0\)</span> lorsque <span
+class="math inline">\(q\to+\infty\)</span>, uniformément en <span
+class="math inline">\(p&gt;q\)</span>. Les sommes partielles forment
+donc une suite uniformément de Cauchy. Comme <span
+class="math inline">\(\mathbb R\)</span> et <span
+class="math inline">\(\mathbb C\)</span> sont complets, la série
+converge uniformément. De plus,</p>
+<p><span class="math display">\[
+\sum_{n\geq0}\|f_n\|_\infty
+\leq \sum_{n\geq0}M_n&lt;+\infty,
+\]</span></p>
+<p>ce qui est exactement la convergence normale.</p>
+<h2 id="conséquences-utiles">Conséquences utiles</h2>
+<ul>
+<li>La somme d’une série normalement convergente de fonctions continues
+est continue.</li>
+<li>Sur un segment, on peut intégrer terme à terme une série normalement
+convergente de fonctions continues.</li>
+<li>Pour une série de fonctions <span
+class="math inline">\(C^1\)</span>, la convergence normale de la série
+des dérivées, accompagnée de la convergence en un point de la série
+initiale, donne la dérivation terme à terme.</li>
+<li>Le critère fournit des estimations quantitatives uniformes sur les
+restes : <span class="math display">\[
+\left\|\sum_{n&gt;N}f_n\right\|_\infty\leq\sum_{n&gt;N}M_n.
+\]</span></li>
+</ul>
+<h2 id="application-dans-poissonshannon">Application dans
+Poisson–Shannon</h2>
+<p>Dans <a href="../d%C3%A9veloppements/formules-poisson-shannon.html">Formules
+de Poisson et de Shannon</a>, on fixe un compact <span
+class="math inline">\(K\subset[-N,N]\)</span>. Pour <span
+class="math inline">\(|n|\geq N+1\)</span> et <span
+class="math inline">\(j\in\{0,1,2\}\)</span>, la décroissance de
+Schwartz donne</p>
+<p><span class="math display">\[
+|f^{(j)}(t+n)|\leq \frac{M_j}{(|n|-N)^2},
+\qquad t\in K.
+\]</span></p>
+<p>La série numérique</p>
+<p><span class="math display">\[
+\sum_{|n|\geq N+1}\frac{M_j}{(|n|-N)^2}
+\]</span></p>
+<p>converge. Le critère de Weierstrass donne donc la convergence normale
+sur <span class="math inline">\(K\)</span> de <span
+class="math inline">\(\sum_n f^{(j)}(t+n)\)</span>. C’est le contrôle
+uniforme nécessaire pour définir la périodisée et dériver terme à
+terme.</p>
+<p>Point important : le majorant dépend du compact <span
+class="math inline">\(K\)</span> par l’entier <span
+class="math inline">\(N\)</span>. On obtient une convergence normale
+<strong>sur tout compact</strong>, pas nécessairement sur toute la
+droite pour cette périodisation.</p>
+<h2 id="notions-liées">Notions liées</h2>
+<ul>
+<li><a href="../notions/convergence-normale.html">Convergence
+normale</a></li>
+<li>[[Série de fonctions]]</li>
+<li>[[Convergence uniforme]]</li>
+<li>[[Fonction de Schwartz]]</li>
+<li>[[Dérivation terme à terme]]</li>
+</ul>
+<h2 id="leçons-liées">Leçons liées</h2>
+<ul>
+<li><a
+href="../analyse/le%C3%A7ons/201-espaces-de-fonctions-exemples-applications.html">Leçon
+201 — Espaces de fonctions</a> : norme uniforme, complétude et
+conservation de la continuité.</li>
+<li><a
+href="../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">Leçon
+235 — Problèmes d’interversion de symboles</a> : somme–intégrale et
+dérivation terme à terme.</li>
+<li><a
+href="../analyse/le%C3%A7ons/241-suites-series-fonctions-exemples-contre-exemples.html">Leçon
+241 — Suites et séries de fonctions</a> : convergence normale et
+comparaison des modes de convergence.</li>
+</ul>
+<h2 id="développements-liés">Développements liés</h2>
+<ul>
+<li><a href="../d%C3%A9veloppements/formules-poisson-shannon.html">Formules de
+Poisson et de Shannon</a> : régularité de la périodisée par convergence
+normale locale des séries de dérivées.</li>
+</ul>
+<h2 id="pièges-et-questions-doral">Pièges et questions d’oral</h2>
+<ul>
+<li>Le critère est <strong>suffisant</strong>, mais non nécessaire à la
+convergence uniforme.</li>
+<li>Il faut produire un majorant <span
+class="math inline">\(M_n\)</span> indépendant de <span
+class="math inline">\(x\)</span> sur l’ensemble considéré.</li>
+<li>« Convergence normale sur tout compact » ne signifie pas «
+convergence normale sur tout l’espace ».</li>
+<li>Pourquoi la convergence normale implique-t-elle la convergence
+uniforme ?</li>
+<li>Donner une série uniformément convergente qui ne converge pas
+normalement.</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,105 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Notion — Convergence normale</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css?v=2394f0dea55e" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Notion — Convergence normale</h1>
+</header>
+<h1 id="notion-convergence-normale">Notion — Convergence normale</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="index.html">← Index des notions</a> · <a
+href="../index/resultats.html">Résultats</a> · <a
+href="../index/lecons.html">Leçons</a> · <a
+href="../index/developpements.html">Développements</a></p>
+<h2 id="définition">Définition</h2>
+<p>Une série de fonctions <span
+class="math inline">\(\sum_{n\geq0}f_n\)</span>, définies sur un
+ensemble <span class="math inline">\(E\)</span> et à valeurs dans un
+espace vectoriel normé, converge <strong>normalement</strong> sur <span
+class="math inline">\(E\)</span> lorsque</p>
+<p><span class="math display">\[
+\sum_{n\geq0}\|f_n\|_\infty&lt;+\infty,
+\qquad
+\|f_n\|_\infty=\sup_{x\in E}\|f_n(x)\|.
+\]</span></p>
+<p>Pour des fonctions non bornées, cette définition n’est pas satisfaite
+puisque la norme uniforme est infinie.</p>
+<h2 id="place-parmi-les-modes-de-convergence">Place parmi les modes de
+convergence</h2>
+<p><span class="math display">\[
+\text{convergence normale}
+\Longrightarrow
+\text{convergence uniforme et absolue en tout point}
+\Longrightarrow
+\text{convergence simple}.
+\]</span></p>
+<p>Les réciproques sont fausses en général. La convergence normale
+apporte surtout un contrôle sommable et uniforme des termes,
+particulièrement adapté aux interversions.</p>
+<h2 id="résultat-principal">Résultat principal</h2>
+<ul>
+<li><a
+href="../r%C3%A9sultats/critere-weierstrass-convergence-normale.html">Critère
+de Weierstrass pour la convergence normale</a>.</li>
+</ul>
+<h2 id="leçons-où-cette-notion-intervient">Leçons où cette notion
+intervient</h2>
+<ul>
+<li><a
+href="../analyse/le%C3%A7ons/201-espaces-de-fonctions-exemples-applications.html">Leçon
+201 — Espaces de fonctions</a></li>
+<li><a
+href="../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">Leçon
+235 — Problèmes d’interversion de symboles</a></li>
+<li><a
+href="../analyse/le%C3%A7ons/241-suites-series-fonctions-exemples-contre-exemples.html">Leçon
+241 — Suites et séries de fonctions</a></li>
+</ul>
+<h2 id="développements-associés">Développements associés</h2>
+<ul>
+<li><a href="../d%C3%A9veloppements/formules-poisson-shannon.html">Formules de
+Poisson et de Shannon</a> : convergence normale sur les compacts de la
+périodisée et de ses séries dérivées.</li>
+<li><a href="../d%C3%A9veloppements/theoreme-fejer.html">Théorème de Fejér</a>
+: distinguer la convergence uniforme obtenue par approximation de
+l’identité d’une convergence normale de série.</li>
+</ul>
+<h2 id="pièges">Pièges</h2>
+<ul>
+<li>Toujours préciser l’ensemble sur lequel porte le supremum.</li>
+<li>Distinguer convergence normale sur un compact fixé et convergence
+normale sur tout l’espace.</li>
+<li>Ne pas confondre convergence normale d’une série et convergence
+uniforme d’une suite.</li>
+<li>La convergence uniforme d’une série n’implique pas sa convergence
+normale.</li>
+</ul>
+</body>
+</html>
