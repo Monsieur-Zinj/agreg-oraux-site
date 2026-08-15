@@ -41,13 +41,13 @@ href="../../index/developpements.html">Développements</a> · <a
 href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
 href="../../index.html">Accueil</a></p>
 <h2 id="rôle-dans-le-graphe">Rôle dans le graphe</h2>
-<p>Leçon-carrefour sur les structures portées par les fonctions :
-normes, distances, convergence, complétude, convolution, densité et
-analyse de Fourier. Deux modèles doivent structurer le plan : <span
-class="math inline">\(C(K)\)</span> pour <span
-class="math inline">\(K\)</span> compact et les espaces <span
-class="math inline">\(L^p\)</span> sur le cercle ou la droite
-réelle.</p>
+<p>La leçon est volontairement organisée autour de deux espaces concrets
+: <span class="math inline">\(C([a,b])\)</span> et <span
+class="math inline">\(C(\mathbb T)\)</span>. Dans chacun d’eux, on fixe
+une norme, on précise le mode de convergence, puis on étudie une
+approximation constructive. Ce choix évite un catalogue trop ambitieux
+d’espaces fonctionnels et conduit naturellement aux deux développements
+retenus.</p>
 <h2 id="attendus-du-jury-à-garder-en-tête">Attendus du jury à garder en
 tête</h2>
 <p>D’après le rapport 2025 :</p>
@@ -57,216 +57,247 @@ class="math inline">\(C(K)\)</span> et ses usages pour conserver des
 régularités ;</li>
 <li>présenter Stone–Weierstrass dans des versions constructives ou non
 ;</li>
-<li>exploiter la complétude, notamment pour les équations
-différentielles ou intégrales ;</li>
-<li>traiter la convolution et ses applications dans les espaces <span
-class="math inline">\(L^p\)</span> ;</li>
-<li>relier ces espaces à l’analyse de Fourier ;</li>
-<li>pour aller plus loin : Baire, Montel, espaces réguliers, algèbres de
-Banach de fonctions et parties compactes de <span
-class="math inline">\(C(K)\)</span>.</li>
+<li>savoir exploiter la convolution et ses applications ;</li>
+<li>relier les espaces de fonctions à l’analyse de Fourier ;</li>
+<li>toujours préciser l’espace, la norme et le sens de la
+convergence.</li>
 </ul>
-<h2 id="plan-possible-squelette">Plan possible — squelette</h2>
-<h3 id="lespace-ck">1. L’espace <span
-class="math inline">\(C(K)\)</span></h3>
+<p>Le plan ci-dessous ne cherche pas à traiter simultanément les espaces
+<span class="math inline">\(L^p\)</span>, les équations intégrales,
+Ascoli, Montel et les algèbres de Banach. Ces thèmes restent des
+ouvertures possibles pour les questions du jury, mais ne structurent pas
+la présentation.</p>
+<h2 id="plan-possible-centré-sur-les-développements">Plan possible —
+centré sur les développements</h2>
+<h3
+id="fonctions-continues-sur-un-segment-et-approximation-polynomiale">1.
+Fonctions continues sur un segment et approximation polynomiale</h3>
+<h4 id="structure-de-cab">1.1. Structure de <span
+class="math inline">\(C([a,b])\)</span></h4>
 <ul>
-<li>norme uniforme et convergence uniforme ;</li>
-<li>complétude de <span class="math inline">\(C(K)\)</span> ;</li>
-<li>conservation de la continuité par limite uniforme ;</li>
-<li>continuité uniforme sur un compact ;</li>
-<li>algèbres de fonctions et séparation des points.</li>
+<li><span class="math inline">\(C([a,b],\mathbb K)\)</span> est une
+algèbre normée pour <span class="math display">\[
+\|f\|_\infty=\sup_{x\in[a,b]}|f(x)|.
+\]</span></li>
+<li>Une limite uniforme de fonctions continues est continue.</li>
+<li><span class="math inline">\(C([a,b],\mathbb K)\)</span> est complet
+pour la norme uniforme.</li>
+<li>Le théorème de Heine fournit la continuité uniforme sur le segment
+compact.</li>
+<li>Exemple de comparaison : <span
+class="math inline">\(x^n\to0\)</span> simplement sur <span
+class="math inline">\([0,1[\)</span>, mais pas uniformément sur <span
+class="math inline">\([0,1]\)</span>.</li>
 </ul>
-<h3 id="densité-et-approximation">2. Densité et approximation</h3>
-<h4 id="densité-abstraite">2.1. Densité abstraite</h4>
+<h4 id="approximation-par-les-polynômes">1.2. Approximation par les
+polynômes</h4>
 <ul>
-<li>théorème de Stone–Weierstrass ;</li>
-<li>densité des polynômes dans <span
-class="math inline">\(C([a,b])\)</span>.</li>
-</ul>
-<h4 id="deux-preuves-constructives-de-weierstrass">2.2. Deux preuves
-constructives de Weierstrass</h4>
-<ul>
-<li><a
-href="../../d%C3%A9veloppements/theoreme-weierstrass-par-convolution.html">convolution</a>
-: compact <span class="math inline">\(\Rightarrow\)</span> Heine <span
-class="math inline">\(\Rightarrow\)</span> contrôle uniforme des
-translations <span class="math inline">\(\Rightarrow p_n*f\to f\)</span>
-;</li>
-<li><a
-href="../../d%C3%A9veloppements/theoreme-weierstrass-preuve-probabiliste.html">polynômes
-de Bernstein</a> : <span class="math inline">\(B_n(f)(x)=\mathbb
-E[f(S_n/n)]\)</span> et concentration uniforme par
-Bienaymé–Tchebychev.</li>
-</ul>
-<h4 id="modèle-périodique">2.3. Modèle périodique</h4>
-<ul>
-<li><a href="../../d%C3%A9veloppements/theoreme-fejer.html">théorème de
-Fejér</a> : moyennes de Cesàro, convolution par le noyau de Fejér et
-approximation de l’identité positive sur <span
-class="math inline">\(C(\mathbb T)\)</span>.</li>
-</ul>
-<h3 id="espaces-lp">3. Espaces <span
-class="math inline">\(L^p\)</span></h3>
-<ul>
-<li>quotient par l’égalité presque partout ;</li>
-<li>normes <span class="math inline">\(L^p\)</span>, Hölder et Minkowski
-;</li>
-<li>complétude ;</li>
-<li>densité de sous-espaces réguliers ;</li>
-<li>translations et convolution.</li>
-</ul>
-<h3 id="applications">4. Applications</h3>
-<ul>
-<li>équations intégrales et point fixe ;</li>
-<li>analyse de Fourier ;</li>
-<li>régularisation ;</li>
-<li>opérateurs compacts et Ascoli, en ouverture.</li>
+<li>Énoncé de Weierstrass : <span class="math inline">\(\mathbb
+K[X]\)</span> est dense dans <span class="math inline">\(C([a,b],\mathbb
+K)\)</span> pour <span
+class="math inline">\(\|\cdot\|_\infty\)</span>.</li>
+<li>Sur <span class="math inline">\([0,1]\)</span>, définition des
+opérateurs de Bernstein <span class="math display">\[
+B_n(f)(x)=\sum_{k=0}^n f\!\left(\frac{k}{n}\right)\binom nk
+x^k(1-x)^{n-k}.
+\]</span></li>
+<li>Positivité, linéarité, conservation des constantes et interprétation
+comme moyenne pondérée.</li>
+<li><strong>Développement de la partie 1 :</strong> <a
+href="../../d%C3%A9veloppements/theoreme-weierstrass-preuve-probabiliste.html">théorème
+de Weierstrass par les polynômes de Bernstein</a>. L’interprétation
+binomiale et Bienaymé–Tchebychev donnent un contrôle uniforme en <span
+class="math inline">\(x\)</span>.</li>
+<li>Stone–Weierstrass est cité ensuite comme généralisation abstraite,
+sans chercher à le démontrer dans ce plan.</li>
 </ul>
 <h3
-id="articulation-du-plan-avec-les-développements-retenus">Articulation
-du plan avec les développements retenus</h3>
+id="fonctions-continues-périodiques-et-approximation-trigonométrique">2.
+Fonctions continues périodiques et approximation trigonométrique</h3>
+<h4 id="lespace-cmathbb-t-et-les-séries-de-fourier">2.1. L’espace <span
+class="math inline">\(C(\mathbb T)\)</span> et les séries de
+Fourier</h4>
 <ul>
-<li><strong><a
-href="../../d%C3%A9veloppements/theoreme-weierstrass-par-convolution.html">Weierstrass
-par convolution</a></strong> : relier la partie 1 (<span
-class="math inline">\(C([a,b])\)</span>, norme uniforme, Heine) à la
-partie 2 (densité) par le mécanisme d’approximation de l’unité ; voir <a
-href="../../r%C3%A9sultats/heine-continuite-uniforme-sur-compact.html">théorème
-de Heine</a>.</li>
-<li><strong><a
+<li>Identification aux fonctions continues <span
+class="math inline">\(2\pi\)</span>-périodiques, munies de <span
+class="math inline">\(\|\cdot\|_\infty\)</span>.</li>
+<li>Coefficients de Fourier <span class="math display">\[
+c_k(f)=\frac1{2\pi}\int_{-\pi}^{\pi}f(t)e^{-ikt}\,dt,
+\]</span> et sommes partielles <span
+class="math inline">\(S_n(f)\)</span>.</li>
+<li>Les polynômes trigonométriques forment une sous-algèbre de <span
+class="math inline">\(C(\mathbb T)\)</span>.</li>
+<li>Point de vigilance : pour une fonction continue, les sommes
+partielles <span class="math inline">\(S_n(f)\)</span> ne convergent pas
+nécessairement uniformément.</li>
+</ul>
+<h4 id="moyennes-de-cesàro-et-noyau-de-fejér">2.2. Moyennes de Cesàro et
+noyau de Fejér</h4>
+<ul>
+<li>Définition des moyennes <span class="math display">\[
+\sigma_n(f)=\frac1{n+1}\sum_{j=0}^n S_j(f).
+\]</span></li>
+<li>Écriture de <span class="math inline">\(\sigma_n(f)\)</span> comme
+convolution périodique par le noyau de Fejér.</li>
+<li>Les trois propriétés à isoler : positivité, masse <span
+class="math inline">\(1\)</span> et concentration au voisinage de <span
+class="math inline">\(0\)</span>.</li>
+<li><strong>Développement de la partie 2 :</strong> <a
+href="../../d%C3%A9veloppements/theoreme-fejer.html">théorème de Fejér</a>.
+L’approximation de l’identité entraîne <span
+class="math inline">\(\sigma_n(f)\to f\)</span> uniformément.</li>
+<li>Conséquences : densité des polynômes trigonométriques dans <span
+class="math inline">\(C(\mathbb T)\)</span> et unicité d’une fonction
+continue à partir de ses coefficients de Fourier.</li>
+</ul>
+<h3
+id="articulation-du-plan-avec-les-deux-développements-retenus">Articulation
+du plan avec les deux développements retenus</h3>
+<ul>
+<li><strong>Partie 1 — <a
 href="../../d%C3%A9veloppements/theoreme-weierstrass-preuve-probabiliste.html">Weierstrass
-probabiliste</a></strong> : placer les polynômes de Bernstein en partie
-2 comme opérateurs positifs sur <span
-class="math inline">\(C([0,1])\)</span> ; le contrôle uniforme repose
-sur <a
-href="../../r%C3%A9sultats/inegalite-bienayme-tchebychev.html">Bienaymé–Tchebychev</a>
-et sur Heine.</li>
-<li><strong><a href="../../d%C3%A9veloppements/theoreme-fejer.html">Théorème de
-Fejér</a></strong> : terminer la partie 2 par le modèle périodique <span
-class="math inline">\(C(\mathbb T)\)</span> ; rattacher la convolution
-par le noyau de Fejér à <a
+probabiliste</a></strong> : les opérateurs de Bernstein agissent sur
+<span class="math inline">\(C([0,1])\)</span> ; la preuve repose sur la
+loi binomiale, la concentration et <a
+href="../../r%C3%A9sultats/inegalite-bienayme-tchebychev.html">Bienaymé–Tchebychev</a>,
+avec Heine pour obtenir un contrôle uniforme.</li>
+<li><strong>Partie 2 — <a
+href="../../d%C3%A9veloppements/theoreme-fejer.html">Théorème de
+Fejér</a></strong> : les moyennes de Cesàro agissent sur <span
+class="math inline">\(C(\mathbb T)\)</span> ; la preuve repose sur
+l’analyse de Fourier, la convolution périodique et <a
 href="../../r%C3%A9sultats/approximation-identite-positive-cercle.html">l’approximation
 de l’identité positive</a>.</li>
 </ul>
+<p>Ces deux développements ont été préférés aux trois possibilités
+fortes de la matrice parce qu’ils sont les moins redondants : Bernstein
+mobilise un mécanisme probabiliste de concentration, tandis que Fejér
+mobilise un mécanisme harmonique de sommation de Cesàro et de
+convolution. La preuve de <a href="../../d%C3%A9veloppements/theoreme-weierstrass-par-convolution.html">Weierstrass par convolution</a>, bien que très
+bien recasée en <a href="201-espaces-de-fonctions-exemples-applications.html">201</a>, reprendrait avec Fejér le même schéma
+d’approximation de l’identité et le même découpage proche/loin.</p>
 <h2 id="développements-actuels-recommandés">Développements actuels
 recommandés</h2>
-<p><a
-href="../../d%C3%A9veloppements/theoreme-weierstrass-par-convolution.html">Théorème
-de Weierstrass par convolution</a> — recasage 5/5.</p>
-<p>Orientation : présenter <span class="math inline">\(\mathbb
-K[X]\)</span> comme une sous-algèbre dense de <span
-class="math inline">\(C([a,b])\)</span>, insister sur la norme uniforme,
-puis expliquer que la convolution donne une version constructive du
-phénomène de Stone–Weierstrass.</p>
-<p><a
+<ol type="1">
+<li><a
 href="../../d%C3%A9veloppements/theoreme-weierstrass-preuve-probabiliste.html">Théorème
-de Weierstrass — preuve probabiliste</a> — recasage 5/5. Variante par
-loi binomiale et concentration, particulièrement utile pour relier
-analyse et probabilités.</p>
-<p><a href="../../d%C3%A9veloppements/theoreme-fejer.html">Théorème de
-Fejér</a> — recasage 4/5. Modèle périodique sur <span
-class="math inline">\(C(\mathbb T)\)</span> : moyennes de Cesàro,
-convolution et densité des polynômes trigonométriques.</p>
+de Weierstrass — preuve probabiliste</a> — recasage 5/5 ; développement
+de la partie 1.</li>
+<li><a href="../../d%C3%A9veloppements/theoreme-fejer.html">Théorème de
+Fejér</a> — recasage 4/5 ; développement de la partie 2.</li>
+</ol>
 <h2 id="notions-liées">Notions liées</h2>
 <ul>
 <li>[[Espace de fonctions]]</li>
 <li>[[Norme uniforme]]</li>
 <li>[[Convergence uniforme]]</li>
 <li>[[Espace de Banach]]</li>
+<li>[[Polynômes de Bernstein]]</li>
+<li>[[Série de Fourier]]</li>
+<li>[[Sommation de Cesàro]]</li>
 <li>[[Convolution]]</li>
 <li>[[Approximation de l’unité]]</li>
-<li>[[Théorème de Stone-Weierstrass]]</li>
 <li>[[Densité des polynômes]]</li>
-<li>[[Espace Lp]]</li>
-<li>[[Théorème d’Ascoli]]</li>
 </ul>
 <h2 id="résultats-liés">Résultats liés</h2>
 <ul>
 <li><a
-href="../../r%C3%A9sultats/critere-weierstrass-convergence-normale.html">Critère
-de Weierstrass pour la convergence normale</a> — contrôle dans la norme
-uniforme et conservation de la continuité par sommation.</li>
-<li><a
 href="../../r%C3%A9sultats/heine-continuite-uniforme-sur-compact.html">Théorème
-de Heine</a> — continuité uniforme sur les compacts.</li>
+de Heine</a> — choix d’un même contrôle local sur tout le compact.</li>
+<li><a href="../../r%C3%A9sultats/inegalite-bienayme-tchebychev.html">Inégalité
+de Bienaymé–Tchebychev</a> — concentration uniforme des lois binomiales
+dans le développement de Bernstein.</li>
 <li><a
 href="../../r%C3%A9sultats/approximation-identite-positive-cercle.html">Approximation
-de l’identité positive</a> — convergence uniforme des convolutions.</li>
+de l’identité positive</a> — convergence uniforme des convolutions dans
+le développement de Fejér.</li>
 </ul>
 <h2 id="leçons-liées">Leçons liées</h2>
 <ul>
 <li>[[Leçon <a href="203-utilisation-de-la-notion-de-compacite.html">203</a> — Utilisation de la notion de compacité]]</li>
-<li>[[Leçon 205 — Espaces complets]]</li>
 <li>[[Leçon <a href="209-approximation-fonction-par-fonctions-regulieres.html">209</a> — Approximation d’une fonction par des fonctions
 régulières]]</li>
-<li>[[Leçon <a href="234-fonctions-espaces-lebesgue-integrables.html">234</a> — Fonctions et espaces de fonctions
-Lebesgue-intégrables]]</li>
-<li>[[Leçon <a href="239-fonctions-definies-par-integrale-parametre.html">239</a> — Fonctions définies par une intégrale dépendant d’un
-paramètre]]</li>
 <li>[[Leçon <a href="241-suites-series-fonctions-exemples-contre-exemples.html">241</a> — Suites et séries de fonctions]]</li>
 <li>[[Leçon <a href="246-series-de-fourier-exemples-applications.html">246</a> — Séries de Fourier]]</li>
+<li>[[Leçon <a href="261-loi-variable-aleatoire.html">261</a> — Loi d’une variable aléatoire]]</li>
+<li>[[Leçon <a href="266-independance-probabilites.html">266</a> — Indépendance en probabilités]]</li>
 </ul>
 <h2 id="résultats-clés-à-maîtriser">Résultats clés à maîtriser</h2>
 <ul>
-<li><span class="math inline">\(C(K)\)</span>, muni de la norme
-uniforme, est complet si l’espace d’arrivée l’est.</li>
+<li><span class="math inline">\(C(K)\)</span> est complet pour la norme
+uniforme lorsque l’espace d’arrivée est complet.</li>
 <li>Une limite uniforme de fonctions continues est continue.</li>
 <li>Les polynômes sont denses dans <span
 class="math inline">\(C([a,b])\)</span>.</li>
-<li>Stone–Weierstrass réel : une sous-algèbre contenant les constantes
-et séparant les points est dense dans <span
-class="math inline">\(C(K,\mathbb R)\)</span>.</li>
-<li>Les approximations de l’unité convergent dans des cadres
-adaptés.</li>
+<li>Les opérateurs de Bernstein sont linéaires, positifs, de norme <span
+class="math inline">\(1\)</span> et reproduisent les fonctions
+affines.</li>
+<li>Les noyaux de Fejér constituent une approximation de l’identité
+positive sur le cercle.</li>
+<li>Les polynômes trigonométriques sont denses dans <span
+class="math inline">\(C(\mathbb T)\)</span>.</li>
 </ul>
 <h2 id="exemples-à-préparer">Exemples à préparer</h2>
 <ul>
-<li><span class="math inline">\(C([0,1])\)</span> avec <span
-class="math inline">\(\|\cdot\|_\infty\)</span>, puis avec <span
-class="math inline">\(\|\cdot\|_1\)</span>, pour comparer les
-topologies.</li>
-<li>Une suite convergeant simplement mais non uniformément.</li>
-<li>Les polynômes de Bernstein.</li>
-<li>Une convolution régularisante.</li>
-<li>Une fonction de <span class="math inline">\(L^p\)</span> définie
-seulement presque partout.</li>
+<li>La suite <span class="math inline">\(x\mapsto x^n\)</span> pour
+distinguer convergence simple et uniforme.</li>
+<li>Les images de <span class="math inline">\(1\)</span>, <span
+class="math inline">\(X\)</span> et <span
+class="math inline">\(X^2\)</span> par l’opérateur de Bernstein.</li>
+<li>Une fonction continue dont la série de Fourier ne converge pas
+uniformément, au moins comme contre-exemple à citer.</li>
+<li>Le calcul de <span class="math inline">\(F_n(0)=n+1\)</span> et la
+concentration du noyau de Fejér hors d’un voisinage de <span
+class="math inline">\(0\)</span>.</li>
 </ul>
 <h2 id="pièges-et-points-de-vigilance">Pièges et points de
 vigilance</h2>
 <ul>
 <li>Toujours préciser la norme et le mode de convergence.</li>
-<li>Ne pas identifier une fonction de <span
-class="math inline">\(L^p\)</span> à un représentant privilégié sans le
-dire.</li>
-<li>Ne pas citer Stone–Weierstrass sans connaître ses hypothèses
-complexes.</li>
-<li>Distinguer densité, complétude et compacité.</li>
-<li>Préparer des applications, pas un catalogue d’espaces.</li>
+<li>Ne pas confondre approximation polynomiale sur un segment et
+approximation trigonométrique sur le cercle.</li>
+<li>Pour Bernstein, expliquer pourquoi la borne probabiliste est
+uniforme en <span class="math inline">\(x\)</span> et où intervient
+l’indépendance.</li>
+<li>Pour Fejér, ne pas confondre convergence des sommes partielles et
+convergence de leurs moyennes de Cesàro.</li>
+<li>Ne pas transformer le plan en catalogue d’espaces <span
+class="math inline">\(L^p\)</span>, de topologies et de théorèmes
+avancés.</li>
+<li>Si Stone–Weierstrass est cité, connaître au moins les hypothèses de
+la version réelle et la difficulté supplémentaire du cas complexe.</li>
 </ul>
 <h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
 <ul>
-<li>Pourquoi la limite uniforme de fonctions continues est-elle continue
+<li>Pourquoi <span class="math inline">\(C([a,b])\)</span> est-il
+complet pour la norme uniforme ?</li>
+<li>Donner deux normes non équivalentes sur un même espace de
+fonctions.</li>
+<li>Où intervient la compacité dans la convergence uniforme des
+opérateurs de Bernstein ?</li>
+<li>Pourquoi l’estimation de Bienaymé–Tchebychev est-elle uniforme en
+<span class="math inline">\(x\)</span> ?</li>
+<li>Pourquoi les noyaux de Dirichlet ne permettent-ils pas le même
+argument que les noyaux de Fejér ?</li>
+<li>Comment déduire de Fejér la densité des polynômes trigonométriques
 ?</li>
-<li>Donner deux normes non équivalentes sur un espace de fonctions.</li>
-<li>Énoncer Stone–Weierstrass réel et complexe.</li>
-<li>Pourquoi la convolution est-elle bien définie dans le cadre choisi
-?</li>
-<li>Donner un exemple de partie dense de <span
-class="math inline">\(C([a,b])\)</span>.</li>
-<li>Comparer approximation polynomiale et approximation
-trigonométrique.</li>
+<li>Comparer les deux mécanismes d’approximation retenus.</li>
 </ul>
 <h2 id="à-faire">À faire</h2>
 <ul class="task-list">
-<li><label><input type="checkbox" />Fixer un plan équilibré entre <span
-class="math inline">\(C(K)\)</span> et <span
-class="math inline">\(L^p\)</span>.</label></li>
-<li><label><input type="checkbox" />Préparer trois exemples comparant
-des modes de convergence.</label></li>
-<li><label><input type="checkbox" />Écrire les hypothèses exactes de
-Stone–Weierstrass complexe.</label></li>
-<li><label><input type="checkbox" />Préparer une application de la
-complétude à une équation intégrale.</label></li>
+<li><label><input type="checkbox" />Chronométrer chaque partie avec son
+développement pour équilibrer le plan.</label></li>
+<li><label><input type="checkbox" />Préparer une preuve courte de la
+complétude de <span class="math inline">\(C(K)\)</span>.</label></li>
+<li><label><input type="checkbox" />Savoir calculer <span
+class="math inline">\(B_n(1)\)</span>, <span
+class="math inline">\(B_n(X)\)</span> et <span
+class="math inline">\(B_n(X^2)\)</span>.</label></li>
+<li><label><input type="checkbox" />Préparer la formule explicite du
+noyau de Fejér et ses trois propriétés.</label></li>
+<li><label><input type="checkbox" />Trouver un contre-exemple précis
+concernant la convergence des sommes partielles de Fourier d’une
+fonction continue.</label></li>
 </ul>
 </body>
 </html>
