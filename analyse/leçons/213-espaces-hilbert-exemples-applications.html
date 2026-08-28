@@ -22,6 +22,9 @@
     }
   </style>
   <link rel="stylesheet" href="../../assets/style.css?v=3fa8cfdcc3ea" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
 </head>
 <body>
 <nav class="topnav"><a href="../../index.html">Accueil</a></nav>
@@ -34,7 +37,193 @@ d’applications.</h1>
 — Espaces de Hilbert. Exemples d’applications.</h1>
 <h2 id="navigation">Navigation</h2>
 <p><a href="../../index/lecons.html">← Index des leçons</a> · <a
+href="../../index/developpements.html">Développements</a> · <a
+href="../../index/resultats.html">Résultats</a> · <a
 href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
 href="../../index.html">Accueil</a></p>
+<h2 id="rôle-dans-le-graphe">Rôle dans le graphe</h2>
+<p>Cette leçon relie la géométrie du produit scalaire, la complétude et
+les décompositions orthogonales aux espaces de fonctions. L’analyse de
+Fourier fournit le fil directeur naturel : familles orthonormées, bases
+hilbertiennes, Parseval, Plancherel, puis échantillonnage de
+Shannon.</p>
+<h2 id="attendus-du-jury-à-garder-en-tête">Attendus du jury à garder en
+tête</h2>
+<p>D’après le rapport du jury 2025 :</p>
+<ul>
+<li>maîtriser les propriétés algébriques fondamentales et l’utilisation
+de la complétude ;</li>
+<li>comprendre la projection sur les convexes fermés, en particulier sur
+les sous-espaces vectoriels fermés ;</li>
+<li>faire de l’analyse de Fourier sur le cercle ou la droite une
+illustration fondamentale ;</li>
+<li>maîtriser réellement la théorie <span
+class="math inline">\(L^2\)</span> des séries de Fourier ;</li>
+<li>savoir utiliser familles orthonormées et bases hilbertiennes ;</li>
+<li>éviter de proposer sans compréhension la seule construction de bases
+de polynômes orthogonaux ;</li>
+<li>pour aller plus loin : opérateurs auto-adjoints compacts,
+minimisation convexe coercive, Paley–Wiener et Shannon.</li>
+</ul>
+<h2 id="plan-possible">Plan possible</h2>
+<h3 id="i.-géométrie-et-complétude-dans-un-espace-de-hilbert">I.
+Géométrie et complétude dans un espace de Hilbert</h3>
+<ol type="1">
+<li>Produit scalaire, norme associée, Cauchy–Schwarz et identité du
+parallélogramme.</li>
+<li>Orthogonalité, théorème de Pythagore et orthogonal d’une
+partie.</li>
+<li>Sous-espaces fermés et décomposition <span
+class="math inline">\(H=F\oplus F^\perp\)</span>.</li>
+<li>Projection métrique sur un convexe fermé : existence, unicité et
+caractérisation variationnelle.</li>
+<li>Projections orthogonales : linéarité, auto-adjonction, norme et
+meilleure approximation.</li>
+</ol>
+<p><strong>Développement naturel de la partie I :</strong> <a
+href="../../d%C3%A9veloppements/projection-sur-un-convexe-ferme.html">Projection
+sur un convexe fermé</a>.</p>
+<h3 id="ii.-familles-orthonormées-et-bases-hilbertiennes">II. Familles
+orthonormées et bases hilbertiennes</h3>
+<ol type="1">
+<li>Familles orthonormées, inégalité de Bessel et coefficients.</li>
+<li>Projection sur un sous-espace engendré par une famille orthonormée
+finie.</li>
+<li>Systèmes orthonormés complets et équivalences : densité, Parseval,
+reconstruction.</li>
+<li>Exemples : <span class="math inline">\(\ell^2(\mathbb N)\)</span> et
+système trigonométrique dans <span class="math inline">\(L^2(\mathbb
+T)\)</span>.</li>
+<li>Théorie <span class="math inline">\(L^2\)</span> des séries de
+Fourier : convergence en moyenne quadratique, distincte de la
+convergence ponctuelle.</li>
+</ol>
+<h3 id="iii.-fourier-comme-géométrie-hilbertienne">III. Fourier comme
+géométrie hilbertienne</h3>
+<ol type="1">
+<li>Plancherel : la transformation de Fourier comme opérateur unitaire
+sur <span class="math inline">\(L^2(\mathbb R)\)</span>.</li>
+<li>Espaces de Paley–Wiener et sous-espaces à spectre borné.</li>
+<li>Les échantillons comme coefficients de Fourier du spectre.</li>
+<li>Isométrie <span class="math inline">\(PW_{1/2}\simeq\ell^2(\mathbb
+Z)\)</span> et base orthonormée des sinus cardinaux.</li>
+<li>Ouvertures : opérateurs compacts auto-adjoints, minimisation convexe
+coercive, moindres carrés.</li>
+</ol>
+<p><strong>Développement naturel de la partie III :</strong> <a
+href="../../d%C3%A9veloppements/formules-poisson-shannon.html">Formules de
+Poisson et de Shannon</a>.</p>
+<h2
+id="articulation-du-plan-avec-les-développements-retenus">Articulation
+du plan avec les développements retenus</h2>
+<ul>
+<li><strong><a href="../../d%C3%A9veloppements/projection-sur-un-convexe-ferme.html">Projection sur un convexe fermé</a></strong> se place à la
+charnière des points I.3–I.5 : l’identité du parallélogramme et la
+complétude donnent l’existence du projeté, puis le cas d’un sous-espace
+produit la décomposition orthogonale et l’opérateur <span
+class="math inline">\(P_F\)</span>.</li>
+<li><strong>Poisson–Shannon</strong> aboutit en III.3–III.4 : après
+Plancherel et Parseval, l’échantillonnage identifie deux espaces de
+Hilbert, <span class="math inline">\(PW_{1/2}\)</span> et <span
+class="math inline">\(\ell^2(\mathbb Z)\)</span>.</li>
+</ul>
+<p>Les deux développements sont complémentaires : le premier exploite la
+géométrie convexe et la complétude ; le second exploite bases
+hilbertiennes, Fourier et isométries d’espaces de fonctions.</p>
+<h2 id="développements-actuels-recommandés">Développements actuels
+recommandés</h2>
+<ol type="1">
+<li><a
+href="../../d%C3%A9veloppements/projection-sur-un-convexe-ferme.html">Projection
+sur un convexe fermé</a> — <strong>5/5</strong> ; attendu explicite du
+jury, avec complétude, convexité et décomposition orthogonale.</li>
+<li><a href="../../d%C3%A9veloppements/formules-poisson-shannon.html">Formules
+de Poisson et de Shannon</a> — <strong>5/5 dans sa lecture
+hilbertienne</strong> ; Plancherel, Parseval, base des sinus cardinaux
+et isométrie <span
+class="math inline">\(PW_{1/2}\simeq\ell^2\)</span>.</li>
+</ol>
+<h2 id="notions-liées">Notions liées</h2>
+<ul>
+<li>[[Espace de Hilbert]]</li>
+<li>[[Orthogonalité]]</li>
+<li>[[Projection orthogonale]]</li>
+<li>[[Convexité]]</li>
+<li>[[Famille orthonormée]]</li>
+<li>[[Base hilbertienne]]</li>
+<li>[[Identité de Parseval]]</li>
+<li>[[Transformation de Fourier]]</li>
+<li>[[Espace de Paley-Wiener]]</li>
+</ul>
+<h2 id="résultats-liés">Résultats liés</h2>
+<ul>
+<li><a
+href="../../r%C3%A9sultats/projection-convexe-ferme-caracterisation-variationnelle.html">Caractérisation
+variationnelle de la projection sur un convexe fermé</a>.</li>
+<li><a
+href="../../r%C3%A9sultats/coefficients-fourier-c1-sommables.html">Sommabilité
+absolue des coefficients de Fourier d’une fonction périodique <span
+class="math inline">\(C^1\)</span></a>.</li>
+</ul>
+<h2 id="exemples-à-préparer">Exemples à préparer</h2>
+<ul>
+<li>Projection de <span class="math inline">\(L^2([-\pi,\pi])\)</span>
+sur les polynômes trigonométriques de degré au plus <span
+class="math inline">\(n\)</span>.</li>
+<li>Espérance conditionnelle comme projection dans <span
+class="math inline">\(L^2(\Omega)\)</span>.</li>
+<li>Base canonique de <span class="math inline">\(\ell^2\)</span> et
+système trigonométrique de <span class="math inline">\(L^2(\mathbb
+T)\)</span>.</li>
+<li>Projection sur un convexe simple de <span
+class="math inline">\(\mathbb R^2\)</span> pour distinguer projection
+métrique et projection linéaire.</li>
+<li>Échantillonnage d’un signal à bande limitée et repliement
+spectral.</li>
+</ul>
+<h2 id="pièges-et-points-de-vigilance">Pièges et points de
+vigilance</h2>
+<ul>
+<li>Une famille orthonormée maximale n’est pas automatiquement une base
+au sens de Schauder ; préciser le sens hilbertien.</li>
+<li>Distinguer convergence <span class="math inline">\(L^2\)</span>,
+convergence ponctuelle et convergence uniforme d’une série de
+Fourier.</li>
+<li>Un sous-espace admet une projection orthogonale si et seulement s’il
+est fermé.</li>
+<li>La projection sur un convexe fermé est généralement non
+linéaire.</li>
+<li>Dans un Hilbert complexe, la caractérisation variationnelle utilise
+la partie réelle du produit scalaire.</li>
+<li>Ne pas transformer la leçon en catalogue abstrait : chaque résultat
+doit conduire à une application calculée.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Où la complétude intervient-elle dans le théorème de projection
+?</li>
+<li>Pourquoi la projection sur un sous-espace fermé est-elle linéaire et
+auto-adjointe ?</li>
+<li>Donner plusieurs caractérisations d’une base hilbertienne.</li>
+<li>Énoncer Bessel et Parseval ; quand a-t-on égalité ?</li>
+<li>En quel sens les séries de Fourier convergent-elles dans <span
+class="math inline">\(L^2\)</span> ?</li>
+<li>Pourquoi la transformation de Fourier est-elle unitaire sur <span
+class="math inline">\(L^2\)</span> ?</li>
+<li>Expliquer l’isométrie <span
+class="math inline">\(PW_{1/2}\simeq\ell^2(\mathbb Z)\)</span>.</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Chronométrer les deux développements
+dans leur orientation propre à la leçon <a href="213-espaces-hilbert-exemples-applications.html">213</a>.</label></li>
+<li><label><input type="checkbox" />Préparer une preuve courte de
+Plancherel et une justification de la complétude du système
+trigonométrique.</label></li>
+<li><label><input type="checkbox" />Ajouter un exemple détaillé
+d’espérance conditionnelle comme projection.</label></li>
+<li><label><input type="checkbox" />Préparer une ouverture sur le
+théorème spectral compact auto-adjoint.</label></li>
+</ul>
 </body>
 </html>

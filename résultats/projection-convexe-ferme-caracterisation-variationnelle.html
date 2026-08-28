@@ -1,0 +1,144 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Résultat — Caractérisation variationnelle de la projection sur un convexe fermé</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css?v=3fa8cfdcc3ea" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Résultat — Caractérisation variationnelle de la
+projection sur un convexe fermé</h1>
+</header>
+<h1
+id="résultat-caractérisation-variationnelle-de-la-projection-sur-un-convexe-fermé">Résultat
+— Caractérisation variationnelle de la projection sur un convexe
+fermé</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../index/resultats.html">← Index des résultats</a> · <a
+href="../index/lecons.html">Leçons</a> · <a
+href="../index/developpements.html">Développements</a> · <a
+href="../index.html">Accueil</a></p>
+<h2 id="énoncé">Énoncé</h2>
+<p>Soit <span class="math inline">\(H\)</span> un espace de Hilbert
+réel, <span class="math inline">\(C\subset H\)</span> un convexe fermé
+non vide et <span class="math inline">\(x\in H\)</span>. Il existe un
+unique <span class="math inline">\(p=P_C(x)\in C\)</span> tel que</p>
+<p><span class="math display">\[
+\|x-p\|=d(x,C).
+\]</span></p>
+<p>Ce point est caractérisé par</p>
+<p><span class="math display">\[
+\boxed{p=P_C(x)
+\iff p\in C\text{ et }
+\forall z\in C,\
+\langle x-p,z-p\rangle\le0.}
+\]</span></p>
+<p>Dans un Hilbert complexe, il faut remplacer le produit scalaire par
+sa partie réelle.</p>
+<h2 id="preuve-courte">Preuve courte</h2>
+<p>Une suite minimisante <span class="math inline">\((y_n)\subset
+C\)</span> est de Cauchy grâce à l’identité</p>
+<p><span class="math display">\[
+4\left\|x-\frac{y_p+y_q}{2}\right\|^2+\|y_p-y_q\|^2
+=2\|x-y_p\|^2+2\|x-y_q\|^2
+\]</span></p>
+<p>et au fait que le milieu appartient à <span
+class="math inline">\(C\)</span>. La complétude de <span
+class="math inline">\(H\)</span> et la fermeture de <span
+class="math inline">\(C\)</span> donnent l’existence ; la même identité
+appliquée au milieu de deux minimisateurs donne l’unicité.</p>
+<p>Pour <span class="math inline">\(p=P_C(x)\)</span>, le segment <span
+class="math inline">\(p+t(z-p)\)</span> est dans <span
+class="math inline">\(C\)</span>. La minimalité de <span
+class="math inline">\(p\)</span> implique</p>
+<p><span class="math display">\[
+2\langle x-p,z-p\rangle\le t\|z-p\|^2,
+\]</span></p>
+<p>puis l’inégalité variationnelle lorsque <span
+class="math inline">\(t\downarrow0\)</span>. La réciproque résulte du
+développement de <span class="math inline">\(\|x-z\|^2\)</span> autour
+de <span class="math inline">\(p\)</span>.</p>
+<h2 id="conséquences">Conséquences</h2>
+<h3 id="sous-espace-fermé">Sous-espace fermé</h3>
+<p>Si <span class="math inline">\(C=F\)</span> est un sous-espace
+vectoriel fermé, on peut tester <span class="math inline">\(p+h\)</span>
+et <span class="math inline">\(p-h\)</span>. On obtient <span
+class="math inline">\(x-p\in F^\perp\)</span>, donc</p>
+<p><span class="math display">\[
+H=F\oplus F^\perp.
+\]</span></p>
+<p>La projection <span class="math inline">\(P_F\)</span> est linéaire,
+auto-adjointe, idempotente et contractante.</p>
+<h3 id="fermeté-non-expansive">Fermeté non expansive</h3>
+<p>Pour <span class="math inline">\(p=P_C(x)\)</span> et <span
+class="math inline">\(q=P_C(y)\)</span>,</p>
+<p><span class="math display">\[
+\|p-q\|^2\le\langle x-y,p-q\rangle,
+\]</span></p>
+<p>donc <span class="math inline">\(P_C\)</span> est <span
+class="math inline">\(1\)</span>-lipschitzienne.</p>
+<h2 id="hypothèses-et-limites">Hypothèses et limites</h2>
+<ul>
+<li><strong>Sans fermeture</strong>, la limite d’une suite minimisante
+peut sortir de <span class="math inline">\(C\)</span>.</li>
+<li><strong>Sans convexité</strong>, l’unicité peut échouer : le point
+<span class="math inline">\(0\)</span> a deux meilleurs approximants
+dans <span class="math inline">\(\{-1,1\}\subset\mathbb R\)</span>.</li>
+<li><strong>Dans un Banach général</strong>, un convexe fermé ne possède
+pas nécessairement de meilleur approximant ; la géométrie hilbertienne
+est utilisée par l’identité du parallélogramme.</li>
+<li>La projection sur un convexe n’est généralement pas linéaire. Elle
+le devient pour un sous-espace fermé.</li>
+</ul>
+<h2 id="applications">Applications</h2>
+<ul>
+<li><a
+href="../d%C3%A9veloppements/projection-sur-un-convexe-ferme.html">Développement
+— Projection sur un convexe fermé</a>.</li>
+<li><a
+href="../analyse/le%C3%A7ons/213-espaces-hilbert-exemples-applications.html">Leçon
+213 — Espaces de Hilbert</a>.</li>
+<li><a
+href="../alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">Leçon
+158 — Endomorphismes remarquables d’un espace euclidien</a>.</li>
+<li>Moindres carrés et équations normales.</li>
+<li>Minimisation convexe et méthodes variationnelles.</li>
+</ul>
+<h2 id="pièges-et-questions-doral">Pièges et questions d’oral</h2>
+<ul>
+<li>Quel rôle joue chacune des trois hypothèses : Hilbert, fermé,
+convexe ?</li>
+<li>Pourquoi faut-il faire varier <span
+class="math inline">\(p+t(z-p)\)</span> et non simplement tester <span
+class="math inline">\(z\)</span> ?</li>
+<li>Quelle différence entre projection métrique sur un convexe et
+projection orthogonale sur un sous-espace ?</li>
+<li>Comment prouver la continuité de <span
+class="math inline">\(P_C\)</span> ?</li>
+</ul>
+</body>
+</html>

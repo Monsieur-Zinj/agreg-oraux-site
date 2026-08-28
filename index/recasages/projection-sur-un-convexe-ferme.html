@@ -1,0 +1,334 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Recasage — Projection sur un convexe fermé</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css?v=3fa8cfdcc3ea" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Recasage — <a href="../../d%C3%A9veloppements/projection-sur-un-convexe-ferme.html">Projection sur un convexe fermé</a></h1>
+</header>
+<h1 id="recasage-projection-sur-un-convexe-fermé">Recasage — <a href="../../d%C3%A9veloppements/projection-sur-un-convexe-ferme.html">Projection
+sur un convexe fermé</a></h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="index.html">← Recasages</a> · <a
+href="../../d%C3%A9veloppements/projection-sur-un-convexe-ferme.html">Développement</a>
+· <a href="../matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="notes-par-leçon-créée">Notes par leçon créée</h2>
+<table>
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 36%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">Leçon</th>
+<th style="text-align: right;">Note</th>
+<th>Commentaire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien avec les actions de groupes.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/104-groupes-finis.html">104</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien avec les groupes finis.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/105-groupe-des-permutations-dun-ensemble-fini.html">105</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien avec les permutations.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien avec les parties génératrices.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/120-anneaux-z-sur-nz-applications.html">120</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien avec les anneaux <span class="math inline">\(\mathbb
+Z/n\mathbb Z\)</span>.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/121-nombres-premiers-applications.html">121</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien avec les nombres premiers.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/123-corps-finis-applications.html">123</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien avec les corps finis.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/148-dimension-espace-vectoriel-rang.html">148</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>La preuve est fonctionnelle et ne porte ni sur le rang ni sur les
+fondements algébriques de la dimension finie.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun déterminant n’intervient.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/150-polynomes-endomorphisme-reduction.html">150</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun polynôme d’endomorphisme ni mécanisme de réduction.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/151-sous-espaces-stables-endomorphismes.html">151</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Le développement ne traite pas la stabilité par un
+endomorphisme.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/152-endomorphismes-diagonalisables-dimension-finie.html">152</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme de diagonalisation.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/153-valeurs-propres-vecteurs-propres-calculs-applications.html">153</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun calcul d’éléments propres.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/155-exponentielle-de-matrices-applications.html">155</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien avec l’exponentielle de matrices.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/156-endomorphismes-trigonalisables-nilpotents.html">156</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun lien avec trigonalisation ou nilpotence.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/157-matrices-symetriques-reelles-hermitiennes.html">157</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Le produit scalaire intervient, mais pas l’étude des matrices
+symétriques ou hermitiennes.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a></td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Très bon recasage à condition d’orienter la conclusion vers <span
+class="math inline">\(P_F\)</span> : projection orthogonale, calcul de
+distance, décomposition <span class="math inline">\(H=F\oplus
+F^\perp\)</span>, linéarité, auto-adjonction et idempotence. La partie
+convexe générale reste une légère adaptation au cadre euclidien
+fini.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/159-formes-lineaires-dualite-dimension-finie.html">159</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme de dualité ou de formes linéaires en dimension
+finie.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/161-espaces-vectoriels-et-affines-euclidiens-distances-isometries.html">161</a></td>
+<td style="text-align: right;" class="score score-2">2</td>
+<td>La distance et la projection ont un sens géométrique, mais la leçon
+est consacrée aux isométries euclidiennes en dimension finie ; la preuve
+hilbertienne générale est trop éloignée de son axe principal.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Le développement ne traite ni systèmes linéaires ni opérations
+élémentaires.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/170-formes-quadratiques-dimension-finie-orthogonalite-applications.html">170</a></td>
+<td style="text-align: right;" class="score score-2">2</td>
+<td>L’orthogonalité et la décomposition <span
+class="math inline">\(F\oplus F^\perp\)</span> sont pertinentes, mais
+les formes quadratiques ne structurent pas la preuve.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/190-methodes-combinatoires-problemes-de-denombrement.html">190</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun dénombrement.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/201-espaces-de-fonctions-exemples-applications.html">201</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun espace de fonctions concret n’est étudié dans la preuve
+abstraite.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/203-utilisation-de-la-notion-de-compacite.html">203</a></td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>Fermeture et complétude interviennent, mais la compacité n’est pas
+le mécanisme du développement.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/206-exemples-dutilisation-de-la-notion-de-dimension-finie-en-analyse.html">206</a></td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>Le cas euclidien est une spécialisation, mais la preuve vise
+précisément les Hilbert éventuellement de dimension infinie.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/208-espaces-vectoriels-normes-applications-lineaires-continues.html">208</a></td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td>Bon exemple de l’apport de la complétude et de la géométrie d’une
+norme hilbertienne ; toutefois <span class="math inline">\(P_C\)</span>
+est généralement non linéaire et le produit scalaire est plus spécialisé
+que le cœur de la leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/209-approximation-fonction-par-fonctions-regulieres.html">209</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun procédé d’approximation par des fonctions régulières.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/213-espaces-hilbert-exemples-applications.html">213</a></td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Recasage prioritaire et explicitement attendu par le jury :
+complétude, identité du parallélogramme, projection sur un convexe fermé
+et décomposition orthogonale des sous-espaces fermés.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/218-formules-de-taylor-exemples-applications.html">218</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucune formule de Taylor.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/228-continuite-derivabilite-fonctions-reelles-une-variable.html">228</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun contenu sur les fonctions réelles d’une variable.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/230-series-nombres-reels-complexes.html">230</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucune série numérique.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/234-fonctions-espaces-lebesgue-integrables.html">234</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun théorème d’intégration ni espace <span
+class="math inline">\(L^p\)</span> concret ne structure la preuve.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucune interversion de symboles.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/236-methodes-calcul-integrales.html">236</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun calcul d’intégrale.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">239</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucune intégrale dépendant d’un paramètre.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/241-suites-series-fonctions-exemples-contre-exemples.html">241</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucune suite ou série de fonctions.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/246-series-de-fourier-exemples-applications.html">246</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun argument de séries de Fourier.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">250</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucune transformation de Fourier.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun contenu probabiliste.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/262-convergences-variables-aleatoires-theoremes-limite.html">262</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun contenu probabiliste.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/266-independance-probabilites.html">266</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun contenu probabiliste.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="recasages-prioritaires">Recasages prioritaires</h2>
+<h3 id="espaces-de-hilbert-55"><a href="../../analyse/le%C3%A7ons/213-espaces-hilbert-exemples-applications.html">213</a> — Espaces de Hilbert — 5/5</h3>
+<p>C’est le recasage naturel. Le rapport du jury 2025 demande
+explicitement de comprendre l’utilisation de la complétude et la
+projection orthogonale sur les convexes fermés, en particulier sur les
+sous-espaces fermés. Conserver toute la chaîne : suite minimisante <span
+class="math inline">\(\to\)</span> Cauchy <span
+class="math inline">\(\to\)</span> complétude <span
+class="math inline">\(\to\)</span> caractérisation variationnelle <span
+class="math inline">\(\to\)</span> décomposition orthogonale.</p>
+<h3 id="endomorphismes-remarquables-dun-espace-euclidien-45"><a href="../../alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a> —
+Endomorphismes remarquables d’un espace euclidien — 4/5</h3>
+<p>Faire de la partie finale un véritable résultat d’opérateur : <span
+class="math inline">\(P_F\)</span> est linéaire, idempotente,
+auto-adjointe, de noyau <span class="math inline">\(F^\perp\)</span>, et
+réalise la meilleure approximation. Ne pas laisser la projection sur un
+convexe quelconque masquer le caractère linéaire recherché par la
+leçon.</p>
+<h3 id="espaces-vectoriels-normés-35"><a href="../../analyse/le%C3%A7ons/208-espaces-vectoriels-normes-applications-lineaires-continues.html">208</a> — Espaces vectoriels normés —
+3/5</h3>
+<p>Présenter le théorème comme une illustration de ce que la structure
+hilbertienne et la complétude ajoutent à un espace normé général.
+Comparer avec l’existence d’un meilleur approximant dans un sous-espace
+de dimension finie et rappeler que l’unicité échoue pour une norme
+arbitraire.</p>
+<h2 id="recasage-hors-matrice">Recasage hors matrice</h2>
+<ul>
+<li><strong>219 — Extremums : existence, caractérisation, recherche —
+5/5.</strong> Le rapport du jury 2025 mentionne explicitement convexité
+et projection sur un convexe fermé. La fiche de leçon n’existe pas
+encore ; conformément à la règle du dépôt, elle reste hors de la matrice
+officielle.</li>
+</ul>
+<h2 id="points-de-calibration">Points de calibration</h2>
+<ul>
+<li>La convexité et la complétude, non la compacité, structurent
+l’existence du projeté : <a href="../../analyse/le%C3%A7ons/203-utilisation-de-la-notion-de-compacite.html">203</a> ne doit pas être surévaluée.</li>
+<li>Le théorème général produit une projection métrique non linéaire ;
+le 4/5 en <a href="../../alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a> suppose donc de développer les propriétés spécifiques de
+<span class="math inline">\(P_F\)</span>.</li>
+<li>La version source contient plusieurs coquilles dans l’estimation de
+Cauchy et la variation <span
+class="math inline">\(p+\lambda(z-p)\)</span> ; les notes évaluent la
+version corrigée de la fiche locale.</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,378 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Développement — Projection sur un convexe fermé</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css?v=3fa8cfdcc3ea" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title"><a href="projection-sur-un-convexe-ferme.html">Développement — Projection sur un convexe fermé</a></h1>
+</header>
+<h1 id="développement-projection-sur-un-convexe-fermé"><a href="projection-sur-un-convexe-ferme.html">Développement —
+Projection sur un convexe fermé</a></h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../index/developpements.html">← Index des développements</a> ·
+<a href="../index/lecons.html">Leçons</a> · <a
+href="../index/resultats.html">Résultats</a> · <a
+href="../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../index/recasages/projection-sur-un-convexe-ferme.html">Recasage
+détaillé</a> · <a href="../index.html">Accueil</a></p>
+<h2 id="position-dans-le-graphe">Position dans le graphe</h2>
+<p>Ce développement établit le théorème de projection métrique sur un
+convexe fermé non vide d’un espace de Hilbert réel. Il fait intervenir
+de manière structurante :</p>
+<ol type="1">
+<li>l’identité du parallélogramme ;</li>
+<li>la convexité, qui permet de tester le milieu de deux points d’une
+suite minimisante ;</li>
+<li>la complétude, qui transforme cette suite de Cauchy en point du
+convexe ;</li>
+<li>une variation le long d’un segment, qui donne la caractérisation
+variationnelle ;</li>
+<li>le cas d’un sous-espace fermé, qui conduit à la décomposition
+orthogonale.</li>
+</ol>
+<p>Le rapport du jury 2025 cite explicitement, pour la leçon <a href="../analyse/le%C3%A7ons/213-espaces-hilbert-exemples-applications.html">213</a>, «
+l’utilisation de la complétude et la projection orthogonale sur les
+convexes fermés », puis sur les sous-espaces fermés (lignes
+1312–1315).</p>
+<h2 id="énoncé">Énoncé</h2>
+<p>Soit <span class="math inline">\(H\)</span> un espace de Hilbert réel
+et <span class="math inline">\(C\subset H\)</span> un convexe fermé non
+vide. Pour tout <span class="math inline">\(x\in H\)</span>, il existe
+un unique <span class="math inline">\(p\in C\)</span> tel que</p>
+<p><span class="math display">\[
+\|x-p\|=d(x,C):=\inf_{z\in C}\|x-z\|.
+\]</span></p>
+<p>On note <span class="math inline">\(p=P_C(x)\)</span>. Il est
+caractérisé par</p>
+<p><span class="math display">\[
+\boxed{\forall z\in C,\qquad
+\langle x-P_C(x),z-P_C(x)\rangle\le 0.}
+\]</span></p>
+<p>Si <span class="math inline">\(F\)</span> est un sous-espace
+vectoriel fermé de <span class="math inline">\(H\)</span>, alors</p>
+<p><span class="math display">\[
+H=F\oplus F^\perp,
+\qquad x=P_Fx+(x-P_Fx).
+\]</span></p>
+<p>Dans ce cas, <span class="math inline">\(P_F\)</span> est l’unique
+projection linéaire orthogonale sur <span
+class="math inline">\(F\)</span> ; elle est continue, auto-adjointe,
+idempotente et de norme <span class="math inline">\(1\)</span> si <span
+class="math inline">\(F\ne\{0\}\)</span>.</p>
+<h2 id="prérequis">Prérequis</h2>
+<ul>
+<li>[[Espace de Hilbert]] et complétude ;</li>
+<li>[[Convexité]] ;</li>
+<li>[[Suite de Cauchy]] ;</li>
+<li>[[Produit scalaire]] et identité du parallélogramme ;</li>
+<li>[[Orthogonal d’un sous-espace]].</li>
+</ul>
+<h2 id="résultats-liés">Résultats liés</h2>
+<ul>
+<li><a
+href="../r%C3%A9sultats/projection-convexe-ferme-caracterisation-variationnelle.html">Caractérisation
+variationnelle de la projection sur un convexe fermé</a> — énoncé
+réutilisable, conséquences et limites des hypothèses.</li>
+<li><a
+href="../r%C3%A9sultats/meilleur-approximant-sous-espace-dimension-finie.html">Existence
+d’un meilleur approximant dans un sous-espace de dimension finie</a> —
+comparaison avec le cas d’une norme quelconque en dimension finie, où
+l’unicité peut échouer.</li>
+</ul>
+<h2 id="preuve-détaillée">Preuve détaillée</h2>
+<h3 id="identité-du-parallélogramme">1. Identité du parallélogramme</h3>
+<p>Pour tous <span class="math inline">\(u,v\in H\)</span>,</p>
+<p><span class="math display">\[
+\|u+v\|^2+\|u-v\|^2
+=2\|u\|^2+2\|v\|^2.
+\]</span></p>
+<p>Elle résulte immédiatement du développement des deux carrés
+scalaires.</p>
+<h3 id="existence-du-projeté">2. Existence du projeté</h3>
+<p>Fixons <span class="math inline">\(x\in H\)</span> et posons <span
+class="math inline">\(\delta=d(x,C)\)</span>. Par définition de
+l’infimum, choisissons une suite <span
+class="math inline">\((y_n)\)</span> dans <span
+class="math inline">\(C\)</span> telle que</p>
+<p><span class="math display">\[
+\|x-y_n\|\longrightarrow\delta.
+\]</span></p>
+<p>Pour <span class="math inline">\(p,q\in\mathbb N\)</span>, appliquons
+l’identité du parallélogramme à <span
+class="math inline">\(x-y_p\)</span> et <span
+class="math inline">\(x-y_q\)</span> :</p>
+<p><span class="math display">\[
+4\left\|x-\frac{y_p+y_q}{2}\right\|^2
++\|y_p-y_q\|^2
+=2\|x-y_p\|^2+2\|x-y_q\|^2.
+\]</span></p>
+<p>Comme <span class="math inline">\(C\)</span> est convexe, <span
+class="math inline">\((y_p+y_q)/2\in C\)</span>, donc</p>
+<p><span class="math display">\[
+\left\|x-\frac{y_p+y_q}{2}\right\|\ge\delta.
+\]</span></p>
+<p>Par conséquent,</p>
+<p><span class="math display">\[
+0\le\|y_p-y_q\|^2
+\le 2\bigl(\|x-y_p\|^2-\delta^2\bigr)
++2\bigl(\|x-y_q\|^2-\delta^2\bigr).
+\]</span></p>
+<p>Le membre de droite tend vers <span class="math inline">\(0\)</span>
+lorsque <span class="math inline">\(p,q\to\infty\)</span>. La suite
+<span class="math inline">\((y_n)\)</span> est donc de Cauchy. La
+complétude de <span class="math inline">\(H\)</span> fournit <span
+class="math inline">\(y_n\to p\in H\)</span>, puis la fermeture de <span
+class="math inline">\(C\)</span> donne <span class="math inline">\(p\in
+C\)</span>. Enfin,</p>
+<p><span class="math display">\[
+\|x-p\|=\lim_n\|x-y_n\|=\delta.
+\]</span></p>
+<p>La distance est atteinte.</p>
+<h3 id="unicité">3. Unicité</h3>
+<p>Soient <span class="math inline">\(p,q\in C\)</span> deux
+minimisateurs. Leur milieu appartient à <span
+class="math inline">\(C\)</span>. La même identité donne</p>
+<p><span class="math display">\[
+4\left\|x-\frac{p+q}{2}\right\|^2+
+\|p-q\|^2
+=2\|x-p\|^2+2\|x-q\|^2=4\delta^2.
+\]</span></p>
+<p>Or <span class="math inline">\(\|x-(p+q)/2\|\ge\delta\)</span>, donc
+<span class="math inline">\(\|p-q\|^2\le0\)</span>. Ainsi <span
+class="math inline">\(p=q\)</span>.</p>
+<h3 id="caractérisation-variationnelle">4. Caractérisation
+variationnelle</h3>
+<p>Posons <span class="math inline">\(p=P_C(x)\)</span> et fixons <span
+class="math inline">\(z\in C\)</span>. Pour <span
+class="math inline">\(t\in(0,1]\)</span>, le point</p>
+<p><span class="math display">\[
+p_t=p+t(z-p)
+\]</span></p>
+<p>appartient à <span class="math inline">\(C\)</span>. La minimalité de
+<span class="math inline">\(p\)</span> donne</p>
+<p><span class="math display">\[
+\|x-p\|^2\le\|x-p_t\|^2
+=\|x-p\|^2-2t\langle x-p,z-p\rangle+t^2\|z-p\|^2.
+\]</span></p>
+<p>Après division par <span class="math inline">\(t&gt;0\)</span>,</p>
+<p><span class="math display">\[
+2\langle x-p,z-p\rangle\le t\|z-p\|^2.
+\]</span></p>
+<p>En faisant tendre <span class="math inline">\(t\)</span> vers <span
+class="math inline">\(0\)</span>, on obtient</p>
+<p><span class="math display">\[
+\langle x-p,z-p\rangle\le0.
+\]</span></p>
+<p>Réciproquement, si <span class="math inline">\(p\in C\)</span>
+vérifie cette inégalité pour tout <span class="math inline">\(z\in
+C\)</span>, alors</p>
+<p><span class="math display">\[
+\begin{aligned}
+\|x-z\|^2
+&amp;=\|(x-p)-(z-p)\|^2\\
+&amp;=\|x-p\|^2+\|z-p\|^2
+-2\langle x-p,z-p\rangle\\
+&amp;\ge\|x-p\|^2.
+\end{aligned}
+\]</span></p>
+<p>Ainsi <span class="math inline">\(p=P_C(x)\)</span>.</p>
+<h3 id="cas-dun-sous-espace-fermé">5. Cas d’un sous-espace fermé</h3>
+<p>Soit <span class="math inline">\(F\subset H\)</span> un sous-espace
+vectoriel fermé et <span class="math inline">\(p=P_F(x)\)</span>. Pour
+tout <span class="math inline">\(h\in F\)</span>, les points <span
+class="math inline">\(p+h\)</span> et <span
+class="math inline">\(p-h\)</span> appartiennent à <span
+class="math inline">\(F\)</span>. La caractérisation variationnelle
+donne successivement</p>
+<p><span class="math display">\[
+\langle x-p,h\rangle\le0,
+\qquad
+-\langle x-p,h\rangle\le0.
+\]</span></p>
+<p>Donc <span class="math inline">\(x-p\in F^\perp\)</span>, et</p>
+<p><span class="math display">\[
+x=p+(x-p)\in F+F^\perp.
+\]</span></p>
+<p>Comme <span class="math inline">\(F\cap F^\perp=\{0\}\)</span>, la
+somme est directe : <span class="math inline">\(H=F\oplus
+F^\perp\)</span>.</p>
+<p>L’unicité de cette décomposition montre que <span
+class="math inline">\(P_F\)</span> est linéaire. De plus,</p>
+<p><span class="math display">\[
+P_F^2=P_F,
+\qquad
+\ker P_F=F^\perp,
+\qquad
+\langle P_Fx,y\rangle=\langle x,P_Fy\rangle.
+\]</span></p>
+<p>Enfin <span class="math inline">\(\|P_Fx\|\le\|x\|\)</span> par
+Pythagore, donc <span class="math inline">\(\|P_F\|\le1\)</span> ; si
+<span class="math inline">\(F\ne\{0\}\)</span>, l’égalité s’obtient sur
+un vecteur unitaire de <span class="math inline">\(F\)</span>.</p>
+<h2 id="extension-utile-continuité-de-p_c">Extension utile : continuité
+de <span class="math inline">\(P_C\)</span></h2>
+<p>Si <span class="math inline">\(p=P_C(x)\)</span> et <span
+class="math inline">\(q=P_C(y)\)</span>, les deux inégalités
+variationnelles, appliquées à <span class="math inline">\(q\)</span>
+puis à <span class="math inline">\(p\)</span>, donnent</p>
+<p><span class="math display">\[
+\|p-q\|^2\le\langle x-y,p-q\rangle.
+\]</span></p>
+<p>Ainsi</p>
+<p><span class="math display">\[
+\|P_C(x)-P_C(y)\|\le\|x-y\|.
+\]</span></p>
+<p>La projection métrique est donc <span
+class="math inline">\(1\)</span>-lipschitzienne, bien qu’elle ne soit
+généralement pas linéaire lorsque <span class="math inline">\(C\)</span>
+n’est pas un sous-espace.</p>
+<h2 id="audit-de-la-source">Audit de la source</h2>
+<p>La fiche locale corrige plusieurs coquilles de la version 5155 :</p>
+<ul>
+<li>lignes 83–86 de l’extraction : le membre de gauche doit être <span
+class="math inline">\(\|y_p-y_q\|^2\)</span>, et les coefficients du
+membre de droite doivent être lus comme dans l’estimation ci-dessus
+;</li>
+<li>ligne 111 : il faut écrire <span
+class="math inline">\(\|x-y\|=d(x,C)\)</span>, et non <span
+class="math inline">\(d(y,C)=d(x,C)\)</span> ;</li>
+<li>lignes 126–131 : le point du segment est <span
+class="math inline">\(P_C(x)+\lambda(z_0-P_C(x))\)</span>, non <span
+class="math inline">\(\lambda z_0+(1-\lambda)z_0\)</span> ; le terme
+quadratique est <span class="math inline">\(\|z_0-P_C(x)\|^2\)</span>,
+non <span class="math inline">\(\|z_0+P_C(x)\|^2\)</span> ;</li>
+<li>ligne <a href="../alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a> : <span class="math inline">\(\|x\|^2=\langle
+x,x\rangle\)</span>, et non <span class="math inline">\(\|x\|=\langle
+x,x\rangle\)</span>.</li>
+</ul>
+<p>Ces erreurs sont typographiques mais touchent des étapes logiques
+essentielles ; il faut présenter la version corrigée au tableau.</p>
+<h2 id="durée-cible-15-minutes">Durée cible : 15 minutes</h2>
+<ul>
+<li>0:00–1:30 — cadre, énoncé et parallélogramme ;</li>
+<li>1:30–6:30 — suite minimisante, estimation de Cauchy, complétude et
+fermeture ;</li>
+<li>6:30–8:00 — unicité par le milieu ;</li>
+<li>8:00–11:30 — caractérisation variationnelle dans les deux sens
+;</li>
+<li>11:30–14:30 — sous-espace fermé, <span
+class="math inline">\(H=F\oplus F^\perp\)</span> et propriétés de <span
+class="math inline">\(P_F\)</span> ;</li>
+<li>14:30–15:00 — annonce de la contraction <span
+class="math inline">\(P_C\)</span> si le temps le permet.</li>
+</ul>
+<p>À ne pas sacrifier : l’estimation portant sur le
+<strong>carré</strong> de <span
+class="math inline">\(\|y_p-y_q\|\)</span>, l’usage distinct de la
+complétude et de la fermeture, et le bon segment <span
+class="math inline">\(p+t(z-p)\)</span>.</p>
+<h2 id="points-sensibles-à-loral">Points sensibles à l’oral</h2>
+<ul>
+<li>Dire « projection métrique » sur un convexe ; « projection
+orthogonale » est surtout naturel pour un sous-espace.</li>
+<li>Ne pas parler de minimum avant d’avoir prouvé que l’infimum est
+atteint.</li>
+<li>Identifier séparément les rôles de la convexité, de la complétude et
+de la fermeture.</li>
+<li>Dans un espace de Hilbert complexe, prendre la partie réelle du
+produit scalaire dans la caractérisation variationnelle.</li>
+<li>Un fermé quelconque n’admet pas nécessairement un projeté unique :
+la convexité est essentielle pour l’unicité.</li>
+<li>Dans un espace de Banach strictement convexe, l’unicité éventuelle
+ne donne pas à elle seule l’existence.</li>
+<li><span class="math inline">\(P_C\)</span> n’est généralement pas
+linéaire ; <span class="math inline">\(P_F\)</span> l’est parce que
+<span class="math inline">\(F\)</span> est un sous-espace.</li>
+</ul>
+<h2 id="variantes-et-applications">Variantes et applications</h2>
+<ul>
+<li>Moindres carrés : projection sur l’image d’une application linéaire
+en dimension finie.</li>
+<li>Minimisation d’une fonctionnelle quadratique sur un convexe
+fermé.</li>
+<li>Théorème de Stampacchia et méthodes variationnelles.</li>
+<li>Algorithmes de projections alternées sur des convexes fermés.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<ul>
+<li>Où utilise-t-on la convexité ? la fermeture ? la complétude ?</li>
+<li>Pourquoi la suite minimisante est-elle de Cauchy ?</li>
+<li>Peut-on remplacer « Hilbert » par « Banach » ?</li>
+<li>Comment modifier l’énoncé dans un Hilbert complexe ?</li>
+<li>Pourquoi <span class="math inline">\(P_C\)</span> est-elle <span
+class="math inline">\(1\)</span>-lipschitzienne ?</li>
+<li>Quand <span class="math inline">\(P_C\)</span> est-elle linéaire
+?</li>
+<li>Montrer que <span class="math inline">\(P_F\)</span> est
+auto-adjointe et calculer sa norme.</li>
+<li>Relier la projection orthogonale aux équations normales des moindres
+carrés.</li>
+</ul>
+<h2 id="recasage-hors-matrice">Recasage hors matrice</h2>
+<p>La leçon 219 — <em>Extremums : existence, caractérisation, recherche.
+Exemples et applications.</em> — est un recasage naturel
+<strong>5/5</strong> : le rapport du jury 2025 cite explicitement la
+projection sur un convexe fermé (lignes 1384–1387). Sa fiche n’existant
+pas encore dans le dépôt, elle n’est pas ajoutée à la matrice
+officielle.</p>
+<h2 id="source">Source</h2>
+<ul>
+<li>Hugo Delaunay, « <a href="projection-sur-un-convexe-ferme.html">Projection sur un convexe fermé</a> », version 5155 sur
+agreg-maths.fr.</li>
+<li>Métadonnées : document de 5 pages, créé le 8 juillet 2026 ;
+références indiquées à Gourdon, <em>Les maths en tête — Analyse</em>,
+p. 427, et Daniel Li, <em>Cours d’analyse fonctionnelle</em>,
+p. 32.</li>
+<li>Source originale : <a
+href="https://agreg-maths.fr/uploads/versions/5155/projection-sur-un-convexe-ferme.pdf"
+class="uri">https://agreg-maths.fr/uploads/versions/5155/projection-sur-un-convexe-ferme.pdf</a>.</li>
+<li>Copie locale :
+<code>raw data/développements/projection-sur-un-convexe-ferme-5155.pdf</code>.</li>
+<li>Extraction locale :
+<code>raw data/développements/projection-sur-un-convexe-ferme-5155.txt</code>,
+lignes 1–196.</li>
+<li>SHA-256 du PDF :
+<code>320d50b0d89e41fc6d63155d98d96de924412e00712e2471aa7136ffc9eddbcb</code>.</li>
+<li>SHA-256 de l’extraction :
+<code>acabcfecba6b708fce51acf6f1356755dd48aa7837f687ce6a87b837c166ef58</code>.</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Chronométrer la preuve complète au
+tableau.</label></li>
+<li><label><input type="checkbox" />Préparer une démonstration en deux
+minutes de la fermeté non expansive de <span
+class="math inline">\(P_C\)</span>.</label></li>
+<li><label><input type="checkbox" />Préparer l’application aux moindres
+carrés.</label></li>
+<li><label><input type="checkbox" />Créer la fiche de la leçon 219 si
+elle entre dans l’inventaire actif.</label></li>
+</ul>
+</body>
+</html>
