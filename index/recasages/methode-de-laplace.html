@@ -1,0 +1,499 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Recasage — Méthode de Laplace et formule de Stirling</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css?v=3fa8cfdcc3ea" />
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Recasage — <a href="../../d%C3%A9veloppements/methode-de-laplace.html">Méthode de Laplace et formule de
+Stirling</a></h1>
+</header>
+<h1 id="recasage-méthode-de-laplace-et-formule-de-stirling">Recasage —
+<a href="../../d%C3%A9veloppements/methode-de-laplace.html">Méthode de Laplace et formule de Stirling</a></h1>
+<p><a href="index.html">← Recasages</a> · <a
+href="../../d%C3%A9veloppements/methode-de-laplace.html">Développement</a> · <a
+href="../matrice-developpements-lecons.html">Matrice</a></p>
+<h2 id="notes-par-leçon-créée">Notes par leçon créée</h2>
+<table>
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 36%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">Leçon</th>
+<th style="text-align: right;">Note</th>
+<th>Commentaire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">Groupe
+opérant sur un ensemble. Exemples et applications.</a> — Aucun mécanisme
+de la preuve ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/104-groupes-finis.html">104</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a href="../../alg%C3%A8bre/le%C3%A7ons/104-groupes-finis.html">Groupes finis.
+Exemples et applications.</a> — Aucun mécanisme de la preuve ne relève
+du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/105-groupe-des-permutations-dun-ensemble-fini.html">105</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../alg%C3%A8bre/le%C3%A7ons/105-groupe-des-permutations-dun-ensemble-fini.html">Groupe
+des permutations d’un ensemble fini. Applications.</a> — Aucun mécanisme
+de la preuve ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">Exemples
+de parties génératrices d’un groupe. Applications.</a> — Aucun mécanisme
+de la preuve ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/120-anneaux-z-sur-nz-applications.html">120</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../alg%C3%A8bre/le%C3%A7ons/120-anneaux-z-sur-nz-applications.html">Anneaux
+Z/nZ. Applications.</a> — Aucun mécanisme de la preuve ne relève du
+thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/121-nombres-premiers-applications.html">121</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../alg%C3%A8bre/le%C3%A7ons/121-nombres-premiers-applications.html">Nombres
+premiers. Applications.</a> — Aucun mécanisme de la preuve ne relève du
+thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/123-corps-finis-applications.html">123</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a href="../../alg%C3%A8bre/le%C3%A7ons/123-corps-finis-applications.html">Corps
+finis. Applications.</a> — Aucun mécanisme de la preuve ne relève du
+thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/148-dimension-espace-vectoriel-rang.html">148</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../alg%C3%A8bre/le%C3%A7ons/148-dimension-espace-vectoriel-rang.html">Dimension
+d’un espace vectoriel (on se limitera au cas de la dimension finie).
+Rang. Exemples et applications.</a> — Aucun mécanisme de la preuve ne
+relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">Déterminant.
+Exemples et applications.</a> — Aucun mécanisme de la preuve ne relève
+du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/150-polynomes-endomorphisme-reduction.html">150</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../alg%C3%A8bre/le%C3%A7ons/150-polynomes-endomorphisme-reduction.html">Polynômes
+d’endomorphisme en dimension finie. Réduction d’un endomorphisme en
+dimension finie. Applications.</a> — Aucun mécanisme de la preuve ne
+relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/151-sous-espaces-stables-endomorphismes.html">151</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../alg%C3%A8bre/le%C3%A7ons/151-sous-espaces-stables-endomorphismes.html">Sous-espaces
+stables par un endomorphisme ou une famille d’endomorphismes d’un espace
+vectoriel de dimension finie. Applications.</a> — Aucun mécanisme de la
+preuve ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/152-endomorphismes-diagonalisables-dimension-finie.html">152</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../alg%C3%A8bre/le%C3%A7ons/152-endomorphismes-diagonalisables-dimension-finie.html">Endomorphismes
+diagonalisables en dimension finie.</a> — Aucun mécanisme de la preuve
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/153-valeurs-propres-vecteurs-propres-calculs-applications.html">153</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../alg%C3%A8bre/le%C3%A7ons/153-valeurs-propres-vecteurs-propres-calculs-applications.html">Valeurs
+propres, vecteurs propres. Calculs exacts ou approchés d’éléments
+propres. Applications.</a> — Aucun mécanisme de la preuve ne relève du
+thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/155-exponentielle-de-matrices-applications.html">155</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../alg%C3%A8bre/le%C3%A7ons/155-exponentielle-de-matrices-applications.html">Exponentielle
+de matrices. Applications.</a> — Aucun mécanisme de la preuve ne relève
+du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/156-endomorphismes-trigonalisables-nilpotents.html">156</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../alg%C3%A8bre/le%C3%A7ons/156-endomorphismes-trigonalisables-nilpotents.html">Endomorphismes
+trigonalisables. Endomorphismes nilpotents.</a> — Aucun mécanisme de la
+preuve ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/157-matrices-symetriques-reelles-hermitiennes.html">157</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../alg%C3%A8bre/le%C3%A7ons/157-matrices-symetriques-reelles-hermitiennes.html">Matrices
+symétriques réelles, matrices hermitiennes.</a> — Aucun mécanisme de la
+preuve ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">Endomorphismes
+remarquables d’un espace vectoriel euclidien (de dimension finie).</a> —
+Aucun mécanisme de la preuve ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/159-formes-lineaires-dualite-dimension-finie.html">159</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../alg%C3%A8bre/le%C3%A7ons/159-formes-lineaires-dualite-dimension-finie.html">Formes
+linéaires et dualité en dimension finie. Exemples et applications.</a> —
+Aucun mécanisme de la preuve ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/161-espaces-vectoriels-et-affines-euclidiens-distances-isometries.html">161</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/161-espaces-vectoriels-et-affines-euclidiens-distances-isometries.html">Espaces
+vectoriels et espaces affines euclidiens : distances, isométries.</a> —
+Aucun mécanisme de la preuve ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">Systèmes
+d’équations linéaires ; opérations élémentaires, aspects algorithmiques
+et conséquences théoriques.</a> — Aucun mécanisme de la preuve ne relève
+du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/170-formes-quadratiques-dimension-finie-orthogonalite-applications.html">170</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../alg%C3%A8bre/le%C3%A7ons/170-formes-quadratiques-dimension-finie-orthogonalite-applications.html">Formes
+quadratiques sur un espace vectoriel de dimension finie. Orthogonalité.
+Applications.</a> — Aucun mécanisme de la preuve ne relève du thème de
+cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/190-methodes-combinatoires-problemes-de-denombrement.html">190</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../alg%C3%A8bre/le%C3%A7ons/190-methodes-combinatoires-problemes-de-denombrement.html">Méthodes
+combinatoires, problèmes de dénombrement.</a> — Aucun mécanisme de la
+preuve ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/201-espaces-de-fonctions-exemples-applications.html">201</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../analyse/le%C3%A7ons/201-espaces-de-fonctions-exemples-applications.html">Espaces
+de fonctions. Exemples et applications.</a> — Aucun mécanisme de la
+preuve ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/203-utilisation-de-la-notion-de-compacite.html">203</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../analyse/le%C3%A7ons/203-utilisation-de-la-notion-de-compacite.html">Utilisation
+de la notion de compacité.</a> — La localisation repose ici sur la
+monotonie de la phase et une queue L1, non sur un argument de
+compacité.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/206-exemples-dutilisation-de-la-notion-de-dimension-finie-en-analyse.html">206</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../analyse/le%C3%A7ons/206-exemples-dutilisation-de-la-notion-de-dimension-finie-en-analyse.html">Exemples
+d’utilisation de la notion de dimension finie en analyse.</a> — Aucun
+mécanisme de la preuve ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/208-espaces-vectoriels-normes-applications-lineaires-continues.html">208</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../analyse/le%C3%A7ons/208-espaces-vectoriels-normes-applications-lineaires-continues.html">Espaces
+vectoriels normés, applications linéaires continues. Exemples.</a> —
+Aucun mécanisme de la preuve ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/209-approximation-fonction-par-fonctions-regulieres.html">209</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../analyse/le%C3%A7ons/209-approximation-fonction-par-fonctions-regulieres.html">Approximation
+d’une fonction par des fonctions régulières. Exemples
+d’applications.</a> — Aucun mécanisme de la preuve ne relève du thème de
+cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/213-espaces-hilbert-exemples-applications.html">213</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../analyse/le%C3%A7ons/213-espaces-hilbert-exemples-applications.html">Espaces
+de Hilbert. Exemples d’applications.</a> — Aucun mécanisme de la preuve
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/218-formules-de-taylor-exemples-applications.html">218</a></td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td><a
+href="../../analyse/le%C3%A7ons/218-formules-de-taylor-exemples-applications.html">Formules
+de Taylor. Exemples et applications.</a> — Taylor–Young redresse
+exactement la phase en un carré ; le contrôle de la dérivée au bord
+détermine la constante. Laplace est explicitement cité par le jury.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/228-continuite-derivabilite-fonctions-reelles-une-variable.html">228</a></td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td><a
+href="../../analyse/le%C3%A7ons/228-continuite-derivabilite-fonctions-reelles-une-variable.html">Continuité,
+dérivabilité des fonctions réelles d’une variable réelle. Exemples et
+applications.</a> — Application substantielle de Taylor et du théorème
+du difféomorphisme en une variable ; orienter sur la régularité au bord,
+car la conclusion reste surtout intégrale.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/230-series-nombres-reels-complexes.html">230</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../analyse/le%C3%A7ons/230-series-nombres-reels-complexes.html">Séries
+de nombres réels et complexes. Comportement des restes ou des sommes
+partielles des séries numériques. Exemples.</a> — Aucun mécanisme de la
+preuve ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/234-fonctions-espaces-lebesgue-integrables.html">234</a></td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td><a
+href="../../analyse/le%C3%A7ons/234-fonctions-espaces-lebesgue-integrables.html">Fonctions
+et espaces de fonctions Lebesgue-intégrables.</a> — Exemple significatif
+de convergence dominée et de contrôle L1 ; possible avec une orientation
+intégration, mais sans étude structurante des espaces Lp.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a></td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td><a
+href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">Problèmes
+d’interversion de symboles en analyse.</a> — Interversion
+limite–intégrale après localisation et dilatation ; exposer la
+domination gaussienne et la queue renormalisée. Un seul type
+d’interversion : 4 plutôt que 5.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/236-methodes-calcul-integrales.html">236</a></td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td><a
+href="../../analyse/le%C3%A7ons/236-methodes-calcul-integrales.html">Illustrer
+par des exemples quelques méthodes de calcul d’intégrales de fonctions
+d’une ou plusieurs variables.</a> — Calcul asymptotique par changement
+de variable et gaussienne, avec Stirling ; ce n’est pas un calcul exact
+ni une méthode numérique avec erreur explicite.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">239</a></td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td><a
+href="../../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">Fonctions
+définies par une intégrale dépendant d’un paramètre. Exemples et
+applications.</a> — Étude asymptotique d’une intégrale à paramètre et de
+Gamma : axe explicitement attendu, recasage naturel.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/241-suites-series-fonctions-exemples-contre-exemples.html">241</a></td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td><a
+href="../../analyse/le%C3%A7ons/241-suites-series-fonctions-exemples-contre-exemples.html">Suites
+et séries de fonctions. Exemples et contre-exemples.</a> — Prendre t=n
+et étudier les intégrandes redimensionnés ; la convergence dominée
+structure la preuve, mais les séries et les autres modes de convergence
+restent extérieurs.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/246-series-de-fourier-exemples-applications.html">246</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../analyse/le%C3%A7ons/246-series-de-fourier-exemples-applications.html">Séries
+de Fourier. Exemples et applications.</a> — La présence d’une gaussienne
+ne constitue pas un argument de Fourier : ni coefficients ni
+transformation ne sont utilisés.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">250</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">Transformation
+de Fourier. Applications.</a> — La présence d’une gaussienne ne
+constitue pas un argument de Fourier : ni coefficients ni transformation
+ne sont utilisés.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">Loi
+d’une variable aléatoire : caractérisations, exemples, applications.</a>
+— La fonction Gamma intervient analytiquement ; ni lois, ni convergence
+en loi, ni indépendance ne sont utilisées.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/262-convergences-variables-aleatoires-theoremes-limite.html">262</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../analyse/le%C3%A7ons/262-convergences-variables-aleatoires-theoremes-limite.html">Convergences
+d’une suite de variables aléatoires. Théorèmes limite. Exemples et
+applications.</a> — La fonction Gamma intervient analytiquement ; ni
+lois, ni convergence en loi, ni indépendance ne sont utilisées.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/266-independance-probabilites.html">266</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td><a
+href="../../analyse/le%C3%A7ons/266-independance-probabilites.html">Utilisation
+de la notion d’indépendance en probabilités.</a> — La fonction Gamma
+intervient analytiquement ; ni lois, ni convergence en loi, ni
+indépendance ne sont utilisées.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="audit-de-tous-les-recasages-annoncés-par-la-source">Audit de
+tous les recasages annoncés par la source</h2>
+<p>Le PDF, lignes 9–18, annonce 224, <a href="../../analyse/le%C3%A7ons/228-continuite-derivabilite-fonctions-reelles-une-variable.html">228</a>, <a href="../../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">239</a>, 207, <a href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a>, <a href="../../analyse/le%C3%A7ons/236-methodes-calcul-integrales.html">236</a>, puis
+répète <a href="../../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">239</a> avec une autre note. Ces annonces ne sont pas reprises
+automatiquement.</p>
+<table>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 23%" />
+<col style="width: 30%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr>
+<th>Source</th>
+<th>Intitulé de référence / statut</th>
+<th style="text-align: right;">Note retenue</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>224</td>
+<td>Exemples de développements asymptotiques de suites et de
+fonctions.</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Laplace est explicitement cité dans le rapport ; Stirling fournit un
+exemple significatif. Fiche absente : hors matrice.</td>
+</tr>
+<tr>
+<td><a href="../../analyse/le%C3%A7ons/228-continuite-derivabilite-fonctions-reelles-une-variable.html">228</a></td>
+<td>Continuité, dérivabilité des fonctions réelles d’une variable
+réelle. Exemples et applications.</td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td>Le changement de variable C1 au bord est pertinent, mais ne justifie
+pas le 5 annoncé par la source pour un développement principalement
+asymptotique.</td>
+</tr>
+<tr>
+<td><a href="../../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">239</a> (deux annonces)</td>
+<td>Fonctions définies par une intégrale dépendant d’un paramètre.
+Exemples et applications.</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Dédupliquer : une seule leçon. L’asymptotique est explicitement dans
+ses attendus.</td>
+</tr>
+<tr>
+<td>207</td>
+<td>Ancienne leçon « Prolongement de fonctions. Exemples et
+applications. »</td>
+<td style="text-align: right;">—</td>
+<td>Absente de la liste Analyse–Probabilités 2026 contenue dans le
+rapport 2025 ; ne pas créer ni compter un recasage actuel. Le
+prolongement C1 de Phi au bord reste du contenu utile pour <a href="../../analyse/le%C3%A7ons/228-continuite-derivabilite-fonctions-reelles-une-variable.html">228</a>.</td>
+</tr>
+<tr>
+<td><a href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a></td>
+<td>Problèmes d’interversion de symboles en analyse.</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Le titre du PDF « limites et intégrales » est ancien ; l’exemple
+reste pertinent, mais la leçon actuelle est plus large.</td>
+</tr>
+<tr>
+<td><a href="../../analyse/le%C3%A7ons/236-methodes-calcul-integrales.html">236</a></td>
+<td>Illustrer par des exemples quelques méthodes de calcul d’intégrales
+de fonctions d’une ou plusieurs variables.</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Calcul asymptotique admissible en complément de méthodes variées ;
+préparer l’intégrale gaussienne et ne pas le présenter comme un calcul
+exact.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="recasage-fort-supplémentaire">Recasage fort supplémentaire</h2>
+<p><a href="../../analyse/le%C3%A7ons/218-formules-de-taylor-exemples-applications.html">218</a> — Formules de Taylor. Exemples et applications :
+<strong>5/5</strong>. Le rapport cite explicitement Laplace. Garder au
+premier plan les deux Taylor qui justifient Phi, sa dérivée au bord et
+le coefficient gaussien ; la formule ne doit pas apparaître comme une
+simple recette d’intégration.</p>
+<h2 id="sources-du-contrôle">Sources du contrôle</h2>
+<p>Rapport du jury 2025, extraction locale
+<code>raw data/rapports-jury/Rapport_AE_Math_2025c-oraux-lecons.txt</code>
+: liste Analyse–Probabilités 2026, lignes 55–97 ; <a href="../../analyse/le%C3%A7ons/218-formules-de-taylor-exemples-applications.html">218</a>, lignes 1367–1383
+; 224, lignes 1459–1470 ; <a href="../../analyse/le%C3%A7ons/228-continuite-derivabilite-fonctions-reelles-une-variable.html">228</a>, lignes 1489–1509 ; <a href="../../analyse/le%C3%A7ons/234-fonctions-espaces-lebesgue-integrables.html">234</a>, lignes 1534–1544
+; <a href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a>, lignes 1545–1559 ; <a href="../../analyse/le%C3%A7ons/236-methodes-calcul-integrales.html">236</a>, lignes 1560–1570 ; <a href="../../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">239</a>, lignes 1571–1580
+; <a href="../../analyse/le%C3%A7ons/241-suites-series-fonctions-exemples-contre-exemples.html">241</a>, lignes 1581–1594. On ne prétend pas avoir consulté un rapport
+2026 plus récent.</p>
+<h2 id="calibration-et-usage">Calibration et usage</h2>
+<p>Priorité dans les leçons déjà créées : <a href="../../analyse/le%C3%A7ons/218-formules-de-taylor-exemples-applications.html">218</a> et <a href="../../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">239</a> ; très bons
+compléments : <a href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a> et <a href="../../analyse/le%C3%A7ons/236-methodes-calcul-integrales.html">236</a>. La version source doit être corrigée avant
+apprentissage : signe de la phase de Stirling, racines dans le
+changement de variable et contrôle de la queue à l’échelle du terme
+principal. Aucune colonne de leçon absente n’est ajoutée.</p>
+</body>
+</html>
