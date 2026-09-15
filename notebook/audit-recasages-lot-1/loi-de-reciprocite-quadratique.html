@@ -1,0 +1,940 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Audit exhaustif — Loi de réciprocité quadratique</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css?v=3fa8cfdcc3ea" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Audit exhaustif — <a href="../../d%C3%A9veloppements/loi-de-reciprocite-quadratique.html">Loi de réciprocité quadratique</a></h1>
+</header>
+<h1 id="audit-exhaustif-loi-de-réciprocité-quadratique">Audit exhaustif
+— <a href="../../d%C3%A9veloppements/loi-de-reciprocite-quadratique.html">Loi de réciprocité quadratique</a></h1>
+<h2 id="portée-et-résultat">Portée et résultat</h2>
+<p>Audit de <strong>68 leçons officielles distinctes</strong>, dont
+<strong>46 pages existantes et 22 absentes</strong>. Inventaire vérifié
+à partir du frontmatter <code>type: leçon</code>, puis contrôlé sur tous
+les Markdown sources : 46 pages, sans doublon. Les absences n’ont jamais
+été assimilées à des notes nulles.</p>
+<p>Source :
+<code>raw data/rapports-jury/Rapport_AE_Math_2025c-oraux-lecons.txt</code>,
+<strong>rapport 2025, liste de la session 2026</strong>, identique à
+2025 selon les lignes 5–8 ; liste complète lignes 9–<a href="../../alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a>, pages imprimées
+79–81. Les commentaires sont ceux de 2025 (lignes 199–<a href="../../analyse/le%C3%A7ons/201-espaces-de-fonctions-exemples-applications.html">201</a>). La couche
+texte du PDF, page 79, confirme l’annonce de session. Ce travail n’est
+pas une recherche de mises à jour officielles ultérieures.</p>
+<ul>
+<li><strong>5/5 : <a href="../../alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a>, <a href="../../alg%C3%A8bre/le%C3%A7ons/121-nombres-premiers-applications.html">121</a>, <a href="../../alg%C3%A8bre/le%C3%A7ons/123-corps-finis-applications.html">123</a>, <a href="../../alg%C3%A8bre/le%C3%A7ons/170-formes-quadratiques-dimension-finie-orthogonalite-applications.html">170</a>.</strong></li>
+<li><strong>4/5 : 106, <a href="../../alg%C3%A8bre/le%C3%A7ons/120-anneaux-z-sur-nz-applications.html">120</a>, <a href="../../alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a>, <a href="../../alg%C3%A8bre/le%C3%A7ons/190-methodes-combinatoires-problemes-de-denombrement.html">190</a>.</strong></li>
+<li><strong>3/5 : <a href="../../alg%C3%A8bre/le%C3%A7ons/104-groupes-finis.html">104</a>, 191.</strong></li>
+<li><strong>Création recommandée maintenant : 106</strong>, pour un
+recasage 4/5 porté par la preuve existante. Contrôler d’abord le titre
+sur le PDF : <code>GLpEq</code> est un artefact d’extraction, pas un
+libellé à publier.</li>
+<li><strong>191 : préparer une variante avant de créer</strong>. Score
+actuel 3/5 ; 4/5 est une cible conditionnelle, non une note à intégrer
+maintenant.</li>
+<li><strong><a href="../../alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a> existe déjà</strong> : ajouter son 4/5 lors de
+l’intégration, ne pas créer de doublon.</li>
+</ul>
+<p>La fiche actuelle et la matrice portent exactement les mêmes 46
+cellules ; toutes les cellules non évaluées ont désormais un jugement.
+Seule ancienne note numérique modifiée : <strong><a href="../../alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a>, de 0 à 1</strong>,
+pour reconnaître le comptage ponctuel des solutions d’une équation
+linéaire. Aucune ancienne note forte n’est diminuée. Les notes proposées
+sont des jugements pédagogiques motivés, non des notes officielles du
+jury.</p>
+<h2 id="périmètre-mathématique-réellement-disponible">Périmètre
+mathématique réellement disponible</h2>
+<p>La preuve principale est aux lignes 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a> de
+<code>développements/loi-de-reciprocite-quadratique.md</code> : action
+cyclique, points fixes, classification par discriminant, modèle
+hyperbolique, comptage des fibres affines puis comparaison modulo p. Les
+preuves du critère d’Euler (334–372) et de la classification (375–444)
+sont réellement présentes en réserve. Elles peuvent donc justifier la
+maîtrise des mécanismes, sans être présentées comme toutes exposées en
+quinze minutes : la fiche prévoit expressément leur admission pendant
+l’exposé (288–298 et 330–332).</p>
+<p>Les variantes « lemme de Gauss » et « sommes de Gauss » (323–328) ne
+sont <strong>pas démontrées</strong>. Aucun crédit Fourier, racines
+complexes de l’unité ou variante spectrale n’est accordé. Le lemme de
+classification n’utilise pas la réciprocité : réduction binaire par
+intersection de deux ensembles de carrés, puis orthogonal et déterminant
+(392–444), donc pas de circularité détectée.</p>
+<h3 id="pourquoi-106-et-149-sont-solides">Pourquoi 106 et <a href="../../alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a> sont
+solides</h3>
+<p><strong>106 — 4/5</strong>, attendus 578–586 : le jury cite les
+stabilisateurs d’actions naturelles sur les formes quadratiques. Le
+changement de modèle par GL est indispensable au second calcul, avec
+invariants d’orbites, pas simplement présence d’une matrice inversible.
+Recadrage léger : définir le stabilisateur <span
+class="math inline">\(O(M)=\{P:P^TMP=M\}\)</span> et constater que le
+cycle de coordonnées appartient à <span
+class="math inline">\(O(I_p)\)</span>. Cette identification n’impose pas
+une nouvelle preuve de réciprocité. Le reste arithmétique interdit de
+noter automatiquement 5.</p>
+<p><strong><a href="../../alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a> — 4/5</strong>, attendus 804–820, notamment 814–815 :
+rôle du déterminant dans les formes quadratiques explicitement suggéré.
+Le calcul <span class="math inline">\(\det A=1\)</span> choisit le
+modèle dans la bonne orbite ; la loi <span
+class="math inline">\(\det(P^TMP)=(\det P)^2\det M\)</span> explique
+exactement l’invariant utilisé. La preuve de classification est déjà
+écrite en réserve ; ce n’est pas une simple application annoncée en
+conclusion.</p>
+<p><strong><a href="../../alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a> et <a href="../../alg%C3%A8bre/le%C3%A7ons/170-formes-quadratiques-dimension-finie-orthogonalite-applications.html">170</a> restent à 5/5</strong> : dénombrer et classifier
+par orbites est conforme aux attendus 471–483 ; la congruence, le
+discriminant et les corps finis sont explicitement attendus en <a href="../../alg%C3%A8bre/le%C3%A7ons/170-formes-quadratiques-dimension-finie-orthogonalite-applications.html">170</a>,
+lignes 1030–1041. L’action implicite est créditée parce qu’elle organise
+la preuve, non parce que GL apparaît dans une formule.</p>
+<h3 id="leçons-à-3-et-variantes-non-acquises">Leçons à 3 et variantes
+non acquises</h3>
+<ul>
+<li><strong><a href="../../alg%C3%A8bre/le%C3%A7ons/104-groupes-finis.html">104</a> : 3/5 confirmé.</strong> Une orientation légère vers
+ordre, orbites et Lagrange suffit pour ce 3. La page existe ; rien à
+créer. Aucune promesse de 4 sans travail supplémentaire.</li>
+<li><strong>191 : 3/5 actuel, 4/5 après variante substantielle.</strong>
+Les quadriques affines et le transport par changement de variables sont
+réels ; cependant le développement vise un résultat arithmétique. Pour
+une leçon de géométrie, écrire et chronométrer une version dont le
+résultat principal est le comptage des quadriques non dégénérées en
+dimension impaire, avec interprétation des fibres et de l’invariant
+discriminant ; reléguer la réciprocité à une application. Éviter le
+simple habillage géométrique dénoncé aux lignes 1123–1124. Décision :
+<code>prepare_variant_first</code>.</li>
+<li><strong>141 : 2/5 actuel, 3/5 possible après ajout léger
+écrit.</strong> Formuler et prouver le corollaire d’irréductibilité de
+<span class="math inline">\(X^2-a\)</span> puis illustrer par
+réciprocité. Ce recasage reste secondaire et ne justifie pas à lui seul
+une nouvelle page. Aucun corps de rupture n’est construit par le
+développement actuel.</li>
+</ul>
+<h2
+id="correction-exacte-de-la-notation-daction-proposition-seulement">Correction
+exacte de la notation d’action (proposition seulement)</h2>
+<p>La formule actuellement écrite <span class="math inline">\(P\cdot
+M=P^TMP\)</span>
+(<code>développements/loi-de-reciprocite-quadratique.md</code>, lignes
+96–103 ; <code>index/recasages/loi-de-reciprocite-quadratique.md</code>,
+lignes 95–100) <strong>n’est pas une action à gauche avec le produit
+usuel</strong>. Si <span class="math inline">\(F_P(M)=P^TMP\)</span>,
+alors <span class="math inline">\(F_P(F_Q(M))=F_{QP}(M)\)</span>.</p>
+<p>Correction minimale recommandée : écrire une <strong>action à
+droite</strong></p>
+<p><span class="math display">\[
+\mathrm{Sym}_n(\mathbb F_q)\times\mathrm{GL}_n(\mathbb
+F_q)\longrightarrow\mathrm{Sym}_n(\mathbb F_q),
+\qquad M\cdot P=P^TMP,
+\]</span> <span class="math display">\[
+(M\cdot P)\cdot Q=Q^TP^TMPQ=(PQ)^TM(PQ)=M\cdot(PQ).
+\]</span></p>
+<p>Si l’on veut une action à gauche, prendre plutôt <span
+class="math inline">\(P\cdot M=P^{-T}MP^{-1}\)</span>, pour laquelle
+<span class="math inline">\(P\cdot(Q\cdot M)=(PQ)\cdot M\)</span>. Les
+orbites sont les mêmes. Ne pas modifier l’égalité correcte <span
+class="math inline">\(A=P^TI_pP\)</span> ni la bijection correcte <span
+class="math inline">\(u\mapsto P^{-1}u\)</span> (168–178). La référence
+<code>evaluer-recasage-actions-implicites</code> contient aussi cette
+convention à corriger par le parent si autorisé. Aucun skill ni aucune
+preuve n’a été modifié par cet audit.</p>
+<h2 id="titres-et-intégration">Titres et intégration</h2>
+<p>Le champ JSON <code>titre</code> conserve exactement le texte de la
+<strong>liste</strong> (non celui parfois différent des commentaires),
+avec césures réunies. Notamment 191 emploie « de techniques » dans la
+liste (54), mais « des techniques » dans le commentaire (1104) ; <a href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a> n’a
+pas de point final dans la liste. Pas de normalisation silencieuse de
+ces détails.</p>
+<p>Les titres <strong>106, <a href="../../alg%C3%A8bre/le%C3%A7ons/120-anneaux-z-sur-nz-applications.html">120</a>, <a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a>, 215, 226, 245</strong> portent un
+drapeau de contrôle PDF pour glyphes/mathématiques (<code>GLpEq</code>,
+<code>Z{nZ</code>, <code>Rn</code>, formule de récurrence, police de C).
+La liste a été contrôlée textuellement, <strong>pas
+visuellement</strong> ; ces transcriptions ne doivent pas être publiées
+comme des titres mathématiquement mis en forme. En particulier la
+recommandation <code>create_now</code> pour 106 est mathématique et
+reste soumise à cette vérification éditoriale ordinaire. Aucun score
+n’est suspendu à ces artefacts.</p>
+<p>Le parent doit créer 106 avant ajout à la matrice, intégrer les 46
+scores des pages déjà existantes, synchroniser les liens, puis effectuer
+ses vérifications de site. Il ne doit pas créer 191 ou 141
+automatiquement ni confondre <code>do_not_create</code> avec une demande
+de suppression d’une page existante. Le présent agent n’a modifié que
+les deux livrables privés de l’audit ; aucun builder, publication, leçon
+ou matrice n’a été touché.</p>
+<h2 id="vérifications-effectuées">Vérifications effectuées</h2>
+<ul>
+<li>Exhaustivité : 68 entrées, 68 numéros uniques, égalité avec la liste
+officielle et les 68 sections d’attendus.</li>
+<li>Existence : 46 pages sources, 22 absences ; matrice et fiche
+couvrent le même inventaire.</li>
+<li>Scores : entiers de 0 à 5, aucune valeur non évaluée dans le
+résultat. Distribution calculée :
+<code>{"0": 49, "1": 4, "2": 5, "3": 2, "4": 4, "5": 4}</code>.</li>
+<li>Citations : chemins existants et bornes de lignes contrôlées ;
+numéros de lignes relatifs aux extractions locales, non au PDF.</li>
+<li>Contrôle calculatoire, non substitut à la preuve : dénombrement
+exhaustif pour les couples
+<code>(3,5), (5,3), (3,7), (7,3), (5,7), (3,11)</code> ; formule exacte,
+première congruence et réciprocité vérifiées. Cardinaux obtenus :
+<code>[30, 90, 42, 702, 2450, 110]</code>.</li>
+<li>Convention d’action testée sur deux matrices non commutantes :
+composition droite correcte, composition gauche affichée incorrecte.
+L’identité générale ci-dessus donne la justification mathématique.</li>
+<li>Empreintes SHA-256 des quatre sources stockées dans le JSON pour
+permettre au parent de détecter une modification entre audit et
+intégration.</li>
+</ul>
+<h2 id="évaluation-exhaustive">Évaluation exhaustive</h2>
+<p>Dans les références ci-dessous, <strong>J</strong> =
+<code>raw data/rapports-jury/Rapport_AE_Math_2025c-oraux-lecons.txt</code>,
+<strong>D</strong> =
+<code>développements/loi-de-reciprocite-quadratique.md</code>. Les
+sources détaillées et les anciennes notes sont aussi dans le JSON. Un
+tiret à « avant » signifie non évalué ou hors matrice, jamais zéro.</p>
+<h3 id="groupe-opérant-sur-un-ensemble.-exemples-et-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a> —
+Groupe opérant sur un ensemble. Exemples et applications.</h3>
+<p><strong>5/5</strong> ; avant : 5 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>Les orbites cycliques donnent la congruence de cardinaux et les
+orbites de congruence donnent le modèle hyperbolique : agir pour compter
+et classifier structure la preuve.</p>
+<p>Adaptation : Expliciter les deux actions et corriger la convention
+droite de congruence ; aucune variante substantielle.</p>
+<p>Sources : J 9–9 ; J 463–487 ; D 88–103 ; D <a href="../../alg%C3%A8bre/le%C3%A7ons/120-anneaux-z-sur-nz-applications.html">120</a>–<a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a> ; D 263–270.</p>
+<h3
+id="groupe-des-nombres-complexes-de-module-1.-racines-de-lunité.-applications.">102
+— Groupe des nombres complexes de module 1. Racines de l’unité.
+Applications.</h3>
+<p><strong>0/5</strong> ; avant : — (absent_from_matrix) ; page :
+absente ; décision : <code>do_not_create</code>.</p>
+<p>Aucun nombre complexe de module 1 ni racine complexe de l’unité dans
+la preuve. Les sommes de Gauss ne sont qu’une variante citée.</p>
+<p>Adaptation : Une autre preuve par sommes de Gauss serait nécessaire ;
+aucun score prospectif attribué.</p>
+<p>Sources : J 10–10 ; J 488–501 ; D 323–328.</p>
+<h3
+id="conjugaison-dans-un-groupe.-exemples-de-sous-groupes-distingués-et-de-groupes-quotients.-applications.">103
+— Conjugaison dans un groupe. Exemples de sous-groupes distingués et de
+groupes quotients. Applications.</h3>
+<p><strong>1/5</strong> ; avant : — (absent_from_matrix) ; page :
+absente ; décision : <code>do_not_create</code>.</p>
+<p>Le quotient multiplicatif par les carrés intervient comme ensemble de
+classes du discriminant, mais ni conjugaison ni factorisation de
+morphismes ne structurent la preuve. La congruence n’est pas une
+conjugaison.</p>
+<p>Adaptation : Ne pas transformer une action par congruence en exemple
+de conjugaison.</p>
+<p>Sources : J 11–12 ; J 502–530 ; D 88–103 ; D 419–444.</p>
+<h3 id="groupes-finis.-exemples-et-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/104-groupes-finis.html">104</a> — Groupes finis.
+Exemples et applications.</h3>
+<p><strong>3/5</strong> ; avant : 3 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>L’ordre premier impose des orbites de taille 1 ou p ; cette
+application des groupes finis est réelle, mais le second calcul repose
+largement sur les formes quadratiques.</p>
+<p>Adaptation : Orientation légère suffisante pour 3 : mettre en avant
+Lagrange, orbites et points fixes. Ne pas promettre 4 sans renforcer le
+contenu propre aux groupes finis.</p>
+<p>Sources : J 13–13 ; J 531–554 ; D <a href="../../alg%C3%A8bre/le%C3%A7ons/120-anneaux-z-sur-nz-applications.html">120</a>–<a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a>.</p>
+<h3 id="groupe-des-permutations-dun-ensemble-fini.-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/105-groupe-des-permutations-dun-ensemble-fini.html">105</a> —
+Groupe des permutations d’un ensemble fini. Applications.</h3>
+<p><strong>2/5</strong> ; avant : 2 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>Un p-cycle et ses points fixes interviennent effectivement, sans
+étude de la structure du groupe symétrique, de ses classes ou de la
+signature.</p>
+<p>Adaptation : La preuve par le lemme de Gauss citée n’est pas écrite
+et ne peut bonifier ce score.</p>
+<p>Sources : J 14–14 ; J 555–568 ; D <a href="../../alg%C3%A8bre/le%C3%A7ons/120-anneaux-z-sur-nz-applications.html">120</a>–145.</p>
+<h3
+id="groupe-linéaire-dun-espace-vectoriel-de-dimension-finie-e-sous-groupes-de-glpeq.-applications.">106
+— Groupe linéaire d’un espace vectoriel de dimension finie E,
+sous-groupes de GLpEq. Applications.</h3>
+<p><strong>4/5</strong> ; avant : — (absent_from_matrix) ; page :
+absente ; décision : <code>create_now</code>.</p>
+<p>GL agit substantiellement sur les formes : choix d’un représentant
+d’orbite, invariance du discriminant et changement de variables
+bijectif. Le jury mentionne précisément les actions sur les formes
+quadratiques ; le groupe n’est pas un simple symbole.</p>
+<p>Adaptation : Légère adaptation : présenter O(M)={P : PᵀMP=M} comme
+stabilisateur et les matrices de permutation cyclique comme sous-groupe
+de O(I). Corriger la convention d’action. Pas besoin de nouvelle preuve
+de réciprocité.</p>
+<p>Sources : J 15–15 ; J 569–589 ; D 88–103 ; D 147–<a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a> ; D 438–444.</p>
+<p>Titre à contrôler : GLpEq : vérifier les parenthèses et la
+composition mathématique sur le PDF avant création (lecture attendue
+GL(E)).</p>
+<h3 id="exemples-de-parties-génératrices-dun-groupe.-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a>
+— Exemples de parties génératrices d’un groupe. Applications.</h3>
+<p><strong>0/5</strong> ; avant : 0 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>La cyclicité explique une action, mais aucune question de recherche
+ou d’utilisation de parties génératrices ne porte le développement.</p>
+<p>Adaptation : Pas de recasage retenu ; mentionner un générateur du
+cycle ne suffit pas.</p>
+<p>Sources : J 16–16 ; J 590–607 ; D <a href="../../alg%C3%A8bre/le%C3%A7ons/120-anneaux-z-sur-nz-applications.html">120</a>–145.</p>
+<h3 id="anneaux-znz.-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/120-anneaux-z-sur-nz-applications.html">120</a> — Anneaux Z{nZ.
+Applications.</h3>
+<p><strong>4/5</strong> ; avant : 4 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>La loi décide les carrés modulo des nombres premiers ; le critère
+d’Euler et la conclusion par congruences sont effectifs. Le cas général
+Z/nZ n’est toutefois pas traité.</p>
+<p>Adaptation : Orienter vers la solvabilité de x²=a modulo un premier.
+Garder théorème chinois et modules composés dans le plan, sans les
+prétendre prouvés ici.</p>
+<p>Sources : J 17–17 ; J 608–619 ; D 72–86 ; D <a href="../../analyse/le%C3%A7ons/228-continuite-derivabilite-fonctions-reelles-une-variable.html">228</a>–286.</p>
+<p>Titre à contrôler : Z{nZ : glyphes mathématiques de Z/nZ à contrôler
+sur PDF.</p>
+<h3 id="nombres-premiers.-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/121-nombres-premiers-applications.html">121</a> — Nombres premiers.
+Applications.</h3>
+<p><strong>5/5</strong> ; avant : 5 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>L’énoncé est une relation entre résidus modulo deux premiers impairs
+; ordre premier, Fermat et Euler sont réellement utilisés pour
+conclure.</p>
+<p>Adaptation : Illustrer le calcul d’un symbole par l’exemple présent ;
+les lois complémentaires restent à préparer, surtout celle concernant
+2.</p>
+<p>Sources : J 18–18 ; J 620–636 ; D 40–59 ; D <a href="../../alg%C3%A8bre/le%C3%A7ons/120-anneaux-z-sur-nz-applications.html">120</a>–145 ; D <a href="../../analyse/le%C3%A7ons/219-extremums.html">219</a>–286.</p>
+<h3 id="anneaux-principaux.-exemples-et-applications.">122 — Anneaux
+principaux. Exemples et applications.</h3>
+<p><strong>0/5</strong> ; avant : — (absent_from_matrix) ; page :
+absente ; décision : <code>do_not_create</code>.</p>
+<p>Ni principalité, ni idéaux, ni Bézout ni factorisation dans un anneau
+principal ne sont utilisés comme mécanisme.</p>
+<p>Adaptation : La seule présence d’entiers et de congruences ne suffit
+pas.</p>
+<p>Sources : J 19–19 ; J 637–653 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3 id="corps-finis.-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/123-corps-finis-applications.html">123</a> — Corps finis.
+Applications.</h3>
+<p><strong>5/5</strong> ; avant : 5 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>Carrés, critère d’Euler, formes quadratiques sur corps fini et
+comptage de points constituent toute la preuve ; les deux lemmes sont
+effectivement démontrés en réserve.</p>
+<p>Adaptation : La réciprocité utilise des corps premiers ; prévoir
+ailleurs dans le plan une application à un corps non premier, comme le
+demande le jury.</p>
+<p>Sources : J 20–20 ; J 654–662 ; D 334–444 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3 id="extensions-de-corps.-exemples-et-applications.">125 — Extensions
+de corps. Exemples et applications.</h3>
+<p><strong>1/5</strong> ; avant : — (absent_from_matrix) ; page :
+absente ; décision : <code>do_not_create</code>.</p>
+<p>Le contexte de corps finis ne fait intervenir ni extension effective,
+ni degré, ni corps de rupture. Une extension quadratique n’est pas
+construite.</p>
+<p>Adaptation : Il faudrait une application substantielle aux extensions
+; non créditée.</p>
+<p>Sources : J 21–21 ; J 663–681 ; D 40–59 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3
+id="exemples-de-nombres-remarquables.-exemples-danneaux-de-nombres-remarquables.-applications.">127
+— Exemples de nombres remarquables. Exemples d’anneaux de nombres
+remarquables. Applications.</h3>
+<p><strong>1/5</strong> ; avant : — (absent_from_matrix) ; page :
+absente ; décision : <code>do_not_create</code>.</p>
+<p>Les nombres premiers sont présents, mais aucun nombre algébrique
+remarquable ou anneau de nombres n’est étudié. L’objectif reste la
+résiduosité dans les corps premiers.</p>
+<p>Adaptation : Une application aux anneaux d’entiers quadratiques
+serait nouvelle et non établie ici.</p>
+<p>Sources : J 22–22 ; J 682–703 ; D 40–59 ; D 272–286.</p>
+<h3
+id="polynômes-irréductibles-à-une-indéterminée.-corps-de-rupture.-exemples-et-applications.">141
+— Polynômes irréductibles à une indéterminée. Corps de rupture. Exemples
+et applications.</h3>
+<p><strong>2/5</strong> ; avant : — (absent_from_matrix) ; page :
+absente ; décision : <code>do_not_create</code>.</p>
+<p>La solvabilité de x²=a donne indirectement un test pour X²−a sur un
+corps premier, mais aucun corps de rupture ni critère d’irréductibilité
+n’est formulé dans la preuve.</p>
+<p>Adaptation : Pour viser 3 : écrire le corollaire X²−a irréductible si
+et seulement si a est non carré, avec exemples par réciprocité ;
+extension légère mais non écrite. Ne pas créer pour ce seul recasage
+fragile.</p>
+<p>Sources : J 23–23 ; J 704–717 ; D 51–86 ; D 272–286.</p>
+<h3 id="pgcd-et-ppcm-algorithmes-de-calcul.-applications.">142 — PGCD et
+PPCM, algorithmes de calcul. Applications.</h3>
+<p><strong>0/5</strong> ; avant : — (absent_from_matrix) ; page :
+absente ; décision : <code>do_not_create</code>.</p>
+<p>Aucun PGCD, PPCM ou algorithme d’Euclide n’intervient. La loi
+pourrait servir un calcul de symbole de Jacobi, mais cet algorithme est
+absent.</p>
+<p>Adaptation : Ne pas créditer une future variante algorithmique.</p>
+<p>Sources : J 24–24 ; J 718–753 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3
+id="racines-dun-polynôme.-fonctions-symétriques-élémentaires.-exemples-et-applications.">144
+— Racines d’un polynôme. Fonctions symétriques élémentaires. Exemples et
+applications.</h3>
+<p><strong>2/5</strong> ; avant : — (absent_from_matrix) ; page :
+absente ; décision : <code>do_not_create</code>.</p>
+<p>Le nombre de racines des équations quadratiques et la borne
+degré/nombre de racines dans la preuve d’Euler sont réels, mais locaux.
+Pas de multiplicité ni de fonctions symétriques exploitées.</p>
+<p>Adaptation : Orienter vers la solvabilité des équations de degré 2 ne
+fait qu’un recasage d’appoint.</p>
+<p>Sources : J 25–25 ; J 754–771 ; D 72–86 ; D 334–372.</p>
+<h3
+id="dimension-dun-espace-vectoriel-on-se-limitera-au-cas-de-la-dimension-finie.-rang.-exemples-et-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/148-dimension-espace-vectoriel-rang.html">148</a>
+— Dimension d’un espace vectoriel (on se limitera au cas de la dimension
+finie). Rang. Exemples et applications.</h3>
+<p><strong>2/5</strong> ; avant : — (unevaluated) ; page : existante ;
+décision : <code>do_not_create</code>.</p>
+<p>Le cardinal d’un espace de dimension d et d’un hyperplan de dimension
+d−1 est indispensable au comptage ; la classification et la réciprocité
+dominent néanmoins le propos.</p>
+<p>Adaptation : Expliciter rang-noyau pour z↦2y·z ; cela éclaire le
+passage sans en faire une preuve centrée sur la dimension.</p>
+<p>Sources : J 26–27 ; J 772–803 ; D 183–225 ; D 377–426.</p>
+<h3 id="déterminant.-exemples-et-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a> — Déterminant.
+Exemples et applications.</h3>
+<p><strong>4/5</strong> ; avant : — (unevaluated) ; page : existante ;
+décision : <code>do_not_create</code>.</p>
+<p>Le déterminant modulo les carrés est l’invariant décisif : det A=det
+I permet le transport de la quadrique. Sa transformation par congruence
+et la classification sont démontrées en réserve, et non seulement
+mentionnées.</p>
+<p>Adaptation : Mettre en évidence det(PᵀMP)=(det P)²det M et le choix
+a=(-1)^d. Le rôle dans les formes quadratiques figure explicitement dans
+les attendus ; pas besoin d’un calcul de déterminant artificiellement
+ajouté.</p>
+<p>Sources : J 28–28 ; J 804–820 ; D 147–<a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a> ; D 375–444.</p>
+<h3
+id="polynômes-dendomorphisme-en-dimension-finie.-réduction-dun-endomorphisme-en-dimension-finie.-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/150-polynomes-endomorphisme-reduction.html">150</a>
+— Polynômes d’endomorphisme en dimension finie. Réduction d’un
+endomorphisme en dimension finie. Applications.</h3>
+<p><strong>0/5</strong> ; avant : — (unevaluated) ; page : existante ;
+décision : <code>do_not_create</code>.</p>
+<p>La réduction présente est une congruence de formes, pas une
+similitude d’endomorphismes ; aucun polynôme d’endomorphisme n’est
+utilisé.</p>
+<p>Adaptation : Ne pas confondre les deux réductions.</p>
+<p>Sources : J 29–30 ; J 821–846 ; D 147–<a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a> ; D 375–444.</p>
+<h3
+id="sous-espaces-stables-par-un-endomorphisme-ou-une-famille-dendomorphismes-dun-espace-vectoriel-de-dimension-finie.-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/151-sous-espaces-stables-endomorphismes.html">151</a>
+— Sous-espaces stables par un endomorphisme ou une famille
+d’endomorphismes d’un espace vectoriel de dimension finie.
+Applications.</h3>
+<p><strong>0/5</strong> ; avant : 0 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>Les vecteurs constants sont des points fixes du cycle, mais la preuve
+n’étudie pas les sous-espaces stables d’un endomorphisme ou d’une
+famille.</p>
+<p>Adaptation : Réécrire les points fixes comme un noyau ne produit pas
+un développement sur les sous-espaces stables.</p>
+<p>Sources : J 31–32 ; J 847–861 ; D <a href="../../alg%C3%A8bre/le%C3%A7ons/120-anneaux-z-sur-nz-applications.html">120</a>–145.</p>
+<h3 id="endomorphismes-diagonalisables-en-dimension-finie."><a href="../../alg%C3%A8bre/le%C3%A7ons/152-endomorphismes-diagonalisables-dimension-finie.html">152</a> —
+Endomorphismes diagonalisables en dimension finie.</h3>
+<p><strong>0/5</strong> ; avant : — (unevaluated) ; page : existante ;
+décision : <code>do_not_create</code>.</p>
+<p>La diagonalisation d’une forme par congruence n’est pas la
+diagonalisabilité d’un endomorphisme ; le cycle n’est pas
+diagonalisé.</p>
+<p>Adaptation : Aucune variante spectrale écrite.</p>
+<p>Sources : J 33–33 ; J 862–873 ; D 147–<a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a> ; D 375–426.</p>
+<h3
+id="valeurs-propres-vecteurs-propres.-calculs-exacts-ou-approchés-déléments-propres.-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/153-valeurs-propres-vecteurs-propres-calculs-applications.html">153</a>
+— Valeurs propres, vecteurs propres. Calculs exacts ou approchés
+d’éléments propres. Applications.</h3>
+<p><strong>0/5</strong> ; avant : — (unevaluated) ; page : existante ;
+décision : <code>do_not_create</code>.</p>
+<p>Les points fixes du cycle ne donnent pas d’étude d’éléments propres ;
+aucune méthode spectrale ne sert au dénombrement.</p>
+<p>Adaptation : Ne pas créditer une diagonalisation possible mais
+absente.</p>
+<p>Sources : J 41–41 ; J 874–898 ; D <a href="../../alg%C3%A8bre/le%C3%A7ons/120-anneaux-z-sur-nz-applications.html">120</a>–<a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a>.</p>
+<h3 id="exponentielle-de-matrices.-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/155-exponentielle-de-matrices-applications.html">155</a> — Exponentielle de
+matrices. Applications.</h3>
+<p><strong>0/5</strong> ; avant : 0 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>Aucune exponentielle de matrice ni problème associé.</p>
+<p>Adaptation : Aucune adaptation naturelle.</p>
+<p>Sources : J 42–42 ; J 899–916 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3 id="endomorphismes-trigonalisables.-endomorphismes-nilpotents."><a href="../../alg%C3%A8bre/le%C3%A7ons/156-endomorphismes-trigonalisables-nilpotents.html">156</a>
+— Endomorphismes trigonalisables. Endomorphismes nilpotents.</h3>
+<p><strong>0/5</strong> ; avant : — (unevaluated) ; page : existante ;
+décision : <code>do_not_create</code>.</p>
+<p>Ni nilpotence ni trigonalisation d’endomorphisme : la réduction par
+congruence n’en est pas une instance.</p>
+<p>Adaptation : Le comptage de nilpotents serait un autre
+développement.</p>
+<p>Sources : J 43–43 ; J 917–929 ; D 147–<a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a> ; D 375–444.</p>
+<h3 id="matrices-symétriques-réelles-matrices-hermitiennes."><a href="../../alg%C3%A8bre/le%C3%A7ons/157-matrices-symetriques-reelles-hermitiennes.html">157</a> —
+Matrices symétriques réelles, matrices hermitiennes.</h3>
+<p><strong>0/5</strong> ; avant : — (unevaluated) ; page : existante ;
+décision : <code>do_not_create</code>.</p>
+<p>Les matrices sont symétriques sur un corps fini, pas réelles ou
+hermitiennes. Le théorème spectral et la positivité n’interviennent
+pas.</p>
+<p>Adaptation : Ne pas transférer la classification par discriminant aux
+matrices réelles.</p>
+<p>Sources : J 44–44 ; J 930–952 ; D 88–103 ; D 147–<a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a>.</p>
+<h3
+id="endomorphismes-remarquables-dun-espace-vectoriel-euclidien-de-dimension-finie."><a href="../../alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a>
+— Endomorphismes remarquables d’un espace vectoriel euclidien (de
+dimension finie).</h3>
+<p><strong>0/5</strong> ; avant : 0 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>Aucun espace vectoriel euclidien réel ; les formes sur corps fini
+n’ont pas le mécanisme positif requis.</p>
+<p>Adaptation : Pas de transfert au cadre euclidien.</p>
+<p>Sources : J 45–45 ; J 953–964 ; D 88–103 ; D 147–<a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a>.</p>
+<h3
+id="formes-linéaires-et-dualité-en-dimension-finie.-exemples-et-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/159-formes-lineaires-dualite-dimension-finie.html">159</a>
+— Formes linéaires et dualité en dimension finie. Exemples et
+applications.</h3>
+<p><strong>2/5</strong> ; avant : — (unevaluated) ; page : existante ;
+décision : <code>do_not_create</code>.</p>
+<p>Les fibres d’une forme linéaire non nulle sont comptées et un
+orthogonal intervient dans la classification. La dualité demeure un
+outil local, non l’objet directeur.</p>
+<p>Adaptation : Expliciter la forme linéaire, son noyau et la fibre
+affine ; conserver un score d’appoint.</p>
+<p>Sources : J 46–46 ; J 965–983 ; D <a href="../../analyse/le%C3%A7ons/201-espaces-de-fonctions-exemples-applications.html">201</a>–217 ; D 412–419.</p>
+<h3
+id="espaces-vectoriels-et-espaces-affines-euclidiens-distances-isométries."><a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/161-espaces-vectoriels-et-affines-euclidiens-distances-isometries.html">161</a>
+— Espaces vectoriels et espaces affines euclidiens : distances,
+isométries.</h3>
+<p><strong>0/5</strong> ; avant : 0 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>Ni distance euclidienne réelle ni classification d’isométries
+euclidiennes : les quadriques sont sur corps fini.</p>
+<p>Adaptation : Ne pas confondre orthogonalité bilinéaire et géométrie
+métrique euclidienne.</p>
+<p>Sources : J 47–47 ; J 984–1006 ; D 109–<a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a>.</p>
+<h3
+id="systèmes-déquations-linéaires-opérations-élémentaires-aspects-algorithmiques-et-conséquences-théoriques."><a href="../../alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a>
+— Systèmes d’équations linéaires ; opérations élémentaires, aspects
+algorithmiques et conséquences théoriques.</h3>
+<p><strong>1/5</strong> ; avant : 0 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>Une équation linéaire non nulle en z est comptée, sans pivot, système
+échelonné ni analyse algorithmique. C’est un lien réel mais trop
+ponctuel.</p>
+<p>Adaptation : Corriger l’ancien 0 en 1 pour reconnaître ce passage,
+sans en faire un recasage utile.</p>
+<p>Sources : J 48–49 ; J 1007–1027 ; D <a href="../../analyse/le%C3%A7ons/201-espaces-de-fonctions-exemples-applications.html">201</a>–217.</p>
+<h3
+id="formes-quadratiques-sur-un-espace-vectoriel-de-dimension-finie.-orthogonalité.-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/170-formes-quadratiques-dimension-finie-orthogonalite-applications.html">170</a>
+— Formes quadratiques sur un espace vectoriel de dimension finie.
+Orthogonalité. Applications.</h3>
+<p><strong>5/5</strong> ; avant : 5 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>Classification par congruence, discriminant, orthogonalité et modèle
+hyperbolique rendent possible le second dénombrement. La preuve de
+classification est disponible, indépendante de la réciprocité.</p>
+<p>Adaptation : Conserver le pivot géométrique et la classification ;
+préciser ce qui est admis dans les quinze minutes, sa preuve étant en
+réserve. Corriger l’action droite.</p>
+<p>Sources : J 50–50 ; J 1028–1051 ; D 88–103 ; D 147–225 ; D
+375–444.</p>
+<h3
+id="formes-quadratiques-réelles.-coniques.-exemples-et-applications.">171
+— Formes quadratiques réelles. Coniques. Exemples et applications.</h3>
+<p><strong>0/5</strong> ; avant : — (absent_from_matrix) ; page :
+absente ; décision : <code>do_not_create</code>.</p>
+<p>Le corps de base est fini ; ni signature réelle ni coniques
+euclidiennes. La classification par discriminant n’est pas celle de
+Sylvester.</p>
+<p>Adaptation : Une spécialisation réelle ferait disparaître le comptage
+fini et la réciprocité.</p>
+<p>Sources : J 51–51 ; J 1052–1066 ; D 88–103 ; D 147–<a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a>.</p>
+<h3 id="convexité-dans-rn.-applications-en-algèbre-et-en-géométrie."><a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a>
+— Convexité dans Rn. Applications en algèbre et en géométrie.</h3>
+<p><strong>0/5</strong> ; avant : — (unevaluated) ; page : existante ;
+décision : <code>do_not_create</code>.</p>
+<p>Aucune convexité, barycentre ou enveloppe convexe sur un espace
+réel.</p>
+<p>Adaptation : Un ensemble fini de points sur corps fini n’est pas ici
+un objet convexe.</p>
+<p>Sources : J 52–52 ; J 1067–1081 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<p>Titre à contrôler : Rn : exposant n et police réelle à contrôler sur
+PDF.</p>
+<h3 id="méthodes-combinatoires-problèmes-de-dénombrement."><a href="../../alg%C3%A8bre/le%C3%A7ons/190-methodes-combinatoires-problemes-de-denombrement.html">190</a> —
+Méthodes combinatoires, problèmes de dénombrement.</h3>
+<p><strong>4/5</strong> ; avant : 4 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>Deux évaluations du même cardinal (l’une modulo p, l’autre exacte),
+partition en cas et comptage de fibres affines sont substantiels. La
+classification préalable est un apport algébrique important.</p>
+<p>Adaptation : Annoncer les méthodes de dénombrement ; distinguer
+congruence d’orbites et Burnside. 4 conservé : ne pas masquer le
+prérequis de classification.</p>
+<p>Sources : J 53–53 ; J 1082–1103 ; D <a href="../../alg%C3%A8bre/le%C3%A7ons/120-anneaux-z-sur-nz-applications.html">120</a>–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3 id="exemples-dutilisation-de-techniques-dalgèbre-en-géométrie.">191
+— Exemples d’utilisation de techniques d’algèbre en géométrie.</h3>
+<p><strong>3/5</strong> ; avant : — (absent_from_matrix) ; page :
+absente ; décision : <code>prepare_variant_first</code>.</p>
+<p>Transport et comptage d’une quadrique affine donnent un vrai contenu
+de géométrie sur corps fini, mais le résultat final est arithmétique. Le
+jury exige un objectif géométrique, non un simple habillage.</p>
+<p>Adaptation : Variante à préparer avant création : faire du comptage
+des quadriques non dégénérées de dimension impaire le résultat
+principal, expliciter invariants et fibres affines ; garder la
+réciprocité en application secondaire. Score prospectif 4 conditionnel,
+non intégré au score actuel.</p>
+<p>Sources : J 54–54 ; J 1104–1189 ; D 147–225.</p>
+<h3 id="espaces-de-fonctions.-exemples-et-applications."><a href="../../analyse/le%C3%A7ons/201-espaces-de-fonctions-exemples-applications.html">201</a> — Espaces
+de fonctions. Exemples et applications.</h3>
+<p><strong>0/5</strong> ; avant : 0 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>Aucun espace fonctionnel ni norme de fonctions ; un ensemble fini de
+vecteurs n’est pas une étude d’espaces de fonctions.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 56–56 ; J 1190–1211 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3 id="utilisation-de-la-notion-de-compacité."><a href="../../analyse/le%C3%A7ons/203-utilisation-de-la-notion-de-compacite.html">203</a> — Utilisation de la
+notion de compacité.</h3>
+<p><strong>0/5</strong> ; avant : 0 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>La finitude est combinatoire, sans argument topologique de
+compacité.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 57–57 ; J 1212–1226 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3 id="connexité.-exemples-dapplications.">204 — Connexité. Exemples
+d’applications.</h3>
+<p><strong>0/5</strong> ; avant : — (absent_from_matrix) ; page :
+absente ; décision : <code>do_not_create</code>.</p>
+<p>Aucune connexité ni passage local-global.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 58–58 ; J 1227–1241 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3 id="espaces-complets.-exemples-et-applications."><a href="../../analyse/le%C3%A7ons/205-espaces-complets.html">205</a> — Espaces
+complets. Exemples et applications.</h3>
+<p><strong>0/5</strong> ; avant : — (unevaluated) ; page : existante ;
+décision : <code>do_not_create</code>.</p>
+<p>Aucune suite de Cauchy, limite ou utilisation de la complétude ; les
+points fixes sont ceux d’une action finie, pas de Picard-Banach.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 59–59 ; J 1242–1254 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3
+id="exemples-dutilisation-de-la-notion-de-dimension-finie-en-analyse."><a href="../../analyse/le%C3%A7ons/206-exemples-dutilisation-de-la-notion-de-dimension-finie-en-analyse.html">206</a>
+— Exemples d’utilisation de la notion de dimension finie en
+analyse.</h3>
+<p><strong>0/5</strong> ; avant : 0 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>La dimension est utilisée sur un corps fini pour compter, sans
+application en analyse.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 60–60 ; J 1255–1276 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3
+id="espaces-vectoriels-normés-applications-linéaires-continues.-exemples."><a href="../../analyse/le%C3%A7ons/208-espaces-vectoriels-normes-applications-lineaires-continues.html">208</a>
+— Espaces vectoriels normés, applications linéaires continues.
+Exemples.</h3>
+<p><strong>0/5</strong> ; avant : 0 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>Aucun espace normé réel ou complexe ni continuité d’opérateur.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 61–61 ; J 1277–1297 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3
+id="approximation-dune-fonction-par-des-fonctions-régulières.-exemples-dapplications."><a href="../../analyse/le%C3%A7ons/209-approximation-fonction-par-fonctions-regulieres.html">209</a>
+— Approximation d’une fonction par des fonctions régulières. Exemples
+d’applications.</h3>
+<p><strong>0/5</strong> ; avant : 0 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>Aucune approximation ou régularisation de fonction.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 62–62 ; J 1298–1311 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3 id="espaces-de-hilbert.-exemples-dapplications."><a href="../../analyse/le%C3%A7ons/213-espaces-hilbert-exemples-applications.html">213</a> — Espaces de
+Hilbert. Exemples d’applications.</h3>
+<p><strong>0/5</strong> ; avant : — (unevaluated) ; page : existante ;
+décision : <code>do_not_create</code>.</p>
+<p>L’orthogonalité d’une forme sur corps fini n’est pas une structure de
+Hilbert ; aucune complétude ni projection métrique.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 63–63 ; J 1312–1329 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3
+id="théorème-dinversion-locale-théorème-des-fonctions-implicites.-illustrations-en-analyse-et-en-géométrie.">214
+— Théorème d’inversion locale, théorème des fonctions implicites.
+Illustrations en analyse et en géométrie.</h3>
+<p><strong>0/5</strong> ; avant : — (absent_from_matrix) ; page :
+absente ; décision : <code>do_not_create</code>.</p>
+<p>Le changement de variables est une bijection linéaire sur corps fini,
+pas une inversion locale différentiable.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 64–65 ; J 1330–1353 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3
+id="applications-différentiables-définies-sur-un-ouvert-de-rn.-exemples-et-applications.">215
+— Applications différentiables définies sur un ouvert de Rn. Exemples et
+applications.</h3>
+<p><strong>0/5</strong> ; avant : — (absent_from_matrix) ; page :
+absente ; décision : <code>do_not_create</code>.</p>
+<p>Aucune différentielle sur un ouvert réel ; le polynôme quadratique
+est utilisé algébriquement.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 66–66 ; J 1354–1366 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<p>Titre à contrôler : Rn : exposant n et police réelle à contrôler sur
+PDF.</p>
+<h3 id="formules-de-taylor.-exemples-et-applications."><a href="../../analyse/le%C3%A7ons/218-formules-de-taylor-exemples-applications.html">218</a> — Formules de
+Taylor. Exemples et applications.</h3>
+<p><strong>0/5</strong> ; avant : 0 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>Aucun développement de Taylor ou contrôle d’un reste.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 67–67 ; J 1367–1383 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3
+id="extremums-existence-caractérisation-recherche.-exemples-et-applications."><a href="../../analyse/le%C3%A7ons/219-extremums.html">219</a>
+— Extremums : existence, caractérisation, recherche. Exemples et
+applications.</h3>
+<p><strong>0/5</strong> ; avant : — (unevaluated) ; page : existante ;
+décision : <code>do_not_create</code>.</p>
+<p>L’équation Q(x)=1 est comptée, non optimisée ; aucune recherche
+d’extremum.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 68–68 ; J 1384–1404 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3
+id="illustrer-par-des-exemples-la-théorie-des-équations-différentielles-ordinaires.">220
+— Illustrer par des exemples la théorie des équations différentielles
+ordinaires.</h3>
+<p><strong>0/5</strong> ; avant : — (absent_from_matrix) ; page :
+absente ; décision : <code>do_not_create</code>.</p>
+<p>Aucune équation différentielle ordinaire.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 69–69 ; J 1405–1422 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3
+id="équations-différentielles-linéaires.-systèmes-déquations-différentielles-linéaires.-exemples-et-applications.">221
+— Équations différentielles linéaires. Systèmes d’équations
+différentielles linéaires. Exemples et applications.</h3>
+<p><strong>0/5</strong> ; avant : — (absent_from_matrix) ; page :
+absente ; décision : <code>do_not_create</code>.</p>
+<p>Aucun système différentiel linéaire ou évolution temporelle.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 70–71 ; J 1423–1438 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3
+id="suites-réelles-et-complexes.-convergence-valeurs-dadhérence.-exemples-et-applications.">223
+— Suites réelles et complexes. Convergence, valeurs d’adhérence.
+Exemples et applications.</h3>
+<p><strong>0/5</strong> ; avant : — (absent_from_matrix) ; page :
+absente ; décision : <code>do_not_create</code>.</p>
+<p>Aucune suite réelle ou complexe ni convergence ; les paramètres
+premiers restent fixés.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 72–72 ; J 1439–1458 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3
+id="exemples-de-développements-asymptotiques-de-suites-et-de-fonctions."><a href="../../analyse/le%C3%A7ons/224-exemples-de-developpements-asymptotiques.html">224</a>
+— Exemples de développements asymptotiques de suites et de
+fonctions.</h3>
+<p><strong>0/5</strong> ; avant : — (unevaluated) ; page : existante ;
+décision : <code>do_not_create</code>.</p>
+<p>La formule exacte de cardinal n’est pas exploitée asymptotiquement et
+n’établit aucun développement asymptotique de suite ou fonction.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 73–73 ; J 1459–1472 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3
+id="suites-vectorielles-et-réelles-définies-par-une-relation-de-récurrence-un1-fpunq.-exemples.-applications-à-la-résolution-approchée-déquations.">226
+— Suites vectorielles et réelles définies par une relation de récurrence
+un`1 “ fpunq. Exemples. Applications à la résolution approchée
+d’équations.</h3>
+<p><strong>0/5</strong> ; avant : — (absent_from_matrix) ; page :
+absente ; décision : <code>do_not_create</code>.</p>
+<p>Le cycle de coordonnées n’est pas une étude de récurrence vectorielle
+avec convergence ou résolution approchée.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 74–75 ; J 1473–1488 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<p>Titre à contrôler : un`1 “ fpunq : formule de récurrence à contrôler
+sur PDF avant création.</p>
+<h3
+id="continuité-dérivabilité-des-fonctions-réelles-dune-variable-réelle.-exemples-et-applications."><a href="../../analyse/le%C3%A7ons/228-continuite-derivabilite-fonctions-reelles-une-variable.html">228</a>
+— Continuité, dérivabilité des fonctions réelles d’une variable réelle.
+Exemples et applications.</h3>
+<p><strong>0/5</strong> ; avant : 0 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>Aucune continuité ni dérivabilité de fonction réelle.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 76–76 ; J 1489–1509 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3
+id="fonctions-monotones.-fonctions-convexes.-exemples-et-applications.">229
+— Fonctions monotones. Fonctions convexes. Exemples et
+applications.</h3>
+<p><strong>0/5</strong> ; avant : — (absent_from_matrix) ; page :
+absente ; décision : <code>do_not_create</code>.</p>
+<p>Aucune monotonie ou convexité de fonction réelle.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 77–77 ; J 1510–1520 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3
+id="séries-de-nombres-réels-et-complexes.-comportement-des-restes-ou-des-sommes-partielles-des-séries-numériques.-exemples."><a href="../../analyse/le%C3%A7ons/230-series-nombres-reels-complexes.html">230</a>
+— Séries de nombres réels et complexes. Comportement des restes ou des
+sommes partielles des séries numériques. Exemples.</h3>
+<p><strong>0/5</strong> ; avant : — (unevaluated) ; page : existante ;
+décision : <code>do_not_create</code>.</p>
+<p>Aucune série numérique ; les additions de cardinaux sont finies.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 78–79 ; J 1521–1533 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3 id="fonctions-et-espaces-de-fonctions-lebesgue-intégrables."><a href="../../analyse/le%C3%A7ons/234-fonctions-espaces-lebesgue-integrables.html">234</a> —
+Fonctions et espaces de fonctions Lebesgue-intégrables.</h3>
+<p><strong>0/5</strong> ; avant : — (unevaluated) ; page : existante ;
+décision : <code>do_not_create</code>.</p>
+<p>Aucune intégrabilité de Lebesgue ou étude Lp ; le comptage fini ne
+fournit pas ces mécanismes.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 80–80 ; J 1534–1544 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3 id="problèmes-dinterversion-de-symboles-en-analyse"><a href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a> — Problèmes
+d’interversion de symboles en analyse</h3>
+<p><strong>0/5</strong> ; avant : 0 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>Aucun problème analytique de permutation de limites, dérivées ou
+intégrales ; un dénombrement fini ne suffit pas.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 88–88 ; J 1545–1559 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3
+id="illustrer-par-des-exemples-quelques-méthodes-de-calcul-dintégrales-de-fonctions-dune-ou-plusieurs-variables."><a href="../../analyse/le%C3%A7ons/236-methodes-calcul-integrales.html">236</a>
+— Illustrer par des exemples quelques méthodes de calcul d’intégrales de
+fonctions d’une ou plusieurs variables.</h3>
+<p><strong>0/5</strong> ; avant : — (unevaluated) ; page : existante ;
+décision : <code>do_not_create</code>.</p>
+<p>Aucune intégrale calculée ; le changement de variables compte des
+points.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 89–90 ; J 1560–1570 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3
+id="fonctions-définies-par-une-intégrale-dépendant-dun-paramètre.-exemples-et-applications."><a href="../../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">239</a>
+— Fonctions définies par une intégrale dépendant d’un paramètre.
+Exemples et applications.</h3>
+<p><strong>0/5</strong> ; avant : 0 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>Aucune intégrale à paramètre.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 91–91 ; J 1571–1580 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3 id="suites-et-séries-de-fonctions.-exemples-et-contre-exemples."><a href="../../analyse/le%C3%A7ons/241-suites-series-fonctions-exemples-contre-exemples.html">241</a>
+— Suites et séries de fonctions. Exemples et contre-exemples.</h3>
+<p><strong>0/5</strong> ; avant : 0 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>Aucune suite ou série de fonctions ni problème de convergence.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 92–92 ; J 1581–1594 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3
+id="séries-entières-propriétés-de-la-somme.-exemples-et-applications.">243
+— Séries entières, propriétés de la somme. Exemples et
+applications.</h3>
+<p><strong>0/5</strong> ; avant : — (absent_from_matrix) ; page :
+absente ; décision : <code>do_not_create</code>.</p>
+<p>Aucune série entière ou fonction génératrice.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 93–93 ; J 1595–1617 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3
+id="fonctions-holomorphes-et-méromorphes-sur-un-ouvert-de-c.-exemples-et-applications.">245
+— Fonctions holomorphes et méromorphes sur un ouvert de C. Exemples et
+applications.</h3>
+<p><strong>0/5</strong> ; avant : — (absent_from_matrix) ; page :
+absente ; décision : <code>do_not_create</code>.</p>
+<p>Aucune fonction holomorphe ou méromorphe.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 94–94 ; J 1618–1631 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<p>Titre à contrôler : C : police du corps complexe à contrôler sur PDF
+avant création.</p>
+<h3 id="séries-de-fourier.-exemples-et-applications."><a href="../../analyse/le%C3%A7ons/246-series-de-fourier-exemples-applications.html">246</a> — Séries de
+Fourier. Exemples et applications.</h3>
+<p><strong>0/5</strong> ; avant : 0 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>Aucune série de Fourier. Les sommes de Gauss seulement citées comme
+variante ne constituent pas une preuve et ne sont pas une série de
+Fourier sur le cercle.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 95–95 ; J 1632–1659 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a> ; D 323–328.</p>
+<h3 id="transformation-de-fourier.-applications."><a href="../../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">250</a> — Transformation
+de Fourier. Applications.</h3>
+<p><strong>0/5</strong> ; avant : 0 ; page : existante ; décision :
+<code>do_not_create</code>.</p>
+<p>Aucune transformation de Fourier sur la droite réelle. Une variante
+finie par sommes de Gauss, non écrite, ne justifie pas cette leçon.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 96–96 ; J 1660–1674 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a> ; D 323–328.</p>
+<h3 id="utilisation-de-la-notion-de-convexité-en-analyse."><a href="../../analyse/le%C3%A7ons/253-convexite-en-analyse.html">253</a> —
+Utilisation de la notion de convexité en analyse.</h3>
+<p><strong>0/5</strong> ; avant : — (unevaluated) ; page : existante ;
+décision : <code>do_not_create</code>.</p>
+<p>Aucune convexité en analyse ; les formes sur corps fini ne sont pas
+des fonctions convexes réelles.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 97–97 ; J 1675–1688 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3
+id="loi-dune-variable-aléatoire-caractérisations-exemples-applications."><a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>
+— Loi d’une variable aléatoire : caractérisations, exemples,
+applications.</h3>
+<p><strong>0/5</strong> ; avant : — (unevaluated) ; page : existante ;
+décision : <code>do_not_create</code>.</p>
+<p>Aucune loi de variable aléatoire définie ou caractérisée ; une
+interprétation uniforme du comptage ne figure pas dans la preuve.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 98–98 ; J 1689–1707 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3
+id="convergences-dune-suite-de-variables-aléatoires.-théorèmes-limite.-exemples-et-applications."><a href="../../analyse/le%C3%A7ons/262-convergences-variables-aleatoires-theoremes-limite.html">262</a>
+— Convergences d’une suite de variables aléatoires. Théorèmes limite.
+Exemples et applications.</h3>
+<p><strong>0/5</strong> ; avant : — (unevaluated) ; page : existante ;
+décision : <code>do_not_create</code>.</p>
+<p>Aucune variable aléatoire ni théorème limite.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 99–99 ; J 1708–1718 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3 id="variables-aléatoires-discrètes.-exemples-et-applications.">264 —
+Variables aléatoires discrètes. Exemples et applications.</h3>
+<p><strong>0/5</strong> ; avant : — (absent_from_matrix) ; page :
+absente ; décision : <code>do_not_create</code>.</p>
+<p>Dénombrement déterministe, sans modélisation ou loi discrète étudiée.
+Diviser un cardinal par une taille d’univers ne suffit pas.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J 100–100 ; J 1719–1727 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+<h3 id="utilisation-de-la-notion-dindépendance-en-probabilités."><a href="../../analyse/le%C3%A7ons/266-independance-probabilites.html">266</a> —
+Utilisation de la notion d’indépendance en probabilités.</h3>
+<p><strong>0/5</strong> ; avant : — (unevaluated) ; page : existante ;
+décision : <code>do_not_create</code>.</p>
+<p>La liberté des coordonnées dans un comptage n’est pas une utilisation
+formulée de l’indépendance probabiliste.</p>
+<p>Adaptation : Pas de recasage pour la preuve actuelle ; aucune
+variante analytique ou probabiliste démontrée.</p>
+<p>Sources : J <a href="../../alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a>–<a href="../../alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a> ; J 1728–1740 ; D 109–<a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>.</p>
+</body>
+</html>
