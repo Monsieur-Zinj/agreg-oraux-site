@@ -1,0 +1,148 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Leçon 224 — Exemples de développements asymptotiques de suites et de fonctions</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css?v=3fa8cfdcc3ea" />
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Leçon <a href="224-exemples-de-developpements-asymptotiques.html">224</a> — Exemples de développements asymptotiques
+de suites et de fonctions</h1>
+</header>
+<h1
+id="leçon-224-exemples-de-développements-asymptotiques-de-suites-et-de-fonctions">Leçon
+<a href="224-exemples-de-developpements-asymptotiques.html">224</a> — Exemples de développements asymptotiques de suites et de
+fonctions</h1>
+<p><a href="../../index/lecons.html">← Leçons</a> · <a
+href="../index.html">Analyse</a> · <a
+href="../../index/developpements.html">Développements</a> · <a
+href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="attendus-du-jury">Attendus du jury</h2>
+<p>D’après le rapport 2025, lignes 1459–1472 :</p>
+<ul>
+<li>construire la leçon autour d’exemples, et non d’un exposé
+systématique sur les échelles de comparaison ;</li>
+<li>choisir quelques exemples significatifs et diversifiés, en
+expliquant les idées essentielles des méthodes ;</li>
+<li>maîtriser les relations de comparaison et la manipulation des restes
+;</li>
+<li>exploiter notamment les suites récurrentes ou implicites, sommes
+partielles et restes, séries et intégrales à paramètre ;</li>
+<li>la méthode de Laplace et la phase stationnaire sont explicitement
+citées ; l’accélération de convergence constitue une ouverture
+possible.</li>
+</ul>
+<h2 id="plan-possible-squelette">Plan possible — squelette</h2>
+<h3
+id="développements-locaux-et-suites-définies-implicitement-ou-par-récurrence">1.
+Développements locaux et suites définies implicitement ou par
+récurrence</h3>
+<ul>
+<li>Exemples choisis de Taylor avec contrôle du reste, sans catalogue de
+développements usuels.</li>
+<li>Une suite récurrente : identifier le premier ordre, puis rechercher
+un terme correctif par une transformation adaptée.</li>
+<li>Une suite définie implicitement : localisation, équivalent, puis
+réinjection pour améliorer l’approximation.</li>
+</ul>
+<h3 id="sommes-partielles-restes-et-comparaison-sommeintégrale">2.
+Sommes partielles, restes et comparaison somme–intégrale</h3>
+<ul>
+<li>Exemple de reste d’une série à termes positifs, avec une estimation
+justifiée par des intégrales.</li>
+<li>Exemple de somme partielle présentant un terme principal et un
+correctif.</li>
+<li>Distinguer un simple équivalent, une majoration et un développement
+à plusieurs termes.</li>
+</ul>
+<h3 id="intégrales-dépendant-dun-paramètre">3. Intégrales dépendant d’un
+paramètre</h3>
+<ul>
+<li>Concentration près d’un minimum : pourquoi une approximation locale
+de la phase peut gouverner une intégrale globale.</li>
+<li><strong><a href="../../d%C3%A9veloppements/methode-de-laplace.html">Méthode
+de Laplace et formule de Stirling</a></strong> : localisation,
+changement d’échelle, domination gaussienne et contrôle de la queue ;
+application à Gamma puis à la factorielle.</li>
+<li>Ouverture Fourier possible : phase stationnaire pour des intégrales
+oscillantes, à préparer séparément. Ne pas confondre amortissement
+exponentiel et compensation oscillatoire.</li>
+</ul>
+<h2 id="développement-actuel-recommandé">Développement actuel
+recommandé</h2>
+<p><a href="../../d%C3%A9veloppements/methode-de-laplace.html">Méthode de
+Laplace et formule de Stirling</a> — <strong>5/5</strong>.</p>
+<p>Le mécanisme asymptotique et son application à une fonction spéciale
+constituent un exemple central de la partie 3. Expliquer le choix de
+l’échelle et pourquoi la contribution éloignée du minimum est
+négligeable devant le terme principal.</p>
+<p>Un seul développement est actuellement validé pour cette leçon : il
+reste à choisir un second développement complémentaire. Les autres
+développements du wiki ne sont pas automatiquement recasés en <a href="224-exemples-de-developpements-asymptotiques.html">224</a>.</p>
+<h2 id="résultats-et-notions-liés">Résultats et notions liés</h2>
+<ul>
+<li><a href="../../r%C3%A9sultats/lemme-gaussien-au-bord.html">Lemme gaussien
+au bord</a>.</li>
+<li>[[Formule de Taylor-Young]], [[Relations de comparaison]],
+[[Convergence dominée]], [[Fonction Gamma]].</li>
+</ul>
+<h2 id="leçons-liées">Leçons liées</h2>
+<ul>
+<li><a href="218-formules-de-taylor-exemples-applications.html">218 —
+Formules de Taylor</a>.</li>
+<li><a href="230-series-nombres-reels-complexes.html">230 — Séries
+numériques</a>.</li>
+<li><a href="235-problemes-dinterversion-de-symboles-en-analyse.html">235
+— Interversions de symboles</a>.</li>
+<li><a href="239-fonctions-definies-par-integrale-parametre.html">239 —
+Intégrales à paramètre</a>.</li>
+</ul>
+<h2 id="pièges-et-questions-possibles-du-jury">Pièges et questions
+possibles du jury</h2>
+<ul>
+<li>Peut-on sommer ou intégrer un équivalent ? Pas sans contrôle adapté
+des erreurs et du domaine.</li>
+<li>La convergence d’un reste vers zéro suffit-elle ? Non : il faut le
+comparer à l’échelle du terme principal.</li>
+<li>Pourquoi une approximation quadratique produit-elle une échelle
+gaussienne dans Laplace ?</li>
+<li>Qu’est-ce qui change entre un minimum intérieur et un minimum au
+bord ?</li>
+<li>Un équivalent de Stirling fournit-il automatiquement son terme
+correctif ? Non ; une analyse supplémentaire est nécessaire.</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Fixer et rédiger les exemples des
+parties 1 et 2.</label></li>
+<li><label><input type="checkbox" />Choisir un second développement,
+distinct d’une nouvelle présentation de Stirling.</label></li>
+<li><label><input type="checkbox" />Chronométrer
+Laplace–Stirling.</label></li>
+<li><label><input type="checkbox" />Ne conserver l’ouverture en phase
+stationnaire que si elle est maîtrisée.</label></li>
+</ul>
+</body>
+</html>
