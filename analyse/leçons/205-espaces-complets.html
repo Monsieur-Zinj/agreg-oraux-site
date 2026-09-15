@@ -1,0 +1,120 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Leçon 205 — Espaces complets. Exemples et applications.</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css?v=3fa8cfdcc3ea" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Leçon <a href="205-espaces-complets.html">205</a> — Espaces complets. Exemples et
+applications.</h1>
+</header>
+<h1 id="leçon-205-espaces-complets.-exemples-et-applications.">Leçon <a href="205-espaces-complets.html">205</a>
+— Espaces complets. Exemples et applications.</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../../index/lecons.html">← Leçons</a> · <a
+href="../../index/developpements.html">Développements</a> · <a
+href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="attendus-du-jury-à-garder-en-tête">Attendus du jury à garder en
+tête</h2>
+<p>Mettre en avant les théorèmes d’existence fournis par la complétude.
+Le jury cite le point fixe, le prolongement uniforme, les espaces de
+Banach et explicitement la projection sur un convexe fermé d’un
+Hilbert.</p>
+<h2 id="plan-possible-squelette">Plan possible — squelette</h2>
+<h3 id="complétude-et-constructions-de-limites">1. Complétude et
+constructions de limites</h3>
+<p>Suites de Cauchy, sous-espaces fermés d’un espace complet, exemples
+et contre-exemples. Espaces de Banach, convergence des séries absolument
+convergentes ; espaces de fonctions munis de normes usuelles.</p>
+<h3 id="théorèmes-dexistence">2. Théorèmes d’existence</h3>
+<p>Point fixe de Picard–Banach et une application à préparer ;
+prolongement des applications uniformément continues à valeurs dans un
+complet. <a href="../../d%C3%A9veloppements/projection-sur-un-convexe-ferme.html">Projection sur un convexe fermé</a> : la suite minimisante devient
+de Cauchy, puis converge grâce à la complétude (développement).</p>
+<h3 id="applications-dans-les-espaces-de-fonctions">3. Applications dans
+les espaces de fonctions</h3>
+<p>Complétude de <span class="math inline">\(C(K)\)</span> pour la norme
+uniforme et de <span class="math inline">\(L^p\)</span> pour <span
+class="math inline">\(1\le p\le\infty\)</span>. Dans <span
+class="math inline">\(L^2\)</span>, décomposition orthogonale et
+approximation par projections. Les séries de Fourier illustrent le
+passage de sommes partielles de Cauchy à une limite dans <span
+class="math inline">\(L^2\)</span> ; ne pas confondre cette convergence
+avec la convergence ponctuelle.</p>
+<h2 id="développement-actuel-recommandé">Développement actuel
+recommandé</h2>
+<ul>
+<li><a
+href="../../d%C3%A9veloppements/projection-sur-un-convexe-ferme.html">Projection
+sur un convexe fermé</a> — <strong>5/5</strong>. <a
+href="../../index/recasages/projection-sur-un-convexe-ferme.html">Justification
+du recasage</a>.</li>
+<li>Un second développement reste à choisir : les autres développements
+ne sont pas encore évalués pour cette nouvelle colonne.</li>
+</ul>
+<h2 id="résultats-liés">Résultats liés</h2>
+<ul>
+<li><a
+href="../../r%C3%A9sultats/projection-convexe-ferme-caracterisation-variationnelle.html">Caractérisation
+variationnelle de la projection</a>.</li>
+</ul>
+<h2 id="leçons-liées">Leçons liées</h2>
+<ul>
+<li><a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181 —
+Convexité dans Rⁿ. Applications en algèbre et en géométrie.</a></li>
+<li><a href="219-extremums.html">219 — Extremums : existence,
+caractérisation, recherche. Exemples et applications.</a></li>
+<li><a href="253-convexite-en-analyse.html">253 — Utilisation de la notion
+de convexité en analyse.</a></li>
+<li><a
+href="213-espaces-hilbert-exemples-applications.html">213
+— Espaces de Hilbert</a>.</li>
+</ul>
+<h2 id="exemples-à-préparer">Exemples à préparer</h2>
+<p>Un espace non complet ; convergence uniforme dans C(K) ; projection
+sur un sous-espace fermé de L².</p>
+<h2 id="pièges-et-questions-doral">Pièges et questions d’oral</h2>
+<ul>
+<li>Une suite bornée n’est pas nécessairement de Cauchy ; la fermeture
+conserve la limite seulement après son existence dans l’espace
+ambiant.</li>
+<li>Où intervient exactement la complétude dans la preuve de projection
+?</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Détailler et équilibrer le plan au
+tableau.</label></li>
+<li><label><input type="checkbox" />Préparer les exemples et leurs
+hypothèses.</label></li>
+<li><label><input type="checkbox" />Choisir et vérifier un second
+développement.</label></li>
+</ul>
+</body>
+</html>

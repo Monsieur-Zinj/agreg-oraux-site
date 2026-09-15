@@ -1,0 +1,116 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Leçon 253 — Utilisation de la notion de convexité en analyse.</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css?v=3fa8cfdcc3ea" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Leçon <a href="253-convexite-en-analyse.html">253</a> — Utilisation de la notion de convexité en
+analyse.</h1>
+</header>
+<h1
+id="leçon-253-utilisation-de-la-notion-de-convexité-en-analyse.">Leçon
+<a href="253-convexite-en-analyse.html">253</a> — Utilisation de la notion de convexité en analyse.</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../../index/lecons.html">← Leçons</a> · <a
+href="../../index/developpements.html">Développements</a> · <a
+href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
+href="../../index.html">Accueil</a></p>
+<h2 id="attendus-du-jury-à-garder-en-tête">Attendus du jury à garder en
+tête</h2>
+<p>Articuler ensembles et fonctions convexes, dessins, inégalités et
+optimisation. Le jury cite explicitement la projection dans un Hilbert,
+ainsi que les critères de densité et la minimisation convexe.</p>
+<h2 id="plan-possible-squelette">Plan possible — squelette</h2>
+<h3 id="géométrie-des-convexes">1. Géométrie des convexes</h3>
+<p>Segments et combinaisons convexes, enveloppe convexe, épigraphes.
+Illustrations en dimension deux ; distinguer convexité et fermeture.</p>
+<h3 id="fonctions-convexes-et-inégalités">2. Fonctions convexes et
+inégalités</h3>
+<p>Définition, inégalité de Jensen pour les combinaisons convexes
+finies, caractérisations différentielles sur un ouvert convexe.
+Inégalités classiques et stricte convexité ; lien avec l’unicité d’un
+minimum.</p>
+<h3 id="projection-et-optimisation">3. Projection et optimisation</h3>
+<p><a href="../../d%C3%A9veloppements/projection-sur-un-convexe-ferme.html">Projection sur un convexe fermé</a> non vide d’un Hilbert (développement)
+: milieu pour l’existence et l’unicité, segment pour la caractérisation
+variationnelle. Non-expansivité ; cas des sous-espaces fermés et critère
+de densité par l’orthogonal. Application à la meilleure approximation
+dans <span class="math inline">\(L^2\)</span>, notamment par des
+polynômes trigonométriques ; les propriétés de Fourier nécessaires
+restent à justifier séparément.</p>
+<h2 id="développement-actuel-recommandé">Développement actuel
+recommandé</h2>
+<ul>
+<li><a
+href="../../d%C3%A9veloppements/projection-sur-un-convexe-ferme.html">Projection
+sur un convexe fermé</a> — <strong>5/5</strong>. <a
+href="../../index/recasages/projection-sur-un-convexe-ferme.html">Justification
+du recasage</a>.</li>
+<li>Un second développement reste à choisir : les autres développements
+ne sont pas encore évalués pour cette nouvelle colonne.</li>
+</ul>
+<h2 id="résultats-liés">Résultats liés</h2>
+<ul>
+<li><a
+href="../../r%C3%A9sultats/projection-convexe-ferme-caracterisation-variationnelle.html">Caractérisation
+variationnelle de la projection</a>.</li>
+</ul>
+<h2 id="leçons-liées">Leçons liées</h2>
+<ul>
+<li><a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181 —
+Convexité dans Rⁿ. Applications en algèbre et en géométrie.</a></li>
+<li><a href="205-espaces-complets.html">205 — Espaces complets. Exemples
+et applications.</a></li>
+<li><a href="219-extremums.html">219 — Extremums : existence,
+caractérisation, recherche. Exemples et applications.</a></li>
+<li><a
+href="213-espaces-hilbert-exemples-applications.html">213
+— Espaces de Hilbert</a>.</li>
+</ul>
+<h2 id="exemples-à-préparer">Exemples à préparer</h2>
+<p>Projection sur une boule, un demi-espace et un sous-espace ;
+contre-exemple sans convexité.</p>
+<h2 id="pièges-et-questions-doral">Pièges et questions d’oral</h2>
+<ul>
+<li>Un convexe n’est pas nécessairement fermé ; ne pas appliquer le
+théorème hilbertien à un Banach quelconque.</li>
+<li>Quels sont les deux usages distincts de la convexité dans la preuve
+?</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Détailler et équilibrer le plan au
+tableau.</label></li>
+<li><label><input type="checkbox" />Préparer les exemples et leurs
+hypothèses.</label></li>
+<li><label><input type="checkbox" />Choisir et vérifier un second
+développement.</label></li>
+</ul>
+</body>
+</html>
