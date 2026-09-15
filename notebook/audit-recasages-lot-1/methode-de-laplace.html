@@ -1,0 +1,1273 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Audit exhaustif — Méthode de Laplace et formule de Stirling</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css?v=3fa8cfdcc3ea" />
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Audit exhaustif — <a href="../../d%C3%A9veloppements/methode-de-laplace.html">Méthode de Laplace et formule de
+Stirling</a></h1>
+</header>
+<h1 id="audit-exhaustif-méthode-de-laplace-et-formule-de-stirling">Audit
+exhaustif — <a href="../../d%C3%A9veloppements/methode-de-laplace.html">Méthode de Laplace et formule de Stirling</a></h1>
+<h2 id="périmètre-et-résultat">Périmètre et résultat</h2>
+<ul>
+<li><strong>68 leçons officielles évaluées</strong>, sans case
+indéterminée : 46 pages effectivement existantes et 22 leçons
+absentes.</li>
+<li>Référence : rapport du jury <strong>2025</strong>, liste pour la
+<strong>session 2026</strong>, identique à 2025 (source R, ligne 7).
+Tous les attendus de l’extraction ont été lus, jusqu’à la ligne 1744. Il
+ne s’agit pas d’une vérification d’un nouveau rapport 2026.</li>
+<li>Six recasages forts : <a href="../../analyse/le%C3%A7ons/218-formules-de-taylor-exemples-applications.html">218</a>, <a href="../../analyse/le%C3%A7ons/224-exemples-de-developpements-asymptotiques.html">224</a>, <a href="../../analyse/le%C3%A7ons/234-fonctions-espaces-lebesgue-integrables.html">234</a>, <a href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a>, <a href="../../analyse/le%C3%A7ons/236-methodes-calcul-integrales.html">236</a>, <a href="../../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">239</a>. Toutes ces pages
+existent déjà.</li>
+<li><strong><a href="../../analyse/le%C3%A7ons/224-exemples-de-developpements-asymptotiques.html">224</a> existe déjà et porte déjà 5/5 dans la fiche et dans la
+matrice</strong> : aucune création ni promotion à inventer.</li>
+<li>Aucune création manquante à score ≥4. <strong>223 : création
+optionnelle conditionnelle, 3/5</strong>, uniquement avec le cadrage
+séquentiel détaillé ci-dessous. 214 et 229 restent des possibilités à
+3/5 non prioritaires pour une création fondée sur ce seul
+développement.</li>
+<li>Distribution des notes (score : effectif) : {0: 49, 1: 3, 2: 4, 3:
+6, 4: 3, 5: 3}.</li>
+<li>La fiche détaillée et la ligne de matrice sont actuellement
+identiques pour les 46 leçons créées. Les zéros <a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a>, <a href="../../analyse/le%C3%A7ons/205-espaces-complets.html">205</a>, <a href="../../analyse/le%C3%A7ons/219-extremums.html">219</a> et <a href="../../analyse/le%C3%A7ons/253-convexite-en-analyse.html">253</a> y
+avaient pourtant pour commentaire « non évalué » ; ils sont désormais
+véritablement réexaminés dans cet audit, sans modifier la fiche
+partagée.</li>
+</ul>
+<h2 id="sources-et-convention">Sources et convention</h2>
+<ul>
+<li><strong>R</strong> =
+<code>raw data/rapports-jury/Rapport_AE_Math_2025c-oraux-lecons.txt</code>.
+Liste officielle : lignes 7–<a href="../../alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a> ; avertissement contre les recasages
+artificiels : 160–165, 385–398.</li>
+<li><strong>D</strong> =
+<code>développements/methode-de-laplace.md</code>. Preuve corrigée
+effectivement auditée : 27–186 ; variantes non démontrées :
+<a href="../../analyse/le%C3%A7ons/234-fonctions-espaces-lebesgue-integrables.html">234</a>–238.</li>
+<li><strong>F</strong> =
+<code>index/recasages/methode-de-laplace.md</code>, lignes 15–60 et
+62–85.</li>
+<li><strong>M</strong> =
+<code>index/matrice-developpements-lecons.md</code>, en-tête ligne 41 et
+ligne Laplace 53 ; vue par leçon 59–103.</li>
+<li>Existence des pages : fichiers réels des répertoires de domaine
+<code>leçons</code>, frontmatter <code>type: leçon</code> et numéro. Ni
+titres de matrice ni commentaires historiques ne servent de preuve
+d’existence.</li>
+<li>Titres du JSON : transcription exacte de l’extraction locale,
+retours de ligne réunis et césures recollées. <strong>Limite
+documentaire</strong> : les artefacts mathématiques GLpEq, Z{nZ, Rn et
+un`1 “ fpunq sont conservés ; ils ne doivent pas être intégrés tels
+quels à de nouvelles pages sans contrôle typographique du PDF. Le
+libellé <a href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a> est conservé sans point final, conformément à la liste
+(R:88), et 191 emploie « de techniques », non le « des techniques » du
+commentaire (R:1104).</li>
+<li>Notes : 5 naturel ; 4 très bon avec légère adaptation ; 3
+conditionnel avec orientation explicite ; 2 appoint fragile ; 1 lien
+artificiel ; 0 absence de mécanisme pertinent. Les appréciations sont
+celles de l’audit, pas des notes attribuées par le jury.</li>
+</ul>
+<h2
+id="modifications-proposées-par-rapport-à-la-fiche-et-à-la-matrice">Modifications
+proposées par rapport à la fiche et à la matrice</h2>
+<table>
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 26%" />
+<col style="width: 26%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">Leçon</th>
+<th style="text-align: right;">Ancienne note</th>
+<th style="text-align: right;">Nouvelle note</th>
+<th>Motif</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/190-methodes-combinatoires-problemes-de-denombrement.html">190</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td style="text-align: right;" class="score score-2">2</td>
+<td>Stirling donne un outil de dénombrement asymptotique, mais le texte
+ne compte aucun objet et ne met en œuvre aucune méthode
+combinatoire.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/201-espaces-de-fonctions-exemples-applications.html">201</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>Les amplitudes appartiennent à L1, mais aucune structure ou
+topologie d’espace de fonctions n’organise le résultat.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/219-extremums.html">219</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td>Le minimum non dégénéré contrôle la localisation, l’échelle et la
+constante ; Stirling identifie effectivement un minimum intérieur.
+Toutefois le théorème suppose le minimum au lieu de résoudre un problème
+général d’optimisation.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/230-series-nombres-reels-complexes.html">230</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td style="text-align: right;" class="score score-2">2</td>
+<td>Stirling peut tester des séries à termes factoriels, mais la preuve
+actuelle ne comporte aucune série numérique.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/234-fonctions-espaces-lebesgue-integrables.html">234</a></td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>L’intégrabilité pondérée, la réduction à L1, la conservation de la
+norme par changement de variable, la convergence dominée et le contrôle
+de queue sont effectifs et décisifs. Le jury attend aussi des
+applications significatives des grands théorèmes : une étude abstraite
+de Lp n’est pas obligatoire pour ce développement.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/253-convexite-en-analyse.html">253</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td style="text-align: right;" class="score score-2">2</td>
+<td>La phase particulière de Stirling est strictement convexe, ce qui
+donne son minimum unique ; la preuve générale s’appuie sur monotonie et
+non sur une théorie de convexité.</td>
+</tr>
+</tbody>
+</table>
+<p>La hausse <strong><a href="../../analyse/le%C3%A7ons/234-fonctions-espaces-lebesgue-integrables.html">234</a> : 3 → 4</strong> repose sur les mécanismes L1
+présents, pas sur une extension : réduction à une amplitude intégrable
+(D:61–83), domination et queue (85–109), conservation de l’intégrabilité
+après substitution (143–154), nécessité du poids dans Stirling (176). Le
+jury demande des exemples significatifs d’application des grands
+théorèmes de Lebesgue (R:1534–1544). Une théorie abstraite des espaces
+Lp n’est pas une condition nécessaire à chaque développement.</p>
+<p>Les hausses à 1 ou 2 ne sont <strong>pas</strong> des recommandations
+de développement oral. Elles distinguent les outils potentiels des
+absences totales de lien.</p>
+<h2 id="nouveaux-recasages-étudiés-hors-matrice">Nouveaux recasages
+étudiés hors matrice</h2>
+<ul>
+<li><strong>223 : 3/5, option conditionnelle de création.</strong>
+Stirling fournit la convergence d’une suite normalisée ; R:1445–1446
+autorise des études asymptotiques. Fixer t=n et annoncer d’emblée le
+résultat séquentiel ; ne pas greffer artificiellement une théorie des
+valeurs d’adhérence. La création n’est pas nécessaire et ne donne pas
+une couverture forte.</li>
+<li><strong>214 : 3/5, pas de création recommandée ici.</strong>
+Redressement et inversion C1 en dimension un (D:111–<a href="../../alg%C3%A8bre/le%C3%A7ons/156-endomorphismes-trigonalisables-nilpotents.html">156</a>), à relier
+explicitement à l’inversion locale et à prolonger au bord pour
+travailler sur un ouvert ; voir l’adaptation exhaustive. Le lemme de
+Morse multivarié, cité en ouverture dans R:1351–1353, n’est pas acquis
+par cette preuve scalaire.</li>
+<li><strong>229 : 3/5, pas de création recommandée ici.</strong>
+Monotonie réellement utile au redressement et convexité de la phase de
+Stirling ; récit à recadrer. Ne pas attribuer au théorème général une
+convexité globale absente de ses hypothèses.</li>
+<li><strong>215 : 2/5</strong> seulement : mécanisme scalaire, aucun
+apport multivarié.</li>
+<li><strong>243 et 264 : 1/5</strong> : applications potentielles des
+factorielles, non des mécanismes démontrés de séries entières ou de lois
+discrètes.</li>
+<li>Toutes les autres absentes ont été évaluées individuellement à zéro,
+avec justification et références dans l’inventaire exhaustif ci-dessous
+et le JSON.</li>
+</ul>
+<h2
+id="confirmations-exclusions-et-limites-mathématiques">Confirmations,
+exclusions et limites mathématiques</h2>
+<ul>
+<li><strong><a href="../../analyse/le%C3%A7ons/218-formules-de-taylor-exemples-applications.html">218</a>, <a href="../../analyse/le%C3%A7ons/224-exemples-de-developpements-asymptotiques.html">224</a>, <a href="../../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">239</a> : 5/5 maintenus</strong> ; Laplace est
+expressément cité pour <a href="../../analyse/le%C3%A7ons/218-formules-de-taylor-exemples-applications.html">218</a> et <a href="../../analyse/le%C3%A7ons/224-exemples-de-developpements-asymptotiques.html">224</a>, et les études asymptotiques
+d’intégrales sont expressément attendues pour <a href="../../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">239</a> (R:1367–1383,
+1459–1472, 1571–1580).</li>
+<li><strong><a href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a> et <a href="../../analyse/le%C3%A7ons/236-methodes-calcul-integrales.html">236</a> : 4/5 maintenus</strong>, avec domination
+explicite pour <a href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a> et préparation du calcul gaussien pour <a href="../../analyse/le%C3%A7ons/236-methodes-calcul-integrales.html">236</a>. La
+version <a href="../../analyse/le%C3%A7ons/236-methodes-calcul-integrales.html">236</a> avec preuve de la gaussienne doit être chronométrée ; aucun
+chronométrage réel n’est revendiqué.</li>
+<li><strong><a href="../../analyse/le%C3%A7ons/228-continuite-derivabilite-fonctions-reelles-une-variable.html">228</a> et <a href="../../analyse/le%C3%A7ons/241-suites-series-fonctions-exemples-contre-exemples.html">241</a> : 3/5 maintenus</strong>, centrés respectivement
+sur la régularité au bord et sur les intégrandes renormalisés avec
+t=n.</li>
+<li><strong><a href="../../analyse/le%C3%A7ons/219-extremums.html">219</a> : 3/5</strong>, possible application des minima non
+dégénérés, mais pas résultat général d’existence ou algorithme
+d’optimisation.</li>
+<li><strong><a href="../../analyse/le%C3%A7ons/253-convexite-en-analyse.html">253</a> : 2/5</strong>, la stricte convexité de la phase de
+Stirling est réelle mais ne structure pas le théorème général ; aucune
+log-convexité de Gamma n’est prouvée.</li>
+<li><strong><a href="../../analyse/le%C3%A7ons/203-utilisation-de-la-notion-de-compacite.html">203</a> : 0/5</strong>, pas de compacité dissimulée : la borne
+locale vient de la continuité en un point ; les queues sont traitées par
+monotonie et L1.</li>
+<li><strong><a href="../../analyse/le%C3%A7ons/246-series-de-fourier-exemples-applications.html">246</a> et <a href="../../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">250</a> : 0/5</strong>, ni série ni transformation de
+Fourier. Une gaussienne commune n’est pas un pont de preuve.</li>
+<li><strong><a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>, <a href="../../analyse/le%C3%A7ons/262-convergences-variables-aleatoires-theoremes-limite.html">262</a>, <a href="../../analyse/le%C3%A7ons/266-independance-probabilites.html">266</a> : 0/5</strong>, ni loi Gamma, ni théorème
+limite, ni indépendance réellement utilisés. Une concentration de masse
+analytique n’est pas en elle-même un TCL.</li>
+<li><strong><a href="../../alg%C3%A8bre/le%C3%A7ons/170-formes-quadratiques-dimension-finie-orthogonalite-applications.html">170</a>, 171, <a href="../../alg%C3%A8bre/le%C3%A7ons/157-matrices-symetriques-reelles-hermitiennes.html">157</a> : 0/5</strong>, la phase quadratique
+unidimensionnelle ne fournit pas une réduction de formes, de coniques ou
+de matrices symétriques.</li>
+<li><strong>207 est absent de la liste officielle</strong> : il ne
+figure pas dans les 68 évaluations. La source historique le cite avec un
+doublon de <a href="../../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">239</a> (F:64–73) ; ne créer aucune colonne 207, ne compter <a href="../../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">239</a>
+qu’une fois.</li>
+<li>Preuve actuelle : l’estimation de la queue est bien renormalisée par
+sqrt(t), les racines de la dérivée et de la dérivée inverse sont
+présentes, les deux Taylor donnent C1 au bord et les deux côtés du
+minimum de Stirling sont séparés (D:102–177). Pas de crédit pour les
+variantes dégénérées ou multidimensionnelles non démontrées.</li>
+</ul>
+<h2 id="inventaire-exhaustif-adaptations-et-citations">Inventaire
+exhaustif, adaptations et citations</h2>
+<p>Chaque entrée renvoie à la plage des attendus de sa leçon et aux
+lignes effectives de la preuve. Pour une exclusion, ces références
+permettent de comparer le thème attendu et le contenu intégral de la
+démonstration ; elles ne prétendent pas que le jury nomme explicitement
+Laplace dans chaque leçon.</p>
+<h3 id="groupe-opérant-sur-un-ensemble.-exemples-et-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a> —
+Groupe opérant sur un ensemble. Exemples et applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>algèbre/leçons/101-groupe-operant-sur-un-ensemble.md</code> ;
+création recommandée : non.</li>
+<li><strong>Justification :</strong> Aucune action de groupe, orbite ou
+invariant de classification : le redressement est un changement de
+variable analytique.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:9 (liste), R:463–487 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3
+id="groupe-des-nombres-complexes-de-module-1.-racines-de-lunité.-applications.">102
+— Groupe des nombres complexes de module 1. Racines de l’unité.
+Applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page absente ; création recommandée :
+non.</li>
+<li><strong>Justification :</strong> Ni groupe du cercle ni racines de
+l’unité ; la constante gaussienne ne mobilise pas leur structure.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:10 (liste), R:488–501 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3
+id="conjugaison-dans-un-groupe.-exemples-de-sous-groupes-distingués-et-de-groupes-quotients.-applications.">103
+— Conjugaison dans un groupe. Exemples de sous-groupes distingués et de
+groupes quotients. Applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page absente ; création recommandée :
+non.</li>
+<li><strong>Justification :</strong> Aucune conjugaison dans un groupe
+ou passage au quotient ; le changement de variable ne constitue pas un
+tel mécanisme.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:11 (liste), R:502–530 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3 id="groupes-finis.-exemples-et-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/104-groupes-finis.html">104</a> — Groupes finis.
+Exemples et applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>algèbre/leçons/104-groupes-finis.md</code> ; création recommandée
+: non.</li>
+<li><strong>Justification :</strong> Aucun groupe fini étudié ; n! ne
+sert pas à établir une propriété de groupe.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:13 (liste), R:531–554 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3 id="groupe-des-permutations-dun-ensemble-fini.-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/105-groupe-des-permutations-dun-ensemble-fini.html">105</a> —
+Groupe des permutations d’un ensemble fini. Applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>algèbre/leçons/105-groupe-des-permutations-dun-ensemble-fini.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> Stirling estime n!, mais ni cycles,
+signature, conjugaison ni action de permutations ne sont utilisés.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:14 (liste), R:555–568 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3
+id="groupe-linéaire-dun-espace-vectoriel-de-dimension-finie-e-sous-groupes-de-glpeq.-applications.">106
+— Groupe linéaire d’un espace vectoriel de dimension finie E,
+sous-groupes de GLpEq. Applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page absente ; création recommandée :
+non.</li>
+<li><strong>Justification :</strong> Le difféomorphisme scalaire n’est
+pas un élément étudié du groupe linéaire ; aucune structure de
+GL(E).</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:15 (liste), R:569–589 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3 id="exemples-de-parties-génératrices-dun-groupe.-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a>
+— Exemples de parties génératrices d’un groupe. Applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>algèbre/leçons/108-exemples-de-parties-generatrices-dun-groupe.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> Aucun système de générateurs ni
+raisonnement sur un groupe engendré.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:16 (liste), R:590–607 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3 id="anneaux-znz.-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/120-anneaux-z-sur-nz-applications.html">120</a> — Anneaux Z{nZ.
+Applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>algèbre/leçons/120-anneaux-z-sur-nz-applications.md</code> ;
+création recommandée : non.</li>
+<li><strong>Justification :</strong> Aucune congruence ou propriété
+d’anneau quotient ; les factorielles sont traitées par intégration.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:17 (liste), R:608–619 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3 id="nombres-premiers.-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/121-nombres-premiers-applications.html">121</a> — Nombres premiers.
+Applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>algèbre/leçons/121-nombres-premiers-applications.md</code> ;
+création recommandée : non.</li>
+<li><strong>Justification :</strong> Aucune divisibilité, valuation ou
+répartition des nombres premiers.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:18 (liste), R:620–636 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3 id="anneaux-principaux.-exemples-et-applications.">122 — Anneaux
+principaux. Exemples et applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page absente ; création recommandée :
+non.</li>
+<li><strong>Justification :</strong> Ni idéal principal, ni arithmétique
+d’anneaux ni algorithme euclidien.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:19 (liste), R:637–653 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3 id="corps-finis.-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/123-corps-finis-applications.html">123</a> — Corps finis.
+Applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>algèbre/leçons/123-corps-finis-applications.md</code> ; création
+recommandée : non.</li>
+<li><strong>Justification :</strong> Aucun calcul ou dénombrement sur un
+corps fini.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:20 (liste), R:654–662 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3 id="extensions-de-corps.-exemples-et-applications.">125 — Extensions
+de corps. Exemples et applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page absente ; création recommandée :
+non.</li>
+<li><strong>Justification :</strong> Aucune extension de corps ni degré
+algébrique.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:21 (liste), R:663–681 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3
+id="exemples-de-nombres-remarquables.-exemples-danneaux-de-nombres-remarquables.-applications.">127
+— Exemples de nombres remarquables. Exemples d’anneaux de nombres
+remarquables. Applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page absente ; création recommandée :
+non.</li>
+<li><strong>Justification :</strong> La présence de e et de pi dans
+Stirling n’établit aucune propriété arithmétique ou algébrique de
+nombres remarquables.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:22 (liste), R:682–703 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3
+id="polynômes-irréductibles-à-une-indéterminée.-corps-de-rupture.-exemples-et-applications.">141
+— Polynômes irréductibles à une indéterminée. Corps de rupture. Exemples
+et applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page absente ; création recommandée :
+non.</li>
+<li><strong>Justification :</strong> Aucun polynôme irréductible ni
+corps de rupture.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:23 (liste), R:704–717 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3 id="pgcd-et-ppcm-algorithmes-de-calcul.-applications.">142 — PGCD et
+PPCM, algorithmes de calcul. Applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page absente ; création recommandée :
+non.</li>
+<li><strong>Justification :</strong> Aucun calcul de PGCD, PPCM ou
+algorithme arithmétique.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:24 (liste), R:718–753 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3
+id="racines-dun-polynôme.-fonctions-symétriques-élémentaires.-exemples-et-applications.">144
+— Racines d’un polynôme. Fonctions symétriques élémentaires. Exemples et
+applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page absente ; création recommandée :
+non.</li>
+<li><strong>Justification :</strong> Taylor au second ordre ne traite ni
+racines polynomiales ni fonctions symétriques.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:25 (liste), R:754–771 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3
+id="dimension-dun-espace-vectoriel-on-se-limitera-au-cas-de-la-dimension-finie.-rang.-exemples-et-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/148-dimension-espace-vectoriel-rang.html">148</a>
+— Dimension d’un espace vectoriel (on se limitera au cas de la dimension
+finie). Rang. Exemples et applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>algèbre/leçons/148-dimension-espace-vectoriel-rang.md</code> ;
+création recommandée : non.</li>
+<li><strong>Justification :</strong> Aucun argument de dimension ou de
+rang ; travailler sur la droite ne suffit pas.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:26 (liste), R:772–803 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3 id="déterminant.-exemples-et-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a> — Déterminant.
+Exemples et applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>algèbre/leçons/149-determinant-exemples-applications.md</code> ;
+création recommandée : non.</li>
+<li><strong>Justification :</strong> Le changement de variable est
+unidimensionnel ; aucun déterminant ne structure la preuve.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:28 (liste), R:804–820 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3
+id="polynômes-dendomorphisme-en-dimension-finie.-réduction-dun-endomorphisme-en-dimension-finie.-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/150-polynomes-endomorphisme-reduction.html">150</a>
+— Polynômes d’endomorphisme en dimension finie. Réduction d’un
+endomorphisme en dimension finie. Applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>algèbre/leçons/150-polynomes-endomorphisme-reduction.md</code> ;
+création recommandée : non.</li>
+<li><strong>Justification :</strong> Ni polynôme d’endomorphisme ni
+réduction.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:29 (liste), R:821–846 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3
+id="sous-espaces-stables-par-un-endomorphisme-ou-une-famille-dendomorphismes-dun-espace-vectoriel-de-dimension-finie.-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/151-sous-espaces-stables-endomorphismes.html">151</a>
+— Sous-espaces stables par un endomorphisme ou une famille
+d’endomorphismes d’un espace vectoriel de dimension finie.
+Applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>algèbre/leçons/151-sous-espaces-stables-endomorphismes.md</code> ;
+création recommandée : non.</li>
+<li><strong>Justification :</strong> Aucun sous-espace stable ni
+endomorphisme étudié.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:31 (liste), R:847–861 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3 id="endomorphismes-diagonalisables-en-dimension-finie."><a href="../../alg%C3%A8bre/le%C3%A7ons/152-endomorphismes-diagonalisables-dimension-finie.html">152</a> —
+Endomorphismes diagonalisables en dimension finie.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>algèbre/leçons/152-endomorphismes-diagonalisables-dimension-finie.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> Aucune diagonalisation ; une phase
+quadratique scalaire n’est pas un théorème spectral.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:33 (liste), R:862–873 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3
+id="valeurs-propres-vecteurs-propres.-calculs-exacts-ou-approchés-déléments-propres.-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/153-valeurs-propres-vecteurs-propres-calculs-applications.html">153</a>
+— Valeurs propres, vecteurs propres. Calculs exacts ou approchés
+d’éléments propres. Applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>algèbre/leçons/153-valeurs-propres-vecteurs-propres-calculs-applications.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> Aucune valeur propre ou méthode
+spectrale de calcul approché.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:41 (liste), R:874–898 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3 id="exponentielle-de-matrices.-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/155-exponentielle-de-matrices-applications.html">155</a> — Exponentielle de
+matrices. Applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>algèbre/leçons/155-exponentielle-de-matrices-applications.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> L’exponentielle scalaire du noyau
+n’implique aucune exponentielle de matrices.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:42 (liste), R:899–916 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3 id="endomorphismes-trigonalisables.-endomorphismes-nilpotents."><a href="../../alg%C3%A8bre/le%C3%A7ons/156-endomorphismes-trigonalisables-nilpotents.html">156</a>
+— Endomorphismes trigonalisables. Endomorphismes nilpotents.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>algèbre/leçons/156-endomorphismes-trigonalisables-nilpotents.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> Aucune trigonalisation ou
+nilpotence.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:43 (liste), R:917–929 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3 id="matrices-symétriques-réelles-matrices-hermitiennes."><a href="../../alg%C3%A8bre/le%C3%A7ons/157-matrices-symetriques-reelles-hermitiennes.html">157</a> —
+Matrices symétriques réelles, matrices hermitiennes.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>algèbre/leçons/157-matrices-symetriques-reelles-hermitiennes.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> Ni matrice symétrique ni
+diagonalisation d’une hessienne : Laplace multivarié n’est pas
+démontré.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:44 (liste), R:930–952 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3
+id="endomorphismes-remarquables-dun-espace-vectoriel-euclidien-de-dimension-finie."><a href="../../alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a>
+— Endomorphismes remarquables d’un espace vectoriel euclidien (de
+dimension finie).</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>algèbre/leçons/158-endomorphismes-remarquables-espace-euclidien.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> Aucun endomorphisme euclidien
+remarquable.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:45 (liste), R:953–964 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3
+id="formes-linéaires-et-dualité-en-dimension-finie.-exemples-et-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/159-formes-lineaires-dualite-dimension-finie.html">159</a>
+— Formes linéaires et dualité en dimension finie. Exemples et
+applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>algèbre/leçons/159-formes-lineaires-dualite-dimension-finie.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> Aucune dualité de dimension finie ;
+l’intégrale n’est pas étudiée comme dualité de tels espaces.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:46 (liste), R:965–983 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3
+id="espaces-vectoriels-et-espaces-affines-euclidiens-distances-isométries."><a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/161-espaces-vectoriels-et-affines-euclidiens-distances-isometries.html">161</a>
+— Espaces vectoriels et espaces affines euclidiens : distances,
+isométries.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>géométrie/leçons/161-espaces-vectoriels-et-affines-euclidiens-distances-isometries.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> Ni distance à un sous-espace ni
+isométrie ; la réflexion u vers -u est un simple changement de
+variable.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:47 (liste), R:984–1006 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3
+id="systèmes-déquations-linéaires-opérations-élémentaires-aspects-algorithmiques-et-conséquences-théoriques."><a href="../../alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a>
+— Systèmes d’équations linéaires ; opérations élémentaires, aspects
+algorithmiques et conséquences théoriques.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>algèbre/leçons/162-systemes-equations-lineaires-operations-elementaires.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> Aucun système linéaire ou pivot de
+Gauss.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:48 (liste), R:1007–1027 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3
+id="formes-quadratiques-sur-un-espace-vectoriel-de-dimension-finie.-orthogonalité.-applications."><a href="../../alg%C3%A8bre/le%C3%A7ons/170-formes-quadratiques-dimension-finie-orthogonalite-applications.html">170</a>
+— Formes quadratiques sur un espace vectoriel de dimension finie.
+Orthogonalité. Applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>algèbre/leçons/170-formes-quadratiques-dimension-finie-orthogonalite-applications.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> Le carré scalaire obtenu par Taylor
+n’est pas une étude des formes quadratiques et de leur
+orthogonalité.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:50 (liste), R:1028–1051 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3
+id="formes-quadratiques-réelles.-coniques.-exemples-et-applications.">171
+— Formes quadratiques réelles. Coniques. Exemples et applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page absente ; création recommandée :
+non.</li>
+<li><strong>Justification :</strong> Ni signature, ni conique, ni
+réduction d’une forme réelle de plusieurs variables.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:51 (liste), R:1052–1066 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3 id="convexité-dans-rn.-applications-en-algèbre-et-en-géométrie."><a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a>
+— Convexité dans Rn. Applications en algèbre et en géométrie.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>géométrie/leçons/181-convexite-dans-rn.md</code> ; création
+recommandée : non.</li>
+<li><strong>Justification :</strong> La convexité de la phase de
+Stirling ne fournit aucune application en algèbre ou géométrie.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:52 (liste), R:1067–1081 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3 id="méthodes-combinatoires-problèmes-de-dénombrement."><a href="../../alg%C3%A8bre/le%C3%A7ons/190-methodes-combinatoires-problemes-de-denombrement.html">190</a> —
+Méthodes combinatoires, problèmes de dénombrement.</h3>
+<ul>
+<li><strong>2/5</strong> ; page existante :
+<code>algèbre/leçons/190-methodes-combinatoires-problemes-de-denombrement.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> Stirling donne un outil de
+dénombrement asymptotique, mais le texte ne compte aucun objet et ne met
+en œuvre aucune méthode combinatoire.</li>
+<li><strong>Adaptation :</strong> En appoint, ajouter une interprétation
+puis un équivalent des coefficients binomiaux centraux ; la longue
+preuve intégrale reste disproportionnée pour un développement de
+combinatoire.</li>
+<li><strong>Sources :</strong> R:53 (liste), R:1082–1103 (attendus),
+D:<a href="../../alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a>-186 (preuve).</li>
+</ul>
+<h3 id="exemples-dutilisation-de-techniques-dalgèbre-en-géométrie.">191
+— Exemples d’utilisation de techniques d’algèbre en géométrie.</h3>
+<ul>
+<li><strong>0/5</strong> ; page absente ; création recommandée :
+non.</li>
+<li><strong>Justification :</strong> La démonstration est analytique et
+ne résout aucun problème géométrique par l’algèbre.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:54 (liste), R:1104–1189 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3 id="espaces-de-fonctions.-exemples-et-applications."><a href="../../analyse/le%C3%A7ons/201-espaces-de-fonctions-exemples-applications.html">201</a> — Espaces
+de fonctions. Exemples et applications.</h3>
+<ul>
+<li><strong>1/5</strong> ; page existante :
+<code>analyse/leçons/201-espaces-de-fonctions-exemples-applications.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> Les amplitudes appartiennent à L1,
+mais aucune structure ou topologie d’espace de fonctions n’organise le
+résultat.</li>
+<li><strong>Adaptation :</strong> Une reformulation en fonctionnelles de
+concentration serait un autre cadrage à rédiger ; ne pas proposer la
+version actuelle.</li>
+<li><strong>Sources :</strong> R:56 (liste), R:1190–1211 (attendus),
+D:85-<a href="../../alg%C3%A8bre/le%C3%A7ons/156-endomorphismes-trigonalisables-nilpotents.html">156</a> (preuve).</li>
+</ul>
+<h3 id="utilisation-de-la-notion-de-compacité."><a href="../../analyse/le%C3%A7ons/203-utilisation-de-la-notion-de-compacite.html">203</a> — Utilisation de la
+notion de compacité.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>analyse/leçons/203-utilisation-de-la-notion-de-compacite.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> La queue est contrôlée par
+monotonie de la phase et norme L1 ; la borne locale de l’amplitude vient
+de la seule continuité au bord, sans compacité.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:57 (liste), R:1212–1226 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3 id="connexité.-exemples-dapplications.">204 — Connexité. Exemples
+d’applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page absente ; création recommandée :
+non.</li>
+<li><strong>Justification :</strong> L’image intervalle d’un changement
+de variable est un ingrédient élémentaire, pas une application
+substantielle de la connexité.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:58 (liste), R:1227–1241 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3 id="espaces-complets.-exemples-et-applications."><a href="../../analyse/le%C3%A7ons/205-espaces-complets.html">205</a> — Espaces
+complets. Exemples et applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>analyse/leçons/205-espaces-complets.md</code> ; création
+recommandée : non.</li>
+<li><strong>Justification :</strong> Aucun argument de Cauchy, point
+fixe ou complétude n’intervient dans la preuve de l’équivalent.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:59 (liste), R:1242–1254 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3
+id="exemples-dutilisation-de-la-notion-de-dimension-finie-en-analyse."><a href="../../analyse/le%C3%A7ons/206-exemples-dutilisation-de-la-notion-de-dimension-finie-en-analyse.html">206</a>
+— Exemples d’utilisation de la notion de dimension finie en
+analyse.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>analyse/leçons/206-exemples-dutilisation-de-la-notion-de-dimension-finie-en-analyse.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> Aucune propriété propre aux espaces
+de dimension finie n’est exploitée structurellement.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:60 (liste), R:1255–1276 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3
+id="espaces-vectoriels-normés-applications-linéaires-continues.-exemples."><a href="../../analyse/le%C3%A7ons/208-espaces-vectoriels-normes-applications-lineaires-continues.html">208</a>
+— Espaces vectoriels normés, applications linéaires continues.
+Exemples.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>analyse/leçons/208-espaces-vectoriels-normes-applications-lineaires-continues.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> La norme L1 borne la queue mais
+aucun opérateur continu ou résultat sur les espaces normés n’est
+étudié.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:61 (liste), R:1277–1297 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3
+id="approximation-dune-fonction-par-des-fonctions-régulières.-exemples-dapplications."><a href="../../analyse/le%C3%A7ons/209-approximation-fonction-par-fonctions-regulieres.html">209</a>
+— Approximation d’une fonction par des fonctions régulières. Exemples
+d’applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>analyse/leçons/209-approximation-fonction-par-fonctions-regulieres.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> Approcher une phase par Taylor
+n’est pas construire une approximation régulière d’une fonction dans un
+espace fonctionnel.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:62 (liste), R:1298–1311 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3 id="espaces-de-hilbert.-exemples-dapplications."><a href="../../analyse/le%C3%A7ons/213-espaces-hilbert-exemples-applications.html">213</a> — Espaces de
+Hilbert. Exemples d’applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>analyse/leçons/213-espaces-hilbert-exemples-applications.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> Ni produit scalaire, projection,
+orthogonalité ni complétude hilbertienne.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:63 (liste), R:1312–1329 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3
+id="théorème-dinversion-locale-théorème-des-fonctions-implicites.-illustrations-en-analyse-et-en-géométrie.">214
+— Théorème d’inversion locale, théorème des fonctions implicites.
+Illustrations en analyse et en géométrie.</h3>
+<ul>
+<li><strong>3/5</strong> ; page absente ; création recommandée :
+non.</li>
+<li><strong>Justification :</strong> Le redressement exact et la
+régularité C1 de son inverse constituent une application non triviale de
+l’inversion en dimension un, mais la preuve utilise surtout le théorème
+global monotone sur un demi-intervalle.</li>
+<li><strong>Adaptation :</strong> Centrer sur le redressement
+quadratique. Pour invoquer l’inversion locale sur un ouvert au bord,
+prolonger Phi(a+h) par -Phi(a-h) pour h&lt;0 ; la dérivée a la même
+limite positive. Conserver Laplace comme application, sans prétendre
+démontrer Morse multivarié.</li>
+<li><strong>Sources :</strong> R:64 (liste), R:1330–1353 (attendus),
+D:111-<a href="../../alg%C3%A8bre/le%C3%A7ons/156-endomorphismes-trigonalisables-nilpotents.html">156</a> (preuve).</li>
+</ul>
+<h3
+id="applications-différentiables-définies-sur-un-ouvert-de-rn.-exemples-et-applications.">215
+— Applications différentiables définies sur un ouvert de Rn. Exemples et
+applications.</h3>
+<ul>
+<li><strong>2/5</strong> ; page absente ; création recommandée :
+non.</li>
+<li><strong>Justification :</strong> La régularité C1 et la dérivée
+inverse sont effectives, mais exclusivement scalaires ; les phénomènes
+différentiels de plusieurs variables sont absents.</li>
+<li><strong>Adaptation :</strong> Illustration secondaire en dimension
+un ; ne pas créditer une version multidimensionnelle inexistante.</li>
+<li><strong>Sources :</strong> R:66 (liste), R:1354–1366 (attendus),
+D:111-<a href="../../alg%C3%A8bre/le%C3%A7ons/156-endomorphismes-trigonalisables-nilpotents.html">156</a> (preuve).</li>
+</ul>
+<h3 id="formules-de-taylor.-exemples-et-applications."><a href="../../analyse/le%C3%A7ons/218-formules-de-taylor-exemples-applications.html">218</a> — Formules de
+Taylor. Exemples et applications.</h3>
+<ul>
+<li><strong>5/5</strong> ; page existante :
+<code>analyse/leçons/218-formules-de-taylor-exemples-applications.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> Les deux Taylor de la phase et de
+sa dérivée assurent le redressement C1 et déterminent la constante.
+Laplace est explicitement cité par le jury.</li>
+<li><strong>Adaptation :</strong> Mettre au premier plan les deux restes
+de Taylor–Young et expliquer pourquoi C2 suffit ; ne pas admettre le
+redressement.</li>
+<li><strong>Sources :</strong> R:67 (liste), R:1367–1383 (attendus),
+D:111-<a href="../../alg%C3%A8bre/le%C3%A7ons/156-endomorphismes-trigonalisables-nilpotents.html">156</a> (preuve).</li>
+</ul>
+<h3
+id="extremums-existence-caractérisation-recherche.-exemples-et-applications."><a href="../../analyse/le%C3%A7ons/219-extremums.html">219</a>
+— Extremums : existence, caractérisation, recherche. Exemples et
+applications.</h3>
+<ul>
+<li><strong>3/5</strong> ; page existante :
+<code>analyse/leçons/219-extremums.md</code> ; création recommandée :
+non.</li>
+<li><strong>Justification :</strong> Le minimum non dégénéré contrôle la
+localisation, l’échelle et la constante ; Stirling identifie
+effectivement un minimum intérieur. Toutefois le théorème suppose le
+minimum au lieu de résoudre un problème général d’optimisation.</li>
+<li><strong>Adaptation :</strong> Présenter la caractérisation du
+minimum, la différence bord/intérieur et la domination de l’intégrale
+par son voisinage ; garder l’asymptotique comme application des
+extremums, sans promettre un algorithme de recherche.</li>
+<li><strong>Sources :</strong> R:68 (liste), R:1384–1404 (attendus),
+D:27-38,111-186 (preuve).</li>
+</ul>
+<h3
+id="illustrer-par-des-exemples-la-théorie-des-équations-différentielles-ordinaires.">220
+— Illustrer par des exemples la théorie des équations différentielles
+ordinaires.</h3>
+<ul>
+<li><strong>0/5</strong> ; page absente ; création recommandée :
+non.</li>
+<li><strong>Justification :</strong> Aucune équation différentielle ou
+analyse de solutions ; la méthode de Laplace n’est pas ici une
+transformée de résolution d’EDO.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:69 (liste), R:1405–1422 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3
+id="équations-différentielles-linéaires.-systèmes-déquations-différentielles-linéaires.-exemples-et-applications.">221
+— Équations différentielles linéaires. Systèmes d’équations
+différentielles linéaires. Exemples et applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page absente ; création recommandée :
+non.</li>
+<li><strong>Justification :</strong> Aucun système différentiel
+linéaire, exponentielle matricielle ou variation des constantes.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:70 (liste), R:1423–1438 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3
+id="suites-réelles-et-complexes.-convergence-valeurs-dadhérence.-exemples-et-applications.">223
+— Suites réelles et complexes. Convergence, valeurs d’adhérence.
+Exemples et applications.</h3>
+<ul>
+<li><strong>3/5</strong> ; page absente ; création recommandée :
+optionnelle, conditionnelle.</li>
+<li><strong>Justification :</strong> Stirling est un exemple
+significatif d’asymptotique de suite, autorisé par les attendus, mais la
+preuve passe essentiellement par des intégrales à paramètre.</li>
+<li><strong>Adaptation :</strong> Création optionnelle conditionnelle :
+annoncer la convergence de n!/[sqrt(2<em>pi</em>n)*(n/e)^n] vers 1,
+fixer t=n dans les lemmes et conclure sur cette suite. Garder les
+mécanismes de convergence explicites ; ne pas présenter toute la théorie
+Gamma comme cœur de leçon.</li>
+<li><strong>Sources :</strong> R:72 (liste), R:1439–1458 (attendus),
+D:85-109,<a href="../../alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a>-186 (preuve).</li>
+</ul>
+<h3
+id="exemples-de-développements-asymptotiques-de-suites-et-de-fonctions."><a href="../../analyse/le%C3%A7ons/224-exemples-de-developpements-asymptotiques.html">224</a>
+— Exemples de développements asymptotiques de suites et de
+fonctions.</h3>
+<ul>
+<li><strong>5/5</strong> ; page existante :
+<code>analyse/leçons/224-exemples-de-developpements-asymptotiques.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> Le développement prouve deux
+équivalents non triviaux, identifie l’échelle et contrôle le reste ; la
+méthode de Laplace est expressément donnée parmi les exemples du
+jury.</li>
+<li><strong>Adaptation :</strong> Aucune modification mathématique :
+exposer le contrôle de queue à l’échelle sqrt(t), le coefficient et les
+deux côtés de Stirling. Aucun terme supérieur non démontré.</li>
+<li><strong>Sources :</strong> R:73 (liste), R:1459–1472 (attendus),
+D:85-186 (preuve).</li>
+</ul>
+<h3
+id="suites-vectorielles-et-réelles-définies-par-une-relation-de-récurrence-un1-fpunq.-exemples.-applications-à-la-résolution-approchée-déquations.">226
+— Suites vectorielles et réelles définies par une relation de récurrence
+un`1 “ fpunq. Exemples. Applications à la résolution approchée
+d’équations.</h3>
+<ul>
+<li><strong>0/5</strong> ; page absente ; création recommandée :
+non.</li>
+<li><strong>Justification :</strong> La récurrence de la factorielle
+dépend de n ; aucune itération autonome u(n+1)=f(u(n)) ni résolution
+approchée d’équation.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:74 (liste), R:1473–1488 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3
+id="continuité-dérivabilité-des-fonctions-réelles-dune-variable-réelle.-exemples-et-applications."><a href="../../analyse/le%C3%A7ons/228-continuite-derivabilite-fonctions-reelles-une-variable.html">228</a>
+— Continuité, dérivabilité des fonctions réelles d’une variable réelle.
+Exemples et applications.</h3>
+<ul>
+<li><strong>3/5</strong> ; page existante :
+<code>analyse/leçons/228-continuite-derivabilite-fonctions-reelles-une-variable.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> La construction C1 au bord de Phi
+et de son inverse est substantielle ; l’issue reste un équivalent
+intégral plutôt qu’un théorème de régularité.</li>
+<li><strong>Adaptation :</strong> Insister sur la dérivabilité à droite,
+la continuité de la dérivée et les deux Taylor ; prendre une amplitude
+réelle pour rester strictement dans le libellé.</li>
+<li><strong>Sources :</strong> R:76 (liste), R:1489–1509 (attendus),
+D:111-<a href="../../alg%C3%A8bre/le%C3%A7ons/156-endomorphismes-trigonalisables-nilpotents.html">156</a> (preuve).</li>
+</ul>
+<h3
+id="fonctions-monotones.-fonctions-convexes.-exemples-et-applications.">229
+— Fonctions monotones. Fonctions convexes. Exemples et
+applications.</h3>
+<ul>
+<li><strong>3/5</strong> ; page absente ; création recommandée :
+non.</li>
+<li><strong>Justification :</strong> La croissance stricte de la phase
+permet l’inversion globale et la localisation ; dans Stirling, sa
+convexité stricte justifie les variations de part et d’autre du minimum.
+La convexité globale n’est pas nécessaire au théorème général.</li>
+<li><strong>Adaptation :</strong> Orienter le récit sur les variations,
+le signe de la dérivée, la bijection croissante puis la phase
+strictement convexe de Stirling. Ne pas confondre phi seconde positive
+au bord et convexité globale ; création non prioritaire à partir de ce
+seul développement.</li>
+<li><strong>Sources :</strong> R:77 (liste), R:1510–1520 (attendus),
+D:27-31,111-177 (preuve).</li>
+</ul>
+<h3
+id="séries-de-nombres-réels-et-complexes.-comportement-des-restes-ou-des-sommes-partielles-des-séries-numériques.-exemples."><a href="../../analyse/le%C3%A7ons/230-series-nombres-reels-complexes.html">230</a>
+— Séries de nombres réels et complexes. Comportement des restes ou des
+sommes partielles des séries numériques. Exemples.</h3>
+<ul>
+<li><strong>2/5</strong> ; page existante :
+<code>analyse/leçons/230-series-nombres-reels-complexes.md</code> ;
+création recommandée : non.</li>
+<li><strong>Justification :</strong> Stirling peut tester des séries à
+termes factoriels, mais la preuve actuelle ne comporte aucune série
+numérique.</li>
+<li><strong>Adaptation :</strong> Ajouter comme application le critère
+de convergence d’une série à termes factoriels, en calculant son
+équivalent ; reste un outil préparatoire, pas un recasage fort.</li>
+<li><strong>Sources :</strong> R:78 (liste), R:1521–1533 (attendus),
+D:<a href="../../alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a>-186 (preuve).</li>
+</ul>
+<h3 id="fonctions-et-espaces-de-fonctions-lebesgue-intégrables."><a href="../../analyse/le%C3%A7ons/234-fonctions-espaces-lebesgue-integrables.html">234</a> —
+Fonctions et espaces de fonctions Lebesgue-intégrables.</h3>
+<ul>
+<li><strong>4/5</strong> ; page existante :
+<code>analyse/leçons/234-fonctions-espaces-lebesgue-integrables.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> L’intégrabilité pondérée, la
+réduction à L1, la conservation de la norme par changement de variable,
+la convergence dominée et le contrôle de queue sont effectifs et
+décisifs. Le jury attend aussi des applications significatives des
+grands théorèmes : une étude abstraite de Lp n’est pas obligatoire pour
+ce développement.</li>
+<li><strong>Adaptation :</strong> Expliciter les classes L1 et toutes
+les dominations, notamment que f=1 dans Stirling n’est pas L1 sur la
+demi-droite. Présenter Laplace comme application de Lebesgue ; maintenir
+des espaces Lp dans le reste du plan.</li>
+<li><strong>Sources :</strong> R:80 (liste), R:1534–1544 (attendus),
+D:61-109,143-177 (preuve).</li>
+</ul>
+<h3 id="problèmes-dinterversion-de-symboles-en-analyse"><a href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a> — Problèmes
+d’interversion de symboles en analyse</h3>
+<ul>
+<li><strong>4/5</strong> ; page existante :
+<code>analyse/leçons/235-problemes-dinterversion-de-symboles-en-analyse.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> La limite sous l’intégrale ne livre
+le bon ordre qu’après localisation et dilatation ; la domination
+indépendante du paramètre et la queue renormalisée donnent un problème
+d’interversion substantiel.</li>
+<li><strong>Adaptation :</strong> Distinguer l’échec à obtenir le
+premier ordre sans renormalisation et l’interversion valide après
+changement d’échelle. Le score 4 reflète la focalisation sur un
+mécanisme, non une obligation d’accumuler les types d’interversion.</li>
+<li><strong>Sources :</strong> R:88 (liste), R:1545–1559 (attendus),
+D:85-109,<a href="../../analyse/le%C3%A7ons/230-series-nombres-reels-complexes.html">230</a>-<a href="../../analyse/le%C3%A7ons/230-series-nombres-reels-complexes.html">230</a> (preuve).</li>
+</ul>
+<h3
+id="illustrer-par-des-exemples-quelques-méthodes-de-calcul-dintégrales-de-fonctions-dune-ou-plusieurs-variables."><a href="../../analyse/le%C3%A7ons/236-methodes-calcul-integrales.html">236</a>
+— Illustrer par des exemples quelques méthodes de calcul d’intégrales de
+fonctions d’une ou plusieurs variables.</h3>
+<ul>
+<li><strong>4/5</strong> ; page existante :
+<code>analyse/leçons/236-methodes-calcul-integrales.md</code> ; création
+recommandée : non.</li>
+<li><strong>Justification :</strong> Le calcul asymptotique est assuré
+par changements de variable et intégrale gaussienne, puis appliqué à
+Gamma ; ce n’est ni une valeur exacte ni une quadrature avec borne
+d’erreur.</li>
+<li><strong>Adaptation :</strong> Préparer et intégrer si possible le
+calcul gaussien par Tonelli et coordonnées polaires. Chronométrer cet
+ajout sans supprimer domination ni contrôle de queue.</li>
+<li><strong>Sources :</strong> R:89 (liste), R:1560–1570 (attendus),
+D:85-109,143-186,226-226 (preuve).</li>
+</ul>
+<h3
+id="fonctions-définies-par-une-intégrale-dépendant-dun-paramètre.-exemples-et-applications."><a href="../../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">239</a>
+— Fonctions définies par une intégrale dépendant d’un paramètre.
+Exemples et applications.</h3>
+<ul>
+<li><strong>5/5</strong> ; page existante :
+<code>analyse/leçons/239-fonctions-definies-par-integrale-parametre.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> L’objet central est l’équivalent
+d’une intégrale à paramètre ; Gamma fournit une application complète.
+Les études asymptotiques sont expressément dans les attendus.</li>
+<li><strong>Adaptation :</strong> Garder l’existence sous intégrabilité
+pondérée, les changements de paramètre et l’application Gamma ;
+distinguer méthode de Laplace et transformée de Laplace.</li>
+<li><strong>Sources :</strong> R:91 (liste), R:1571–1580 (attendus),
+D:27-44,61-186 (preuve).</li>
+</ul>
+<h3 id="suites-et-séries-de-fonctions.-exemples-et-contre-exemples."><a href="../../analyse/le%C3%A7ons/241-suites-series-fonctions-exemples-contre-exemples.html">241</a>
+— Suites et séries de fonctions. Exemples et contre-exemples.</h3>
+<ul>
+<li><strong>3/5</strong> ; page existante :
+<code>analyse/leçons/241-suites-series-fonctions-exemples-contre-exemples.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> En prenant t=n, les intégrandes
+redimensionnés forment une suite convergeant simplement sous domination
+; le passage aux intégrales est réellement démontré. Pas d’étude de
+séries ni de convergence uniforme globale.</li>
+<li><strong>Adaptation :</strong> Nommer la suite tronquée après
+dilatation et sa limite ; montrer la domination puis traiter séparément
+la queue. Ne pas revendiquer une convergence uniforme pour l’amplitude
+simplement L1 loin du bord.</li>
+<li><strong>Sources :</strong> R:92 (liste), R:1581–1594 (attendus),
+D:85-109 (preuve).</li>
+</ul>
+<h3
+id="séries-entières-propriétés-de-la-somme.-exemples-et-applications.">243
+— Séries entières, propriétés de la somme. Exemples et
+applications.</h3>
+<ul>
+<li><strong>1/5</strong> ; page absente ; création recommandée :
+non.</li>
+<li><strong>Justification :</strong> Un équivalent de coefficients
+factoriels pourrait servir au rayon d’une série entière, mais aucune
+somme ou série entière ne figure dans la preuve.</li>
+<li><strong>Adaptation :</strong> Simple outil éventuel de plan ; une
+application ajoutée ne rendrait pas Laplace central aux propriétés de la
+somme.</li>
+<li><strong>Sources :</strong> R:93 (liste), R:1595–1617 (attendus),
+D:<a href="../../alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a>-186 (preuve).</li>
+</ul>
+<h3
+id="fonctions-holomorphes-et-méromorphes-sur-un-ouvert-de-c.-exemples-et-applications.">245
+— Fonctions holomorphes et méromorphes sur un ouvert de C. Exemples et
+applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page absente ; création recommandée :
+non.</li>
+<li><strong>Justification :</strong> Gamma n’est étudiée que pour un
+paramètre réel positif ; aucune holomorphie ou méromorphie n’est
+démontrée.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:94 (liste), R:1618–1631 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3 id="séries-de-fourier.-exemples-et-applications."><a href="../../analyse/le%C3%A7ons/246-series-de-fourier-exemples-applications.html">246</a> — Séries de
+Fourier. Exemples et applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>analyse/leçons/246-series-de-fourier-exemples-applications.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> Ni coefficient ni série de Fourier
+; l’intégrale gaussienne est un prérequis d’intégration.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:95 (liste), R:1632–1659 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3 id="transformation-de-fourier.-applications."><a href="../../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">250</a> — Transformation
+de Fourier. Applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>analyse/leçons/250-transformation-de-fourier-applications.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> Aucune transformée ou inversion de
+Fourier. La gaussienne commune ne suffit pas à créer un recasage.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:96 (liste), R:1660–1674 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3 id="utilisation-de-la-notion-de-convexité-en-analyse."><a href="../../analyse/le%C3%A7ons/253-convexite-en-analyse.html">253</a> —
+Utilisation de la notion de convexité en analyse.</h3>
+<ul>
+<li><strong>2/5</strong> ; page existante :
+<code>analyse/leçons/253-convexite-en-analyse.md</code> ; création
+recommandée : non.</li>
+<li><strong>Justification :</strong> La phase particulière de Stirling
+est strictement convexe, ce qui donne son minimum unique ; la preuve
+générale s’appuie sur monotonie et non sur une théorie de
+convexité.</li>
+<li><strong>Adaptation :</strong> Faire expliciter psi seconde positive
+et ses conséquences. Ne pas annoncer la log-convexité de Gamma ou une
+inégalité de convexité, non démontrées ici ; recasage d’appoint
+seulement.</li>
+<li><strong>Sources :</strong> R:97 (liste), R:1675–1688 (attendus),
+D:167-179 (preuve).</li>
+</ul>
+<h3
+id="loi-dune-variable-aléatoire-caractérisations-exemples-applications."><a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>
+— Loi d’une variable aléatoire : caractérisations, exemples,
+applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>analyse/leçons/261-loi-variable-aleatoire.md</code> ; création
+recommandée : non.</li>
+<li><strong>Justification :</strong> La fonction Gamma est analytique,
+non une étude de loi Gamma ; aucun transfert, calcul ou caractérisation
+de loi.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:98 (liste), R:1689–1707 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3
+id="convergences-dune-suite-de-variables-aléatoires.-théorèmes-limite.-exemples-et-applications."><a href="../../analyse/le%C3%A7ons/262-convergences-variables-aleatoires-theoremes-limite.html">262</a>
+— Convergences d’une suite de variables aléatoires. Théorèmes limite.
+Exemples et applications.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>analyse/leçons/262-convergences-variables-aleatoires-theoremes-limite.md</code>
+; création recommandée : non.</li>
+<li><strong>Justification :</strong> La concentration analytique du
+noyau n’est pas une convergence en loi démontrée ; aucun TCL dans la
+preuve.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:99 (liste), R:1708–1718 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h3 id="variables-aléatoires-discrètes.-exemples-et-applications.">264 —
+Variables aléatoires discrètes. Exemples et applications.</h3>
+<ul>
+<li><strong>1/5</strong> ; page absente ; création recommandée :
+non.</li>
+<li><strong>Justification :</strong> Les factorielles apparaissent dans
+les lois discrètes usuelles, mais aucune variable ni probabilité
+discrète n’est traitée.</li>
+<li><strong>Adaptation :</strong> Éventuel outil pour un équivalent de
+probabilité binomiale ; il faudrait un bloc probabiliste nouveau, non
+crédité au développement actuel.</li>
+<li><strong>Sources :</strong> R:100 (liste), R:1719–1727 (attendus),
+D:<a href="../../alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a>-186 (preuve).</li>
+</ul>
+<h3 id="utilisation-de-la-notion-dindépendance-en-probabilités."><a href="../../analyse/le%C3%A7ons/266-independance-probabilites.html">266</a> —
+Utilisation de la notion d’indépendance en probabilités.</h3>
+<ul>
+<li><strong>0/5</strong> ; page existante :
+<code>analyse/leçons/266-independance-probabilites.md</code> ; création
+recommandée : non.</li>
+<li><strong>Justification :</strong> Ni indépendance ni factorisation de
+lois ; Fubini pour la gaussienne ne devient pas une utilisation de
+l’indépendance.</li>
+<li><strong>Adaptation :</strong> Aucune adaptation légère pertinente :
+ne pas retenir ce développement dans cette leçon.</li>
+<li><strong>Sources :</strong> R:<a href="../../alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a> (liste), R:1728–1740 (attendus),
+D:59-186 (preuve).</li>
+</ul>
+<h2 id="vérification-et-périmètre-décriture">Vérification et périmètre
+d’écriture</h2>
+<p>Les numéros du JSON ont été comparés à l’ensemble extrait de la liste
+officielle ; unicité, types, notes 0–5, booléens d’existence et de
+création, ainsi que cohérence avec la table détaillée et l’inventaire
+ont été contrôlés programmatiquement. Aucune page partagée, aucune
+matrice et aucun index n’ont été modifiés par cet audit. Aucun build,
+publication ou nouvelle leçon n’a été lancé. Les deux seuls livrables
+écrits sont ce rapport et son JSON homonyme.</p>
+</body>
+</html>

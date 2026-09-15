@@ -1,0 +1,1190 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Audit exhaustif — Projection sur un convexe fermé</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css?v=3fa8cfdcc3ea" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Audit exhaustif — <a href="../../d%C3%A9veloppements/projection-sur-un-convexe-ferme.html">Projection sur un convexe fermé</a></h1>
+</header>
+<h1 id="audit-exhaustif-projection-sur-un-convexe-fermé">Audit exhaustif
+— <a href="../../d%C3%A9veloppements/projection-sur-un-convexe-ferme.html">Projection sur un convexe fermé</a></h1>
+<h2 id="résultat-et-périmètre">Résultat et périmètre</h2>
+<ul>
+<li><strong>68 leçons officielles évaluées</strong>, sans case non
+évaluée : 46 fiches réellement créées, 22 absentes.</li>
+<li><strong>7 recasages forts</strong>, tous déjà créés : <a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/161-espaces-vectoriels-et-affines-euclidiens-distances-isometries.html">161</a>, <a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a>, <a href="../../analyse/le%C3%A7ons/205-espaces-complets.html">205</a>,
+<a href="../../analyse/le%C3%A7ons/208-espaces-vectoriels-normes-applications-lineaires-continues.html">208</a>, <a href="../../analyse/le%C3%A7ons/213-espaces-hilbert-exemples-applications.html">213</a>, <a href="../../analyse/le%C3%A7ons/219-extremums.html">219</a>, <a href="../../analyse/le%C3%A7ons/253-convexite-en-analyse.html">253</a>.</li>
+<li><strong>Aucune nouvelle création forte (≥4)</strong> justifiée par
+la preuve actuelle.</li>
+<li><strong>229 : 3/5 conditionnel</strong>, contre 1/5 dans le
+commentaire hors matrice existant. Création proposée seulement si la
+variante orientée fonctions convexes est effectivement préparée ; ce
+n’est ni un 4/5 ni une consigne de création immédiate.</li>
+<li>Aucun score de la matrice actuelle n’est modifié par cette
+proposition. Les notes des 46 leçons créées sont confirmées ; la fiche
+détaillée et la ligne de matrice sont identiques sur toutes ces
+colonnes.</li>
+<li>Écritures limitées aux deux livrables de cet audit ; aucune page
+partagée, matrice, leçon, développement ou compétence modifiée. Aucun
+builder ni publication lancé.</li>
+</ul>
+<h2 id="sources-et-méthode">Sources et méthode</h2>
+<p>Source officielle locale :
+<code>raw data/rapports-jury/Rapport_AE_Math_2025c-oraux-lecons.txt</code>,
+liste §4.1, lignes <strong>5–<a href="../../alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a></strong>. La ligne <strong>7</strong>
+dit expressément que la liste de la <strong>session 2026</strong> est
+identique à celle de 2025. Les attendus sont ceux de
+<strong>2025</strong> (lignes <strong>200–<a href="../../analyse/le%C3%A7ons/218-formules-de-taylor-exemples-applications.html">218</a></strong>), et non de
+nouveaux commentaires 2026. Aucun rapport plus récent n’a été recherché
+: l’audit utilise la source explicitement demandée.</p>
+<p>Les intitulés JSON et ci-dessous suivent la <strong>liste</strong>,
+non les titres parfois différents des commentaires. Les coupures de mots
+et sauts de ligne sont réunis, notamment la suite du titre 226 à la
+ligne 75. Les artefacts de l’extraction mathématique
+(<code>GLpEq</code>, <code>Z{nZ</code>, <code>Rn</code>, <code>un</code>
+suivi de l’accent grave et des symboles de l’extraction) sont
+volontairement conservés : exactitude textuelle par rapport à la source
+TXT, pas restitution typographique contrôlée sur le PDF. Pour 191, la
+liste porte « de techniques », le commentaire « des techniques ».</p>
+<p>Inventaire établi à partir des fichiers <code>*/leçons/*.md</code>
+portant <code>type: leçon</code> et leur <code>numero</code>, pas à
+partir du seul index ni du statut. Comparaison programmatique avec les
+46 lignes numériques de
+<code>index/recasages/projection-sur-un-convexe-ferme.md</code> et avec
+la ligne correspondante de
+<code>index/matrice-developpements-lecons.md</code>.</p>
+<p>Barème : 5 naturel/prioritaire ; 4 très bon avec adaptation légère ;
+3 possible avec orientation explicite ; 2 fragile/appoint ; 1 artificiel
+; 0 non pertinent dans la preuve actuelle. Les notes sont un jugement
+pédagogique de l’audit, <strong>pas des notes du jury</strong>. Un 0
+signifie « pas de développement défendable avec ce contenu », non
+impossibilité de tout lien mathématique. Les références d’attendus pour
+les notes faibles servent à délimiter le sujet ; elles ne sont pas une
+interdiction explicite du jury.</p>
+<p>Répartition calculée : 0/5 : 51, 1/5 : 5, 2/5 : 3, 3/5 : 2, 4/5 : 3,
+5/5 : 4.</p>
+<h2 id="mécanismes-réellement-démontrés">Mécanismes réellement
+démontrés</h2>
+<p>Source :
+<code>développements/projection-sur-un-convexe-ferme.md</code>.</p>
+<ol type="1">
+<li><strong>Lignes 82–129</strong> : identité du parallélogramme, suite
+minimisante, convexité du milieu, estimation de Cauchy, complétude puis
+fermeture ; aucune extraction compacte.</li>
+<li><strong>131–141</strong> : unicité par milieu et
+parallélogramme.</li>
+<li><strong>143–182</strong> : variation sur un segment et
+caractérisation nécessaire et suffisante de l’optimalité.</li>
+<li><strong>184–212</strong> : sous-espace fermé, décomposition
+orthogonale, linéarité, auto-adjonction, idempotence, norme du
+projecteur.</li>
+<li><strong>214–<a href="../../analyse/le%C3%A7ons/228-continuite-derivabilite-fonctions-reelles-une-variable.html">228</a></strong> : non-expansivité prouvée, et distinction
+avec la linéarité. Ce bloc reste une extension ; le minutage <a href="../../analyse/le%C3%A7ons/241-suites-series-fonctions-exemples-contre-exemples.html">241</a>–248
+n’en promet que l’annonce en fin d’exposé.</li>
+</ol>
+<p>Les moindres carrés, Stampacchia et les projections alternées ne sont
+<strong>qu’annoncés</strong> aux lignes <a href="../../analyse/le%C3%A7ons/262-convergences-variables-aleatoires-theoremes-limite.html">262</a>–267. Aucun crédit fort pour
+un algorithme, une application Fourier, une projection fonctionnelle
+concrète, une séparation par hyperplan ou une preuve par compacité
+absents du texte. Le théorème traite un Hilbert réel ; une variante
+complexe doit remplacer le produit scalaire par sa partie réelle dans
+l’inégalité.</p>
+<h2 id="recasages-forts-confirmés">Recasages forts confirmés</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 30%" />
+<col style="width: 23%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr>
+<th>Leçon</th>
+<th style="text-align: right;">Score</th>
+<th>Passage du jury</th>
+<th>Adaptation déterminante</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/161-espaces-vectoriels-et-affines-euclidiens-distances-isometries.html">161</a></td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>984–989 : cadre fini, distances et projections</td>
+<td>Restreindre à l’euclidien dès l’énoncé, dessin et traduction affine.
+La leçon ne se réduit pas aux isométries.</td>
+</tr>
+<tr>
+<td><a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a></td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>1067–1080 : convexité géométrique, barycentres, figures</td>
+<td>Rⁿ et géométrie du milieu/segment. Le jury ne cite pas ici
+explicitement la projection ; séparation seulement en prolongement non
+crédité.</td>
+</tr>
+<tr>
+<td><a href="../../analyse/le%C3%A7ons/205-espaces-complets.html">205</a></td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>1242–1248 : existence par complétude, projection explicitement
+citée</td>
+<td>Montrer précisément comment la suite minimisante devient
+convergente.</td>
+</tr>
+<tr>
+<td><a href="../../analyse/le%C3%A7ons/208-espaces-vectoriels-normes-applications-lineaires-continues.html">208</a></td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>1277–1286 : complétude hilbertienne et normes d’opérateurs</td>
+<td>Conserver P_F linéaire continu et calculer sa norme ; ne pas
+assimiler P_C à un opérateur linéaire.</td>
+</tr>
+<tr>
+<td><a href="../../analyse/le%C3%A7ons/213-espaces-hilbert-exemples-applications.html">213</a></td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>1312–1315 : projection et complétude explicitement attendues</td>
+<td>Développement central sans modification substantielle.</td>
+</tr>
+<tr>
+<td><a href="../../analyse/le%C3%A7ons/219-extremums.html">219</a></td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>1384–1393 : projection, convexité, optimisation</td>
+<td>Présenter le minimum quadratique sous contrainte, existence et
+caractérisation, sans promettre d’algorithme.</td>
+</tr>
+<tr>
+<td><a href="../../analyse/le%C3%A7ons/253-convexite-en-analyse.html">253</a></td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>1675–1683 : projection explicitement citée, figures</td>
+<td>Convexité organisatrice de la preuve ; milieu puis segment.</td>
+</tr>
+</tbody>
+</table>
+<h2
+id="réévaluation-et-nouvelles-possibilités-hors-inventaire">Réévaluation
+et nouvelles possibilités hors inventaire</h2>
+<h3 id="sous-condition-explicite">229 — 1/5 → 3/5, sous condition
+explicite</h3>
+<p>La fiche existante, ligne 106, écarte cette leçon au motif que le
+théorème porte sur un ensemble et non une fonction convexe. Ce motif est
+trop restrictif : <strong>le jury inclut explicitement les fonctions
+convexes sur une partie convexe de Rⁿ et la recherche de leurs extrema
+(1517–1518)</strong>. Le développement démontre réellement, et pas
+seulement en conclusion, l’existence et l’unicité du minimum d’une
+fonction quadratique strictement convexe et sa caractérisation
+variationnelle.</p>
+<p>La variante proposée doit annoncer d’emblée la fonction <span
+class="math inline">\(f_x(z)=\frac12\|x-z\|^2\)</span> sur Rⁿ et le
+domaine convexe fermé non vide C, expliciter stricte convexité et
+différentielle, puis présenter la preuve existante comme un problème
+d’optimisation convexe. Aucun théorème général de minimisation de toutes
+les fonctions convexes n’est ainsi démontré. Ne pas évacuer les
+fonctions monotones du reste du plan.</p>
+<p>La note reste <strong>3</strong> : une seule quadratique et beaucoup
+de géométrie d’ensembles. Sans cette réorientation, conserver
+<strong>1</strong>, et ne pas créer la leçon pour ce seul développement.
+<code>create_recommended: true</code> dans le JSON est ici
+<strong>conditionnel</strong>, détaillé dans <code>adaptation</code>, et
+ne signifie pas qu’une nouvelle page est autorisée ou a été créée.</p>
+<h3 id="autres-leçons-absentes-examinées">Autres leçons absentes
+examinées</h3>
+<ul>
+<li><strong>191 : 2/5</strong>. Les lignes 1136–1144 autorisent
+projections et techniques linéaires ; 1163–1165 évoquent séparation et
+convexité. Néanmoins l’existence actuelle reste analytique et aucune
+séparation n’est prouvée. Ne pas promouvoir une mention d’application en
+recasage fort. Le jury avertit contre l’habillage géométrique
+(1123–1124).</li>
+<li><strong>215 : 2/5</strong>. La variation est une dérivée
+directionnelle de la quadratique ; cela ne suffit pas à faire de toute
+la preuve une étude de différentiabilité. P_C n’est pas généralement
+différentiable.</li>
+<li><strong>171, 204, 223 : 1/5</strong>. Respectivement : une norme
+quadratique sans étude des formes/coniques ; des segments sans usage de
+la connexité ; une suite de Cauchy hilbertienne sans étude significative
+de suites réelles/complexes.</li>
+<li><strong>226 : 0/5</strong>. Suite minimisante non récurrente ;
+aucune convergence d’un algorithme de projections alternées.
+Non-expansif ne signifie pas contractant au sens strict du théorème du
+point fixe.</li>
+<li>Les autres leçons absentes sont évaluées explicitement dans le
+tableau et le JSON ; aucune création recommandée.</li>
+</ul>
+<h3 id="réserves-maintenues-sur-les-leçons-créées">Réserves maintenues
+sur les leçons créées</h3>
+<p><strong><a href="../../alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a> reste 3/5</strong>, malgré les projections explicitement
+citées aux lignes 961–964 : le bloc non linéaire occupe la majeure
+partie du développement. <strong><a href="../../alg%C3%A8bre/le%C3%A7ons/170-formes-quadratiques-dimension-finie-orthogonalite-applications.html">170</a> reste 2/5</strong> : orthogonalité
+positive réelle, pas théorie générale des formes quadratiques.
+<strong><a href="../../analyse/le%C3%A7ons/203-utilisation-de-la-notion-de-compacite.html">203</a> et <a href="../../analyse/le%C3%A7ons/206-exemples-dutilisation-de-la-notion-de-dimension-finie-en-analyse.html">206</a> restent 1/5</strong> : ni compacité ni usage décisif
+de dimension finie. <strong><a href="../../analyse/le%C3%A7ons/201-espaces-de-fonctions-exemples-applications.html">201</a>, <a href="../../analyse/le%C3%A7ons/209-approximation-fonction-par-fonctions-regulieres.html">209</a>, <a href="../../analyse/le%C3%A7ons/234-fonctions-espaces-lebesgue-integrables.html">234</a>, <a href="../../analyse/le%C3%A7ons/246-series-de-fourier-exemples-applications.html">246</a>, <a href="../../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">250</a> restent 0/5</strong>
+: pas de fonctions concrètes, régularisation ou Fourier dans la preuve.
+L’idempotence de P_F n’est pas à elle seule un développement de
+réduction pour <a href="../../alg%C3%A8bre/le%C3%A7ons/150-polynomes-endomorphisme-reduction.html">150</a>/<a href="../../alg%C3%A8bre/le%C3%A7ons/152-endomorphismes-diagonalisables-dimension-finie.html">152</a>, ni son auto-adjonction une étude de matrices
+pour <a href="../../alg%C3%A8bre/le%C3%A7ons/157-matrices-symetriques-reelles-hermitiennes.html">157</a> ; leurs 0 sont conservés.</p>
+<h2 id="évaluation-exhaustive">Évaluation exhaustive</h2>
+<p>Toutes les références numériques ci-dessous désignent les lignes du
+TXT du jury précité. Les références de liste, d’attendus et de preuve
+sont fournies séparément dans chaque objet JSON. « Création
+conditionnelle » ne s’applique qu’à 229.</p>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 11%" />
+<col style="width: 15%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">N°</th>
+<th>Intitulé de la liste</th>
+<th style="text-align: right;">Score</th>
+<th>Existe</th>
+<th>Création</th>
+<th>Attendus</th>
+<th>Justification</th>
+<th>Adaptation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a></td>
+<td>Groupe opérant sur un ensemble. Exemples et applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>463–487</td>
+<td>Aucun lien avec les actions de groupes.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;">102</td>
+<td>Groupe des nombres complexes de module 1. Racines de l’unité.
+Applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>non</td>
+<td>non</td>
+<td>488–501</td>
+<td>La preuve est réelle et ne mobilise ni groupe du cercle ni racines
+de l’unité.</td>
+<td>Aucune adaptation légère ; choisir un autre développement.</td>
+</tr>
+<tr>
+<td style="text-align: right;">103</td>
+<td>Conjugaison dans un groupe. Exemples de sous-groupes distingués et
+de groupes quotients. Applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>non</td>
+<td>non</td>
+<td>502–530</td>
+<td>Aucune conjugaison, aucun sous-groupe distingué ni quotient de
+groupe ne structure la preuve.</td>
+<td>Ne pas confondre projection métrique et morphisme quotient.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/104-groupes-finis.html">104</a></td>
+<td>Groupes finis. Exemples et applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>531–554</td>
+<td>Aucun lien avec les groupes finis.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/105-groupe-des-permutations-dun-ensemble-fini.html">105</a></td>
+<td>Groupe des permutations d’un ensemble fini. Applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>555–568</td>
+<td>Aucun lien avec les permutations.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;">106</td>
+<td>Groupe linéaire d’un espace vectoriel de dimension finie E,
+sous-groupes de GLpEq. Applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>non</td>
+<td>non</td>
+<td>569–589</td>
+<td>Les projecteurs du corollaire ne fournissent aucune étude du groupe
+linéaire ou de ses sous-groupes.</td>
+<td>Une étude du groupe orthogonal serait un autre développement.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a></td>
+<td>Exemples de parties génératrices d’un groupe. Applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>590–607</td>
+<td>Aucun lien avec les parties génératrices.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/120-anneaux-z-sur-nz-applications.html">120</a></td>
+<td>Anneaux Z{nZ. Applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>608–619</td>
+<td>Aucun lien avec les anneaux <span class="math inline">\(\mathbb
+Z/n\mathbb Z\)</span>.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/121-nombres-premiers-applications.html">121</a></td>
+<td>Nombres premiers. Applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>620–636</td>
+<td>Aucun lien avec les nombres premiers.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;">122</td>
+<td>Anneaux principaux. Exemples et applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>non</td>
+<td>non</td>
+<td>637–653</td>
+<td>Ni divisibilité, ni idéaux principaux, ni algorithme euclidien. La
+norme euclidienne ne relève pas des anneaux euclidiens.</td>
+<td>Aucune adaptation pertinente.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/123-corps-finis-applications.html">123</a></td>
+<td>Corps finis. Applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>654–662</td>
+<td>Aucun lien avec les corps finis.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;">125</td>
+<td>Extensions de corps. Exemples et applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>non</td>
+<td>non</td>
+<td>663–681</td>
+<td>Le corps de base réel est fixé ; aucune extension de corps ni calcul
+de degré.</td>
+<td>Aucune adaptation pertinente.</td>
+</tr>
+<tr>
+<td style="text-align: right;">127</td>
+<td>Exemples de nombres remarquables. Exemples d’anneaux de nombres
+remarquables. Applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>non</td>
+<td>non</td>
+<td>682–703</td>
+<td>Aucun nombre remarquable ni anneau de nombres n’est étudié.</td>
+<td>Aucune adaptation pertinente.</td>
+</tr>
+<tr>
+<td style="text-align: right;">141</td>
+<td>Polynômes irréductibles à une indéterminée. Corps de rupture.
+Exemples et applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>non</td>
+<td>non</td>
+<td>704–717</td>
+<td>Ni irréductibilité ni corps de rupture ne sont utilisés.</td>
+<td>Aucune adaptation pertinente.</td>
+</tr>
+<tr>
+<td style="text-align: right;">142</td>
+<td>PGCD et PPCM, algorithmes de calcul. Applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>non</td>
+<td>non</td>
+<td>718–753</td>
+<td>Aucun PGCD, PPCM ou algorithme arithmétique.</td>
+<td>Aucune adaptation pertinente.</td>
+</tr>
+<tr>
+<td style="text-align: right;">144</td>
+<td>Racines d’un polynôme. Fonctions symétriques élémentaires. Exemples
+et applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>non</td>
+<td>non</td>
+<td>754–771</td>
+<td>Aucune étude de racines de polynômes ; le carré d’une norme ne
+constitue pas une application aux racines.</td>
+<td>Ne pas créditer Gauss–Lucas : il faudrait en ajouter la preuve.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/148-dimension-espace-vectoriel-rang.html">148</a></td>
+<td>Dimension d’un espace vectoriel (on se limitera au cas de la
+dimension finie). Rang. Exemples et applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>772–803</td>
+<td>La preuve est fonctionnelle et ne porte ni sur le rang ni sur les
+fondements algébriques de la dimension finie.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a></td>
+<td>Déterminant. Exemples et applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>804–820</td>
+<td>Aucun déterminant n’intervient.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/150-polynomes-endomorphisme-reduction.html">150</a></td>
+<td>Polynômes d’endomorphisme en dimension finie. Réduction d’un
+endomorphisme en dimension finie. Applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>821–846</td>
+<td>Aucun polynôme d’endomorphisme ni mécanisme de réduction.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/151-sous-espaces-stables-endomorphismes.html">151</a></td>
+<td>Sous-espaces stables par un endomorphisme ou une famille
+d’endomorphismes d’un espace vectoriel de dimension finie.
+Applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>847–861</td>
+<td>Le développement ne traite pas la stabilité par un
+endomorphisme.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/152-endomorphismes-diagonalisables-dimension-finie.html">152</a></td>
+<td>Endomorphismes diagonalisables en dimension finie.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>862–873</td>
+<td>Aucun mécanisme de diagonalisation.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/153-valeurs-propres-vecteurs-propres-calculs-applications.html">153</a></td>
+<td>Valeurs propres, vecteurs propres. Calculs exacts ou approchés
+d’éléments propres. Applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>874–898</td>
+<td>Aucun calcul d’éléments propres.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/155-exponentielle-de-matrices-applications.html">155</a></td>
+<td>Exponentielle de matrices. Applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>899–916</td>
+<td>Aucun lien avec l’exponentielle de matrices.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/156-endomorphismes-trigonalisables-nilpotents.html">156</a></td>
+<td>Endomorphismes trigonalisables. Endomorphismes nilpotents.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>917–929</td>
+<td>Aucun lien avec trigonalisation ou nilpotence.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/157-matrices-symetriques-reelles-hermitiennes.html">157</a></td>
+<td>Matrices symétriques réelles, matrices hermitiennes.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>930–952</td>
+<td>Le produit scalaire intervient, mais pas l’étude des matrices
+symétriques ou hermitiennes.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a></td>
+<td>Endomorphismes remarquables d’un espace vectoriel euclidien (de
+dimension finie).</td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td>oui</td>
+<td>non</td>
+<td>953–964</td>
+<td>Recasage possible en dimension finie, mais le cœur de la preuve
+concerne une projection métrique généralement non linéaire. Mettre
+réellement en avant le corollaire sur les projecteurs orthogonaux ; une
+simple conclusion ne suffit pas à un 4/5.</td>
+<td>Spécialiser en dimension finie ; rendre indispensable le bloc P_F
+linéaire, auto-adjoint, idempotent et de norme 1 hors F={0}. Ne pas
+appeler P_C un endomorphisme. Un passage à 4 exigerait une version
+recentrée, non créditée ici.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/159-formes-lineaires-dualite-dimension-finie.html">159</a></td>
+<td>Formes linéaires et dualité en dimension finie. Exemples et
+applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>965–983</td>
+<td>Aucun mécanisme de dualité ou de formes linéaires en dimension
+finie.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/161-espaces-vectoriels-et-affines-euclidiens-distances-isometries.html">161</a></td>
+<td>Espaces vectoriels et espaces affines euclidiens : distances,
+isométries.</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>oui</td>
+<td>non</td>
+<td>984–1006</td>
+<td>Très bon recasage en espace euclidien de dimension finie : existence
+du point le plus proche, caractérisation par un angle obtus, distance à
+un sous-espace affine. Le jury exige les projections dans le volet
+distances (lignes 984–989) ; la leçon ne se réduit pas aux
+isométries.</td>
+<td>Annoncer un espace euclidien de dimension finie ; dessiner le point
+le plus proche et l’angle obtus. Déduire la projection affine par
+translation P_{a+F}(x)=a+P_F(x−a).</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a></td>
+<td>Systèmes d’équations linéaires ; opérations élémentaires, aspects
+algorithmiques et conséquences théoriques.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>1007–1027</td>
+<td>Le développement ne traite ni systèmes linéaires ni opérations
+élémentaires.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/170-formes-quadratiques-dimension-finie-orthogonalite-applications.html">170</a></td>
+<td>Formes quadratiques sur un espace vectoriel de dimension finie.
+Orthogonalité. Applications.</td>
+<td style="text-align: right;" class="score score-2">2</td>
+<td>oui</td>
+<td>non</td>
+<td>1028–1051</td>
+<td>L’orthogonalité et la décomposition <span
+class="math inline">\(F\oplus F^\perp\)</span> sont pertinentes, mais
+les formes quadratiques ne structurent pas la preuve.</td>
+<td>Restreindre à une forme définie positive réelle et souligner F⊕F⊥.
+La théorie des formes générales reste hors de la preuve : pas de
+recasage fort.</td>
+</tr>
+<tr>
+<td style="text-align: right;">171</td>
+<td>Formes quadratiques réelles. Coniques. Exemples et
+applications.</td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>non</td>
+<td>non</td>
+<td>1052–1066</td>
+<td>Seule la forme quadratique définie positive donnée par la norme
+apparaît ; aucune signature, réduction simultanée ou conique n’est
+étudiée.</td>
+<td>La projection sur une ellipse imposerait un calcul supplémentaire ;
+non retenu.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a></td>
+<td>Convexité dans Rn. Applications en algèbre et en géométrie.</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>oui</td>
+<td>non</td>
+<td>1067–1081</td>
+<td>Cadre euclidien fini, segments, projection et interprétation
+géométrique.</td>
+<td>Annoncer Rⁿ ; faire des figures et expliciter les barycentres à deux
+points (milieu et segment). Une séparation par hyperplan est un
+prolongement possible, pas une preuve déjà présente.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/190-methodes-combinatoires-problemes-de-denombrement.html">190</a></td>
+<td>Méthodes combinatoires, problèmes de dénombrement.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>1082–1103</td>
+<td>Aucun dénombrement.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;">191</td>
+<td>Exemples d’utilisation de techniques d’algèbre en géométrie.</td>
+<td style="text-align: right;" class="score score-2">2</td>
+<td>non</td>
+<td>non</td>
+<td>1104–1189</td>
+<td>Le parallélogramme et le corollaire de décomposition orthogonale ont
+une lecture algébrique et géométrique réelle. Cependant la longue
+existence par complétude reste analytique ; ni calcul matriciel ni
+séparation par hyperplan ne sont développés. Le jury accepte projections
+et convexité mais avertit contre le simple habillage géométrique.</td>
+<td>Spécialiser à Rⁿ et expliquer le produit scalaire comme outil de
+mesure. Une version centrée sur séparation et hyperplans pourrait être
+réévaluée après rédaction ; pas de création recommandée en l’état.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/201-espaces-de-fonctions-exemples-applications.html">201</a></td>
+<td>Espaces de fonctions. Exemples et applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>1190–1211</td>
+<td>Aucun espace de fonctions concret n’est étudié dans la preuve
+abstraite.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/203-utilisation-de-la-notion-de-compacite.html">203</a></td>
+<td>Utilisation de la notion de compacité.</td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>oui</td>
+<td>non</td>
+<td>1212–1226</td>
+<td>Fermeture et complétude interviennent, mais la compacité n’est pas
+le mécanisme du développement.</td>
+<td>Ne pas substituer silencieusement une preuve par compacité en
+dimension finie à la preuve de Cauchy actuellement écrite.</td>
+</tr>
+<tr>
+<td style="text-align: right;">204</td>
+<td>Connexité. Exemples d’applications.</td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>non</td>
+<td>non</td>
+<td>1227–1241</td>
+<td>Les segments sont utilisés pour comparer des distances, non pour
+exploiter la connexité. La convexité implique la connexité par arcs mais
+cette implication ne prouve pas le théorème.</td>
+<td>Une rétraction continue sur C suit de la non-expansivité, mais en
+tirer des résultats de connexité exigerait un nouvel objectif ; non
+retenu.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/205-espaces-complets.html">205</a></td>
+<td>Espaces complets. Exemples et applications.</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>oui</td>
+<td>non</td>
+<td>1242–1254</td>
+<td>Existence par complétude ; explicitement cité par le jury.</td>
+<td>Conserver intégralement suite minimisante → estimation de Cauchy →
+complétude → fermeture ; distinguer les deux dernières hypothèses.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/206-exemples-dutilisation-de-la-notion-de-dimension-finie-en-analyse.html">206</a></td>
+<td>Exemples d’utilisation de la notion de dimension finie en
+analyse.</td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>oui</td>
+<td>non</td>
+<td>1255–1276</td>
+<td>Le cas euclidien est une spécialisation, mais la preuve vise
+précisément les Hilbert éventuellement de dimension infinie.</td>
+<td>La spécialisation euclidienne ne suffit pas : il faudrait traiter
+l’approximation par des sous-espaces de dimension finie et l’usage
+spécifique de cette dimension.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/208-espaces-vectoriels-normes-applications-lineaires-continues.html">208</a></td>
+<td>Espaces vectoriels normés, applications linéaires continues.
+Exemples.</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>oui</td>
+<td>non</td>
+<td>1277–1297</td>
+<td>La complétude, notamment hilbertienne, est explicitement proposée
+par le jury (lignes 1277–1286). La preuve donne un théorème d’existence
+puis une application linéaire continue P_F avec calcul de norme ;
+conserver ce corollaire.</td>
+<td>Conserver le corollaire opérateur linéaire continu, le noyau F⊥ et
+le calcul de norme. Distinguer P_C généralement non linéaire mais
+1-lipschitzienne.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/209-approximation-fonction-par-fonctions-regulieres.html">209</a></td>
+<td>Approximation d’une fonction par des fonctions régulières. Exemples
+d’applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>1298–1311</td>
+<td>Aucun procédé d’approximation par des fonctions régulières.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/213-espaces-hilbert-exemples-applications.html">213</a></td>
+<td>Espaces de Hilbert. Exemples d’applications.</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>oui</td>
+<td>non</td>
+<td>1312–1329</td>
+<td>Recasage prioritaire et explicitement attendu par le jury :
+complétude, identité du parallélogramme, projection sur un convexe fermé
+et décomposition orthogonale des sous-espaces fermés.</td>
+<td>Aucune adaptation substantielle : parallélogramme, existence,
+unicité, variation et décomposition orthogonale sont centraux. La
+non-expansivité est optionnelle au chronométrage.</td>
+</tr>
+<tr>
+<td style="text-align: right;">214</td>
+<td>Théorème d’inversion locale, théorème des fonctions implicites.
+Illustrations en analyse et en géométrie.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>non</td>
+<td>non</td>
+<td>1330–1353</td>
+<td>Ni inversion locale ni fonctions implicites ne sont utilisées. La
+complétude commune aux preuves ne constitue pas une application de ces
+théorèmes.</td>
+<td>Le projeté sur un convexe quelconque n’est pas nécessairement
+différentiable ; ne pas invoquer implicitement un difféomorphisme.</td>
+</tr>
+<tr>
+<td style="text-align: right;">215</td>
+<td>Applications différentiables définies sur un ouvert de Rn. Exemples
+et applications.</td>
+<td style="text-align: right;" class="score score-2">2</td>
+<td>non</td>
+<td>non</td>
+<td>1354–1366</td>
+<td>La variation le long du segment est un calcul de dérivée
+directionnelle de la fonction quadratique. C’est une application limitée
+du calcul différentiel ; la preuve ne traite pas la différentiabilité de
+P_C et porte surtout sur existence et convexité.</td>
+<td>Se placer en Rⁿ et expliciter la différentielle de f(z)=½‖x−z‖² pour
+lire la condition variationnelle. Pas de hausse sans contenu
+différentiel substantiel.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/218-formules-de-taylor-exemples-applications.html">218</a></td>
+<td>Formules de Taylor. Exemples et applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>1367–1383</td>
+<td>Aucune formule de Taylor.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/219-extremums.html">219</a></td>
+<td>Extremums : existence, caractérisation, recherche. Exemples et
+applications.</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>oui</td>
+<td>non</td>
+<td>1384–1404</td>
+<td>Existence, unicité et caractérisation du minimum sous contrainte
+convexe.</td>
+<td>Énoncer min_{z∈C} ½‖x−z‖² ; nommer existence, unicité et condition
+nécessaire et suffisante. Ne pas prétendre avoir prouvé une méthode
+algorithmique de recherche.</td>
+</tr>
+<tr>
+<td style="text-align: right;">220</td>
+<td>Illustrer par des exemples la théorie des équations différentielles
+ordinaires.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>non</td>
+<td>non</td>
+<td>1405–1422</td>
+<td>Aucune équation différentielle, trajectoire ou théorie de
+Cauchy–Lipschitz.</td>
+<td>Stampacchia et les méthodes variationnelles sont seulement cités ;
+pas de crédit pour une EDO absente.</td>
+</tr>
+<tr>
+<td style="text-align: right;">221</td>
+<td>Équations différentielles linéaires. Systèmes d’équations
+différentielles linéaires. Exemples et applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>non</td>
+<td>non</td>
+<td>1423–1438</td>
+<td>Ni système différentiel linéaire ni espace de solutions n’est
+étudié.</td>
+<td>Une projection de Galerkin demanderait une application nouvelle, non
+présente.</td>
+</tr>
+<tr>
+<td style="text-align: right;">223</td>
+<td>Suites réelles et complexes. Convergence, valeurs d’adhérence.
+Exemples et applications.</td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>non</td>
+<td>non</td>
+<td>1439–1458</td>
+<td>Une suite minimisante est rendue de Cauchy, mais elle prend ses
+valeurs dans un Hilbert arbitraire. Les suites réelles de distances ne
+font que transmettre l’infimum ; les valeurs d’adhérence et la
+convergence de suites scalaires ne sont pas l’objet.</td>
+<td>La restriction à la droite réduit fortement le contenu ; ne pas
+présenter ce théorème hilbertien comme développement de suites
+réelles.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/224-exemples-de-developpements-asymptotiques.html">224</a></td>
+<td>Exemples de développements asymptotiques de suites et de
+fonctions.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>1459–1472</td>
+<td>Aucun développement asymptotique de suite ou de fonction : le
+passage à la limite dans une suite minimisante ne constitue pas un
+recasage.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;">226</td>
+<td>Suites vectorielles et réelles définies par une relation de
+récurrence un`1 “ fpunq. Exemples. Applications à la résolution
+approchée d’équations.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>non</td>
+<td>non</td>
+<td>1473–1488</td>
+<td>La suite minimisante est choisie par l’infimum et ne satisfait
+aucune récurrence définie. La non-expansivité de P_C n’est pas un
+théorème de convergence des itérées.</td>
+<td>Les projections alternées sont une application annoncée seulement ;
+démontrer leur convergence constituerait un nouvel ajout
+substantiel.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/228-continuite-derivabilite-fonctions-reelles-une-variable.html">228</a></td>
+<td>Continuité, dérivabilité des fonctions réelles d’une variable
+réelle. Exemples et applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>1489–1509</td>
+<td>Aucun contenu sur les fonctions réelles d’une variable.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;">229</td>
+<td>Fonctions monotones. Fonctions convexes. Exemples et
+applications.</td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td>non</td>
+<td>conditionnelle</td>
+<td>1510–1520</td>
+<td>Le jury inclut explicitement les extrema des fonctions convexes sur
+une partie convexe de Rⁿ (1517–1518). La preuve établit déjà existence,
+unicité et condition variationnelle pour la fonction strictement convexe
+f_x(z)=½‖x−z‖². Cela dépasse un simple voisinage lexical, mais cette
+unique fonction quadratique et l’orientation initiale vers les ensembles
+justifient 3, non 4 ou 5.</td>
+<td>Création seulement conditionnelle : présenter dès le départ le
+problème de minimisation d’une fonction convexe en dimension finie,
+expliciter sa stricte convexité et sa différentielle, puis relire les
+étapes existantes comme existence et optimalité sous contrainte.
+Conserver ailleurs dans le plan les fonctions monotones ; sans cette
+orientation, revenir à 1/5 et ne pas créer la fiche pour ce seul
+recasage.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/230-series-nombres-reels-complexes.html">230</a></td>
+<td>Séries de nombres réels et complexes. Comportement des restes ou des
+sommes partielles des séries numériques. Exemples.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>1521–1533</td>
+<td>Aucune série numérique.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/234-fonctions-espaces-lebesgue-integrables.html">234</a></td>
+<td>Fonctions et espaces de fonctions Lebesgue-intégrables.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>1534–1544</td>
+<td>Aucun théorème d’intégration ni espace <span
+class="math inline">\(L^p\)</span> concret ne structure la preuve.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a></td>
+<td>Problèmes d’interversion de symboles en analyse</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>1545–1559</td>
+<td>Aucune interversion de symboles.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/236-methodes-calcul-integrales.html">236</a></td>
+<td>Illustrer par des exemples quelques méthodes de calcul d’intégrales
+de fonctions d’une ou plusieurs variables.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>1560–1570</td>
+<td>Aucun calcul d’intégrale.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">239</a></td>
+<td>Fonctions définies par une intégrale dépendant d’un paramètre.
+Exemples et applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>1571–1580</td>
+<td>Aucune intégrale dépendant d’un paramètre.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/241-suites-series-fonctions-exemples-contre-exemples.html">241</a></td>
+<td>Suites et séries de fonctions. Exemples et contre-exemples.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>1581–1594</td>
+<td>Aucune suite ou série de fonctions.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;">243</td>
+<td>Séries entières, propriétés de la somme. Exemples et
+applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>non</td>
+<td>non</td>
+<td>1595–1617</td>
+<td>Aucune série entière ni étude de rayon, somme ou analyticity.</td>
+<td>Aucune adaptation pertinente.</td>
+</tr>
+<tr>
+<td style="text-align: right;">245</td>
+<td>Fonctions holomorphes et méromorphes sur un ouvert de C. Exemples et
+applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>non</td>
+<td>non</td>
+<td>1618–1631</td>
+<td>Le cadre réel et les variations convexes n’utilisent aucune
+holomorphie ni méromorphie.</td>
+<td>Une application aux espaces de Hardy serait un nouveau bloc, non une
+spécialisation suffisante.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/246-series-de-fourier-exemples-applications.html">246</a></td>
+<td>Séries de Fourier. Exemples et applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>1632–1659</td>
+<td>Aucun argument de séries de Fourier.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">250</a></td>
+<td>Transformation de Fourier. Applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>1660–1674</td>
+<td>Aucune transformation de Fourier.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/253-convexite-en-analyse.html">253</a></td>
+<td>Utilisation de la notion de convexité en analyse.</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>oui</td>
+<td>non</td>
+<td>1675–1688</td>
+<td>Convexité du milieu et du segment : mécanisme central et attendu
+explicite.</td>
+<td>Mettre en évidence les deux emplois structurants de la convexité :
+milieu pour Cauchy et unicité, segment pour l’optimalité. Illustrer
+géométriquement.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a></td>
+<td>Loi d’une variable aléatoire : caractérisations, exemples,
+applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>1689–1707</td>
+<td>Aucun contenu probabiliste.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/262-convergences-variables-aleatoires-theoremes-limite.html">262</a></td>
+<td>Convergences d’une suite de variables aléatoires. Théorèmes limite.
+Exemples et applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>1708–1718</td>
+<td>Aucun contenu probabiliste.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+<tr>
+<td style="text-align: right;">264</td>
+<td>Variables aléatoires discrètes. Exemples et applications.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>non</td>
+<td>non</td>
+<td>1719–1727</td>
+<td>Aucune variable aléatoire discrète, loi, espérance ni fonction
+génératrice.</td>
+<td>Une interprétation probabiliste du projeté ne remplace pas une étude
+de lois discrètes.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/266-independance-probabilites.html">266</a></td>
+<td>Utilisation de la notion d’indépendance en probabilités.</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>oui</td>
+<td>non</td>
+<td>1728–1740</td>
+<td>Aucun contenu probabiliste.</td>
+<td>Aucune adaptation légère ne transforme le mécanisme actuel en
+développement de cette leçon ; une application substantielle nouvelle
+devrait être écrite et auditée séparément.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vérifications-et-limites">Vérifications et limites</h2>
+<ul>
+<li>Ensemble officiel comparé au jeu complet des en-têtes des
+commentaires : 68 numéros uniques, aucun manquant ou
+supplémentaire.</li>
+<li>Inventaire réel : 46 numéros ; liste officielle moins inventaire :
+22. Même jeu de 46 colonnes dans la matrice et la fiche actuelle.</li>
+<li>Les 46 scores existants coïncident entre fiche et matrice ; les 7
+recasages ≥4 correspondent tous à des fichiers existants.</li>
+<li>Aucune modification des pages partagées ; livrables destinés à
+l’intégration par le parent uniquement.</li>
+<li>Les outils de lecture standard ont fonctionné lors de cette reprise
+: aucun blocage de permissions rencontré.</li>
+<li>Pas de contrôle visuel du PDF, de chronométrage réel ou de
+vérification de publication ; non nécessaires à ce mandat d’audit local
+et non revendiqués.</li>
+</ul>
+</body>
+</html>
