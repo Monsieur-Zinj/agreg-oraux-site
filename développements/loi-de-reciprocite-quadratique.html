@@ -111,11 +111,15 @@ même classe dans</p>
 <p><span class="math display">\[
 \mathbb F_q^\times/(\mathbb F_q^\times)^2.
 \]</span></p>
-<p>Autrement dit, pour l’action</p>
+<p>Autrement dit, pour l’action à droite</p>
 <p><span class="math display">\[
-\mathrm{GL}_n(\mathbb F_q)\curvearrowright \mathrm{Sym}_n(\mathbb F_q),
-\qquad P\cdot M={}^tPMP,
+\mathrm{Sym}_n(\mathbb F_q)\times\mathrm{GL}_n(\mathbb
+F_q)\longrightarrow\mathrm{Sym}_n(\mathbb F_q),
+\qquad M\cdot P={}^tPMP,
 \]</span></p>
+<p>En effet, <span class="math inline">\((M\cdot P)\cdot
+Q={}^tQ\,{}^tPMPQ={}^t(PQ)M(PQ)=M\cdot(PQ)\)</span>. Pour cette
+action,</p>
 <p>la dimension et la classe du déterminant caractérisent les orbites
 non dégénérées.</p>
 <h2 id="résultats-liés">Résultats liés</h2>
@@ -272,13 +276,38 @@ leçon <a href="../alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.h
 <ul>
 <li><span class="math inline">\((\mathbb F_p,+)\curvearrowright
 X\)</span>, dont les orbites donnent une congruence de cardinaux ;</li>
-<li><span class="math inline">\(\mathrm{GL}_p(\mathbb
-F_q)\curvearrowright\mathrm{Sym}_p(\mathbb F_q)\)</span> par congruence,
-dont les orbites classifient les formes et permettent de choisir un
-représentant simple.</li>
+<li>l’action à droite de <span
+class="math inline">\(\mathrm{GL}_p(\mathbb F_q)\)</span> sur <span
+class="math inline">\(\mathrm{Sym}_p(\mathbb F_q)\)</span> par
+congruence, dont les orbites classifient les formes et permettent de
+choisir un représentant simple.</li>
 </ul>
 <p>On illustre ainsi les deux fonctions majeures d’une action :
 <strong>dénombrer</strong> et <strong>classifier</strong>.</p>
+<h2 id="lectures-spécifiques-pour-les-leçons-106-et-149">Lectures
+spécifiques pour les leçons <a href="../alg%C3%A8bre/le%C3%A7ons/106-groupe-lineaire-sous-groupes.html">106</a> et <a href="../alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a></h2>
+<ul>
+<li><a href="../alg%C3%A8bre/le%C3%A7ons/106-groupe-lineaire-sous-groupes.html">106
+— Groupe linéaire</a>, <strong>4/5</strong> : présenter le stabilisateur
+<span class="math inline">\(O(M)=\{P\in\mathrm{GL}_n(\mathbb
+F_q):{}^tPMP=M\}\)</span>. C’est un sous-groupe par la propriété
+d’action. Les matrices de permutation cyclique préservent <span
+class="math inline">\(I_p\)</span> et forment un sous-groupe de <span
+class="math inline">\(O(I_p)\)</span> ; elles relient l’action qui
+compte à l’action qui classifie. Le choix d’un représentant de l’orbite
+rend le comptage possible. Le jury attend explicitement les
+stabilisateurs d’actions naturelles sur les formes quadratiques (rapport
+2025, extrait oraux-leçons, lignes 578–586).</li>
+<li><a
+href="../alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149 —
+Déterminant</a>, <strong>4/5</strong> : expliciter <span
+class="math inline">\(\det({}^tPMP)=(\det P)^2\det M\)</span> et la
+classe du discriminant. L’égalité <span class="math inline">\(\det
+A=\det I_p\)</span> choisit effectivement le modèle du second calcul. Le
+rôle du déterminant dans les formes quadratiques figure parmi les
+applications attendues (lignes 804–820). Garder la classification dans
+le plan, sa preuve étant disponible en réserve.</li>
+</ul>
 <h2 id="exemple-dapplication">Exemple d’application</h2>
 <p>Pour <span class="math inline">\(p=3\)</span> et <span
 class="math inline">\(q=11\)</span>,</p>
