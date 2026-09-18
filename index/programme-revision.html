@@ -1,0 +1,258 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Programme de révision — cinq développements</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css?v=3fa8cfdcc3ea" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Programme de révision — cinq développements</h1>
+</header>
+<h1 id="programme-de-révision-cinq-développements">Programme de révision
+— cinq développements</h1>
+<p><a href="../index.html">← Accueil</a> · <a
+href="developpements.html">Développements</a> · <a
+href="lecons.html">Leçons</a> · <a
+href="matrice-developpements-lecons.html">Matrice</a></p>
+<h2 id="objectif">Objectif</h2>
+<p>Travailler un portefeuille cohérent de <strong>cinq
+développements</strong> qui relie approximation, probabilités, analyse
+de Fourier, interversions et asymptotique. Avec les scores actuels de la
+matrice, ce choix rend <strong>11 leçons complètes</strong> : chacune
+dispose d’au moins deux développements notés 4 ou 5.</p>
+<p>Ce total est maximal parmi les portefeuilles d’au plus cinq
+développements actuellement présents. Parmi les choix ex æquo, celui-ci
+évite de retenir deux preuves du même théorème de Weierstrass et
+conserve une chaîne thématique continue.</p>
+<h2 id="les-cinq-développements-retenus">Les cinq développements
+retenus</h2>
+<ol type="1">
+<li><a
+href="../d%C3%A9veloppements/theoreme-weierstrass-preuve-probabiliste.html">Théorème
+de Weierstrass — preuve probabiliste</a> — approximation uniforme, loi
+binomiale et concentration.</li>
+<li><a
+href="../d%C3%A9veloppements/theoreme-levy-tcl-application.html">Théorème de
+Lévy, théorème central limite et application</a> — fonctions
+caractéristiques, indépendance, convergence en loi et Fourier.</li>
+<li><a href="../d%C3%A9veloppements/formules-poisson-shannon.html">Formules de
+Poisson et de Shannon</a> — périodisation, transformation de Fourier et
+échantillonnage.</li>
+<li><a href="../d%C3%A9veloppements/theoreme-fejer.html">Théorème de Fejér</a>
+— convolution, approximation de l’identité et séries de Fourier.</li>
+<li><a href="../d%C3%A9veloppements/methode-de-laplace.html">Méthode de Laplace
+et formule de Stirling</a> — Taylor, convergence dominée, intégrales à
+paramètre et asymptotique.</li>
+</ol>
+<h2 id="fil-conducteur">Fil conducteur</h2>
+<ul>
+<li><strong><a href="../d%C3%A9veloppements/theoreme-weierstrass-preuve-probabiliste.html">Weierstrass probabiliste</a> → <a href="../d%C3%A9veloppements/theoreme-levy-tcl-application.html">Lévy–TCL</a></strong> : la loi
+binomiale, la concentration et les outils probabilistes conduisent
+naturellement aux fonctions caractéristiques et aux théorèmes
+limites.</li>
+<li><strong><a href="../d%C3%A9veloppements/theoreme-levy-tcl-application.html">Lévy–TCL</a> → Poisson–Shannon</strong> : la fonction
+caractéristique est une transformée de Fourier ; on passe de la
+convergence des lois à la reconstruction des fonctions à spectre
+borné.</li>
+<li><strong>Poisson–Shannon → Fejér</strong> : périodisation,
+coefficients de Fourier, convolution et sommation des séries forment un
+même bloc de Fourier.</li>
+<li><strong><a href="../d%C3%A9veloppements/theoreme-levy-tcl-application.html">Lévy–TCL</a> → Laplace–Stirling</strong> : Taylor, concentration
+autour d’un point dominant et passages à la limite relient les
+asymptotiques probabilistes et intégrales.</li>
+<li><strong>Fejér → <a href="../d%C3%A9veloppements/theoreme-weierstrass-preuve-probabiliste.html">Weierstrass probabiliste</a></strong> : deux
+approximations constructives et complémentaires, l’une par convolution,
+l’autre par concentration binomiale.</li>
+</ul>
+<h2 id="ordre-de-révision">Ordre de révision</h2>
+<h3 id="étape-1-weierstrass-probabiliste">Étape 1 — <a href="../d%C3%A9veloppements/theoreme-weierstrass-preuve-probabiliste.html">Weierstrass
+probabiliste</a></h3>
+<p>Objectif : maîtriser l’écriture de Bernstein comme espérance et
+surtout l’estimation uniforme en <span
+class="math inline">\(x\)</span>.</p>
+<p>Leçons à travailler en parallèle :</p>
+<ul>
+<li><a
+href="../analyse/le%C3%A7ons/201-espaces-de-fonctions-exemples-applications.html">201
+— Espaces de fonctions</a> ;</li>
+<li><a
+href="../analyse/le%C3%A7ons/209-approximation-fonction-par-fonctions-regulieres.html">209
+— Approximation par des fonctions régulières</a> ;</li>
+<li><a href="../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261 — Loi
+d’une variable aléatoire</a> ;</li>
+<li><a
+href="../analyse/le%C3%A7ons/262-convergences-variables-aleatoires-theoremes-limite.html">262
+— Convergences de variables aléatoires</a> ;</li>
+<li><a
+href="../analyse/le%C3%A7ons/264-variables-aleatoires-discretes.html">264 —
+Variables aléatoires discrètes</a> ;</li>
+<li><a href="../analyse/le%C3%A7ons/266-independance-probabilites.html">266 —
+Indépendance</a>.</li>
+</ul>
+<h3 id="étape-2-lévytcl">Étape 2 — <a href="../d%C3%A9veloppements/theoreme-levy-tcl-application.html">Lévy–TCL</a></h3>
+<p>Objectif : savoir expliquer la chaîne « indépendance → produit des
+fonctions caractéristiques → convergence des transformées → convergence
+en loi ».</p>
+<p>Premières leçons complètes : <strong><a href="../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a>, <a href="../analyse/le%C3%A7ons/262-convergences-variables-aleatoires-theoremes-limite.html">262</a> et <a href="../analyse/le%C3%A7ons/266-independance-probabilites.html">266</a></strong>.</p>
+<h3 id="étape-3-poissonshannon">Étape 3 — Poisson–Shannon</h3>
+<p>Objectif : relier clairement périodisation, absence de repliement
+spectral et reconstruction par les sinus cardinaux.</p>
+<p>Nouvelles leçons complètes : <strong><a href="../analyse/le%C3%A7ons/201-espaces-de-fonctions-exemples-applications.html">201</a>, <a href="../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a>, <a href="../analyse/le%C3%A7ons/241-suites-series-fonctions-exemples-contre-exemples.html">241</a> et
+<a href="../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">250</a></strong>.</p>
+<h3 id="étape-4-fejér">Étape 4 — Fejér</h3>
+<p>Objectif : conduire la preuve par approximation de l’identité sur le
+cercle, avec positivité, masse un et concentration du noyau.</p>
+<p>Nouvelles leçons complètes : <strong><a href="../analyse/le%C3%A7ons/209-approximation-fonction-par-fonctions-regulieres.html">209</a> et <a href="../analyse/le%C3%A7ons/246-series-de-fourier-exemples-applications.html">246</a></strong>.</p>
+<h3 id="étape-5-laplacestirling">Étape 5 — Laplace–Stirling</h3>
+<p>Objectif : maîtriser la localisation au voisinage du minimum,
+l’échelle <span class="math inline">\(t^{-1/2}\)</span> et la domination
+du terme de reste.</p>
+<p>Nouvelles leçons complètes : <strong><a href="../analyse/le%C3%A7ons/218-formules-de-taylor-exemples-applications.html">218</a> et <a href="../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">239</a></strong>.</p>
+<h2 id="les-11-leçons-complètes-obtenues">Les 11 leçons complètes
+obtenues</h2>
+<table>
+<colgroup>
+<col style="width: 57%" />
+<col style="width: 42%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">Leçon</th>
+<th>Deux appuis forts au moins</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><a
+href="../analyse/le%C3%A7ons/201-espaces-de-fonctions-exemples-applications.html">201
+— Espaces de fonctions</a></td>
+<td><a href="../d%C3%A9veloppements/theoreme-weierstrass-preuve-probabiliste.html">Weierstrass probabiliste</a> (5), Poisson–Shannon (4), Fejér (4)</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a
+href="../analyse/le%C3%A7ons/209-approximation-fonction-par-fonctions-regulieres.html">209
+— Approximation par des fonctions régulières</a></td>
+<td><a href="../d%C3%A9veloppements/theoreme-weierstrass-preuve-probabiliste.html">Weierstrass probabiliste</a> (5), Fejér (5)</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a
+href="../analyse/le%C3%A7ons/218-formules-de-taylor-exemples-applications.html">218
+— Formules de Taylor</a></td>
+<td>Laplace–Stirling (5), <a href="../d%C3%A9veloppements/theoreme-levy-tcl-application.html">Lévy–TCL</a> (4)</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a
+href="../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235
+— Interversion de symboles</a></td>
+<td><a href="../d%C3%A9veloppements/theoreme-levy-tcl-application.html">Lévy–TCL</a> (5), Poisson–Shannon (4), Laplace–Stirling (4)</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a
+href="../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">239
+— Intégrales dépendant d’un paramètre</a></td>
+<td>Laplace–Stirling (5), <a href="../d%C3%A9veloppements/theoreme-levy-tcl-application.html">Lévy–TCL</a> (4)</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a
+href="../analyse/le%C3%A7ons/241-suites-series-fonctions-exemples-contre-exemples.html">241
+— Suites et séries de fonctions</a></td>
+<td>Poisson–Shannon (5), Fejér (5), <a href="../d%C3%A9veloppements/theoreme-weierstrass-preuve-probabiliste.html">Weierstrass probabiliste</a> (4)</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a
+href="../analyse/le%C3%A7ons/246-series-de-fourier-exemples-applications.html">246
+— Séries de Fourier</a></td>
+<td>Poisson–Shannon (5), Fejér (5)</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a
+href="../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">250
+— Transformation de Fourier</a></td>
+<td>Poisson–Shannon (5), <a href="../d%C3%A9veloppements/theoreme-levy-tcl-application.html">Lévy–TCL</a> (5)</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a
+href="../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261 — Loi d’une
+variable aléatoire</a></td>
+<td><a href="../d%C3%A9veloppements/theoreme-weierstrass-preuve-probabiliste.html">Weierstrass probabiliste</a> (5), <a href="../d%C3%A9veloppements/theoreme-levy-tcl-application.html">Lévy–TCL</a> (5)</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a
+href="../analyse/le%C3%A7ons/262-convergences-variables-aleatoires-theoremes-limite.html">262
+— Convergences de variables aléatoires</a></td>
+<td><a href="../d%C3%A9veloppements/theoreme-levy-tcl-application.html">Lévy–TCL</a> (5), <a href="../d%C3%A9veloppements/theoreme-weierstrass-preuve-probabiliste.html">Weierstrass probabiliste</a> (4)</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a
+href="../analyse/le%C3%A7ons/266-independance-probabilites.html">266 —
+Indépendance</a></td>
+<td><a href="../d%C3%A9veloppements/theoreme-weierstrass-preuve-probabiliste.html">Weierstrass probabiliste</a> (5), <a href="../d%C3%A9veloppements/theoreme-levy-tcl-application.html">Lévy–TCL</a> (5)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="leçons-amorcées">Leçons amorcées</h2>
+<p>Le portefeuille donne aussi un premier développement fort à sept
+leçons :</p>
+<ul>
+<li><a
+href="../analyse/le%C3%A7ons/203-utilisation-de-la-notion-de-compacite.html">203
+— Compacité</a> : <a href="../d%C3%A9veloppements/theoreme-weierstrass-preuve-probabiliste.html">Weierstrass probabiliste</a> (4) ;</li>
+<li><a
+href="../analyse/le%C3%A7ons/213-espaces-hilbert-exemples-applications.html">213
+— Espaces de Hilbert</a> : Poisson–Shannon (5) ;</li>
+<li><a
+href="../analyse/le%C3%A7ons/224-exemples-de-developpements-asymptotiques.html">224
+— Développements asymptotiques</a> : Laplace–Stirling (5) ;</li>
+<li><a
+href="../analyse/le%C3%A7ons/228-continuite-derivabilite-fonctions-reelles-une-variable.html">228
+— Continuité et dérivabilité</a> : <a href="../d%C3%A9veloppements/theoreme-weierstrass-preuve-probabiliste.html">Weierstrass probabiliste</a> (4) ;</li>
+<li><a
+href="../analyse/le%C3%A7ons/234-fonctions-espaces-lebesgue-integrables.html">234
+— Espaces de fonctions intégrables</a> : Laplace–Stirling (4) ;</li>
+<li><a href="../analyse/le%C3%A7ons/236-methodes-calcul-integrales.html">236 —
+Calcul d’intégrales</a> : Laplace–Stirling (4) ;</li>
+<li><a
+href="../analyse/le%C3%A7ons/264-variables-aleatoires-discretes.html">264 —
+Variables aléatoires discrètes</a> : <a href="../d%C3%A9veloppements/theoreme-weierstrass-preuve-probabiliste.html">Weierstrass probabiliste</a> (5).</li>
+</ul>
+<h2 id="rythme-conseillé-pour-chaque-étape">Rythme conseillé pour chaque
+étape</h2>
+<ol type="1">
+<li>Refaire la preuve sans notes en visant quinze minutes.</li>
+<li>Préparer les hypothèses sensibles, les interversions et deux
+questions possibles du jury.</li>
+<li>Replacer le développement dans chacune des leçons indiquées, avec
+une introduction et une transition adaptées.</li>
+<li>Terminer par un passage au tableau chronométré et une reprise ciblée
+des points bloquants.</li>
+</ol>
+<p>Les notes et le nombre de leçons complètes sont ceux de la <a
+href="matrice-developpements-lecons.html">matrice actuelle</a> ; cette
+page doit être réévaluée si un développement ou un score de recasage
+change.</p>
+</body>
+</html>
