@@ -935,6 +935,153 @@ minutes.</li>
 </ul>
 <h2 id="sources-et-portée-de-la-vérification">5. Sources et portée de la
 vérification</h2>
+<h3 id="contrôle-contre-références.txt">Contrôle contre
+<code>références.txt</code></h3>
+<p>Le contrôle ci-dessous est <strong>strict</strong> : un intitulé
+présent sur agreg-maths.fr n’est considéré comme autorisé que si au
+moins une version du développement renvoie à l’une des vingt références
+de <code>références.txt</code>. La présence du résultat dans un plan de
+leçon ne suffit pas à valider la version exacte de la preuve proposée
+ici.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Candidat</th>
+<th>Statut documentaire</th>
+<th>Référence autorisée retrouvée</th>
+<th>Conséquence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Générateurs de <span class="math inline">\(\mathrm{SL}_n(K)\)</span>
+par les transvections</td>
+<td><strong>Validé</strong></td>
+<td>Gourdon, <em>Algèbre</em> (<code>/references/87</code>),
+développement « Générateurs de <span
+class="math inline">\(\mathrm{GL}_n(K)\)</span> et de <span
+class="math inline">\(\mathrm{SL}_n(K)\)</span> »
+(<code>/developpements/262</code>)</td>
+<td>Candidat utilisable ; vérifier la factorisation explicite retenue
+avant rédaction.</td>
+</tr>
+<tr>
+<td>Théorème spectral réel par maximisation de Rayleigh</td>
+<td><strong>Validé pour le théorème, version exacte à
+contrôler</strong></td>
+<td>Grifone, <em>Algèbre linéaire</em> (<code>/references/91</code>), et
+Gourdon, <em>Algèbre</em> (<code>/references/87</code>), développement «
+Diagonalisation des endomorphismes autoadjoints »
+(<code>/developpements/322</code>)</td>
+<td>Les références autorisent le développement spectral ; il reste à
+vérifier dans le livre que la preuve choisie est bien la maximisation de
+Rayleigh décrite plus haut.</td>
+</tr>
+<tr>
+<td>Classification des nilpotents par les noyaux itérés</td>
+<td><strong>Validé</strong></td>
+<td>Gourdon (<code>/references/87</code>), Grifone
+(<code>/references/91</code>) et <em>Nouvelles histoires
+hédonistes…</em> (<code>/references/292</code>), développement «
+Réduction de Jordan d’un endomorphisme nilpotent »
+(<code>/developpements/56</code>)</td>
+<td>Candidat utilisable ; choisir une version qui construit réellement
+les chaînes sans supposer Jordan.</td>
+</tr>
+<tr>
+<td>Forme normale de rang et conséquences duales</td>
+<td><strong>Non validé comme développement autonome</strong></td>
+<td>Grifone (<code>/references/91</code>) couvre rang et dualité, mais
+aucun développement correspondant exactement à l’enchaînement proposé
+n’a été retrouvé</td>
+<td>Ne pas le préparer comme développement tant qu’un passage précis
+d’une référence autorisée n’a pas été identifié.</td>
+</tr>
+<tr>
+<td>Cholesky par blocs et complément de Schur</td>
+<td><strong>Partiellement validé</strong></td>
+<td><em>Carnet de voyage en Algébrie</em>
+(<code>/references/316</code>), développement « Décomposition LU et
+décomposition de Cholesky » (<code>/developpements/231</code>), p. 69–72
+signalées</td>
+<td>La source autorisée valide le paquet <strong>LU + Cholesky</strong>,
+pas encore la version isolée « Cholesky par complément de Schur »
+décrite ici. Recaler le candidat sur la version du Carnet ou retrouver
+le passage exact.</td>
+</tr>
+<tr>
+<td>Simplicité de <span class="math inline">\(\mathfrak
+A_5\)</span></td>
+<td><strong>Validé pour le résultat, version exacte à
+contrôler</strong></td>
+<td>Perrin, <em>Cours d’algèbre</em> (<code>/references/127</code>),
+développement « Simplicité de A5 »
+(<code>/developpements/838</code>)</td>
+<td>Candidat autorisé ; vérifier que la version de Perrin suit bien le
+calcul des classes de conjugaison annoncé ici.</td>
+</tr>
+<tr>
+<td>Cyclicité de <span class="math inline">\(\mathbb
+F_q^\times\)</span></td>
+<td><strong>Non validé dans la version proposée</strong></td>
+<td>La fiche exacte (<code>/developpements/728</code>) renvoie seulement
+au Rombaldi (<code>/references/287</code>), absent de
+<code>références.txt</code> ; Perrin autorisé contient de la matière sur
+la construction des corps finis, sans validation de cette fiche
+exacte</td>
+<td>Chercher un passage précis dans Perrin ou Gourdon avant de conserver
+ce candidat comme développement sourcé.</td>
+</tr>
+<tr>
+<td>Cayley–Hamilton par l’adjugée</td>
+<td><strong>Non validé dans la version proposée</strong></td>
+<td>La fiche « Théorème de Cayley–Hamilton »
+(<code>/developpements/1299</code>) renvoie à Mansuy–Mneimné, absent de
+<code>références.txt</code> ; aucune version « par l’adjugée » rattachée
+à une référence autorisée n’a été retrouvée</td>
+<td>À retirer de la liste opérationnelle tant qu’une source autorisée
+précise n’est pas trouvée. L’algorithme de Faddeev chez Gourdon est une
+autre preuve et ne valide pas automatiquement celle-ci.</td>
+</tr>
+<tr>
+<td>Décomposition de Dunford additive</td>
+<td><strong>Validé</strong></td>
+<td>Gourdon, <em>Algèbre</em> (<code>/references/87</code>),
+développement « Décomposition de Dunford (version non algorithmique) »
+(<code>/developpements/1</code>) ; une version algorithmique existe
+aussi dans le <em>Carnet de voyage en Algébrie</em>
+(<code>/references/316</code>)</td>
+<td>Candidat autorisé ; distinguer clairement version non algorithmique
+et version algorithmique.</td>
+</tr>
+<tr>
+<td>Formule de Burnside</td>
+<td><strong>Validé</strong></td>
+<td><em>Carnet de voyage en Algébrie</em> (<code>/references/316</code>)
+et <em>Histoires hédonistes…</em>, tome 2
+(<code>/references/33</code>)</td>
+<td>Le résultat est bien dans les références autorisées, sans changer le
+verdict stratégique : ne pas en faire un développement prioritaire sans
+application distinctive.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bilan strict :</strong> quatre candidats sont directement
+validés dans la forme générale annoncée (transvections,
+nilpotents/Jordan, Dunford, Burnside) ; deux sont validés pour le
+résultat mais demandent le contrôle de la variante exacte de preuve
+(spectral–Rayleigh, simplicité de <span class="math inline">\(\mathfrak
+A_5\)</span>) ; Cholesky doit être réaligné sur la version autorisée LU
++ Cholesky ; trois ne sont pas encore suffisamment sourcés dans les
+références autorisées (forme normale de rang, cyclicité de <span
+class="math inline">\(\mathbb F_q^\times\)</span>, Cayley–Hamilton par
+l’adjugée).</p>
 <p>Documents consultés lors de l’audit :</p>
 <ul>
 <li><code>index/matrice-developpements-lecons.md</code> : calcul de la
