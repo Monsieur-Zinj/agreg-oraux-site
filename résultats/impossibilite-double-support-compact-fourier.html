@@ -1,0 +1,130 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Impossibilité d’un double support compact en Fourier</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css?v=3fa8cfdcc3ea" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Impossibilité d’un double support compact en
+Fourier</h1>
+</header>
+<h1
+id="impossibilité-dun-double-support-compact-en-fourier">Impossibilité
+d’un double support compact en Fourier</h1>
+<p><a href="../index/resultats.html">Résultats</a> · <a
+href="../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">Leçon
+250</a> · <a
+href="../d%C3%A9veloppements/formules-poisson-shannon.html">Poisson–Shannon</a></p>
+<h2 id="énoncé">Énoncé</h2>
+<p>Soit <span class="math inline">\(f\in L^1(\mathbb R)\)</span>, avec
+la convention <span class="math inline">\(\widehat f(\xi)=\int_{\mathbb
+R}f(t)e^{-2i\pi t\xi}\,dt\)</span>. Si <span
+class="math inline">\(f\)</span> et <span class="math inline">\(\widehat
+f\)</span> ont toutes deux un support compact, alors <span
+class="math inline">\(f=0\)</span> presque partout. Autrement dit, un
+signal non nul ne peut être simultanément de durée strictement finie et
+exactement à bande limitée.</p>
+<p>Le même énoncé vaut dans <span class="math inline">\(L^2(\mathbb
+R)\)</span> avec la transformée de Plancherel : le support compact de
+<span class="math inline">\(f\)</span> entraîne alors <span
+class="math inline">\(f\in L^1\)</span> par Cauchy–Schwarz.</p>
+<h2 id="preuve">Preuve</h2>
+<p>Supposons <span class="math inline">\(f\)</span> nulle presque
+partout hors de <span class="math inline">\([-A,A]\)</span>. La
+fonction</p>
+<p><span class="math display">\[
+F(z)=\int_{-A}^{A}f(t)e^{-2i\pi tz}\,dt,\qquad z\in\mathbb C,
+\]</span></p>
+<p>est entière. En effet, sur tout compact complexe où <span
+class="math inline">\(|\operatorname{Im}z|\le M\)</span>, l’intégrande
+et ses dérivées d’ordre <span class="math inline">\(k\)</span> en <span
+class="math inline">\(z\)</span> sont majorés en module par <span
+class="math inline">\((2\pi A)^k e^{2\pi AM}|f(t)|\)</span>, fonction
+intégrable. La dérivation sous l’intégrale est donc justifiée.</p>
+<p>Sur l’axe réel, <span class="math inline">\(F=\widehat f\)</span>. Si
+<span class="math inline">\(\widehat f\)</span> est à support compact,
+<span class="math inline">\(F\)</span> s’annule sur un intervalle réel
+ouvert extérieur à ce support. Dans le cas d’une nullité seulement
+presque partout, sa continuité donne la nullité partout sur cet
+intervalle. Le principe des zéros isolés impose <span
+class="math inline">\(F\equiv0\)</span>. L’injectivité de la
+transformation de Fourier sur <span class="math inline">\(L^1\)</span>
+entraîne <span class="math inline">\(f=0\)</span> presque partout.</p>
+<h2 id="lien-avec-shannon-et-la-pratique">Lien avec Shannon et la
+pratique</h2>
+<p>Shannon reconstruit un signal exactement à bande limitée à partir de
+toute sa suite d’échantillons, indexée par <span
+class="math inline">\(\mathbb Z\)</span>. Il ne suppose ni périodicité
+du signal ni durée finie. Le présent résultat est une ouverture : il
+n’est pas un prérequis de la preuve de Shannon.</p>
+<ul>
+<li>Un enregistrement limité dans le temps revient à multiplier le
+signal par une fenêtre ; cela convolue son spectre avec celui de la
+fenêtre et ne préserve généralement pas la bande stricte.</li>
+<li>Un filtre anti-repliement atténue les fréquences au-delà de la bande
+retenue avant échantillonnage ; un filtre réalisable n’est pas la
+coupure idéale exacte.</li>
+<li>Une fréquence d’échantillonnage supérieure au seuil laisse une bande
+de garde pour la transition du filtre. Elle n’élimine pas à elle seule
+toute erreur.</li>
+<li>Une reconstruction avec un nombre fini d’échantillons est une
+troncature de la série de Shannon. Son erreur exige des hypothèses de
+décroissance et doit être distinguée des erreurs de filtrage, de bruit
+et de quantification.</li>
+</ul>
+<h2 id="exemples-et-limites">Exemples et limites</h2>
+<p>L’indicatrice d’un intervalle est de durée finie mais sa transformée,
+un sinus cardinal à un facteur près, n’a pas de support compact.
+Réciproquement, <span class="math inline">\(t\mapsto\sin(\pi t)/(\pi
+t)\)</span>, prolongée par <span class="math inline">\(1\)</span> en
+zéro, appartient à <span class="math inline">\(L^2\)</span> et sa
+transformée de Plancherel est l’indicatrice de <span
+class="math inline">\([-1/2,1/2]\)</span> ; ce signal n’est pas de durée
+finie.</p>
+<p>Ne pas confondre support compact et décroissance rapide : l’inverse
+de Fourier d’une fonction non nulle de <span
+class="math inline">\(C_c^\infty\)</span> est une fonction de Schwartz à
+bande limitée, mais non à support compact. La fonction nulle doit être
+exclue lorsqu’on formule l’incompatibilité pour un « signal non nul
+».</p>
+<h2 id="questions-doral">Questions d’oral</h2>
+<ul>
+<li>Où intervient la compacité dans le prolongement entier ?</li>
+<li>Pourquoi un intervalle réel de zéros suffit-il au principe
+d’identité complexe ?</li>
+<li>Pourquoi une observation finie ne signifie-t-elle pas que le signal
+original a un support compact ?</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Restituer la preuve par prolongement
+entier et identifier ses deux prérequis : principe d’identité et
+injectivité de Fourier.</label></li>
+</ul>
+</body>
+</html>
