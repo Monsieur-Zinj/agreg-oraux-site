@@ -312,7 +312,164 @@ La réduction diagonale et la décomposition des blocs de déterminant
 <span class="math inline">\(1\)</span> doivent être écrites.</p>
 <p><strong>Difficulté :</strong> moyenne. Douze à quinze minutes, à
 condition de préparer une factorisation explicite propre.</p>
-<p><strong>Verdict :</strong> premier choix.</p>
+<p><strong>Verdict :</strong> premier choix <strong>pour la version par
+pivot décrite ci-dessus</strong>. La fiche suivante n’est pas cette
+version et ne valide pas automatiquement son gain de couverture.</p>
+<h4 id="source-proposée-version-géométrique-de-cacitti-holland">Source
+proposée : version géométrique de Cacitti-Holland</h4>
+<p><strong>Source lue intégralement :</strong> Dorian Cacitti-Holland,
+<em>Générateurs de SL(E) et GL(E)</em>, 2020–2021, trois pages — <a
+href="https://perso.eleves.ens-rennes.fr/~dcaci409/Generateurs.pdf">PDF</a>.
+La fiche cite le <em>Cours d’algèbre</em> de Daniel Perrin, référence
+autorisée (<code>références.txt</code>, <code>/references/127</code>),
+sans préciser de page dans le livre. Elle annonce seulement les leçons
+<strong><a href="alg%C3%A8bre/le%C3%A7ons/106-groupe-lineaire-sous-groupes.html">106</a> et <a href="alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a></strong> ; ces deux recasages sont confirmés contre
+les attendus du rapport 2025, liste 2026.</p>
+<p><strong>Mécanisme effectif.</strong> Il ne s’agit pas d’une
+élimination de Gauss :</p>
+<ol type="1">
+<li>Envoyer un vecteur non nul sur un autre par une ou deux
+transvections.</li>
+<li>Multiplier l’endomorphisme initial par ces transvections pour qu’il
+fixe un vecteur <span class="math inline">\(x\)</span>.</li>
+<li>Passer au quotient par la droite stable <span
+class="math inline">\(D=Kx\)</span> ; l’endomorphisme induit appartient
+à <span class="math inline">\(\mathrm{SL}(E/D)\)</span>.</li>
+<li>Appliquer la récurrence en dimension inférieure, puis relever les
+transvections du quotient en transvections de <span
+class="math inline">\(E\)</span> fixant <span
+class="math inline">\(x\)</span>.</li>
+<li>Montrer que l’endomorphisme résiduel est l’identité ou une
+transvection de droite <span class="math inline">\(D\)</span>.</li>
+<li>Déduire la génération de <span
+class="math inline">\(\mathrm{GL}(E)\)</span> en corrigeant le
+déterminant par une dilatation.</li>
+</ol>
+<p><strong>Compatibilité avec les recasages initialement envisagés
+:</strong></p>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr>
+<th>Leçon créée</th>
+<th style="text-align: right;">Score de la version par pivot</th>
+<th style="text-align: right;">Score proposé pour ce PDF corrigé</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/106-groupe-lineaire-sous-groupes.html">106</a> — Groupe linéaire</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Conservé : génération de <span
+class="math inline">\(\mathrm{SL}(E)\)</span> puis de <span
+class="math inline">\(\mathrm{GL}(E)\)</span> ; les quotients et
+relèvements donnent une preuve structurelle.</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a> — Parties génératrices</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Conservé : construction d’une décomposition en générateurs,
+exactement dans les exemples attendus.</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a> — Systèmes linéaires</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td style="text-align: right;" class="score score-2">2</td>
+<td><strong>Non conservé comme recasage fort</strong> : le résultat est
+cité parmi les conséquences attendues, mais cette preuve n’utilise ni
+pivot, ni systèmes échelonnés, ni algorithme de résolution. Le titre du
+théorème ne suffit pas à justifier 5/5.</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a> — Déterminant</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Défendable si l’on explicite le déterminant des transvections, la
+matrice triangulaire par blocs et la correction par une dilatation ; le
+corollaire <span class="math inline">\(\mathrm{GL}(E)\)</span> doit
+rester inclus.</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/148-dimension-espace-vectoriel-rang.html">148</a> — Dimension et rang</td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Renforcé : récurrence sur la dimension, choix d’un hyperplan, base
+du quotient et diminution de dimension structurent la preuve ; le
+rapport cite précisément la récurrence en dimension parmi les mécanismes
+pertinents.</td>
+</tr>
+</tbody>
+</table>
+<p>Ces scores restent des appréciations pédagogiques, non des notes du
+jury. Les attendus utilisés sont ceux des lignes 569–607, 772–820 et
+1007–1027 de l’extrait local du rapport. En particulier, le gain initial
+« premier développement fort pour <a href="alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a> » <strong>ne s’applique pas à ce
+PDF</strong> ; à sa place, cette version apporterait un premier
+développement fort pour <a href="alg%C3%A8bre/le%C3%A7ons/148-dimension-espace-vectoriel-rang.html">148</a>, tout en conservant les seconds
+développements envisagés pour <a href="alg%C3%A8bre/le%C3%A7ons/106-groupe-lineaire-sous-groupes.html">106</a>, <a href="alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a> et <a href="alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a>. La leçon <a href="alg%C3%A8bre/le%C3%A7ons/151-sous-espaces-stables-endomorphismes.html">151</a> peut aussi
+être examinée ultérieurement, mais la droite stable est construite pour
+un endomorphisme modifié : ne pas présenter cette preuve comme une étude
+des sous-espaces stables de l’endomorphisme initial.</p>
+<p><strong>Corrections et justifications à intégrer avant préparation
+:</strong></p>
+<ul>
+<li>Page 1, dans le cas colinéaire, si <span
+class="math inline">\(u(x)=z\)</span> et <span
+class="math inline">\(v(z)=y\)</span>, c’est <strong><span
+class="math inline">\(v\circ u\)</span></strong>, et non <span
+class="math inline">\(u\circ v\)</span>, qui envoie <span
+class="math inline">\(x\)</span> sur <span
+class="math inline">\(y\)</span>.</li>
+<li>Page 2, appliquer le lemme à <span
+class="math inline">\(u(x)\)</span> puis <span
+class="math inline">\(x\)</span> pour obtenir la correction qui fixe
+<span class="math inline">\(x\)</span>. Le cas initial doit être formulé
+sur le corps <span class="math inline">\(K\)</span>, et non seulement
+sur <span class="math inline">\(\mathbb R\)</span>.</li>
+<li>Pour le relèvement, écrire explicitement <span
+class="math inline">\(f_i=\bar f_i\circ\pi\)</span> et <span
+class="math inline">\(f_i(a_i)=\bar f_i(\bar a_i)=0\)</span> ; la
+transvection relevée fixe <span class="math inline">\(D\)</span> et
+induit bien <span class="math inline">\(\bar\tau_i\)</span>. Avec la
+convention usuelle des colonnes, corriger aussi les indices de la
+formule de <span class="math inline">\(u(e_i)\)</span> en <span
+class="math inline">\(u(e_i)=\sum_j a_{ji}e_j\)</span>.</li>
+<li>Page 3, si <span class="math inline">\(w=v^{-1}u\)</span> fixe <span
+class="math inline">\(D\)</span> et induit l’identité sur <span
+class="math inline">\(E/D\)</span>, alors <span
+class="math inline">\(\operatorname{Im}(w-I)\subset D\)</span> et <span
+class="math inline">\((w-I)|_D=0\)</span>. Donc <span
+class="math inline">\(w=I+x\otimes f\)</span> avec <span
+class="math inline">\(f(x)=0\)</span> : <strong><span
+class="math inline">\(w\)</span> est l’identité ou une
+transvection</strong>, pas nécessairement une transvection non
+triviale.</li>
+<li>Pour le corollaire, lorsque <span class="math inline">\(\det
+u=1\)</span>, aucune dilatation n’est nécessaire : prendre l’identité
+comme correction plutôt que parler d’une dilatation non triviale de
+rapport <span class="math inline">\(1\)</span>.</li>
+</ul>
+<p>La preuve est réparable sans en changer le mécanisme. Prévoir de
+justifier la forme <span class="math inline">\(I+a\otimes f\)</span>,
+son inverse <span class="math inline">\(I-a\otimes f\)</span> lorsque
+<span class="math inline">\(f(a)=0\)</span> et son déterminant <span
+class="math inline">\(1\)</span>. La durée de quinze minutes reste à
+vérifier en chronométrant le lemme, la récurrence avec relèvement et le
+corollaire.</p>
+<p><strong>Décision laissée ouverte.</strong> Source ajoutée et auditée,
+mais aucune substitution automatique de la version par pivot : retenir
+ce PDF renforcerait l’axe géométrique et dimensionnel, au prix du
+recasage fort en <a href="alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a>. Conserver l’objectif <a href="alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a> demanderait une autre
+preuve, réellement fondée sur les opérations élémentaires. Aucune fiche
+de développement ni entrée de matrice n’est créée à ce stade.</p>
 <h3
 id="théorème-spectral-réel-par-maximisation-de-rayleigh-meilleur-choix-euclidien">2
 — Théorème spectral réel par maximisation de Rayleigh : meilleur choix
@@ -968,8 +1125,11 @@ développement « Générateurs de <span
 class="math inline">\(\mathrm{GL}_n(K)\)</span> et de <span
 class="math inline">\(\mathrm{SL}_n(K)\)</span> »
 (<code>/developpements/262</code>)</td>
-<td>Candidat utilisable ; vérifier la factorisation explicite retenue
-avant rédaction.</td>
+<td>Version par pivot à sourcer précisément. Le PDF de Cacitti-Holland
+ajouté en section 3 cite Perrin (<code>/references/127</code>) et a été
+lu intégralement : sa preuve géométrique par quotient conserve <a href="alg%C3%A8bre/le%C3%A7ons/106-groupe-lineaire-sous-groupes.html">106</a>/<a href="alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a>,
+mais ne valide pas le recasage fort en <a href="alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a>. Le passage exact du livre
+n’a pas été contrôlé.</td>
 </tr>
 <tr>
 <td>Théorème spectral réel par maximisation de Rayleigh</td>
