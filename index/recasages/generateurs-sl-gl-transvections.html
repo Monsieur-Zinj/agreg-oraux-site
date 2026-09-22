@@ -1,0 +1,375 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Recasage — Générateurs de SL(E) et GL(E)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css?v=3fa8cfdcc3ea" />
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Recasage — <a href="../../d%C3%A9veloppements/generateurs-sl-gl-transvections.html">Générateurs de SL(E) et GL(E)</a></h1>
+</header>
+<h1 id="recasage-générateurs-de-sle-et-gle">Recasage — <a href="../../d%C3%A9veloppements/generateurs-sl-gl-transvections.html">Générateurs de
+SL(E) et GL(E)</a></h1>
+<p><a href="index.html">← Recasages</a> · <a
+href="../../d%C3%A9veloppements/generateurs-sl-gl-transvections.html">Développement</a>
+· <a href="../matrice-developpements-lecons.html">Matrice</a></p>
+<p>Version géométrique par quotient de Cacitti-Holland, et non version
+par pivot. Les scores portent sur la preuve corrigée, corollaire GL(E)
+inclus. Toutes les leçons actuellement créées sont examinées ci-dessous
+; les leçons absentes ne sont pas des zéros implicites.</p>
+<h2 id="notes-par-leçon-créée">Notes par leçon créée</h2>
+<table>
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 36%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">Leçon</th>
+<th style="text-align: right;">Note</th>
+<th>Commentaire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a></td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td>Le groupe engendré agit transitivement sur les vecteurs non nuls ;
+réduction au stabilisateur de x, puis action induite sur E/Kx. Mécanisme
+réel mais secondaire dans la narration retenue.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/104-groupes-finis.html">104</a></td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>Spécialisation possible aux corps finis, sans étude des ordres ou
+des sous-groupes finis.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/105-groupe-des-permutations-dun-ensemble-fini.html">105</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/106-groupe-lineaire-sous-groupes.html">106</a></td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Génération de SL(E) et GL(E), objet central du groupe linéaire.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a></td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Construction de produits de transvections ; corollaire avec une
+dilatation.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/120-anneaux-z-sur-nz-applications.html">120</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/121-nombres-premiers-applications.html">121</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/123-corps-finis-applications.html">123</a></td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>Le théorème vaut sur les corps finis, mais aucune propriété de leur
+structure ne sert la preuve.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/148-dimension-espace-vectoriel-rang.html">148</a></td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Récurrence sur la dimension, hyperplan et base du quotient
+structurent la preuve.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a></td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Déterminants des transvections, du quotient par blocs et correction
+par dilatation : conserver le corollaire.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/150-polynomes-endomorphisme-reduction.html">150</a></td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>Le polynôme (X-1)² annule une transvection, sans calcul polynomial
+structurant la preuve.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/151-sous-espaces-stables-endomorphismes.html">151</a></td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td>Une droite fixée par g=su permet le quotient et les relèvements. Ne
+pas prétendre étudier les sous-espaces stables du u initial.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/152-endomorphismes-diagonalisables-dimension-finie.html">152</a></td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>La dilatation est diagonalisable, mais utilisée seulement pour son
+déterminant.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/153-valeurs-propres-vecteurs-propres-calculs-applications.html">153</a></td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>La valeur propre 1 des transvections reste implicite et ne donne
+aucune méthode spectrale.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/155-exponentielle-de-matrices-applications.html">155</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/156-endomorphismes-trigonalisables-nilpotents.html">156</a></td>
+<td style="text-align: right;" class="score score-2">2</td>
+<td>Les transvections sont I+N avec N²=0, mais aucune classification des
+nilpotents.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/157-matrices-symetriques-reelles-hermitiennes.html">157</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/159-formes-lineaires-dualite-dimension-finie.html">159</a></td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td>Construction et relèvement de formes linéaires annulant une droite,
+écriture de rang un ; la dualité sert un objectif de génération.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/161-espaces-vectoriels-et-affines-euclidiens-distances-isometries.html">161</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a></td>
+<td style="text-align: right;" class="score score-2">2</td>
+<td>Résultat attendu, mais aucune élimination de Gauss ni résolution de
+système dans cette preuve.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/170-formes-quadratiques-dimension-finie-orthogonalite-applications.html">170</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/190-methodes-combinatoires-problemes-de-denombrement.html">190</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/191-techniques-algebre-geometrie.html">191</a></td>
+<td style="text-align: right;" class="score score-2">2</td>
+<td>Interprétation géométrique des transvections, sans problème
+géométrique distinct résolu par le théorème.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/201-espaces-de-fonctions-exemples-applications.html">201</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/203-utilisation-de-la-notion-de-compacite.html">203</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/205-espaces-complets.html">205</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/206-exemples-dutilisation-de-la-notion-de-dimension-finie-en-analyse.html">206</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/208-espaces-vectoriels-normes-applications-lineaires-continues.html">208</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/209-approximation-fonction-par-fonctions-regulieres.html">209</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/213-espaces-hilbert-exemples-applications.html">213</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/218-formules-de-taylor-exemples-applications.html">218</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/219-extremums.html">219</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/223-suites-reelles-complexes.html">223</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/224-exemples-de-developpements-asymptotiques.html">224</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/228-continuite-derivabilite-fonctions-reelles-une-variable.html">228</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/230-series-nombres-reels-complexes.html">230</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/234-fonctions-espaces-lebesgue-integrables.html">234</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/236-methodes-calcul-integrales.html">236</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">239</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/241-suites-series-fonctions-exemples-contre-exemples.html">241</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/243-series-entieres.html">243</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/246-series-de-fourier-exemples-applications.html">246</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">250</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/253-convexite-en-analyse.html">253</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/262-convergences-variables-aleatoires-theoremes-limite.html">262</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/264-variables-aleatoires-discretes.html">264</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/266-independance-probabilites.html">266</a></td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>Aucun mécanisme substantiel de cette preuve algébrique par quotient
+ne relève du thème de cette leçon.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="contrôle-des-recasages-de-la-source">Contrôle des recasages de
+la source</h2>
+<p>La source ne revendique que <a href="../../alg%C3%A8bre/le%C3%A7ons/106-groupe-lineaire-sous-groupes.html">106</a> et <a href="../../alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a> : les deux sont confirmés à
+5/5. Les leçons <a href="../../alg%C3%A8bre/le%C3%A7ons/148-dimension-espace-vectoriel-rang.html">148</a> et <a href="../../alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a> sont des recasages additionnels justifiés par
+les mécanismes. Ne pas transposer le 5/5 en <a href="../../alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a> d’une preuve par pivot à
+cette version.</p>
+<p>Rapport du jury 2025, liste 2026 : extrait local
+<code>raw data/rapports-jury/Rapport_AE_Math_2025c-oraux-lecons.txt</code>,
+lignes 569–607 (<a href="../../alg%C3%A8bre/le%C3%A7ons/106-groupe-lineaire-sous-groupes.html">106</a>/<a href="../../alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a>), 772–820 (<a href="../../alg%C3%A8bre/le%C3%A7ons/148-dimension-espace-vectoriel-rang.html">148</a>/<a href="../../alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a>), 847–861 (<a href="../../alg%C3%A8bre/le%C3%A7ons/151-sous-espaces-stables-endomorphismes.html">151</a>), 1007–1027
+(<a href="../../alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a>). La durée proposée reste à chronométrer.</p>
+</body>
+</html>
