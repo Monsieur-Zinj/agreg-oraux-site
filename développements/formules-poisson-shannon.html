@@ -40,7 +40,8 @@ Formules de Poisson et de Shannon</a></h1>
 href="../index/resultats.html">Résultats</a> · <a
 href="../index/matrice-developpements-lecons.html">Matrice</a> · <a
 href="../index/recasages/formules-poisson-shannon.html">Recasage
-détaillé</a> · <a href="../index.html">Accueil</a></p>
+détaillé</a> · <a href="../suivi-acquisition/poisson-shannon.html">Suivi
+d’acquisition</a> · <a href="../index.html">Accueil</a></p>
 <h2 id="position-dans-le-graphe">Position dans le graphe</h2>
 <p>Ce développement relie trois objets : la périodisation d’une fonction
 de Schwartz, sa série de Fourier et l’échantillonnage d’une fonction à
@@ -103,6 +104,14 @@ cette bande. On ne conserve pourtant que les valeurs discrètes <span
 class="math inline">\((f(n))_{n\in\mathbb Z}\)</span>, appelées
 <strong>échantillons</strong>. La question est de savoir si cette suite
 permet de retrouver tout le signal continu.</p>
+<p>Le signal <span class="math inline">\(f\)</span> n’est pas supposé
+périodique. C’est la fonction auxiliaire obtenue par périodisation dans
+Poisson qui l’est. Une fonction <span
+class="math inline">\(1\)</span>-périodique non nulle dans <span
+class="math inline">\(L^2([0,1])\)</span> n’appartient pas à <span
+class="math inline">\(L^2(\mathbb R)\)</span> : chaque période apporte
+la même énergie strictement positive. Le cas des polynômes
+trigonométriques relève d’un autre cadre d’échantillonnage.</p>
 <h3 id="poisson-échantillonner-périodise-le-spectre">2. Poisson :
 échantillonner périodise le spectre</h3>
 <p>Appliquée à <span class="math inline">\(\widehat f\)</span>, la
@@ -185,8 +194,23 @@ chevauchent pas lorsque</p>
 <p><span class="math display">\[
 F_e\ge 2B.
 \]</span></p>
-<p>C’est la condition de Nyquist–Shannon. À la fréquence critique <span
-class="math inline">\(F_e=2B\)</span>, la reconstruction s’écrit</p>
+<p>C’est la condition de Nyquist–Shannon dans le cadre de Schwartz à
+bande limitée ou dans <span class="math inline">\(PW_B\subset
+L^2(\mathbb R)\)</span>, avec <span
+class="math inline">\(B&gt;0\)</span>. L’égalité est admise : les bornes
+sont négligeables en <span class="math inline">\(L^2\)</span> et, dans
+Schwartz, la transformée y est nulle par continuité. Pour <span
+class="math inline">\(B=1/2\)</span>, le seuil est <span
+class="math inline">\(F_e=1\)</span>, soit <span
+class="math inline">\(T=1\)</span>, et non <span
+class="math inline">\(F_e=1/2\)</span>. Hors de ces cadres, attention
+aux raies spectrales aux bornes : <span class="math inline">\(\sin(2\pi
+Bt)\)</span> s’annule aux instants <span
+class="math inline">\(n/(2B)\)</span> sans être nulle, mais n’appartient
+pas à <span class="math inline">\(L^2(\mathbb R)\)</span>. En pratique,
+une inégalité stricte ménage une bande de garde. À la fréquence critique
+<span class="math inline">\(F_e=2B\)</span>, la reconstruction
+s’écrit</p>
 <p><span class="math display">\[
 f(t)=
 \sum_{n\in\mathbb Z}f(nT)
@@ -206,6 +230,18 @@ class="math inline">\(PW_{1/2}\simeq\ell^2(\mathbb Z)\)</span>, donnée
 plus loin, formalise finalement que le signal à bande limitée et la
 suite de ses échantillons contiennent exactement la même
 information.</p>
+<h3 id="durée-finie-et-réalisation-pratique">6. Durée finie et
+réalisation pratique</h3>
+<p>Un signal non nul ne peut être simultanément de durée strictement
+finie et exactement à bande limitée : voir la <a
+href="../r%C3%A9sultats/impossibilite-double-support-compact-fourier.html">preuve
+par prolongement entier</a>. Cela n’invalide pas Shannon, qui utilise
+toute la suite <span class="math inline">\((f(nT))_{n\in\mathbb
+Z}\)</span>, et non un enregistrement fini. Distinguer trois
+approximations : filtrage anti-repliement avant acquisition, observation
+sur une fenêtre finie et troncature de la série de reconstruction. Le
+suréchantillonnage facilite le filtrage mais ne rend pas ces
+approximations exactes.</p>
 <h2 id="convention-et-énoncé">Convention et énoncé</h2>
 <p>Pour <span class="math inline">\(f\in L^1(\mathbb R)\)</span>, on
 pose</p>
@@ -263,6 +299,10 @@ class="math inline">\(L^2\)</span>.</li>
 </ul>
 <h2 id="résultats-liés">Résultats liés</h2>
 <ul>
+<li><a
+href="../r%C3%A9sultats/impossibilite-double-support-compact-fourier.html">Impossibilité
+d’un double support compact en Fourier</a> — ouverture sur les limites
+du modèle, non utilisée dans la preuve ;</li>
 <li><a
 href="../r%C3%A9sultats/critere-weierstrass-convergence-normale.html">Critère
 de Weierstrass pour la convergence normale</a> — contrôle uniforme local
