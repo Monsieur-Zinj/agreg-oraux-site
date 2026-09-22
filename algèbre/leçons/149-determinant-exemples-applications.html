@@ -22,6 +22,9 @@
     }
   </style>
   <link rel="stylesheet" href="../../assets/style.css?v=3fa8cfdcc3ea" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
 </head>
 <body>
 <nav class="topnav"><a href="../../index.html">Accueil</a></nav>
@@ -36,13 +39,77 @@ Déterminant. Exemples et applications.</h1>
 <p><a href="../../index/lecons.html">← Index des leçons</a> · <a
 href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
 href="../../index.html">Accueil</a></p>
-<h2 id="développements-possibles">Développements possibles</h2>
+<h2 id="plan-possible-squelette">Plan possible — squelette</h2>
+<h3 id="définition-et-propriétés-du-déterminant">1. Définition et
+propriétés du déterminant</h3>
 <ul>
+<li>Formes multilinéaires alternées, déterminant d’une famille et d’un
+endomorphisme.</li>
+<li>Multiplicativité, invariance par changement de base et critère
+d’inversibilité.</li>
+<li>Calculs sur matrices triangulaires et par blocs ; exemples
+géométriques sur <span class="math inline">\(\mathbb R\)</span>.</li>
+</ul>
+<h3 id="le-déterminant-et-les-groupes-linéaires">2. Le déterminant et
+les groupes linéaires</h3>
+<ul>
+<li>Morphisme <span class="math inline">\(\det:\mathrm{GL}(E)\to
+K^\times\)</span>, noyau <span
+class="math inline">\(\mathrm{SL}(E)\)</span> et surjectivité en
+dimension non nulle par les dilatations.</li>
+<li>Déterminant d’une transvection égal à <span
+class="math inline">\(1\)</span> ; si un automorphisme fixe <span
+class="math inline">\(x\neq0\)</span>, son déterminant est celui de
+l’automorphisme induit sur <span
+class="math inline">\(E/Kx\)</span>.</li>
+<li><a
+href="../../d%C3%A9veloppements/generateurs-sl-gl-transvections.html">Générateurs
+de SL(E) et GL(E)</a> : lemme d’une ou deux transvections entre vecteurs
+non nuls en dimension au moins deux, correction pour fixer <span
+class="math inline">\(x\)</span>, puis récurrence sur <span
+class="math inline">\(E/Kx\)</span> et relèvement des transvections. Le
+résidu est l’identité ou une transvection.</li>
+<li>Le déterminant permet de rester dans <span
+class="math inline">\(\mathrm{SL}\)</span> à chaque étape ; pour <span
+class="math inline">\(u\in\mathrm{GL}(E)\)</span>, une dilatation <span
+class="math inline">\(d\)</span> de déterminant <span
+class="math inline">\((\det u)^{-1}\)</span> ramène <span
+class="math inline">\(du\)</span> à <span
+class="math inline">\(\mathrm{SL}(E)\)</span>.</li>
+</ul>
+<h3 id="déterminant-et-formes-quadratiques">3. Déterminant et formes
+quadratiques</h3>
+<ul>
+<li>Sous congruence, <span class="math inline">\(\det(P^{\mathsf
+T}AP)=\det(P)^2\det(A)\)</span> : discriminant modulo les carrés.</li>
 <li><a href="../../d%C3%A9veloppements/loi-de-reciprocite-quadratique.html">Loi
-de réciprocité quadratique</a> — <strong>4/5</strong> : loi du
-déterminant sous congruence, discriminant modulo les carrés et choix du
-représentant hyperbolique. <a
-href="../../index/recasages/loi-de-reciprocite-quadratique.html">Justification</a>.</li>
+de réciprocité quadratique</a> : déterminant et choix du représentant
+hyperbolique dans la preuve.</li>
+</ul>
+<h3
+id="articulation-du-plan-avec-les-développements-retenus">Articulation
+du plan avec les développements retenus</h3>
+<ul>
+<li>La partie 2 montre le déterminant comme invariant et morphisme
+structurant une preuve géométrique de génération (Cacitti–Holland), sans
+pivot de Gauss.</li>
+<li>La partie 3 conserve son rôle d’invariant modulo les carrés dans la
+réciprocité quadratique.</li>
+</ul>
+<h2 id="développements-actuels-recommandés">Développements actuels
+recommandés</h2>
+<ul>
+<li><p><a
+href="../../d%C3%A9veloppements/generateurs-sl-gl-transvections.html">Générateurs
+de SL(E) et GL(E)</a> — <strong>4/5</strong> : noyau du déterminant,
+compatibilité au quotient et dilatation compensatrice sont essentiels ;
+le mécanisme principal reste géométrique (partie 2).</p></li>
+<li><p><a
+href="../../d%C3%A9veloppements/loi-de-reciprocite-quadratique.html">Loi de
+réciprocité quadratique</a> — <strong>4/5</strong> : loi du déterminant
+sous congruence, discriminant modulo les carrés et choix du représentant
+hyperbolique. <a
+href="../../index/recasages/loi-de-reciprocite-quadratique.html">Justification</a>.</p></li>
 </ul>
 </body>
 </html>

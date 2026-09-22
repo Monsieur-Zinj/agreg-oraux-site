@@ -22,6 +22,9 @@
     }
   </style>
   <link rel="stylesheet" href="../../assets/style.css?v=3fa8cfdcc3ea" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
 </head>
 <body>
 <nav class="topnav"><a href="../../index.html">Accueil</a></nav>
@@ -39,5 +42,74 @@ dimension finie). Rang. Exemples et applications.</h1>
 <p><a href="../../index/lecons.html">← Index des leçons</a> · <a
 href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
 href="../../index.html">Accueil</a></p>
+<h2 id="plan-possible-squelette">Plan possible — squelette</h2>
+<h3 id="dimension-et-décompositions">1. Dimension et décompositions</h3>
+<ul>
+<li>Familles libres, génératrices, bases ; théorème de la base
+incomplète.</li>
+<li>Dimension des sous-espaces, sommes et sommes directes ;
+supplémentaires.</li>
+<li>Dimension du quotient : <span class="math inline">\(\dim(E/F)=\dim
+E-\dim F\)</span>.</li>
+</ul>
+<h3 id="rang-et-applications-linéaires">2. Rang et applications
+linéaires</h3>
+<ul>
+<li>Théorème du rang ; critères d’injectivité et de surjectivité en
+dimension finie.</li>
+<li>Rang d’une matrice, interprétation par l’image et effets des
+changements de base.</li>
+<li>Endomorphismes de rang un : écriture <span
+class="math inline">\(a\otimes\varphi\)</span> ; transvections <span
+class="math inline">\(I+a\otimes\varphi\)</span> avec <span
+class="math inline">\(a,\varphi\neq0\)</span> et <span
+class="math inline">\(\varphi(a)=0\)</span>.</li>
+</ul>
+<h3
+id="une-récurrence-sur-la-dimension-générateurs-du-groupe-linéaire">3.
+Une récurrence sur la dimension : générateurs du groupe linéaire</h3>
+<ul>
+<li><a
+href="../../d%C3%A9veloppements/generateurs-sl-gl-transvections.html">Générateurs
+de SL(E) et GL(E)</a> : le lemme d’une ou deux transvections entre
+vecteurs non nuls (en dimension au moins deux) permet de corriger <span
+class="math inline">\(u\)</span> pour fixer <span
+class="math inline">\(x\)</span>.</li>
+<li>La droite <span class="math inline">\(Kx\)</span> est stable pour
+l’automorphisme corrigé : descendre à <span
+class="math inline">\(E/Kx\)</span>, de dimension diminuée d’une unité,
+puis relever les transvections du quotient en conservant la condition de
+rang un.</li>
+<li>Après correction, le résidu <span class="math inline">\(r\)</span>
+fixe <span class="math inline">\(x\)</span> et induit l’identité sur le
+quotient : <span class="math inline">\(\operatorname{Im}(r-I)\subset
+Kx\)</span> et <span class="math inline">\((r-I)(x)=0\)</span>. Il est
+donc l’identité ou une transvection.</li>
+<li>Conclure pour <span class="math inline">\(\mathrm{GL}(E)\)</span>
+par une dilatation compensant le déterminant.</li>
+</ul>
+<h3
+id="articulation-du-plan-avec-les-développements-retenus">Articulation
+du plan avec les développements retenus</h3>
+<ul>
+<li>Les dimensions de quotients de la partie 1 et le rang un de la
+partie 2 sont les outils effectifs de la récurrence géométrique de
+Cacitti–Holland en partie 3 ; il ne s’agit pas d’une preuve par pivot de
+Gauss.</li>
+</ul>
+<h2 id="développement-actuel-recommandé">Développement actuel
+recommandé</h2>
+<ul>
+<li><a
+href="../../d%C3%A9veloppements/generateurs-sl-gl-transvections.html">Générateurs
+de SL(E) et GL(E)</a> — <strong>4/5</strong> : passage au quotient,
+récurrence sur la dimension et contrôle du rang du résidu structurent la
+preuve ; la finalité reste un théorème de génération de groupes.</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul>
+<li>Compléter les exemples de dimension et de rang ; choisir un second
+développement fort.</li>
+</ul>
 </body>
 </html>
