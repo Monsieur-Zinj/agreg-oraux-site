@@ -1,0 +1,155 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Fiche de suivi d’acquisition — Poisson–Shannon</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css?v=3fa8cfdcc3ea" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Fiche de suivi d’acquisition — Poisson–Shannon</h1>
+</header>
+<h1 id="fiche-de-suivi-dacquisition-poissonshannon">Fiche de suivi
+d’acquisition — Poisson–Shannon</h1>
+<p><a
+href="../d%C3%A9veloppements/formules-poisson-shannon.html">Développement</a> ·
+<a
+href="../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">Leçon
+250</a> · <a href="../index/programme-revision.html">Programme de
+révision</a></p>
+<h2 id="niveau-constaté">Niveau constaté</h2>
+<p>Échelle : <strong>à reprendre</strong> (besoin identifié),
+<strong>expliqué</strong> (réponse reçue), <strong>restitué</strong>
+(argument reformulé), <strong>mobilisable</strong> (réemploi autonome
+vérifié).</p>
+<p>L’intuition de reconstruction à partir d’échantillons est présente.
+L’énoncé précis reste à reprendre ; aucune preuve complète n’a été
+évaluée.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Point</th>
+<th>Observation et niveau prudent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Signal et périodicité</td>
+<td>Une hypothèse de périodicité a été ajoutée dans la tentative
+initiale, puis explicitement remise en cause. Correction reconnue, mais
+distinction entre signal et périodisée encore à restituer.</td>
+</tr>
+<tr>
+<td>Bande et fréquence d’échantillonnage</td>
+<td>Un seuil numérique sans largeur de bande a été proposé.
+L’explication reçue réintroduit le double de la fréquence maximale, mais
+impose à tort une inégalité stricte dans le cadre utilisé ici.
+Reformulation autonome non observée.</td>
+</tr>
+<tr>
+<td>Double support compact</td>
+<td>Énoncé fourni par l’interlocuteur, sans preuve ni restitution
+autonome. Une transition manque dans l’export : ne pas attribuer au
+candidat l’argument absent.</td>
+</tr>
+<tr>
+<td>Passage à la pratique</td>
+<td>Question pertinente soulevée sur l’écart entre hypothèses idéales et
+réalisation. Filtrage et suréchantillonnage ont été mentionnés, sans
+étude des erreurs.</td>
+</tr>
+<tr>
+<td>Preuve de Poisson, inversion, sinc, isométrie</td>
+<td>Non évalués.</td>
+</tr>
+</tbody>
+</table>
+<p>Une hésitation isolée n’établit pas une erreur récurrente.
+L’acceptation d’une correction ne valide pas encore sa maîtrise.</p>
+<h2 id="consolidation-progressive">Consolidation progressive</h2>
+<ol type="1">
+<li>Énoncer Shannon dans le cadre de Schwartz, puis distinguer son
+extension à <span class="math inline">\(PW_B\subset L^2(\mathbb
+R)\)</span>.</li>
+<li>Nommer <span class="math inline">\(B&gt;0\)</span>, <span
+class="math inline">\(T&gt;0\)</span> et <span
+class="math inline">\(F_e=1/T\)</span> : la condition est <span
+class="math inline">\(F_e\ge 2B\)</span> dans ce cadre. Pour <span
+class="math inline">\(B=1/2\)</span>, le pas <span
+class="math inline">\(T=1\)</span> est critique ; <span
+class="math inline">\(1/2\)</span> désigne la borne de bande, pas la
+fréquence d’échantillonnage.</li>
+<li>Distinguer le signal <span class="math inline">\(f\)</span> sur
+<span class="math inline">\(\mathbb R\)</span>, sa périodisée dans
+Poisson et les copies périodiques du spectre après échantillonnage.</li>
+<li>Lire le <a
+href="../r%C3%A9sultats/impossibilite-double-support-compact-fourier.html">résultat
+sur le double support compact</a>, puis restituer ses hypothèses avant
+sa preuve.</li>
+<li>Expliquer séparément bande de garde, filtrage anti-repliement et
+troncature de la série ; ne pas annoncer une erreur contrôlée sans
+hypothèses supplémentaires.</li>
+</ol>
+<h2 id="questions-à-poser-une-par-une">Questions à poser une par
+une</h2>
+<ul>
+<li>Quelle fonction est périodique dans la preuve de Poisson ? Le signal
+de Shannon l’est-il nécessairement ?</li>
+<li>Pour une bande <span class="math inline">\([-B,B]\)</span>, quel est
+le pas maximal d’échantillonnage ?</li>
+<li>Pourquoi l’égalité au seuil est-elle permise dans <span
+class="math inline">\(PW_B\)</span>, alors qu’une sinusoïde pure à la
+fréquence frontière demande de la prudence hors du cadre <span
+class="math inline">\(L^2(\mathbb R)\)</span> ?</li>
+<li>Le théorème utilise-t-il un nombre fini ou une suite entière
+d’échantillons ?</li>
+<li>Quelle différence entre support compact, décroissance rapide et
+observation sur une fenêtre finie ?</li>
+</ul>
+<h2 id="actions">Actions</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Restituer l’énoncé normalisé sans
+hypothèse de périodicité.</label></li>
+<li><label><input type="checkbox" />Remettre à l’échelle bande, pas et
+fréquence sans confondre leurs unités.</label></li>
+<li><label><input type="checkbox" />Expliquer le rôle de Poisson en une
+phrase avant de commencer la preuve.</label></li>
+<li><label><input type="checkbox" />Reprendre ensuite la preuve, sans
+déduire sa maîtrise de cet échange introductif.</label></li>
+</ul>
+<h2 id="source-du-diagnostic">Source du diagnostic</h2>
+<p>Conversation archivée sous
+<code>revision-shannon-periodicite-nyquist-support-et-pratique.txt</code>,
+lignes 9–37. Date de l’échange non renseignée. Export sans étiquettes de
+locuteurs, avec une transition manquante avant l’énoncé sur les supports
+; seules les attributions identifiables par le contexte sont
+retenues.</p>
+</body>
+</html>
