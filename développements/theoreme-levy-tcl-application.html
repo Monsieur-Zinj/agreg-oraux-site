@@ -69,6 +69,25 @@ caractérisation de la convergence en loi, démontrer le cœur Fourier du
 théorème de Lévy, puis privilégier le TCL. L’application statistique
 peut être gardée comme conclusion brève ou comme variante selon la
 leçon.</p>
+<h2 id="reprendre-le-tcl-pas-à-pas">Reprendre le TCL pas à pas</h2>
+<p>Avant la preuve complète, isoler deux prérequis :</p>
+<ol type="1">
+<li><a
+href="../notions/centrage-reduction-et-normalisation-tcl.html">Centrage,
+réduction et normalisation</a> : calculer successivement la moyenne de
+la somme, sa variance et son écart-type ; retrouver ensuite l’écriture
+avec la moyenne empirique.</li>
+<li><a href="../r%C3%A9sultats/limite-puissances-et-logarithme.html">Limite de
+puissances par le logarithme</a> : commencer par <span
+class="math inline">\((1-c/n)^n\)</span>, puis conserver explicitement
+le reste <span class="math inline">\(o(1/n)\)</span> et traiter le
+logarithme complexe.</li>
+</ol>
+<p>Revenir alors à la partie 5 : normalisation → factorisation → Taylor
+→ exponentielle → Lévy. Cette reprise pédagogique ne remplace pas la
+preuve de Lévy dans la version complète du développement.</p>
+<p><a href="../suivi-acquisition/levy-tcl.html">Fiche de suivi
+d’acquisition — Lévy–TCL</a>.</p>
 <h2 id="conventions-et-prérequis">Conventions et prérequis</h2>
 <p>Pour une variable aléatoire réelle <span
 class="math inline">\(X\)</span>, on note</p>
@@ -142,10 +161,14 @@ variables aléatoires réelles i.i.d. de carré intégrable. On pose</p>
 \]</span></p>
 <h2 id="résultats-liés">Résultats liés</h2>
 <ul>
-<li><a
+<li><p><a
 href="../r%C3%A9sultats/produit-fonctions-caracteristiques-independance.html">Fonction
 caractéristique d’une somme de variables indépendantes</a> — transforme
-la somme normalisée en puissance d’une fonction caractéristique.</li>
+la somme normalisée en puissance d’une fonction
+caractéristique.</p></li>
+<li><p><a href="../r%C3%A9sultats/limite-puissances-et-logarithme.html">Limite
+de puissances par le logarithme</a> — preuve du passage à
+l’exponentielle, avec contrôle du reste complexe.</p></li>
 </ul>
 <h2 id="preuve-détaillée">Preuve détaillée</h2>
 <h3 id="réduction-de-la-convergence-en-loi-à-c_0mathbb-r">1. Réduction
@@ -486,6 +509,21 @@ source emploie une notation visuellement ambiguë.</li>
 </ol>
 <h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
 <ul>
+<li>Pourquoi diviser la somme centrée par <span
+class="math inline">\(\sigma\sqrt n\)</span> et non par <span
+class="math inline">\(\sigma\)</span> ? Sa variance vaut <span
+class="math inline">\(n\sigma^2\)</span> ; diviser par son écart-type
+donne une variance unitaire. Pour la moyenne, l’écart-type vaut au
+contraire <span class="math inline">\(\sigma/\sqrt n\)</span>.</li>
+<li>Une variance divergente interdit-elle toute convergence en loi ? Non
+: voir le <a
+href="../notions/centrage-reduction-et-normalisation-tcl.html">contre-exemple
+et la distinction avec le TCL</a>.</li>
+<li>Pourquoi ne peut-on pas supprimer le reste avant d’élever à la
+puissance <span class="math inline">\(n\)</span> ? Il faut prouver <span
+class="math inline">\(nr_n\to0\)</span> ; le <a
+href="../r%C3%A9sultats/limite-puissances-et-logarithme.html">lemme
+logarithmique</a> explicite ce contrôle.</li>
 <li>Où intervient exactement l’indépendance ?</li>
 <li>Pourquoi une fonction caractéristique détermine-t-elle la loi ?</li>
 <li>Quelle différence y a-t-il entre la version démontrée de Lévy et sa
