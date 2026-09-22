@@ -1,0 +1,1123 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Audit exhaustif — Isométries du tétraèdre régulier</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/style.css?v=3fa8cfdcc3ea" />
+</head>
+<body>
+<nav class="topnav"><a href="../../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Audit exhaustif — <a href="../../d%C3%A9veloppements/isometries-du-tetraedre.html">Isométries du tétraèdre
+régulier</a></h1>
+</header>
+<h1 id="audit-exhaustif-isométries-du-tétraèdre-régulier">Audit
+exhaustif — <a href="../../d%C3%A9veloppements/isometries-du-tetraedre.html">Isométries du tétraèdre régulier</a></h1>
+<h2 id="résultat-et-périmètre">Résultat et périmètre</h2>
+<p><strong>68 leçons évaluées, 50 pages existantes, 18
+absentes</strong>, existence contrôlée dans les fichiers
+<code>*/leçons/*.md</code> avec frontmatter <code>type: leçon</code> et
+<code>numero</code>. Aucun statut historique ou titre de matrice n’a été
+pris comme preuve d’existence.</p>
+<ul>
+<li><strong>Forts actuels : <a href="../../alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a>, <a href="../../alg%C3%A8bre/le%C3%A7ons/104-groupes-finis.html">104</a>, <a href="../../alg%C3%A8bre/le%C3%A7ons/105-groupe-des-permutations-dun-ensemble-fini.html">105</a>, <a href="../../alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a>, <a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/161-espaces-vectoriels-et-affines-euclidiens-distances-isometries.html">161</a>, 191.</strong> La
+<strong>191 absente est prioritaire à créer</strong>, avec le
+développement actuel : une action et des générateurs classifient des
+transformations géométriques, exactement dans l’esprit de R:1112–1124 et
+1149–1162. Cette absence n’est pas une omission de colonne : la matrice
+exclut légitimement les pages non créées.</li>
+<li><strong>Variantes conditionnelles : 103 (2→4), <a href="../../alg%C3%A8bre/le%C3%A7ons/106-groupe-lineaire-sous-groupes.html">106</a> (3→4), <a href="../../alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a> (2→4),
+<a href="../../alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a> (3→4), <a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a> (3→4), <a href="../../alg%C3%A8bre/le%C3%A7ons/190-methodes-combinatoires-problemes-de-denombrement.html">190</a> (3→4).</strong> Seule 103 manque parmi ces
+variantes. La préparer avant toute création ; les autres pages
+existent.</li>
+<li>Évolution des notes déjà chiffrées : <strong><a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/161-espaces-vectoriels-et-affines-euclidiens-distances-isometries.html">161</a> : 4→5</strong>,
+caractère géométrique intrinsèque ; <strong><a href="../../alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a> : 4→3
+actuellement</strong>, 4 après cadrage vectoriel ; <strong><a href="../../alg%C3%A8bre/le%C3%A7ons/190-methodes-combinatoires-problemes-de-denombrement.html">190</a> :
+0→3</strong>, le comptage est réel, mais la version combinatoire forte
+reste à travailler ; <strong><a href="../../alg%C3%A8bre/le%C3%A7ons/151-sous-espaces-stables-endomorphismes.html">151</a> : 0→1</strong>, <strong><a href="../../alg%C3%A8bre/le%C3%A7ons/170-formes-quadratiques-dimension-finie-orthogonalite-applications.html">170</a> :
+0→1</strong>, liens d’appoint, pas recommandations orales.</li>
+<li>Les <strong>23 cases —</strong> sont toutes évaluées dans cet audit.
+Notamment <a href="../../alg%C3%A8bre/le%C3%A7ons/106-groupe-lineaire-sous-groupes.html">106</a>=3, <a href="../../alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a>=2, <a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a>=3 ; elles ne reçoivent pas automatiquement
+leur potentiel adapté de 4.</li>
+<li>Aucune leçon créée ; aucune modification du développement, de la
+fiche, de la matrice ou de navigation ; aucun build ni publication. Les
+propositions sont destinées à l’intégration par le parent.</li>
+</ul>
+<h2 id="sources-et-conventions">Sources et conventions</h2>
+<ul>
+<li><strong>R</strong> :
+<code>raw data/rapports-jury/Rapport_AE_Math_2025c-oraux-lecons.txt</code>,
+rapport <strong>2025</strong>, liste <strong>session 2026 identique à
+2025</strong> (ligne 7). Liste 9–<a href="../../alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a>, attendus lus jusqu’à 1744. Aucun
+nouveau rapport 2026 revendiqué.</li>
+<li><strong>D</strong> :
+<code>développements/isometries-du-tetraedre.md</code>, preuve
+principale 128–<a href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a>, dictionnaire 238–<a href="../../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">250</a>, ouverture 252–274.</li>
+<li><strong>N</strong> : <code>notions/geometrie-affine.md</code>,
+prérequis effectivement liés par D:95, lus intégralement ; preuves
+utiles <a href="../../alg%C3%A8bre/le%C3%A7ons/106-groupe-lineaire-sous-groupes.html">106</a>–202, 233–245, <a href="../../analyse/le%C3%A7ons/253-convexite-en-analyse.html">253</a>–337.</li>
+<li><strong>F</strong> :
+<code>index/recasages/isometries-du-tetraedre.md</code>, tableau 18–67 ;
+<strong>M</strong> :
+<code>index/matrice-developpements-lecons.md</code>, en-tête 41, ligne
+du développement 43, vue par leçon 59–<a href="../../alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a>.</li>
+<li>Notes de pertinence, non notes officielles ni certification que le
+squelette est prêt à réciter : <strong>5</strong> naturel ;
+<strong>4</strong> très bon ; <strong>3</strong> orientable ;
+<strong>2</strong> appoint fragile ; <strong>1</strong> artificiel ;
+<strong>0</strong> non pertinent. Une preuve déportée vers un prérequis
+est signalée, non tenue pour inexistante. Une variante annoncée n’est
+jamais tenue pour démontrée.</li>
+<li><code>old_score=null</code> distingue, grâce à
+<code>old_status</code>, absence de colonne et case non évaluée.
+<code>adapted_score</code> est un potentiel conditionnel, non la note
+actuelle.</li>
+<li>Décisions JSON : <code>create_now</code> = créer une page absente
+sur la force actuelle ; <code>prepare_variant_first</code> = préparer
+avant promotion et, si absente, avant création ;
+<code>do_not_create</code> = aucune création demandée, sans dévaluer une
+page déjà existante.</li>
+<li>Titres : transcription de l’extraction officielle, retours réunis et
+césures recollées ; artefacts mathématiques GLpEq, Z{nZ, Rn, un`1 “
+fpunq conservés. Contrôler leur typographie sur PDF avant réemploi
+éditorial. Pour 191, la liste dit « de techniques », le commentaire «
+des techniques » : le titre suit la liste.</li>
+</ul>
+<h2 id="points-décisifs-et-variantes-à-préparer">Points décisifs et
+variantes à préparer</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 23%" />
+<col style="width: 23%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">Leçon</th>
+<th>Actuel → adapté</th>
+<th>Ce qui doit réellement être préparé</th>
+<th>Attendus R</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">103</td>
+<td>2 → 4</td>
+<td>L’action sur les trois partitions en paires : prouver surjectivité,
+noyau V4, passage au quotient et transport par conjugaison. D:252–274
+n’en donne que les conclusions.</td>
+<td>504–517, 525–530</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/106-groupe-lineaire-sous-groupes.html">106</a></td>
+<td>3 → 4</td>
+<td>Montrer que toutes les isométries fixent le barycentre G ; choisir G
+comme origine ; obtenir le plongement fidèle dans O(3), puis GL3(R), et
+relier déterminant et signature. Pas de plongement fidèle implicite par
+simple oubli des translations.</td>
+<td>578–588</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a></td>
+<td>2 → 4</td>
+<td>Mettre le déterminant au cœur de la conclusion : accord avec la
+signature sur les transpositions, multiplicativité, noyau A4, volume
+orienté. Le tableau actuel ne remplace pas cette preuve.</td>
+<td>805–815</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a></td>
+<td>3 → 4</td>
+<td>Centrer en G, montrer espaces fixes et blocs orthogonaux des
+rotations/réflexions ; décrire les antidéplacements des 4-cycles. Une
+isométrie affine n’est pas sans choix d’origine un endomorphisme.</td>
+<td>954–962</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a></td>
+<td>3 → 4</td>
+<td>Réintégrer N:<a href="../../analyse/le%C3%A7ons/253-convexite-en-analyse.html">253</a>–337 : coordonnées barycentriques, sommets
+extrémaux, transport par bijection affine ; conserver la classification
+comme application de ces outils. D recommande au contraire de passer
+vite sur cette partie.</td>
+<td>1068–1075</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/190-methodes-combinatoires-problemes-de-denombrement.html">190</a></td>
+<td>3 → 4</td>
+<td>Expliciter la bijection et les comptes par cycles/supports et paires
+d’arêtes. Une variante plus substantielle peut ajouter un vrai problème
+de coloriages sous rotations et Burnside ; aucun tel résultat n’est
+actuellement prouvé.</td>
+<td>1083–1095</td>
+</tr>
+</tbody>
+</table>
+<p><strong><a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/161-espaces-vectoriels-et-affines-euclidiens-distances-isometries.html">161</a> mérite 5</strong> : R:998–1001 vise directement les
+isométries laissant stables des objets et les générateurs affines ;
+exiger une réécriture spectrale complète pour ce recasage reviendrait à
+confondre <a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/161-espaces-vectoriels-et-affines-euclidiens-distances-isometries.html">161</a> avec <a href="../../alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a>. Les lacunes de rédaction du dictionnaire restent
+toutefois à consolider.</p>
+<p><strong><a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a> n’est ni zéro ni automatiquement quatre</strong> :
+l’extrémalité est le mécanisme initial effectif, expressément attendu
+par R:1074. La preuve complète existe dans le prérequis lié, mais sa
+réintégration et son rôle dominant constituent le travail de variante.
+<strong><a href="../../analyse/le%C3%A7ons/253-convexite-en-analyse.html">253</a> reste 1</strong> : R:1685–1686 permet les points extrémaux,
+sans transformer toute classification géométrique de groupes en
+application analytique. <strong><a href="../../analyse/le%C3%A7ons/219-extremums.html">219</a> reste 0</strong> : extrémal n’est
+pas extremum d’une fonction.</p>
+<h2 id="lacunes-et-cohérence-documentaire">Lacunes et cohérence
+documentaire</h2>
+<ul>
+<li><strong>D:136–144</strong> — Définition abrégée de point extrémal :
+quantificateurs et a,b dans C omis. Le transport requiert une bijection
+affine et son inverse, non la seule préservation des segments ;
+N:<a href="../../analyse/le%C3%A7ons/253-convexite-en-analyse.html">253</a>–287 le précise correctement.</li>
+<li><strong>D:130–<a href="../../alg%C3%A8bre/le%C3%A7ons/152-endomorphismes-diagonalisables-dimension-finie.html">152</a></strong> — Sommets extrémaux affirmés dans D, mais
+réellement prouvés dans N:289–337. Preuve déportée, non inexistante ; la
+variante <a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a> doit la remettre au centre.</li>
+<li><strong>D:180–188</strong> — Stabilité de l’enveloppe convexe après
+permutation des sommets à expliciter (N:139–144). La réalisation des
+transpositions par réflexions est correcte.</li>
+<li><strong>D:204–<a href="../../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">250</a></strong> — Rotations et exhaustivité du
+dictionnaire affirmées sans détail. Justifier soit la classification
+géométrique, soit déterminant/signature sur les générateurs puis sur le
+groupe. det(g) désigne le déterminant de la partie linéaire ; les
+antidéplacements des 4-cycles ne sont pas décrits.</li>
+<li><strong>D:252–274</strong> — Action sur les bimédianes annoncée ;
+noyau V4 et quotient S4/V4 ≅ S3 sans calcul du noyau ni preuve de
+surjectivité. Ne pas créditer une preuve de quotient en 103.</li>
+<li><strong>D:74–76</strong> — Passage affine/vectoriel incomplet pour
+<a href="../../alg%C3%A8bre/le%C3%A7ons/106-groupe-lineaire-sous-groupes.html">106</a> et <a href="../../alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a> : le barycentre des sommets est un point fixe commun, mais ce
+fait n’est pas prouvé dans D.</li>
+</ul>
+<p>Ces constats ne réfutent pas les isomorphismes annoncés ; ils
+distinguent les arguments écrits, les prérequis prouvés ailleurs et les
+affirmations encore à justifier. Aucune correction n’a été appliquée aux
+sources.</p>
+<p>F et M sont identiques sur les 50 leçons créées. La vue par leçon
+comporte néanmoins une <strong>ligne <a href="../../alg%C3%A8bre/le%C3%A7ons/105-groupe-des-permutations-dun-ensemble-fini.html">105</a> dupliquée (M:61–62)</strong> et
+<strong>aucune ligne <a href="../../alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a></strong>, malgré sa note 4 dans la matrice. Le
+frontmatter D:17–24 cite 103, qui n’a pas de page, mais omet 191. Les
+mentions « à créer » de <a href="../../alg%C3%A8bre/le%C3%A7ons/104-groupes-finis.html">104</a>, <a href="../../alg%C3%A8bre/le%C3%A7ons/105-groupe-des-permutations-dun-ensemble-fini.html">105</a>, <a href="../../alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a> et <a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/161-espaces-vectoriels-et-affines-euclidiens-distances-isometries.html">161</a> dans D sont périmées : les
+fichiers existent. Ces points relèvent de la navigation/maintenance,
+distinctement du jugement mathématique.</p>
+<h2 id="tableau-exhaustif-des-68-leçons">Tableau exhaustif des 68
+leçons</h2>
+<p><code>E</code> = page existante, <code>A</code> = absente ;
+<code>—</code> = ancien score non évalué, <code>∅</code> = hors ancienne
+matrice. Les plages R sont les attendus de chaque leçon, non une
+affirmation que le jury y cite ce développement. Le JSON fournit pour
+chaque ligne le chemin réel ou null, les lignes de l’intitulé, les
+lignes de D, l’adaptation et la décision explicite.</p>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 9%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">N°</th>
+<th>Titre officiel extrait</th>
+<th style="text-align: center;">Page</th>
+<th style="text-align: center;">Ancien</th>
+<th style="text-align: center;">Actuel</th>
+<th style="text-align: center;">Adapté</th>
+<th>Justification</th>
+<th>R</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a></td>
+<td>Groupe opérant sur un ensemble. Exemples et applications.</td>
+<td style="text-align: center;"><a
+href="../../alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">E</a></td>
+<td style="text-align: center;" class="score score-5">5</td>
+<td style="text-align: center;" class="score score-5">5</td>
+<td style="text-align: center;">—</td>
+<td>L’action fidèle sur les sommets et son morphisme vers S4 constituent
+toute la preuve ; les groupes de solides sont explicitement
+attendus.</td>
+<td>463–487</td>
+</tr>
+<tr>
+<td style="text-align: right;">102</td>
+<td>Groupe des nombres complexes de module 1. Racines de l’unité.
+Applications.</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">∅</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Des angles de rotation apparaissent, mais aucun calcul dans le
+cercle complexe ou parmi les racines de l’unité.</td>
+<td>488–501</td>
+</tr>
+<tr>
+<td style="text-align: right;">103</td>
+<td>Conjugaison dans un groupe. Exemples de sous-groupes distingués et
+de groupes quotients. Applications.</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">∅</td>
+<td style="text-align: center;" class="score score-2">2</td>
+<td style="text-align: center;" class="score score-4">4</td>
+<td>Le noyau trivial est étudié et le sous-groupe direct est présent ;
+conjugaison et quotient S4/V4 ne sont qu’une ouverture sans preuve du
+noyau ni de la surjectivité.</td>
+<td>502–530</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/104-groupes-finis.html">104</a></td>
+<td>Groupes finis. Exemples et applications.</td>
+<td style="text-align: center;"><a
+href="../../alg%C3%A8bre/le%C3%A7ons/104-groupes-finis.html">E</a></td>
+<td style="text-align: center;" class="score score-5">5</td>
+<td style="text-align: center;" class="score score-5">5</td>
+<td style="text-align: center;">—</td>
+<td>Exemple effectif de groupe fini géométrique identifié à S4, avec
+ordres et sous-groupe direct A4 ; le rapport cite ces groupes de
+polyèdres.</td>
+<td>531–554</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/105-groupe-des-permutations-dun-ensemble-fini.html">105</a></td>
+<td>Groupe des permutations d’un ensemble fini. Applications.</td>
+<td style="text-align: center;"><a
+href="../../alg%C3%A8bre/le%C3%A7ons/105-groupe-des-permutations-dun-ensemble-fini.html">E</a></td>
+<td style="text-align: center;" class="score score-5">5</td>
+<td style="text-align: center;" class="score score-5">5</td>
+<td style="text-align: center;">—</td>
+<td>S4 est réalisé par les permutations des sommets ; les transpositions
+engendrent et sont réalisées par des réflexions. Application explicite
+attendue aux solides.</td>
+<td>555–568</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/106-groupe-lineaire-sous-groupes.html">106</a></td>
+<td>Groupe linéaire d’un espace vectoriel de dimension finie E,
+sous-groupes de GLpEq. Applications.</td>
+<td style="text-align: center;"><a
+href="../../alg%C3%A8bre/le%C3%A7ons/106-groupe-lineaire-sous-groupes.html">E</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;" class="score score-3">3</td>
+<td style="text-align: center;" class="score score-4">4</td>
+<td>Les parties linéaires orthogonales interviennent, mais le point fixe
+commun et le plongement fidèle dans O(3) ne sont pas établis dans
+D.</td>
+<td>569–589</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a></td>
+<td>Exemples de parties génératrices d’un groupe. Applications.</td>
+<td style="text-align: center;"><a
+href="../../alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">E</a></td>
+<td style="text-align: center;" class="score score-4">4</td>
+<td style="text-align: center;" class="score score-4">4</td>
+<td style="text-align: center;">—</td>
+<td>La surjectivité est obtenue précisément parce que les transpositions
+engendrent S4 et se relèvent en réflexions : application substantielle
+des générateurs.</td>
+<td>590–607</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/120-anneaux-z-sur-nz-applications.html">120</a></td>
+<td>Anneaux Z{nZ. Applications.</td>
+<td style="text-align: center;"><a
+href="../../alg%C3%A8bre/le%C3%A7ons/120-anneaux-z-sur-nz-applications.html">E</a></td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucun anneau Z/nZ, congruence ou théorème chinois ; les ordres des
+rotations ne sont pas de l’arithmétique d’anneaux.</td>
+<td>608–619</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/121-nombres-premiers-applications.html">121</a></td>
+<td>Nombres premiers. Applications.</td>
+<td style="text-align: center;"><a
+href="../../alg%C3%A8bre/le%C3%A7ons/121-nombres-premiers-applications.html">E</a></td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucune étude des nombres premiers ; les ordres finis ne donnent
+aucun résultat arithmétique.</td>
+<td>620–636</td>
+</tr>
+<tr>
+<td style="text-align: right;">122</td>
+<td>Anneaux principaux. Exemples et applications.</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">∅</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Ni idéal, divisibilité, anneau principal ou algorithme euclidien
+dans la preuve.</td>
+<td>637–653</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/123-corps-finis-applications.html">123</a></td>
+<td>Corps finis. Applications.</td>
+<td style="text-align: center;"><a
+href="../../alg%C3%A8bre/le%C3%A7ons/123-corps-finis-applications.html">E</a></td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>La géométrie se déroule sur R, sans corps fini ni application de sa
+structure.</td>
+<td>654–662</td>
+</tr>
+<tr>
+<td style="text-align: right;">125</td>
+<td>Extensions de corps. Exemples et applications.</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">∅</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucune extension de corps ou construction algébrique ; S4 n’est pas
+ici un groupe de Galois.</td>
+<td>663–681</td>
+</tr>
+<tr>
+<td style="text-align: right;">127</td>
+<td>Exemples de nombres remarquables. Exemples d’anneaux de nombres
+remarquables. Applications.</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">∅</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucun nombre remarquable ou anneau de nombres n’est étudié ; les
+angles ne fournissent pas cette étude.</td>
+<td>682–703</td>
+</tr>
+<tr>
+<td style="text-align: right;">141</td>
+<td>Polynômes irréductibles à une indéterminée. Corps de rupture.
+Exemples et applications.</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">∅</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Ni polynôme irréductible ni corps de rupture ; la présence de S4 ne
+prouve aucun résultat de Galois.</td>
+<td>704–717</td>
+</tr>
+<tr>
+<td style="text-align: right;">142</td>
+<td>PGCD et PPCM, algorithmes de calcul. Applications.</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">∅</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucun PGCD, PPCM ni algorithme de calcul associé.</td>
+<td>718–753</td>
+</tr>
+<tr>
+<td style="text-align: right;">144</td>
+<td>Racines d’un polynôme. Fonctions symétriques élémentaires. Exemples
+et applications.</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">∅</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Les permutations portent sur les sommets, non sur des racines ;
+aucune fonction symétrique élémentaire.</td>
+<td>754–771</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/148-dimension-espace-vectoriel-rang.html">148</a></td>
+<td>Dimension d’un espace vectoriel (on se limitera au cas de la
+dimension finie). Rang. Exemples et applications.</td>
+<td style="text-align: center;"><a
+href="../../alg%C3%A8bre/le%C3%A7ons/148-dimension-espace-vectoriel-rang.html">E</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;" class="score score-2">2</td>
+<td style="text-align: center;">—</td>
+<td>L’injectivité utilise réellement le repère affine en dimension
+trois, mais aucun raisonnement de rang ou de dimension n’est développé
+au-delà de ce lemme.</td>
+<td>772–803</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a></td>
+<td>Déterminant. Exemples et applications.</td>
+<td style="text-align: center;"><a
+href="../../alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">E</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;" class="score score-2">2</td>
+<td style="text-align: center;" class="score score-4">4</td>
+<td>Le déterminant sert à définir direct/indirect, mais l’égalité avec
+la signature est affirmée via un tableau plutôt que démontrée par ses
+propriétés.</td>
+<td>804–820</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/150-polynomes-endomorphisme-reduction.html">150</a></td>
+<td>Polynômes d’endomorphisme en dimension finie. Réduction d’un
+endomorphisme en dimension finie. Applications.</td>
+<td style="text-align: center;"><a
+href="../../alg%C3%A8bre/le%C3%A7ons/150-polynomes-endomorphisme-reduction.html">E</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Les ordres finis sont listés mais aucun polynôme annulateur ni
+argument de réduction n’est utilisé.</td>
+<td>821–846</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/151-sous-espaces-stables-endomorphismes.html">151</a></td>
+<td>Sous-espaces stables par un endomorphisme ou une famille
+d’endomorphismes d’un espace vectoriel de dimension finie.
+Applications.</td>
+<td style="text-align: center;"><a
+href="../../alg%C3%A8bre/le%C3%A7ons/151-sous-espaces-stables-endomorphismes.html">E</a></td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;" class="score score-1">1</td>
+<td style="text-align: center;">—</td>
+<td>Axes et plans fixes sont mentionnés, mais aucune étude des
+sous-espaces stables d’un endomorphisme ou d’une famille n’est
+menée.</td>
+<td>847–861</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/152-endomorphismes-diagonalisables-dimension-finie.html">152</a></td>
+<td>Endomorphismes diagonalisables en dimension finie.</td>
+<td style="text-align: center;"><a
+href="../../alg%C3%A8bre/le%C3%A7ons/152-endomorphismes-diagonalisables-dimension-finie.html">E</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;" class="score score-1">1</td>
+<td style="text-align: center;">—</td>
+<td>Les réflexions donnent des exemples implicitement diagonalisables ;
+aucune diagonalisation ni critère sur R ou C ne porte la preuve.</td>
+<td>862–873</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/153-valeurs-propres-vecteurs-propres-calculs-applications.html">153</a></td>
+<td>Valeurs propres, vecteurs propres. Calculs exacts ou approchés
+d’éléments propres. Applications.</td>
+<td style="text-align: center;"><a
+href="../../alg%C3%A8bre/le%C3%A7ons/153-valeurs-propres-vecteurs-propres-calculs-applications.html">E</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;" class="score score-1">1</td>
+<td style="text-align: center;">—</td>
+<td>Les axes de rotation pourraient être lus comme espaces propres, mais
+aucun élément propre n’est effectivement calculé.</td>
+<td>874–898</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/155-exponentielle-de-matrices-applications.html">155</a></td>
+<td>Exponentielle de matrices. Applications.</td>
+<td style="text-align: center;"><a
+href="../../alg%C3%A8bre/le%C3%A7ons/155-exponentielle-de-matrices-applications.html">E</a></td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucune exponentielle de matrice ; les rotations ne sont pas obtenues
+par exponentiation.</td>
+<td>899–916</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/156-endomorphismes-trigonalisables-nilpotents.html">156</a></td>
+<td>Endomorphismes trigonalisables. Endomorphismes nilpotents.</td>
+<td style="text-align: center;"><a
+href="../../alg%C3%A8bre/le%C3%A7ons/156-endomorphismes-trigonalisables-nilpotents.html">E</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucune trigonalisation ni nilpotence ; les éléments du groupe sont
+inversibles.</td>
+<td>917–929</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/157-matrices-symetriques-reelles-hermitiennes.html">157</a></td>
+<td>Matrices symétriques réelles, matrices hermitiennes.</td>
+<td style="text-align: center;"><a
+href="../../alg%C3%A8bre/le%C3%A7ons/157-matrices-symetriques-reelles-hermitiennes.html">E</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;" class="score score-1">1</td>
+<td style="text-align: center;">—</td>
+<td>Les réflexions sont auto-adjointes, mais aucune matrice symétrique
+ni théorème spectral n’est étudié.</td>
+<td>930–952</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a></td>
+<td>Endomorphismes remarquables d’un espace vectoriel euclidien (de
+dimension finie).</td>
+<td style="text-align: center;"><a
+href="../../alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">E</a></td>
+<td style="text-align: center;" class="score score-4">4</td>
+<td style="text-align: center;" class="score score-3">3</td>
+<td style="text-align: center;" class="score score-4">4</td>
+<td>Réflexions et rotations sont réelles dans la preuve, mais D reste
+affine et le dictionnaire ne démontre ni matrices ni réduction
+orthogonale.</td>
+<td>953–964</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/159-formes-lineaires-dualite-dimension-finie.html">159</a></td>
+<td>Formes linéaires et dualité en dimension finie. Exemples et
+applications.</td>
+<td style="text-align: center;"><a
+href="../../alg%C3%A8bre/le%C3%A7ons/159-formes-lineaires-dualite-dimension-finie.html">E</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Le repère affine n’est pas étudié par formes coordonnées ou dualité
+; aucun morphisme transposé.</td>
+<td>965–983</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/161-espaces-vectoriels-et-affines-euclidiens-distances-isometries.html">161</a></td>
+<td>Espaces vectoriels et espaces affines euclidiens : distances,
+isométries.</td>
+<td style="text-align: center;"><a
+href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/161-espaces-vectoriels-et-affines-euclidiens-distances-isometries.html">E</a></td>
+<td style="text-align: center;" class="score score-4">4</td>
+<td style="text-align: center;" class="score score-5">5</td>
+<td style="text-align: center;">—</td>
+<td>Classification des isométries préservant un solide en dimension
+trois ; plans médiateurs, repère affine et distances sont essentiels. Le
+rapport vise explicitement ce cas.</td>
+<td>984–1006</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a></td>
+<td>Systèmes d’équations linéaires ; opérations élémentaires, aspects
+algorithmiques et conséquences théoriques.</td>
+<td style="text-align: center;"><a
+href="../../alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">E</a></td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucun système linéaire résolu, pivot ou analyse algorithmique ;
+l’unicité sur un repère ne suffit pas.</td>
+<td>1007–1027</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/170-formes-quadratiques-dimension-finie-orthogonalite-applications.html">170</a></td>
+<td>Formes quadratiques sur un espace vectoriel de dimension finie.
+Orthogonalité. Applications.</td>
+<td style="text-align: center;"><a
+href="../../alg%C3%A8bre/le%C3%A7ons/170-formes-quadratiques-dimension-finie-orthogonalite-applications.html">E</a></td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;" class="score score-1">1</td>
+<td style="text-align: center;">—</td>
+<td>L’orthogonalité est réelle, mais aucune forme quadratique n’est
+explicitement étudiée ; le rapport autorise pourtant le groupe
+orthogonal.</td>
+<td>1028–1051</td>
+</tr>
+<tr>
+<td style="text-align: right;">171</td>
+<td>Formes quadratiques réelles. Coniques. Exemples et
+applications.</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">∅</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Ni conique, ni classification ou signature de forme quadratique ; la
+parité des permutations n’est pas cette signature.</td>
+<td>1052–1066</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a></td>
+<td>Convexité dans Rn. Applications en algèbre et en géométrie.</td>
+<td style="text-align: center;"><a
+href="../../g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">E</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;" class="score score-3">3</td>
+<td style="text-align: center;" class="score score-4">4</td>
+<td>Les points extrémaux donnent réellement la permutation des sommets ;
+leur caractérisation est seulement affirmée dans D, bien que prouvée
+dans la fiche de prérequis liée.</td>
+<td>1067–1081</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../alg%C3%A8bre/le%C3%A7ons/190-methodes-combinatoires-problemes-de-denombrement.html">190</a></td>
+<td>Méthodes combinatoires, problèmes de dénombrement.</td>
+<td style="text-align: center;"><a
+href="../../alg%C3%A8bre/le%C3%A7ons/190-methodes-combinatoires-problemes-de-denombrement.html">E</a></td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;" class="score score-3">3</td>
+<td style="text-align: center;" class="score score-4">4</td>
+<td>Un vrai dénombrement par bijection donne les isométries, puis un
+tableau par types compte les rotations ; le zéro historique nie ce
+contenu, mais les comptes sont peu justifiés.</td>
+<td>1082–1103</td>
+</tr>
+<tr>
+<td style="text-align: right;">191</td>
+<td>Exemples d’utilisation de techniques d’algèbre en géométrie.</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">∅</td>
+<td style="text-align: center;" class="score score-5">5</td>
+<td style="text-align: center;">—</td>
+<td>Les outils de groupes (action, morphisme, générateurs) résolvent une
+classification géométrique concrète ; le rapport cite outils structurels
+et groupes finis préservant des objets.</td>
+<td>1104–1187</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/201-espaces-de-fonctions-exemples-applications.html">201</a></td>
+<td>Espaces de fonctions. Exemples et applications.</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/201-espaces-de-fonctions-exemples-applications.html">E</a></td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucun espace de fonctions, norme fonctionnelle ou
+approximation.</td>
+<td>1190–1204</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/203-utilisation-de-la-notion-de-compacite.html">203</a></td>
+<td>Utilisation de la notion de compacité.</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/203-utilisation-de-la-notion-de-compacite.html">E</a></td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Le tétraèdre est compact, mais aucun argument de compacité n’est
+utilisé pour établir l’isomorphisme.</td>
+<td>1212–1226</td>
+</tr>
+<tr>
+<td style="text-align: right;">204</td>
+<td>Connexité. Exemples d’applications.</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">∅</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucun raisonnement de connexité ; finitude ou orientation ne sont
+pas une étude des composantes de O(3).</td>
+<td>1227–1241</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/205-espaces-complets.html">205</a></td>
+<td>Espaces complets. Exemples et applications.</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/205-espaces-complets.html">E</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucune suite de Cauchy ou existence par complétude.</td>
+<td>1242–1254</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/206-exemples-dutilisation-de-la-notion-de-dimension-finie-en-analyse.html">206</a></td>
+<td>Exemples d’utilisation de la notion de dimension finie en
+analyse.</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/206-exemples-dutilisation-de-la-notion-de-dimension-finie-en-analyse.html">E</a></td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>La dimension intervient pour un repère affine, mais aucune
+application en analyse n’en résulte.</td>
+<td>1255–1276</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/208-espaces-vectoriels-normes-applications-lineaires-continues.html">208</a></td>
+<td>Espaces vectoriels normés, applications linéaires continues.
+Exemples.</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/208-espaces-vectoriels-normes-applications-lineaires-continues.html">E</a></td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>La conservation des distances ne débouche sur aucune étude de normes
+d’opérateurs ou de continuité linéaire ; il s’agit de géométrie
+finie.</td>
+<td>1277–1297</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/209-approximation-fonction-par-fonctions-regulieres.html">209</a></td>
+<td>Approximation d’une fonction par des fonctions régulières. Exemples
+d’applications.</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/209-approximation-fonction-par-fonctions-regulieres.html">E</a></td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucune approximation ou régularisation de fonction.</td>
+<td>1298–1311</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/213-espaces-hilbert-exemples-applications.html">213</a></td>
+<td>Espaces de Hilbert. Exemples d’applications.</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/213-espaces-hilbert-exemples-applications.html">E</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>L’espace euclidien est un Hilbert particulier, mais aucun mécanisme
+hilbertien distinct ne porte le développement.</td>
+<td>1312–1329</td>
+</tr>
+<tr>
+<td style="text-align: right;">214</td>
+<td>Théorème d’inversion locale, théorème des fonctions implicites.
+Illustrations en analyse et en géométrie.</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">∅</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucun théorème d’inversion locale ou des fonctions implicites ;
+l’isomorphisme est algébrique.</td>
+<td>1330–1353</td>
+</tr>
+<tr>
+<td style="text-align: right;">215</td>
+<td>Applications différentiables définies sur un ouvert de Rn. Exemples
+et applications.</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">∅</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucune différentielle ni étude locale d’application, malgré la
+nature affine des isométries.</td>
+<td>1354–1366</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/218-formules-de-taylor-exemples-applications.html">218</a></td>
+<td>Formules de Taylor. Exemples et applications.</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/218-formules-de-taylor-exemples-applications.html">E</a></td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucune formule de Taylor ni contrôle de reste.</td>
+<td>1367–1383</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/219-extremums.html">219</a></td>
+<td>Extremums : existence, caractérisation, recherche. Exemples et
+applications.</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/219-extremums.html">E</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Les points extrémaux d’un convexe ne sont pas des extrema d’une
+fonction ; aucun problème d’optimisation.</td>
+<td>1384–1404</td>
+</tr>
+<tr>
+<td style="text-align: right;">220</td>
+<td>Illustrer par des exemples la théorie des équations différentielles
+ordinaires.</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">∅</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucune équation différentielle ni étude dynamique.</td>
+<td>1405–1422</td>
+</tr>
+<tr>
+<td style="text-align: right;">221</td>
+<td>Équations différentielles linéaires. Systèmes d’équations
+différentielles linéaires. Exemples et applications.</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">∅</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucun système différentiel linéaire ou exponentielle de
+matrice.</td>
+<td>1423–1438</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/223-suites-reelles-complexes.html">223</a></td>
+<td>Suites réelles et complexes. Convergence, valeurs d’adhérence.
+Exemples et applications.</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/223-suites-reelles-complexes.html">E</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucune suite réelle ou complexe, convergence ou valeur
+d’adhérence.</td>
+<td>1439–1458</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/224-exemples-de-developpements-asymptotiques.html">224</a></td>
+<td>Exemples de développements asymptotiques de suites et de
+fonctions.</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/224-exemples-de-developpements-asymptotiques.html">E</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucun paramètre asymptotique ni développement de suite ou de
+fonction.</td>
+<td>1459–1472</td>
+</tr>
+<tr>
+<td style="text-align: right;">226</td>
+<td>Suites vectorielles et réelles définies par une relation de
+récurrence un`1 “ fpunq. Exemples. Applications à la résolution
+approchée d’équations.</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">∅</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucune relation de récurrence ni méthode d’approximation par
+itération.</td>
+<td>1473–1488</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/228-continuite-derivabilite-fonctions-reelles-une-variable.html">228</a></td>
+<td>Continuité, dérivabilité des fonctions réelles d’une variable
+réelle. Exemples et applications.</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/228-continuite-derivabilite-fonctions-reelles-une-variable.html">E</a></td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucune fonction scalaire d’une variable étudiée sous l’angle de sa
+continuité ou dérivabilité.</td>
+<td>1489–1509</td>
+</tr>
+<tr>
+<td style="text-align: right;">229</td>
+<td>Fonctions monotones. Fonctions convexes. Exemples et
+applications.</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">∅</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>La convexité du solide ne constitue aucune étude de fonctions
+convexes ou monotones.</td>
+<td>1510–1520</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/230-series-nombres-reels-complexes.html">230</a></td>
+<td>Séries de nombres réels et complexes. Comportement des restes ou des
+sommes partielles des séries numériques. Exemples.</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/230-series-nombres-reels-complexes.html">E</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Le comptage fini n’est pas une série numérique et aucun comportement
+de restes n’intervient.</td>
+<td>1521–1533</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/234-fonctions-espaces-lebesgue-integrables.html">234</a></td>
+<td>Fonctions et espaces de fonctions Lebesgue-intégrables.</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/234-fonctions-espaces-lebesgue-integrables.html">E</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucune intégrale de Lebesgue ou utilisation de Lp.</td>
+<td>1534–1544</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">235</a></td>
+<td>Problèmes d’interversion de symboles en analyse</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/235-problemes-dinterversion-de-symboles-en-analyse.html">E</a></td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucune interversion de limites, intégrales ou dérivées ; permuter
+des sommets est sans rapport.</td>
+<td>1545–1559</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/236-methodes-calcul-integrales.html">236</a></td>
+<td>Illustrer par des exemples quelques méthodes de calcul d’intégrales
+de fonctions d’une ou plusieurs variables.</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/236-methodes-calcul-integrales.html">E</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucun calcul d’intégrale ; aucun calcul de volume par
+intégration.</td>
+<td>1560–1570</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">239</a></td>
+<td>Fonctions définies par une intégrale dépendant d’un paramètre.
+Exemples et applications.</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/239-fonctions-definies-par-integrale-parametre.html">E</a></td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucune intégrale à paramètre.</td>
+<td>1571–1580</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/241-suites-series-fonctions-exemples-contre-exemples.html">241</a></td>
+<td>Suites et séries de fonctions. Exemples et contre-exemples.</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/241-suites-series-fonctions-exemples-contre-exemples.html">E</a></td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucune suite ou série de fonctions ni mode de convergence.</td>
+<td>1581–1594</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/243-series-entieres.html">243</a></td>
+<td>Séries entières, propriétés de la somme. Exemples et
+applications.</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/243-series-entieres.html">E</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucune série entière ou fonction génératrice ; les comptes du
+tableau restent finis.</td>
+<td>1595–1617</td>
+</tr>
+<tr>
+<td style="text-align: right;">245</td>
+<td>Fonctions holomorphes et méromorphes sur un ouvert de C. Exemples et
+applications.</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">∅</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucune fonction holomorphe, méromorphe ou analyse complexe.</td>
+<td>1618–1631</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/246-series-de-fourier-exemples-applications.html">246</a></td>
+<td>Séries de Fourier. Exemples et applications.</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/246-series-de-fourier-exemples-applications.html">E</a></td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucune série de Fourier ; des rotations finies ne constituent pas
+une analyse harmonique.</td>
+<td>1632–1659</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">250</a></td>
+<td>Transformation de Fourier. Applications.</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/250-transformation-de-fourier-applications.html">E</a></td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucune transformation de Fourier, convolution ou formule d’inversion
+analytique.</td>
+<td>1660–1674</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/253-convexite-en-analyse.html">253</a></td>
+<td>Utilisation de la notion de convexité en analyse.</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/253-convexite-en-analyse.html">E</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;" class="score score-1">1</td>
+<td style="text-align: center;">—</td>
+<td>Les points extrémaux sont explicitement recevables dans les
+attendus, mais D n’en donne qu’une application de géométrie des groupes
+sans portée analytique.</td>
+<td>1675–1688</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261</a></td>
+<td>Loi d’une variable aléatoire : caractérisations, exemples,
+applications.</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">E</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucune loi de variable aléatoire ; les cardinaux ne sont pas
+probabilisés.</td>
+<td>1689–1707</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/262-convergences-variables-aleatoires-theoremes-limite.html">262</a></td>
+<td>Convergences d’une suite de variables aléatoires. Théorèmes limite.
+Exemples et applications.</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/262-convergences-variables-aleatoires-theoremes-limite.html">E</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucune variable aléatoire ou théorème limite.</td>
+<td>1708–1718</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/264-variables-aleatoires-discretes.html">264</a></td>
+<td>Variables aléatoires discrètes. Exemples et applications.</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/264-variables-aleatoires-discretes.html">E</a></td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucune loi discrète ni modélisation aléatoire ; aucun tirage
+uniforme n’est défini.</td>
+<td>1719–1727</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../../analyse/le%C3%A7ons/266-independance-probabilites.html">266</a></td>
+<td>Utilisation de la notion d’indépendance en probabilités.</td>
+<td style="text-align: center;"><a
+href="../../analyse/le%C3%A7ons/266-independance-probabilites.html">E</a></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;" class="score score-0">0</td>
+<td style="text-align: center;">—</td>
+<td>Aucune indépendance probabiliste ; l’indépendance affine des sommets
+n’est pas cette notion.</td>
+<td>1728–1740</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vérifications-exécutées">Vérifications exécutées</h2>
+<ul>
+<li>Python : <strong>68 numéros uniques</strong>, égalité exacte avec
+l’ensemble officiel parsé indépendamment dans R:9–<a href="../../alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a> ; titres contrôlés
+après réunion des retours et césures.</li>
+<li><strong>50 chemins existants</strong>, frontmatter de vraie leçon ;
+<strong>18 valeurs null</strong> correspondant exactement aux numéros
+absents. Fiche et ligne synthétique concordantes ; aucune note
+indéterminée dans les nouvelles évaluations.</li>
+<li>Distribution calculée des notes actuelles :
+<code>{0: 49, 1: 6, 2: 3, 3: 4, 4: 1, 5: 5}</code>. Forts :
+<code>[101, 104, 105, 108, 161, 191]</code> ; seule création immédiate :
+<code>[191]</code>.</li>
+<li>Notes entières de 0 à 5, références valides, JSON sérialisé et
+vérifié. Empreintes SHA-256 des sources enregistrées dans le JSON pour
+identifier le corpus audité. Aucun chronométrage oral, build ou
+publication revendiqué.</li>
+<li>Artefact associé : <a href="isometries-du-tetraedre.json">JSON
+exhaustif</a>.</li>
+</ul>
+</body>
+</html>
