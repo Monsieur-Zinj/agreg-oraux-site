@@ -1,0 +1,193 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Bernoulli, loi binomiale et polynômes de Bernstein</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css?v=3fa8cfdcc3ea" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Bernoulli, loi binomiale et polynômes de
+Bernstein</h1>
+</header>
+<h1 id="bernoulli-loi-binomiale-et-polynômes-de-bernstein">Bernoulli,
+loi binomiale et polynômes de Bernstein</h1>
+<p><a href="index.html">Index des notions</a> · <a
+href="../d%C3%A9veloppements/theoreme-weierstrass-preuve-probabiliste.html">Développement
+de Weierstrass probabiliste</a></p>
+<h2 id="distinguer-les-objets">Distinguer les objets</h2>
+<p>Pour <span class="math inline">\(n\geq1\)</span>, on fixe d’abord
+<span class="math inline">\(x\in[0,1]\)</span>.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Notation</th>
+<th>Nature et rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline">\(x\)</span></td>
+<td>Nombre fixé, paramètre de succès ; il deviendra la variable du
+polynôme.</td>
+</tr>
+<tr>
+<td><span class="math inline">\(X_i\)</span></td>
+<td>Variable aléatoire de Bernoulli : <span
+class="math inline">\(1\)</span> avec probabilité <span
+class="math inline">\(x\)</span>, <span class="math inline">\(0\)</span>
+avec probabilité <span class="math inline">\(1-x\)</span>.</td>
+</tr>
+<tr>
+<td><span class="math inline">\(S_{n,x}=X_1+\cdots+X_n\)</span></td>
+<td>Nombre aléatoire de succès, à valeurs dans <span
+class="math inline">\(\{0,\ldots,n\}\)</span>.</td>
+</tr>
+<tr>
+<td><span class="math inline">\(Y_{n,x}=S_{n,x}/n\)</span></td>
+<td>Fréquence aléatoire de succès, à valeurs dans <span
+class="math inline">\([0,1]\)</span>.</td>
+</tr>
+<tr>
+<td><span class="math inline">\(k\)</span></td>
+<td>Indice entier parcourant les valeurs possibles du nombre de
+succès.</td>
+</tr>
+<tr>
+<td><span class="math inline">\(B_n(f)(x)\)</span></td>
+<td>Nombre déterministe obtenu après prise d’espérance.</td>
+</tr>
+</tbody>
+</table>
+<p>Supposer les <span class="math inline">\(X_i\)</span> indépendantes
+et de même loi de Bernoulli de paramètre <span
+class="math inline">\(x\)</span>. Leur somme suit la loi binomiale <span
+class="math inline">\(\mathcal B(n,x)\)</span> : pour obtenir <span
+class="math inline">\(k\)</span> succès, on choisit leurs positions de
+<span class="math inline">\(\binom nk\)</span> façons, chacune de
+probabilité <span class="math inline">\(x^k(1-x)^{n-k}\)</span>. Ainsi
+<span class="math display">\[
+\mathbb P(S_{n,x}=k)=\binom nk x^k(1-x)^{n-k}.
+\]</span> Aux extrémités, <span class="math inline">\(S_{n,0}=0\)</span>
+presque sûrement et <span class="math inline">\(S_{n,1}=n\)</span>
+presque sûrement ; la formule polynomiale se lit avec les puissances
+d’exposant zéro égales à <span class="math inline">\(1\)</span>.</p>
+<p>La notation usuelle <span class="math inline">\(S_n\)</span> masque
+la dépendance de sa loi en <span class="math inline">\(x\)</span>. On
+n’a pas besoin de construire toutes ces variables sur un même espace
+probabilisé : les lois et les estimations uniformes suffisent.</p>
+<h2 id="du-transfert-au-polynôme-en-trois-étapes">Du transfert au
+polynôme, en trois étapes</h2>
+<p>Pour <span class="math inline">\(f\in C([0,1])\)</span> :</p>
+<ol type="1">
+<li><span class="math inline">\(S_{n,x}/n\)</span> appartient à <span
+class="math inline">\([0,1]\)</span>, donc <span
+class="math inline">\(f(S_{n,x}/n)\)</span> est bien définie et
+bornée.</li>
+<li>Le <a href="../r%C3%A9sultats/theoreme-de-transfert.html">théorème de
+transfert</a>, appliqué à <span class="math inline">\(S_{n,x}\)</span>
+et <span class="math inline">\(h(t)=f(t/n)\)</span>, donne <span
+class="math display">\[
+\mathbb E[f(S_{n,x}/n)]=\sum_{k=0}^nf(k/n)\binom nk x^k(1-x)^{n-k}.
+\]</span></li>
+<li>Pour <span class="math inline">\(n\)</span> fixé, chaque <span
+class="math inline">\(f(k/n)\binom nk\)</span> est un coefficient
+constant en <span class="math inline">\(x\)</span> et <span
+class="math inline">\(x^k(1-x)^{n-k}\)</span> est un polynôme de degré
+<span class="math inline">\(n\)</span>. La somme est donc un polynôme de
+degré <strong>au plus</strong> <span class="math inline">\(n\)</span>,
+noté <span class="math inline">\(B_n(f)\)</span>, même lorsque <span
+class="math inline">\(f\)</span> n’est pas polynomiale.</li>
+</ol>
+<p>La représentation probabiliste vaut pour <span
+class="math inline">\(x\in[0,1]\)</span>. La formule polynomiale définit
+aussi <span class="math inline">\(B_n(f)(x)\)</span> hors de cet
+intervalle, mais on n’y interprète plus <span
+class="math inline">\(x\)</span> comme une probabilité.</p>
+<h2 id="exemple-à-écrire-sans-notation-aléatoire">Exemple à écrire sans
+notation aléatoire</h2>
+<p>Pour <span class="math inline">\(n=2\)</span>, <span
+class="math display">\[
+B_2(f)(x)=f(0)(1-x)^2+2f(1/2)x(1-x)+f(1)x^2.
+\]</span> Les trois valeurs de <span class="math inline">\(f\)</span>
+sont fixes. Les poids sont positifs sur <span
+class="math inline">\([0,1]\)</span> et leur somme vaut <span
+class="math inline">\(1\)</span> : il s’agit d’une moyenne pondérée.</p>
+<h2 id="pourquoi-cette-moyenne-approche-t-elle-fx">Pourquoi cette
+moyenne approche-t-elle <span class="math inline">\(f(x)\)</span> ?</h2>
+<p>Par linéarité de l’espérance et additivité des variances sous
+indépendance, <span class="math display">\[
+\mathbb E[Y_{n,x}]=x,\qquad
+\operatorname{Var}(Y_{n,x})=\frac{x(1-x)}n\leq\frac1{4n}.
+\]</span> L’indépendance assure à la fois la loi binomiale et le calcul
+additif de la variance ; elle n’est pas une hypothèse du transfert.</p>
+<p>La <a
+href="../r%C3%A9sultats/inegalite-bienayme-tchebychev.html">concentration de
+Bienaymé–Tchebychev</a> rend <span
+class="math inline">\(Y_{n,x}\)</span> proche de <span
+class="math inline">\(x\)</span>. La <a
+href="../r%C3%A9sultats/heine-continuite-uniforme-sur-compact.html">continuité
+uniforme de <span class="math inline">\(f\)</span></a> rend alors <span
+class="math inline">\(f(Y_{n,x})\)</span> proche de <span
+class="math inline">\(f(x)\)</span>. Le développement détaille la
+séparation proche/loin qui permet de conclure uniformément en <span
+class="math inline">\(x\)</span>.</p>
+<p>Pour tester les notations, avec <span
+class="math inline">\(e_1(t)=t\)</span> et <span
+class="math inline">\(e_2(t)=t^2\)</span>, <span class="math display">\[
+B_n(1)(x)=1,\qquad B_n(e_1)(x)=x,\qquad
+B_n(e_2)(x)=x^2+\frac{x(1-x)}n.
+\]</span> La dernière identité découle de <span
+class="math inline">\(\mathbb E[Y^2]=\operatorname{Var}(Y)+(\mathbb
+E[Y])^2\)</span>.</p>
+<h2 id="leçons-et-travail-de-consolidation">Leçons et travail de
+consolidation</h2>
+<ul>
+<li><a href="../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">261 — Loi
+d’une variable aléatoire</a>.</li>
+<li><a
+href="../analyse/le%C3%A7ons/264-variables-aleatoires-discretes.html">264 —
+Variables aléatoires discrètes</a>.</li>
+<li><a href="../suivi-acquisition/weierstrass-probabiliste.html">Fiche de
+suivi d’acquisition — Weierstrass probabiliste</a>.</li>
+</ul>
+<h2 id="à-faire">À faire</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Dire, pour chaque symbole, s’il est
+fixé, aléatoire ou muet.</label></li>
+<li><label><input type="checkbox" />Retrouver <span
+class="math inline">\(B_2(f)\)</span> par transfert sans regarder la
+formule.</label></li>
+<li><label><input type="checkbox" />Calculer moyenne et variance de
+<span class="math inline">\(S_{n,x}/n\)</span>, puis reprendre la preuve
+uniforme.</label></li>
+</ul>
+</body>
+</html>

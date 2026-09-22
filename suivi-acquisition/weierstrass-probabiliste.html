@@ -1,0 +1,149 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Fiche de suivi d’acquisition — Weierstrass probabiliste</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css?v=3fa8cfdcc3ea" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Fiche de suivi d’acquisition — <a href="../d%C3%A9veloppements/theoreme-weierstrass-preuve-probabiliste.html">Weierstrass
+probabiliste</a></h1>
+</header>
+<h1 id="fiche-de-suivi-dacquisition-weierstrass-probabiliste">Fiche de
+suivi d’acquisition — <a href="../d%C3%A9veloppements/theoreme-weierstrass-preuve-probabiliste.html">Weierstrass probabiliste</a></h1>
+<p><a
+href="../d%C3%A9veloppements/theoreme-weierstrass-preuve-probabiliste.html">Développement</a>
+· <a href="../analyse/le%C3%A7ons/261-loi-variable-aleatoire.html">Leçon
+261</a> · <a
+href="../analyse/le%C3%A7ons/264-variables-aleatoires-discretes.html">Leçon
+264</a> · <a href="../index/programme-revision.html">Programme de
+révision</a></p>
+<h2 id="niveau-constaté">Niveau constaté</h2>
+<p>Échelle : <strong>à reprendre</strong> (besoin exprimé),
+<strong>expliqué</strong> (réponse reçue), <strong>restitué</strong>
+(argument reformulé), <strong>mobilisable</strong> (réemploi autonome
+vérifié).</p>
+<p>Le développement est en phase de découverte. La conversation ne
+permet pas de valider une restitution complète sans aide.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Point</th>
+<th>Observation et niveau prudent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Paramètre <span class="math inline">\(x\)</span>, Bernoulli et
+binomiale</td>
+<td>Clarification demandée et explication reçue ; distinction à
+reprendre activement.</td>
+</tr>
+<tr>
+<td>Espérance donnant un polynôme</td>
+<td>Formule expliquée, mais aucune reconstruction autonome
+observée.</td>
+</tr>
+<tr>
+<td>Généralité du transfert</td>
+<td>Rectification pertinente formulée : le théorème n’est pas réservé
+aux variables discrètes. L’énoncé avec mesurabilité et intégrabilité
+reste à vérifier.</td>
+</tr>
+<tr>
+<td>Changement de segment</td>
+<td>Bonne composition affine formulée : <span
+class="math inline">\(\varphi(t)=a+(b-a)t\)</span>, <span
+class="math inline">\(g=f\circ\varphi\)</span>, puis <span
+class="math inline">\(Q_n(y)=P_n((y-a)/(b-a))\)</span>. Les intervalles
+manquent dans la transcription ; refaire la justification complète avant
+de valider l’autonomie.</td>
+</tr>
+<tr>
+<td>Heine, variance, séparation proche/loin, Tchebychev, supremum</td>
+<td>Non évalués dans cet échange.</td>
+</tr>
+</tbody>
+</table>
+<p>Aucune erreur récurrente n’est établie. La restriction initiale du
+transfert au discret appartient à l’explication reçue, et non à une
+erreur du candidat.</p>
+<h2 id="consolidation-progressive">Consolidation progressive</h2>
+<ol type="1">
+<li>Lire la <a href="../notions/bernstein-loi-binomiale.html">fiche
+Bernoulli–binomiale–Bernstein</a> : une formule à la fois, en nommant
+chaque objet.</li>
+<li>Énoncer le <a href="../r%C3%A9sultats/theoreme-de-transfert.html">transfert
+général</a>, puis appliquer sa version discrète avec <span
+class="math inline">\(h(t)=f(t/n)\)</span>.</li>
+<li>Construire <span class="math inline">\(B_2(f)\)</span> sans notes et
+expliquer pourquoi ses coefficients ne dépendent pas de <span
+class="math inline">\(x\)</span>.</li>
+<li>Reprendre ensuite le calcul de variance et la séparation proche/loin
+dans le développement.</li>
+<li>Terminer par le retour à <span class="math inline">\([a,b]\)</span>,
+<span class="math inline">\(a&lt;b\)</span>, en justifiant l’égalité des
+normes uniformes grâce à la bijection affine.</li>
+</ol>
+<h2 id="questions-à-poser-une-par-une">Questions à poser une par
+une</h2>
+<ul>
+<li>Dans <span class="math inline">\(S_{n,x}\sim\mathcal
+B(n,x)\)</span>, qu’est-ce qui est aléatoire ?</li>
+<li>Pourquoi divise-t-on par <span class="math inline">\(n\)</span>
+avant d’appliquer <span class="math inline">\(f\)</span> ?</li>
+<li>Quelle fonction utilise-t-on dans le transfert par <span
+class="math inline">\(S_{n,x}\)</span> ?</li>
+<li>Le transfert nécessite-t-il une densité ou l’indépendance ?</li>
+<li>Pourquoi le degré de <span class="math inline">\(B_n(f)\)</span>
+est-il au plus <span class="math inline">\(n\)</span>, et pas
+nécessairement égal à <span class="math inline">\(n\)</span> ?</li>
+<li>Quelles deux uniformités permettront de passer au supremum sur <span
+class="math inline">\(x\)</span> ?</li>
+</ul>
+<h2 id="actions">Actions</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Valider les trois premières
+questions sans support.</label></li>
+<li><label><input type="checkbox" />Restituer le transfert avec ses
+hypothèses.</label></li>
+<li><label><input type="checkbox" />Refaire l’estimation uniforme avant
+un premier essai chronométré complet.</label></li>
+</ul>
+<h2 id="source-du-diagnostic">Source du diagnostic</h2>
+<p>Conversation archivée sous
+<code>revision-weierstrass-bernstein-binomiale-transfert.txt</code>,
+lignes 10–36. Date absolue non renseignée : la mention relative « hier »
+n’est pas datable à partir de cet export. Le suivi reformule uniquement
+les éléments pédagogiques utiles ; les échanges bruts ne sont pas
+reproduits.</p>
+</body>
+</html>
