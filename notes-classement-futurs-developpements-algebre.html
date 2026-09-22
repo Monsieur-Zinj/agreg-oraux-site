@@ -1,0 +1,1071 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Futurs développements d’algèbre : pertinence et classement</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="assets/style.css?v=3fa8cfdcc3ea" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Futurs développements d’algèbre : pertinence et
+classement</h1>
+</header>
+<h1 id="futurs-développements-dalgèbre-pertinence-et-classement">Futurs
+développements d’algèbre : pertinence et classement</h1>
+<h2 id="objet-de-cette-note">Objet de cette note</h2>
+<p>Conserver un classement de développements d’algèbre
+<strong>recasables et complémentaires de ceux déjà présents</strong>, en
+privilégiant les mécanismes élémentaires, les actions de groupes, les
+permutations et la géométrie, sans construire le portefeuille autour des
+théorèmes de Sylow.</p>
+<p>Cette note est exploratoire. Aucun candidat n’est encore sélectionné
+définitivement ni intégré à la matrice. Les scores proposés sont des
+appréciations pédagogiques conditionnées à la version précise de la
+preuve : <strong>ce ne sont pas des notes du jury</strong>. Les preuves
+devront encore être vérifiées sur une source complète et chronométrées
+avant toute intégration.</p>
+<h2 id="état-du-portefeuille-au-moment-de-laudit">1. État du
+portefeuille au moment de l’audit</h2>
+<p>Référence : <a href="index/matrice-developpements-lecons.html">matrice
+développements / leçons</a>.</p>
+<p>Développements existants pertinents pour la comparaison :</p>
+<ul>
+<li><a href="d%C3%A9veloppements/isometries-du-tetraedre.html">Isométries du tétraèdre régulier</a> ;</li>
+<li><a href="d%C3%A9veloppements/loi-de-reciprocite-quadratique.html">Loi de réciprocité quadratique</a> ;</li>
+<li>projection sur un convexe fermé, pour ses recasages euclidiens
+;</li>
+<li>nombres de Bell et formule de Dobinski, pour la combinatoire.</li>
+</ul>
+<p>Les deux premiers couvrent déjà fortement :</p>
+<ul>
+<li>actions de groupes, permutations et groupes d’isométries ;</li>
+<li>arithmétique des corps finis et formes quadratiques ;</li>
+<li>dénombrement par action de groupe.</li>
+</ul>
+<p>Ils ne couvrent en revanche presque pas le bloc central d’algèbre
+linéaire : pivot, rang, réduction, sous-espaces stables, spectre,
+matrices symétriques, exponentielle et dualité.</p>
+<h3 id="couverture-forte-actuelle">Couverture forte actuelle</h3>
+<p>Une couverture forte désigne ici un développement déjà noté <strong>4
+ou 5</strong> dans la matrice. Le tableau est un instantané à recalculer
+lors de la reprise ; une case <code>—</code> signifie seulement « non
+évaluée ».</p>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 40%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>Leçon créée</th>
+<th style="text-align: right;">Nombre de développements forts</th>
+<th>Développements forts déjà présents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a> — Groupe opérant</td>
+<td style="text-align: right;" class="score score-2">2</td>
+<td>Tétraèdre ; réciprocité quadratique</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/104-groupes-finis.html">104</a> — Groupes finis</td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>Tétraèdre</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/105-groupe-des-permutations-dun-ensemble-fini.html">105</a> — Groupe des permutations</td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>Tétraèdre</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/106-groupe-lineaire-sous-groupes.html">106</a> — Groupe linéaire</td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>Réciprocité quadratique</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a> — Parties génératrices</td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>Tétraèdre</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/120-anneaux-z-sur-nz-applications.html">120</a> — Anneaux <span class="math inline">\(\mathbb Z/n\mathbb
+Z\)</span></td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>Réciprocité quadratique</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/121-nombres-premiers-applications.html">121</a> — Nombres premiers</td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>Réciprocité quadratique</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/123-corps-finis-applications.html">123</a> — Corps finis</td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>Réciprocité quadratique</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/148-dimension-espace-vectoriel-rang.html">148</a> — Dimension et rang</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>—</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a> — Déterminant</td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>Réciprocité quadratique</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/150-polynomes-endomorphisme-reduction.html">150</a> — Polynômes d’endomorphisme et réduction</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>—</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/151-sous-espaces-stables-endomorphismes.html">151</a> — Sous-espaces stables</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>—</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/152-endomorphismes-diagonalisables-dimension-finie.html">152</a> — Endomorphismes diagonalisables</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>—</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/153-valeurs-propres-vecteurs-propres-calculs-applications.html">153</a> — Valeurs propres et vecteurs propres</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>—</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/155-exponentielle-de-matrices-applications.html">155</a> — Exponentielle de matrices</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>—</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/156-endomorphismes-trigonalisables-nilpotents.html">156</a> — Endomorphismes trigonalisables et nilpotents</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>—</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/157-matrices-symetriques-reelles-hermitiennes.html">157</a> — Matrices symétriques et hermitiennes</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>—</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a> — Endomorphismes remarquables euclidiens</td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>Tétraèdre</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/159-formes-lineaires-dualite-dimension-finie.html">159</a> — Formes linéaires et dualité</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>—</td>
+</tr>
+<tr>
+<td><a href="g%C3%A9om%C3%A9trie/le%C3%A7ons/161-espaces-vectoriels-et-affines-euclidiens-distances-isometries.html">161</a> — Espaces euclidiens et isométries</td>
+<td style="text-align: right;" class="score score-2">2</td>
+<td>Tétraèdre ; projection</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a> — Systèmes linéaires</td>
+<td style="text-align: right;" class="score score-0">0</td>
+<td>—</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/170-formes-quadratiques-dimension-finie-orthogonalite-applications.html">170</a> — Formes quadratiques</td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>Réciprocité quadratique</td>
+</tr>
+<tr>
+<td><a href="g%C3%A9om%C3%A9trie/le%C3%A7ons/181-convexite-dans-rn.html">181</a> — Convexité en algèbre et géométrie</td>
+<td style="text-align: right;" class="score score-1">1</td>
+<td>Projection</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/190-methodes-combinatoires-problemes-de-denombrement.html">190</a> — Méthodes combinatoires</td>
+<td style="text-align: right;" class="score score-2">2</td>
+<td>Bell–Dobinski ; réciprocité quadratique</td>
+</tr>
+</tbody>
+</table>
+<h3 id="lacunes-prioritaires">Lacunes prioritaires</h3>
+<p>Le noyau <strong><a href="alg%C3%A8bre/le%C3%A7ons/148-dimension-espace-vectoriel-rang.html">148</a>–<a href="alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a></strong> est la lacune principale. Dix
+leçons de ce bloc n’ont encore aucun développement fort : <a href="alg%C3%A8bre/le%C3%A7ons/148-dimension-espace-vectoriel-rang.html">148</a>, <a href="alg%C3%A8bre/le%C3%A7ons/150-polynomes-endomorphisme-reduction.html">150</a>, <a href="alg%C3%A8bre/le%C3%A7ons/151-sous-espaces-stables-endomorphismes.html">151</a>,
+<a href="alg%C3%A8bre/le%C3%A7ons/152-endomorphismes-diagonalisables-dimension-finie.html">152</a>, <a href="alg%C3%A8bre/le%C3%A7ons/153-valeurs-propres-vecteurs-propres-calculs-applications.html">153</a>, <a href="alg%C3%A8bre/le%C3%A7ons/155-exponentielle-de-matrices-applications.html">155</a>, <a href="alg%C3%A8bre/le%C3%A7ons/156-endomorphismes-trigonalisables-nilpotents.html">156</a>, <a href="alg%C3%A8bre/le%C3%A7ons/157-matrices-symetriques-reelles-hermitiennes.html">157</a>, <a href="alg%C3%A8bre/le%C3%A7ons/159-formes-lineaires-dualite-dimension-finie.html">159</a> et <a href="alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a>.</p>
+<p>Les nouveaux choix ne doivent donc pas être guidés en priorité par
+<a href="alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a>, <a href="g%C3%A9om%C3%A9trie/le%C3%A7ons/161-espaces-vectoriels-et-affines-euclidiens-distances-isometries.html">161</a> ou <a href="alg%C3%A8bre/le%C3%A7ons/190-methodes-combinatoires-problemes-de-denombrement.html">190</a>, déjà complètes. Il faut d’abord introduire des preuves
+fondées sur :</p>
+<ul>
+<li>le pivot et les matrices élémentaires ;</li>
+<li>les noyaux itérés et les sous-espaces stables ;</li>
+<li>la réduction orthogonale ;</li>
+<li>la dualité et les formes normales ;</li>
+<li>les algorithmes effectifs d’algèbre linéaire.</li>
+</ul>
+<h2 id="critères-du-classement">2. Critères du classement</h2>
+<ol type="1">
+<li>Gain de couverture sur les leçons effectivement créées.</li>
+<li>Nouveauté du mécanisme par rapport aux développements actuels.</li>
+<li>Centralité du résultat dans les attendus du jury.</li>
+<li>Faisabilité d’une preuve complète en quinze minutes maximum.</li>
+<li>Utilité pour les écrits et pour plusieurs plans de leçon.</li>
+<li>Préférence pour les actions, permutations et interprétations
+géométriques lorsqu’elles sont naturelles.</li>
+<li>Absence de dépendance aux théorèmes de Sylow.</li>
+</ol>
+<h2 id="classement-révisé">3. Classement révisé</h2>
+<h3
+id="génération-de-mathrmsl_nk-par-les-transvections-meilleur-complément-global">1
+— Génération de <span class="math inline">\(\mathrm{SL}_n(K)\)</span>
+par les transvections : meilleur complément global</h3>
+<p><strong>Apport.</strong> Un développement élémentaire et structurant
+reliant pivot de Gauss, matrices élémentaires et génération d’un groupe
+linéaire. Aucun développement actuel n’utilise ce mécanisme.</p>
+<p><strong>Version à travailler.</strong> Montrer que les transvections
+engendrent <span class="math inline">\(\mathrm{SL}_n(K)\)</span>, en
+traitant explicitement les matrices diagonales de déterminant <span
+class="math inline">\(1\)</span>.</p>
+<p><strong>Fil de preuve :</strong></p>
+<ol type="1">
+<li>Traduire les opérations élémentaires sur les lignes en
+multiplications par des matrices élémentaires.</li>
+<li>Réduire une matrice de <span
+class="math inline">\(\mathrm{SL}_n(K)\)</span> à une matrice
+diagonale.</li>
+<li>Écrire chaque bloc <span
+class="math inline">\(\operatorname{diag}(a,a^{-1})\)</span> comme
+produit de transvections.</li>
+<li>Remonter l’élimination pour obtenir une décomposition de la matrice
+initiale.</li>
+</ol>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 40%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>Leçon créée</th>
+<th style="text-align: right;">Score proposé</th>
+<th>Condition / justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/106-groupe-lineaire-sous-groupes.html">106</a> — Groupe linéaire</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Structure et générateurs de <span
+class="math inline">\(\mathrm{SL}_n(K)\)</span> au cœur du résultat</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a> — Parties génératrices</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Construction effective d’une famille génératrice</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a> — Systèmes linéaires</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Le pivot de Gauss est le moteur de la preuve</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a> — Déterminant</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Le déterminant contrôle précisément le passage à <span
+class="math inline">\(\mathrm{SL}_n(K)\)</span></td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/148-dimension-espace-vectoriel-rang.html">148</a> — Dimension et rang</td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td>Le pivot intervient, mais rang et dimension ne sont pas l’objet
+principal</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gain immédiat envisagé :</strong> second développement fort
+pour <a href="alg%C3%A8bre/le%C3%A7ons/106-groupe-lineaire-sous-groupes.html">106</a> et <a href="alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a> ; premier pour <a href="alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a> ; second pour <a href="alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a>.</p>
+<p><strong>Point sensible :</strong> ne pas affirmer que les seules
+transvections permettent immédiatement toutes les opérations du pivot.
+La réduction diagonale et la décomposition des blocs de déterminant
+<span class="math inline">\(1\)</span> doivent être écrites.</p>
+<p><strong>Difficulté :</strong> moyenne. Douze à quinze minutes, à
+condition de préparer une factorisation explicite propre.</p>
+<p><strong>Verdict :</strong> premier choix.</p>
+<h3
+id="théorème-spectral-réel-par-maximisation-de-rayleigh-meilleur-choix-euclidien">2
+— Théorème spectral réel par maximisation de Rayleigh : meilleur choix
+euclidien</h3>
+<p><strong>Apport.</strong> Un résultat central des leçons <a href="alg%C3%A8bre/le%C3%A7ons/157-matrices-symetriques-reelles-hermitiennes.html">157</a> et <a href="alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a>,
+obtenu par une preuve géométrique mêlant compacité, orthogonalité et
+récurrence sur la dimension.</p>
+<p><strong>Version à travailler.</strong> Pour un endomorphisme
+autoadjoint réel, maximiser <span class="math inline">\(x\mapsto\langle
+ux,x\rangle\)</span> sur la sphère unité, obtenir un vecteur propre,
+puis réduire l’orthogonal par récurrence. Ajouter une application
+cohérente au quotient de Rayleigh, aux formes quadratiques ou à la
+positivité.</p>
+<p><strong>Fil de preuve :</strong></p>
+<ol type="1">
+<li>Utiliser la compacité de la sphère unité en dimension finie.</li>
+<li>Montrer qu’un extremum du quotient de Rayleigh fournit un vecteur
+propre.</li>
+<li>Prouver que l’orthogonal de ce vecteur est stable par <span
+class="math inline">\(u\)</span>.</li>
+<li>Conclure par récurrence orthogonale.</li>
+</ol>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 40%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>Leçon créée</th>
+<th style="text-align: right;">Score proposé</th>
+<th>Condition / justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/157-matrices-symetriques-reelles-hermitiennes.html">157</a> — Matrices symétriques et hermitiennes</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Théorème central explicitement attendu</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a> — Endomorphismes remarquables euclidiens</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Autoadjonction, stabilité de l’orthogonal et réduction
+orthogonale</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/152-endomorphismes-diagonalisables-dimension-finie.html">152</a> — Endomorphismes diagonalisables</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Critère géométrique majeur de diagonalisabilité</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/153-valeurs-propres-vecteurs-propres-calculs-applications.html">153</a> — Valeurs propres et vecteurs propres</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Existence d’une valeur propre par une méthode variationnelle</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/170-formes-quadratiques-dimension-finie-orthogonalite-applications.html">170</a> — Formes quadratiques</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Si l’application quadratique fait réellement partie du
+développement</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gain immédiat envisagé :</strong> premier développement fort
+pour <a href="alg%C3%A8bre/le%C3%A7ons/152-endomorphismes-diagonalisables-dimension-finie.html">152</a>, <a href="alg%C3%A8bre/le%C3%A7ons/153-valeurs-propres-vecteurs-propres-calculs-applications.html">153</a> et <a href="alg%C3%A8bre/le%C3%A7ons/157-matrices-symetriques-reelles-hermitiennes.html">157</a> ; second pour <a href="alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a> et <a href="alg%C3%A8bre/le%C3%A7ons/170-formes-quadratiques-dimension-finie-orthogonalite-applications.html">170</a>.</p>
+<p><strong>Redondance à reconnaître :</strong> compacité et
+orthogonalité apparaissent déjà dans Riesz et la projection sur un
+convexe fermé. Le mécanisme reste nouveau par son objectif spectral et
+sa récurrence.</p>
+<p><strong>Difficulté :</strong> facile à moyenne. La preuve nue risque
+d’être trop courte ; viser douze à quinze minutes avec une seule
+application substantielle.</p>
+<p><strong>Verdict :</strong> deuxième choix, particulièrement sûr et
+géométrique.</p>
+<h3
+id="classification-des-nilpotents-par-les-noyaux-itérés-meilleur-complément-pour-la-réduction">3
+— Classification des nilpotents par les noyaux itérés : meilleur
+complément pour la réduction</h3>
+<p><strong>Apport.</strong> Une preuve où dimensions, rangs,
+sous-espaces stables et chaînes de Jordan interviennent réellement. Elle
+répond directement à l’insistance du jury sur les noyaux itérés.</p>
+<p><strong>Version à travailler.</strong> Classifier les endomorphismes
+nilpotents à similitude près à partir de la suite <span
+class="math inline">\(\dim\ker N^k\)</span>, sans élargir le
+développement à toute la théorie de Jordan.</p>
+<p><strong>Fil de preuve :</strong></p>
+<ol type="1">
+<li>Étudier la filtration <span class="math inline">\(0\subset\ker
+N\subset\ker N^2\subset\cdots\)</span>.</li>
+<li>Choisir des supplémentaires adaptés.</li>
+<li>Construire des chaînes de vecteurs pour <span
+class="math inline">\(N\)</span>.</li>
+<li>Relier les accroissements <span class="math inline">\(\dim\ker
+N^k-\dim\ker N^{k-1}\)</span> au nombre de blocs de taille au moins
+<span class="math inline">\(k\)</span>.</li>
+<li>En déduire l’existence et l’unicité du type de Jordan
+nilpotent.</li>
+</ol>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 40%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>Leçon créée</th>
+<th style="text-align: right;">Score proposé</th>
+<th>Condition / justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/156-endomorphismes-trigonalisables-nilpotents.html">156</a> — Trigonalisables et nilpotents</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Classification des nilpotents au cœur du développement</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/151-sous-espaces-stables-endomorphismes.html">151</a> — Sous-espaces stables</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Filtration stable et construction des chaînes</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/150-polynomes-endomorphisme-reduction.html">150</a> — Polynômes d’endomorphisme et réduction</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Réduction d’un endomorphisme nilpotent</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/148-dimension-espace-vectoriel-rang.html">148</a> — Dimension et rang</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Les dimensions des noyaux déterminent les blocs</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/153-valeurs-propres-vecteurs-propres-calculs-applications.html">153</a> — Valeurs propres et vecteurs propres</td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td>Le spectre réduit à <span class="math inline">\(\{0\}\)</span> ne
+suffit pas à en faire un recasage fort</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gain immédiat envisagé :</strong> premier développement fort
+pour <a href="alg%C3%A8bre/le%C3%A7ons/148-dimension-espace-vectoriel-rang.html">148</a>, <a href="alg%C3%A8bre/le%C3%A7ons/150-polynomes-endomorphisme-reduction.html">150</a>, <a href="alg%C3%A8bre/le%C3%A7ons/151-sous-espaces-stables-endomorphismes.html">151</a> et <a href="alg%C3%A8bre/le%C3%A7ons/156-endomorphismes-trigonalisables-nilpotents.html">156</a>.</p>
+<p><strong>Point sensible :</strong> la construction des chaînes doit
+être complète ; une simple lecture de la forme de Jordan à partir des
+noyaux serait circulaire.</p>
+<p><strong>Difficulté :</strong> moyenne à soutenue. Quatorze à quinze
+minutes avec un périmètre strict.</p>
+<p><strong>Verdict :</strong> troisième choix. À privilégier avant une
+décomposition de Dunford complète.</p>
+<h3
+id="forme-normale-de-rang-et-conséquences-duales-meilleur-candidat-facile-et-transversal">4
+— Forme normale de rang et conséquences duales : meilleur candidat
+facile et transversal</h3>
+<p><strong>Apport.</strong> Une preuve opératoire faisant travailler
+simultanément pivot, rang, noyau, image, transposée et
+annihilateurs.</p>
+<p><strong>Version à travailler.</strong> Établir <span
+class="math inline">\(PAQ=\operatorname{diag}(I_r,0)\)</span> par
+opérations élémentaires à gauche et à droite, puis en tirer un petit
+nombre de conséquences organisées : rang de la transposée, relations
+entre noyaux, images et annihilateurs.</p>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 40%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>Leçon créée</th>
+<th style="text-align: right;">Score proposé</th>
+<th>Condition / justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/148-dimension-espace-vectoriel-rang.html">148</a> — Dimension et rang</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>La forme normale caractérise le rang</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a> — Systèmes linéaires</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Réduction effective par opérations élémentaires</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/159-formes-lineaires-dualite-dimension-finie.html">159</a> — Formes linéaires et dualité</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Si les conséquences sur transposée et annihilateurs sont
+démontrées</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a> — Déterminant</td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td>Le déterminant n’est central que dans le cas carré de rang
+maximal</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gain immédiat envisagé :</strong> avec la classification
+nilpotente, second développement fort pour <a href="alg%C3%A8bre/le%C3%A7ons/148-dimension-espace-vectoriel-rang.html">148</a> ; avec les transvections,
+second pour <a href="alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a> ; premier pour <a href="alg%C3%A8bre/le%C3%A7ons/159-formes-lineaires-dualite-dimension-finie.html">159</a>.</p>
+<p><strong>Réserve :</strong> une simple réduction d’une matrice est
+trop courte. Les conséquences doivent former un enchaînement logique,
+pas un catalogue.</p>
+<p><strong>Difficulté :</strong> facile à moyenne. Douze à quinze
+minutes.</p>
+<p><strong>Verdict :</strong> excellent quatrième choix, notamment pour
+sécuriser les bases et les écrits.</p>
+<h3 id="décomposition-de-cholesky-meilleur-candidat-algorithmique">5 —
+Décomposition de Cholesky : meilleur candidat algorithmique</h3>
+<p><strong>Apport.</strong> Factorisation effective d’une matrice
+symétrique définie positive et résolution de systèmes par deux
+substitutions triangulaires.</p>
+<p><strong>Version à travailler.</strong> Prouver Cholesky par
+récurrence sur des matrices par blocs et complément de Schur, puis
+expliquer le coût et l’utilisation pour résoudre un système.</p>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 40%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>Leçon créée</th>
+<th style="text-align: right;">Score proposé</th>
+<th>Condition / justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/157-matrices-symetriques-reelles-hermitiennes.html">157</a> — Matrices symétriques et hermitiennes</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Positivité et factorisation structurent la preuve</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a> — Systèmes linéaires</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>La factorisation doit déboucher sur un algorithme de résolution</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a> — Déterminant</td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td>Les mineurs principaux peuvent intervenir, sans être nécessairement
+centraux</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a> — Endomorphismes euclidiens</td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td>Interprétation euclidienne possible, mais secondaire</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/170-formes-quadratiques-dimension-finie-orthogonalite-applications.html">170</a> — Formes quadratiques</td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td>Réduction positive, moins générale que la classification par
+congruence</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gain immédiat envisagé :</strong> avec le théorème spectral,
+second développement fort pour <a href="alg%C3%A8bre/le%C3%A7ons/157-matrices-symetriques-reelles-hermitiennes.html">157</a> ; avec les transvections, second pour
+<a href="alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a>.</p>
+<p><strong>Redondance à éviter :</strong> ne pas transformer le
+développement en nouvelle preuve de projection ou de moindres carrés,
+déjà couverts par la projection sur un convexe fermé.</p>
+<p><strong>Difficulté :</strong> moyenne. Douze à quinze minutes avec
+l’application algorithmique.</p>
+<p><strong>Verdict :</strong> très bon choix si l’on veut renforcer le
+versant effectif.</p>
+<h3
+id="simplicité-de-mathfrak-a_5-par-les-classes-de-conjugaison-meilleur-choix-groupes-et-permutations-sans-sylow">6
+— Simplicité de <span class="math inline">\(\mathfrak A_5\)</span> par
+les classes de conjugaison : meilleur choix groupes et permutations sans
+Sylow</h3>
+<p><strong>Apport.</strong> Un résultat fondamental fondé sur
+permutations, centralisateurs, classes de conjugaison et normalité, sans
+théorèmes de Sylow.</p>
+<p><strong>Version à travailler.</strong> Déterminer les classes de
+conjugaison de <span class="math inline">\(\mathfrak A_5\)</span>,
+justifier la scission de la classe des <span
+class="math inline">\(5\)</span>-cycles, puis montrer qu’aucune union
+admissible de classes ne peut être l’ordre d’un sous-groupe distingué
+propre non trivial.</p>
+<table>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 23%" />
+<col style="width: 30%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr>
+<th>Leçon</th>
+<th>Statut</th>
+<th style="text-align: right;">Score proposé</th>
+<th>Condition / justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/104-groupes-finis.html">104</a> — Groupes finis</td>
+<td>Créée</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Lagrange, normalité et exemple fondamental</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/105-groupe-des-permutations-dun-ensemble-fini.html">105</a> — Groupe des permutations</td>
+<td>Créée</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Types cycliques, centralisateurs et conjugaison</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a> — Parties génératrices</td>
+<td>Créée</td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td>La preuve par classes n’est pas centrée sur une partie
+génératrice</td>
+</tr>
+<tr>
+<td>103 — Conjugaison et quotients</td>
+<td>Absente</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Recasage naturel si la leçon est créée ultérieurement</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gain immédiat envisagé :</strong> second développement fort
+pour <a href="alg%C3%A8bre/le%C3%A7ons/104-groupes-finis.html">104</a> et <a href="alg%C3%A8bre/le%C3%A7ons/105-groupe-des-permutations-dun-ensemble-fini.html">105</a>.</p>
+<p><strong>Point sensible :</strong> ne pas réciter les tailles de
+classes. Le calcul des centralisateurs et la scission des <span
+class="math inline">\(5\)</span>-cycles doivent être justifiés.</p>
+<p><strong>Difficulté :</strong> moyenne. Douze à quinze minutes.</p>
+<p><strong>Verdict :</strong> meilleur choix pour renforcer le
+portefeuille de groupes conformément aux préférences, après les lacunes
+majeures d’algèbre linéaire.</p>
+<h3
+id="cyclicité-de-mathbb-f_qtimes-meilleur-complément-arithmétique-court">7
+— Cyclicité de <span class="math inline">\(\mathbb F_q^\times\)</span> :
+meilleur complément arithmétique court</h3>
+<p><strong>Apport.</strong> Structure multiplicative d’un corps fini et
+usage efficace de la borne sur le nombre de racines d’un polynôme.</p>
+<p><strong>Version à travailler.</strong> Prouver que tout sous-groupe
+fini de <span class="math inline">\(K^\times\)</span> est cyclique, puis
+appliquer à <span class="math inline">\(\mathbb F_q^\times\)</span>.
+Ajouter le dénombrement des générateurs ou une application précise aux
+racines de l’unité.</p>
+<table>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 23%" />
+<col style="width: 30%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr>
+<th>Leçon</th>
+<th>Statut</th>
+<th style="text-align: right;">Score proposé</th>
+<th>Condition / justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/123-corps-finis-applications.html">123</a> — Corps finis</td>
+<td>Créée</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Résultat structurel central explicitement attendu</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/104-groupes-finis.html">104</a> — Groupes finis</td>
+<td>Créée</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Exemple fondamental de groupe abélien fini</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a> — Parties génératrices</td>
+<td>Créée</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Existence d’éléments primitifs</td>
+</tr>
+<tr>
+<td>102 — Racines de l’unité</td>
+<td>Absente</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Si l’application aux racines est substantielle</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Correction importante :</strong> choisir arbitrairement un
+élément d’ordre maximal ne suffit pas à prouver la cyclicité. Il faut
+construire un élément dont l’ordre rassemble les composantes primaires
+maximales, puis utiliser que <span class="math inline">\(X^m-1\)</span>
+a au plus <span class="math inline">\(m\)</span> racines.</p>
+<p><strong>Redondance à reconnaître :</strong> les corps finis figurent
+déjà dans la réciprocité quadratique, mais le mécanisme est différent :
+structure multiplicative et racines de polynômes, sans formes
+quadratiques.</p>
+<p><strong>Difficulté :</strong> facile à moyenne. La preuve seule peut
+être trop courte ; viser douze à quatorze minutes avec une application
+cohérente.</p>
+<p><strong>Verdict :</strong> bon septième choix.</p>
+<h3
+id="cayleyhamilton-par-ladjugée-bon-résultat-central-mais-version-à-enrichir">8
+— Cayley–Hamilton par l’adjugée : bon résultat central, mais version à
+enrichir</h3>
+<p><strong>Apport.</strong> Relier déterminant, polynôme caractéristique
+et calcul polynomial d’une matrice.</p>
+<p><strong>Version à travailler.</strong> Partir de <span
+class="math display">\[
+(XI-A)\operatorname{Com}(XI-A)=\chi_A(X)I,
+\]</span> développer l’adjugée comme matrice polynomiale, comparer les
+coefficients, puis obtenir <span
+class="math inline">\(\chi_A(A)=0\)</span> sans effectuer de
+substitution matricielle illégitime. Ajouter une application au calcul
+de <span class="math inline">\(A^n\)</span>, de <span
+class="math inline">\(A^{-1}\)</span> ou de <span
+class="math inline">\(\exp(A)\)</span> modulo <span
+class="math inline">\(\chi_A\)</span>.</p>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 40%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>Leçon créée</th>
+<th style="text-align: right;">Score proposé</th>
+<th>Condition / justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/150-polynomes-endomorphisme-reduction.html">150</a> — Polynômes d’endomorphisme et réduction</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Théorème central et application au calcul polynomial</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a> — Déterminant</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>L’adjugée et le polynôme caractéristique structurent la preuve</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/153-valeurs-propres-vecteurs-propres-calculs-applications.html">153</a> — Valeurs propres et vecteurs propres</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Le lien avec le spectre doit être explicité</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/155-exponentielle-de-matrices-applications.html">155</a> — Exponentielle de matrices</td>
+<td style="text-align: right;" class="score score-3">3</td>
+<td>Recasage fort seulement si le calcul de l’exponentielle devient
+substantiel</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Point sensible :</strong> l’identité polynomiale ne permet
+pas de remplacer naïvement <span class="math inline">\(X\)</span> par
+<span class="math inline">\(A\)</span>, car les coefficients matriciels
+ne commutent pas en général avec <span class="math inline">\(A\)</span>.
+La comparaison des coefficients est le passage sûr.</p>
+<p><strong>Difficulté :</strong> facile à moyenne. Dix à treize minutes
+; une application est nécessaire.</p>
+<p><strong>Verdict :</strong> candidat fiable, mais moins transversal
+que les quatre premiers.</p>
+<h3
+id="décomposition-de-dunford-additive-à-garder-comme-alternative-pas-comme-doublon">9
+— Décomposition de Dunford additive : à garder comme alternative, pas
+comme doublon</h3>
+<p><strong>Apport.</strong> Décomposition primaire, projecteurs
+spectraux polynomiaux et application possible à l’exponentielle.</p>
+<p><strong>Version à travailler.</strong> Pour un endomorphisme à
+polynôme minimal scindé, construire l’unique décomposition <span
+class="math inline">\(u=d+n\)</span> avec <span
+class="math inline">\(d\)</span> diagonalisable, <span
+class="math inline">\(n\)</span> nilpotent, <span
+class="math inline">\(dn=nd\)</span> et <span
+class="math inline">\(d,n\in K[u]\)</span>.</p>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 40%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>Leçon créée</th>
+<th style="text-align: right;">Score proposé</th>
+<th>Condition / justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/150-polynomes-endomorphisme-reduction.html">150</a> — Polynômes d’endomorphisme et réduction</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Projecteurs et composantes polynomiaux en <span
+class="math inline">\(u\)</span></td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/151-sous-espaces-stables-endomorphismes.html">151</a> — Sous-espaces stables</td>
+<td style="text-align: right;" class="score score-5">5</td>
+<td>Décomposition en sous-espaces caractéristiques</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/156-endomorphismes-trigonalisables-nilpotents.html">156</a> — Trigonalisables et nilpotents</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Partie nilpotente réellement construite</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/152-endomorphismes-diagonalisables-dimension-finie.html">152</a> — Endomorphismes diagonalisables</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Partie semi-simple au cœur de la décomposition</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/155-exponentielle-de-matrices-applications.html">155</a> — Exponentielle de matrices</td>
+<td style="text-align: right;" class="score score-4">4</td>
+<td>Seulement si <span class="math inline">\(e^u=e^d e^n\)</span> est
+effectivement exploité</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Réserve stratégique :</strong> cette preuve chevauche
+fortement la classification nilpotente sur la réduction et les
+sous-espaces caractéristiques. Ne pas sélectionner automatiquement les
+deux. Si Dunford est retenu, le centrer sur Bézout, les projecteurs
+polynomiaux et l’exponentielle ; si la classification nilpotente est
+retenue, différer Dunford.</p>
+<p><strong>Exclusion nette :</strong> ne pas proposer Dunford en leçon
+<a href="alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a> ; le rapport du jury l’écarte explicitement.</p>
+<p><strong>Difficulté :</strong> moyenne à soutenue. Quinze minutes
+serrées, surtout si l’unicité et l’application exponentielle sont
+incluses.</p>
+<p><strong>Verdict :</strong> excellente alternative pour viser <a href="alg%C3%A8bre/le%C3%A7ons/155-exponentielle-de-matrices-applications.html">155</a>,
+mais pas un ajout prioritaire après la classification nilpotente.</p>
+<h3
+id="formule-de-burnside-à-conserver-comme-résultat-plutôt-que-comme-nouveau-développement-prioritaire">10
+— Formule de Burnside : à conserver comme résultat plutôt que comme
+nouveau développement prioritaire</h3>
+<p><strong>Recasages naturels :</strong> <a href="alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a> et <a href="alg%C3%A8bre/le%C3%A7ons/190-methodes-combinatoires-problemes-de-denombrement.html">190</a>, éventuellement 191
+avec une application géométrique substantielle.</p>
+<p><strong>Mécanisme :</strong> double dénombrement de <span
+class="math inline">\(\{(g,x):g\cdot x=x\}\)</span>, puis application à
+des coloriages modulo rotations et réflexions.</p>
+<p><strong>Limites stratégiques :</strong></p>
+<ul>
+<li><a href="alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a> et <a href="alg%C3%A8bre/le%C3%A7ons/190-methodes-combinatoires-problemes-de-denombrement.html">190</a> disposent déjà chacune de deux développements forts
+;</li>
+<li>les actions de groupes sont déjà très présentes dans le portefeuille
+;</li>
+<li>le double dénombrement apparaît déjà dans la réciprocité quadratique
+;</li>
+<li>la formule seule est beaucoup trop courte pour quinze minutes.</li>
+</ul>
+<p><strong>Verdict :</strong> résultat indispensable de plan et
+excellente question de jury, mais ne pas le réintroduire dans la matrice
+comme développement prioritaire sans application vraiment
+distinctive.</p>
+<h2 id="recommandations-à-conserver">4. Recommandations à conserver</h2>
+<h3 id="première-vague-combler-les-lacunes-structurelles">Première vague
+: combler les lacunes structurelles</h3>
+<ol type="1">
+<li><strong>Transvections et génération de <span
+class="math inline">\(\mathrm{SL}_n(K)\)</span>.</strong></li>
+<li><strong>Théorème spectral par maximisation de
+Rayleigh.</strong></li>
+<li><strong>Classification des nilpotents par les noyaux
+itérés.</strong></li>
+<li><strong>Forme normale de rang et conséquences duales.</strong></li>
+</ol>
+<p>Ces quatre mécanismes sont fortement complémentaires : pivot et
+groupes linéaires ; géométrie euclidienne ; réduction nilpotente ; rang
+et dualité.</p>
+<h3 id="deuxième-vague-choisir-selon-lorientation-voulue">Deuxième vague
+: choisir selon l’orientation voulue</h3>
+<ul>
+<li><strong>Cholesky</strong> pour l’algorithmique et la résolution de
+systèmes ;</li>
+<li><strong>simplicité de <span class="math inline">\(\mathfrak
+A_5\)</span></strong> pour les groupes et permutations sans Sylow ;</li>
+<li><strong>cyclicité de <span class="math inline">\(\mathbb
+F_q^\times\)</span></strong> pour l’arithmétique et les corps finis
+;</li>
+<li><strong>Cayley–Hamilton</strong> pour renforcer déterminant et
+calcul polynomial ;</li>
+<li><strong>Dunford–exponentielle</strong> seulement si la leçon <a href="alg%C3%A8bre/le%C3%A7ons/155-exponentielle-de-matrices-applications.html">155</a>
+devient prioritaire.</li>
+</ul>
+<h3 id="portefeuille-minimal-non-redondant">Portefeuille minimal non
+redondant</h3>
+<p>Le trio le plus rentable immédiatement est :</p>
+<ol type="1">
+<li>transvections ;</li>
+<li>théorème spectral ;</li>
+<li>classification nilpotente.</li>
+</ol>
+<p>Le trio le plus conforme aux préférences tout en restant équilibré
+est :</p>
+<ol type="1">
+<li>transvections ;</li>
+<li>théorème spectral ;</li>
+<li>simplicité de <span class="math inline">\(\mathfrak
+A_5\)</span>.</li>
+</ol>
+<h3 id="limites-du-portefeuille-proposé">Limites du portefeuille
+proposé</h3>
+<p>Même après cette première vague :</p>
+<ul>
+<li>la leçon <a href="alg%C3%A8bre/le%C3%A7ons/155-exponentielle-de-matrices-applications.html">155</a> demandera probablement un développement spécifiquement
+centré sur l’exponentielle ;</li>
+<li>la dualité en <a href="alg%C3%A8bre/le%C3%A7ons/159-formes-lineaires-dualite-dimension-finie.html">159</a> n’obtiendra qu’un premier développement fort avec
+la forme normale de rang ;</li>
+<li>certaines leçons d’arithmétique absentes du wiki — notamment 102,
+103, 122 et 125 — ne doivent pas entrer dans la matrice avant création
+de leurs fichiers ;</li>
+<li>aucune proposition ne doit être notée définitivement avant audit
+d’une source précise et d’une version réellement présentable en quinze
+minutes.</li>
+</ul>
+<h2 id="sources-et-portée-de-la-vérification">5. Sources et portée de la
+vérification</h2>
+<p>Documents consultés lors de l’audit :</p>
+<ul>
+<li><code>index/matrice-developpements-lecons.md</code> : calcul de la
+couverture forte ;</li>
+<li>pages existantes sous <code>algèbre/leçons/</code> et
+<code>géométrie/leçons/</code> ;</li>
+<li>fiches des développements existants ;</li>
+<li><code>raw data/rapports-jury/Rapport_AE_Math_2025c-oraux-lecons.txt</code>
+: rapport 2025 incluant la liste 2026, annoncée identique à celle de
+2025.</li>
+</ul>
+<p>Repères dans cet extrait :</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Sujet</th>
+<th>Lignes utiles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recommandations générales pour l’épreuve d’algèbre et géométrie</td>
+<td>455–462</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a> — Actions, classification, dénombrement et Burnside</td>
+<td>463–487</td>
+</tr>
+<tr>
+<td>103 — Conjugaison, normalité et quotients</td>
+<td>502–530</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/104-groupes-finis.html">104</a> — Groupes finis et simplicité</td>
+<td>531–554</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/105-groupe-des-permutations-dun-ensemble-fini.html">105</a> — Permutations et classes de conjugaison</td>
+<td>555–568</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/106-groupe-lineaire-sous-groupes.html">106</a> — Groupe linéaire et stabilisateurs</td>
+<td>569–589</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108</a> — Parties génératrices et pivot</td>
+<td>590–607</td>
+</tr>
+<tr>
+<td>122–<a href="alg%C3%A8bre/le%C3%A7ons/123-corps-finis-applications.html">123</a> — Anneaux principaux et corps finis</td>
+<td>637–662</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/148-dimension-espace-vectoriel-rang.html">148</a> — Dimension et rang</td>
+<td>772–803</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149</a> — Déterminant</td>
+<td>804–820</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/150-polynomes-endomorphisme-reduction.html">150</a> — Polynômes d’endomorphisme et Dunford</td>
+<td>821–846</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/151-sous-espaces-stables-endomorphismes.html">151</a> — Sous-espaces stables</td>
+<td>847–861</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/152-endomorphismes-diagonalisables-dimension-finie.html">152</a>–<a href="alg%C3%A8bre/le%C3%A7ons/153-valeurs-propres-vecteurs-propres-calculs-applications.html">153</a> — Diagonalisation et calcul d’éléments propres</td>
+<td>862–898</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/155-exponentielle-de-matrices-applications.html">155</a> — Exponentielle de matrices</td>
+<td>899–916</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/156-endomorphismes-trigonalisables-nilpotents.html">156</a> — Noyaux itérés et nilpotents</td>
+<td>917–929</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/157-matrices-symetriques-reelles-hermitiennes.html">157</a>–<a href="alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a> — Théorème spectral et endomorphismes euclidiens</td>
+<td>930–964</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/159-formes-lineaires-dualite-dimension-finie.html">159</a> — Dualité</td>
+<td>965–983</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a> — Pivot, générateurs et algorithmes</td>
+<td>1007–1027</td>
+</tr>
+<tr>
+<td><a href="alg%C3%A8bre/le%C3%A7ons/170-formes-quadratiques-dimension-finie-orthogonalite-applications.html">170</a> — Formes quadratiques et congruence</td>
+<td>1028–1044</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Limite documentaire :</strong> cet audit valide la pertinence
+thématique et compare les mécanismes. Il ne remplace pas l’audit
+intégral d’une fiche source. Pour une autre session du concours,
+revérifier les intitulés et attendus officiels.</p>
+<h2 id="à-faire-lors-de-la-reprise">6. À faire lors de la reprise</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Recalculer les lacunes depuis la
+matrice, qui peut avoir évolué.</label></li>
+<li><label><input type="checkbox" />Chercher d’abord une source précise
+pour les transvections, puis pour le théorème spectral et la
+classification nilpotente.</label></li>
+<li><label><input type="checkbox" />Vérifier chaque preuve entière,
+notamment les factorisations matricielles et les constructions de
+chaînes.</label></li>
+<li><label><input type="checkbox" />Fixer une version réalisable en
+quinze minutes et la chronométrer.</label></li>
+<li><label><input type="checkbox" />Revalider les scores contre cette
+version exacte.</label></li>
+<li><label><input type="checkbox" />Choisir entre classification
+nilpotente et Dunford avant de préparer les deux, afin d’éviter un fort
+chevauchement.</label></li>
+<li><label><input type="checkbox" />Ne pas proposer Dunford en
+<a href="alg%C3%A8bre/le%C3%A7ons/158-endomorphismes-remarquables-espace-euclidien.html">158</a>.</label></li>
+<li><label><input type="checkbox" />Ne pas réintroduire Burnside comme
+développement prioritaire sans nouvelle application
+distinctive.</label></li>
+<li><label><input type="checkbox" />Ne créer les fiches de développement
+et ne modifier la matrice qu’après décision d’intégration ; cette note
+reste exploratoire.</label></li>
+</ul>
+</body>
+</html>
