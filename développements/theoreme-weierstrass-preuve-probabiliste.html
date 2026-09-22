@@ -76,23 +76,33 @@ class="math inline">\([a,b]\)</span>, les polynômes sont denses dans
 <span class="math inline">\(C([a,b],\mathbb R)\)</span> pour la norme
 uniforme. Le résultat vaut aussi pour les fonctions à valeurs complexes,
 en approchant séparément parties réelle et imaginaire.</p>
+<h2 id="fiche-de-suivi-dacquisition">Fiche de suivi d’acquisition</h2>
+<p><a href="../suivi-acquisition/weierstrass-probabiliste.html">Suivi —
+Weierstrass probabiliste</a> : premiers prérequis, questions à reprendre
+et étapes restant à évaluer.</p>
 <h2 id="prérequis">Prérequis</h2>
 <ul>
 <li>[[Continuité uniforme]] et [[Théorème de Heine]] ;</li>
-<li>[[Loi de Bernoulli]] et [[Loi binomiale]] ;</li>
-<li>[[Théorème de transfert]] ;</li>
+<li><a href="../notions/bernstein-loi-binomiale.html">Bernoulli, loi
+binomiale et polynômes de Bernstein</a> ;</li>
+<li><a href="../r%C3%A9sultats/theoreme-de-transfert.html">Théorème de
+transfert</a>, dans sa formulation générale puis discrète ;</li>
 <li>espérance et variance d’une somme de variables indépendantes ;</li>
 <li>[[Inégalité de Bienaymé–Tchebychev]].</li>
 </ul>
 <h2 id="résultats-liés">Résultats liés</h2>
 <ul>
-<li><a href="../r%C3%A9sultats/inegalite-bienayme-tchebychev.html">Inégalité de
-Bienaymé–Tchebychev</a> — contrôle uniforme de l’événement lointain
-;</li>
-<li><a
+<li><p><a href="../r%C3%A9sultats/theoreme-de-transfert.html">Théorème de
+transfert</a> — identité entre une espérance et une intégrale contre la
+loi ;</p></li>
+<li><p><a href="../r%C3%A9sultats/inegalite-bienayme-tchebychev.html">Inégalité
+de Bienaymé–Tchebychev</a> — contrôle uniforme de l’événement lointain
+;</p></li>
+<li><p><a
 href="../r%C3%A9sultats/heine-continuite-uniforme-sur-compact.html">Théorème de
 Heine</a> — choix d’un même <span class="math inline">\(\delta\)</span>
-pour tous les paramètres <span class="math inline">\(x\)</span>.</li>
+pour tous les paramètres <span
+class="math inline">\(x\)</span>.</p></li>
 </ul>
 <h2 id="preuve-détaillée">Preuve détaillée</h2>
 <h3 id="interprétation-probabiliste-des-polynômes-de-bernstein">1.
@@ -109,10 +119,29 @@ donc</p>
 \mathbb P(S_n=k)=\binom nk x^k(1-x)^{n-k},
 \qquad 0\leq k\leq n.
 \]</span></p>
-<p>Le théorème de transfert donne</p>
+<p>Ici <span class="math inline">\(x\)</span> est un nombre fixé, <span
+class="math inline">\(S_n\)</span> une variable aléatoire dont la loi
+dépend de <span class="math inline">\(x\)</span>, et <span
+class="math inline">\(k\)</span> un indice de sommation. Le <a
+href="../r%C3%A9sultats/theoreme-de-transfert.html">théorème de transfert</a>
+s’applique à <span class="math inline">\(S_n\)</span> avec la fonction
+<span class="math inline">\(h(t)=f(t/n)\)</span> sur son support fini.
+Il donne</p>
 <p><span class="math display">\[
 \boxed{B_n(f)(x)=\mathbb E\!\left[f\!\left(\frac{S_n}{n}\right)\right].}
 \]</span></p>
+<p>Pour <span class="math inline">\(n\)</span> fixé, les <span
+class="math inline">\(f(k/n)\)</span> sont des constantes en <span
+class="math inline">\(x\)</span>. Chaque terme <span
+class="math inline">\(f(k/n)\binom nk x^k(1-x)^{n-k}\)</span> est
+polynomial en <span class="math inline">\(x\)</span> ; leur somme a un
+degré au plus <span class="math inline">\(n\)</span>. L’espérance est
+donc un nombre déterministe pour chaque <span
+class="math inline">\(x\)</span>, et sa dépendance en <span
+class="math inline">\(x\)</span> définit le polynôme. Pour reprendre
+cette construction lentement, voir la <a
+href="../notions/bernstein-loi-binomiale.html">fiche de prérequis et
+l’exemple <span class="math inline">\(n=2\)</span></a>.</p>
 <p>De plus,</p>
 <p><span class="math display">\[
 \mathbb E\!\left(\frac{S_n}{n}\right)=x,
@@ -199,9 +228,15 @@ Q_n(y)=B_n(f)\!\left(\frac{y-a}{b-a}\right),
 class="math inline">\(y\)</span> et</p>
 <p><span class="math display">\[
 \|Q_n-g\|_{\infty,[a,b]}
-\leq\|B_n(f)-f\|_{\infty,[0,1]}
+=\|B_n(f)-f\|_{\infty,[0,1]}
 \longrightarrow0.
 \]</span></p>
+<p>L’égalité des normes vient de la bijection <span
+class="math inline">\(y\mapsto(y-a)/(b-a)\)</span> de <span
+class="math inline">\([a,b]\)</span> sur <span
+class="math inline">\([0,1]\)</span>. Le cas <span
+class="math inline">\(a=b\)</span> se traite par le polynôme constant
+égal à la valeur de la fonction.</p>
 <h2 id="où-interviennent-exactement-les-hypothèses">Où interviennent
 exactement les hypothèses ?</h2>
 <ul>
@@ -253,7 +288,9 @@ class="math inline">\(x\)</span> ; aucune construction simultanée en
 class="math inline">\(\mathcal B(x)\)</span> et la loi binomiale <span
 class="math inline">\(\mathcal B(n,x)\)</span>.</li>
 <li>Le théorème de transfert justifie l’identité entre <span
-class="math inline">\(B_n(f)(x)\)</span> et l’espérance.</li>
+class="math inline">\(B_n(f)(x)\)</span> et l’espérance. Il vaut pour
+toute loi : seule son écriture en somme utilise ici le caractère
+discret.</li>
 <li>L’indépendance est nécessaire au calcul de la variance, mais pas à
 l’écriture formelle de l’espérance.</li>
 <li>La convergence est uniforme parce que <span
@@ -296,6 +333,14 @@ de l’unité intégrale.</li>
 polynôme ?</li>
 <li>Comment obtenir la représentation de <span
 class="math inline">\(B_n(f)(x)\)</span> comme espérance ?</li>
+<li>Énoncer le transfert pour une loi quelconque ; préciser
+mesurabilité, positivité ou intégrabilité.</li>
+<li>Distinguer le paramètre <span class="math inline">\(x\)</span>, la
+variable aléatoire <span class="math inline">\(S_n\)</span> et l’indice
+<span class="math inline">\(k\)</span>.</li>
+<li>Pourquoi le retour affine à <span
+class="math inline">\([a,b]\)</span> conserve-t-il exactement la norme
+uniforme ?</li>
 <li>Où utilise-t-on l’indépendance ?</li>
 <li>Pourquoi la borne de Tchebychev est-elle uniforme en <span
 class="math inline">\(x\)</span> ?</li>
@@ -343,8 +388,10 @@ positivité, reproduction des fonctions affines et
 convexité.</label></li>
 <li><label><input type="checkbox" />Comparer en une minute les preuves
 par Bernstein et par convolution.</label></li>
-<li><label><input type="checkbox" />Créer les fiches notions [[Polynômes
-de Bernstein]] et [[Inégalité de Bienaymé–Tchebychev]].</label></li>
+<li><label><input type="checkbox" />Restituer les <a
+href="../notions/bernstein-loi-binomiale.html">prérequis de Bernstein</a>
+et la <a href="../r%C3%A9sultats/inegalite-bienayme-tchebychev.html">preuve de
+Bienaymé–Tchebychev</a> sans support.</label></li>
 </ul>
 </body>
 </html>
