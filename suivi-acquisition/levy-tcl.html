@@ -1,0 +1,129 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Fiche de suivi d’acquisition — Lévy–TCL</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css?v=3fa8cfdcc3ea" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Fiche de suivi d’acquisition — <a href="../d%C3%A9veloppements/theoreme-levy-tcl-application.html">Lévy–TCL</a></h1>
+</header>
+<h1 id="fiche-de-suivi-dacquisition-lévytcl">Fiche de suivi
+d’acquisition — <a href="../d%C3%A9veloppements/theoreme-levy-tcl-application.html">Lévy–TCL</a></h1>
+<p><a
+href="../d%C3%A9veloppements/theoreme-levy-tcl-application.html">Développement</a>
+· <a
+href="../analyse/le%C3%A7ons/262-convergences-variables-aleatoires-theoremes-limite.html">Leçon
+262</a> · <a href="../index/programme-revision.html">Programme de
+révision</a></p>
+<h2 id="niveau-constaté">Niveau constaté</h2>
+<p>Échelle : <strong>à reprendre</strong> (besoin exprimé),
+<strong>expliqué</strong> (réponse reçue), <strong>restitué</strong>
+(argument reformulé sans aide), <strong>mobilisable</strong> (réemploi
+autonome dans une preuve).</p>
+<p>Le centrage-réduction de la somme et le passage de la puissance à
+l’exponentielle ont été <strong>expliqués</strong>, mais leur
+restitution autonome reste <strong>à vérifier</strong>. Aucun point
+n’est déclaré maîtrisé sur la seule base d’un acquiescement. La preuve
+de Lévy et le développement de la fonction caractéristique n’ont pas été
+évalués dans cet échange.</p>
+<h2 id="points-fragiles-et-consolidation">Points fragiles et
+consolidation</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Point</th>
+<th>Travail ciblé</th>
+<th>Critère de validation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Facteur <span class="math inline">\(\sqrt n\)</span></td>
+<td><a
+href="../notions/centrage-reduction-et-normalisation-tcl.html">Centrage et
+normalisation</a></td>
+<td>Retrouver la moyenne et la variance de la somme, puis les deux
+écritures du TCL.</td>
+</tr>
+<tr>
+<td>Puissance <span class="math inline">\(n\)</span> et
+exponentielle</td>
+<td><a href="../r%C3%A9sultats/limite-puissances-et-logarithme.html">Lemme
+logarithmique</a></td>
+<td>Expliquer le rôle du logarithme et le devenir de <span
+class="math inline">\(o(1/n)\)</span>.</td>
+</tr>
+<tr>
+<td>Enchaînement du TCL</td>
+<td>Revenir à la partie 5 du développement</td>
+<td>Relier factorisation, Taylor, limite exponentielle et Lévy sans
+confondre leurs rôles.</td>
+</tr>
+</tbody>
+</table>
+<p>Une progression lente, avec une seule formule puis sa justification,
+répond au besoin exprimé. Aucun motif d’erreur récurrente n’est établi
+par cette seule conversation ; deux demandes de clarification sont
+identifiées.</p>
+<h2 id="questions-à-reprendre-une-par-une">Questions à reprendre, une
+par une</h2>
+<ol type="1">
+<li>Quelle est l’espérance de <span
+class="math inline">\(S_n=\sum_{k=1}^nX_k\)</span> ?</li>
+<li>Quelle est sa variance et où intervient l’indépendance ?</li>
+<li>Par quoi diviser <span class="math inline">\(S_n-n\mu\)</span> pour
+obtenir une variance unitaire ?</li>
+<li>Comment réécrire cette variable avec la moyenne empirique ?</li>
+<li>Pourquoi <span class="math inline">\((1-c/n)^n\)</span> tend-il vers
+<span class="math inline">\(e^{-c}\)</span> ?</li>
+<li>Que faut-il ajouter pour traiter le reste et une base complexe dans
+le TCL ?</li>
+</ol>
+<h2 id="actions">Actions</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Restituer le calcul de normalisation
+sans support.</label></li>
+<li><label><input type="checkbox" />Prouver la limite de puissances avec
+le reste.</label></li>
+<li><label><input type="checkbox" />Refaire ensuite le seul bloc TCL,
+avant de reprendre la preuve de Lévy.</label></li>
+</ul>
+<h2 id="source-du-diagnostic">Source du diagnostic</h2>
+<p>Conversation locale <code>conv2.txt</code>, lignes 10–36. Date
+absolue non renseignée : la mention relative « hier » ne permet pas de
+la déterminer. <code>conv.txt</code> est vide et ne fournit aucun
+élément d’évaluation. Les réponses mathématiques de la conversation ont
+été vérifiées et précisées ; les échanges bruts ne sont pas
+reproduits.</p>
+</body>
+</html>
