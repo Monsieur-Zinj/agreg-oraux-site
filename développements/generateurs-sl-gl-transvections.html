@@ -1,0 +1,332 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Développement — Générateurs de SL(E) et GL(E)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css?v=3fa8cfdcc3ea" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title"><a href="generateurs-sl-gl-transvections.html">Développement — Générateurs de SL(E) et GL(E)</a></h1>
+</header>
+<h1 id="développement-générateurs-de-sle-et-gle"><a href="generateurs-sl-gl-transvections.html">Développement —
+Générateurs de SL(E) et GL(E)</a></h1>
+<p><a href="../index/developpements.html">← Développements</a> · <a
+href="../index/recasages/generateurs-sl-gl-transvections.html">Recasage
+détaillé</a> · <a
+href="../index/matrice-developpements-lecons.html">Matrice</a></p>
+<h2 id="énoncé">Énoncé</h2>
+<p>Soient <span class="math inline">\(K\)</span> un corps commutatif et
+<span class="math inline">\(E\)</span> un <span
+class="math inline">\(K\)</span>-espace vectoriel de dimension finie
+<span class="math inline">\(n\geq1\)</span>.</p>
+<ul>
+<li>Le groupe <span class="math inline">\(\mathrm{SL}(E)\)</span> est
+engendré par les transvections.</li>
+<li>Le groupe <span class="math inline">\(\mathrm{GL}(E)\)</span> est
+engendré par les transvections et les dilatations. Tout élément s’écrit
+comme produit de transvections suivi d’au plus une dilatation.</li>
+</ul>
+<p>Pour <span class="math inline">\(n=1\)</span>, <span
+class="math inline">\(\mathrm{SL}(E)=\{I\}\)</span> : le produit vide
+suffit. Il n’existe alors aucune transvection non triviale. Aucun
+argument ne suppose le corps infini ou de caractéristique différente de
+<span class="math inline">\(2\)</span>.</p>
+<h2 id="leçons-compatibles">Leçons compatibles</h2>
+<ul>
+<li><a href="../alg%C3%A8bre/le%C3%A7ons/106-groupe-lineaire-sous-groupes.html">106
+— Groupe linéaire</a> : <strong>5/5</strong>.</li>
+<li><a
+href="../alg%C3%A8bre/le%C3%A7ons/108-exemples-de-parties-generatrices-dun-groupe.html">108
+— Parties génératrices</a> : <strong>5/5</strong>.</li>
+<li><a
+href="../alg%C3%A8bre/le%C3%A7ons/148-dimension-espace-vectoriel-rang.html">148 —
+Dimension et rang</a> : <strong>4/5</strong>, par récurrence sur la
+dimension et passage au quotient.</li>
+<li><a
+href="../alg%C3%A8bre/le%C3%A7ons/149-determinant-exemples-applications.html">149 —
+Déterminant</a> : <strong>4/5</strong>, en conservant les déterminants
+des transvections, la matrice par blocs et le corollaire sur <span
+class="math inline">\(\mathrm{GL}(E)\)</span>.</li>
+</ul>
+<p>Cette version est <strong>géométrique, sans pivot de Gauss</strong>.
+Le recasage en <a href="../alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a> reste faible (2/5), même si le résultat figure parmi
+les conséquences théoriques attendues de cette leçon.</p>
+<h2 id="prérequis">Prérequis</h2>
+<ul>
+<li>[[Forme linéaire]], hyperplan, théorème de la base incomplète.</li>
+<li>[[Espace vectoriel quotient]] : si <span
+class="math inline">\(D\)</span> est stable par <span
+class="math inline">\(u\)</span>, l’endomorphisme induit vérifie <span
+class="math inline">\(\bar u\circ\pi=\pi\circ u\)</span>.</li>
+<li>Déterminant multiplicatif et déterminant d’une matrice triangulaire
+par blocs.</li>
+<li>Groupe engendré par une famille : produits finis, inverses et
+produit vide.</li>
+</ul>
+<p>Les propriétés des transvections utilisées sont justifiées ci-dessous
+: aucune génération par matrices élémentaires n’est admise.</p>
+<h2 id="préliminaire-transvections-et-dilatations">Préliminaire :
+transvections et dilatations</h2>
+<p>Pour <span class="math inline">\(a\in E\setminus\{0\}\)</span> et
+<span class="math inline">\(f\in E^*\setminus\{0\}\)</span> avec <span
+class="math inline">\(f(a)=0\)</span>, poser <span
+class="math display">\[
+\tau_{a,f}(z)=z+f(z)a.
+\]</span> C’est une transvection de droite <span
+class="math inline">\(Ka\)</span> et d’hyperplan <span
+class="math inline">\(\ker f\)</span>. Si <span
+class="math inline">\(N(z)=f(z)a\)</span>, alors <span
+class="math inline">\(N^2=0\)</span>, donc <span
+class="math inline">\((I+N)^{-1}=I-N\)</span>. L’inverse est encore une
+transvection, y compris en caractéristique <span
+class="math inline">\(2\)</span>.</p>
+<p>Choisir <span class="math inline">\(b\)</span> tel que <span
+class="math inline">\(f(b)=1\)</span>, puis compléter <span
+class="math inline">\(a\)</span> en une base de <span
+class="math inline">\(\ker f\)</span>. Dans la base formée de cette base
+et de <span class="math inline">\(b\)</span>, <span
+class="math inline">\(\tau\)</span> fixe tous les vecteurs sauf <span
+class="math inline">\(b\)</span>, envoyé sur <span
+class="math inline">\(b+a\)</span>. Sa matrice est triangulaire, de
+diagonale <span class="math inline">\(1\)</span> ; ainsi <span
+class="math inline">\(\det\tau=1\)</span>.</p>
+<p>Une dilatation de rapport <span class="math inline">\(\lambda\in
+K^*\setminus\{1\}\)</span> est l’application égale à l’identité sur un
+hyperplan <span class="math inline">\(H\)</span> et à <span
+class="math inline">\(\lambda I\)</span> sur une droite supplémentaire.
+Son déterminant est <span class="math inline">\(\lambda\)</span>. Le
+rapport <span class="math inline">\(1\)</span> donnera simplement
+l’identité, sans facteur de dilatation non trivial.</p>
+<h2 id="preuve-détaillée">Preuve détaillée</h2>
+<h3 id="lemme-déplacer-un-vecteur-non-nul">1. Lemme : déplacer un
+vecteur non nul</h3>
+<p>Supposons <span class="math inline">\(n\geq2\)</span>. Pour tous
+<span class="math inline">\(x,y\ne0\)</span>, une transvection ou un
+produit de deux transvections envoie <span
+class="math inline">\(x\)</span> sur <span
+class="math inline">\(y\)</span> (le produit vide suffit si <span
+class="math inline">\(x=y\)</span>).</p>
+<p>Si <span class="math inline">\(x,y\)</span> sont indépendants, <span
+class="math inline">\(a=y-x\)</span> et <span
+class="math inline">\(x\)</span> sont indépendants. Définir <span
+class="math inline">\(f\)</span> par <span
+class="math inline">\(f(x)=1\)</span>, <span
+class="math inline">\(f(a)=0\)</span>, puis prolonger ces valeurs sur
+une base de <span class="math inline">\(E\)</span>. Alors <span
+class="math display">\[
+\tau_{a,f}(x)=x+a=y.
+\]</span> Cette construction donne directement l’hyperplan <span
+class="math inline">\(\ker f\)</span> contenant <span
+class="math inline">\(a\)</span> mais pas <span
+class="math inline">\(x\)</span>.</p>
+<p>Si <span class="math inline">\(x,y\)</span> sont colinéaires et
+distincts, choisir <span class="math inline">\(z\notin Kx\)</span>,
+possible puisque <span class="math inline">\(n\geq2\)</span>. Le premier
+cas fournit <span class="math inline">\(\tau_1(x)=z\)</span> et <span
+class="math inline">\(\tau_2(z)=y\)</span> ; c’est <strong><span
+class="math inline">\(\tau_2\circ\tau_1\)</span></strong> qui envoie
+<span class="math inline">\(x\)</span> sur <span
+class="math inline">\(y\)</span>.</p>
+<p>Interprétation : le sous-groupe engendré par les transvections agit
+transitivement sur <span
+class="math inline">\(E\setminus\{0\}\)</span>.</p>
+<h3 id="réduire-au-stabilisateur-dun-vecteur">2. Réduire au
+stabilisateur d’un vecteur</h3>
+<p>Raisonnons par récurrence sur <span class="math inline">\(n\)</span>.
+Le cas <span class="math inline">\(n=1\)</span> est acquis. Supposons le
+résultat connu en dimension <span class="math inline">\(n-1\)</span>, et
+prenons <span class="math inline">\(u\in\mathrm{SL}(E)\)</span>.</p>
+<p>Choisir <span class="math inline">\(x\ne0\)</span>. Le lemme appliqué
+à <span class="math inline">\(u(x)\)</span> puis <span
+class="math inline">\(x\)</span> fournit un produit <span
+class="math inline">\(s\)</span> de transvections tel que <span
+class="math inline">\(s(u(x))=x\)</span>. Posons <span
+class="math inline">\(g=su\)</span> ; alors <span
+class="math inline">\(g(x)=x\)</span> et <span
+class="math inline">\(\det g=1\)</span>. Il suffit de décomposer <span
+class="math inline">\(g\)</span>, car <span
+class="math inline">\(u=s^{-1}g\)</span> et <span
+class="math inline">\(s^{-1}\)</span> est encore produit de
+transvections.</p>
+<h3 id="passer-au-quotient-de-dimension-inférieure">3. Passer au
+quotient de dimension inférieure</h3>
+<p>La droite <span class="math inline">\(D=Kx\)</span> est fixée point
+par point par <span class="math inline">\(g\)</span>. Soit <span
+class="math inline">\(\pi:E\to E/D\)</span> la projection. L’application
+<span class="math inline">\(\bar g(\pi(z))=\pi(g(z))\)</span> est bien
+définie et inversible.</p>
+<p>Compléter <span class="math inline">\(x\)</span> en une base <span
+class="math inline">\((x,e_2,\ldots,e_n)\)</span>. La famille <span
+class="math inline">\((\pi(e_2),\ldots,\pi(e_n))\)</span> est une base
+du quotient : elle le génère et une combinaison appartenant à <span
+class="math inline">\(D\)</span> a tous ses coefficients nuls par
+indépendance de la base initiale. En particulier, <span
+class="math inline">\(\dim(E/D)=n-1\)</span>.</p>
+<p>Dans ces bases, <span class="math display">\[
+\operatorname{Mat}(g)=\begin{pmatrix}1&amp;*\\0&amp;\operatorname{Mat}(\bar
+g)\end{pmatrix}.
+\]</span> Donc <span class="math inline">\(\det\bar g=\det g=1\)</span>.
+La récurrence donne <span class="math display">\[
+\bar g=\bar\tau_1\cdots\bar\tau_r,
+\qquad \bar\tau_i=I+\bar a_i\otimes\bar f_i,
+\qquad \bar f_i(\bar a_i)=0.
+\]</span> Lorsque <span class="math inline">\(n-1=1\)</span>, cette
+décomposition est le produit vide.</p>
+<h3 id="relever-les-transvections">4. Relever les transvections</h3>
+<p>Pour chaque <span class="math inline">\(i\)</span>, choisir un
+représentant <span class="math inline">\(a_i\)</span> de <span
+class="math inline">\(\bar a_i\)</span> et poser <span
+class="math inline">\(f_i=\bar f_i\circ\pi\)</span>. Alors <span
+class="math inline">\(a_i\ne0\)</span> et <span
+class="math inline">\(f_i\ne0\)</span> par surjectivité de <span
+class="math inline">\(\pi\)</span>, et <span class="math display">\[
+f_i(a_i)=\bar f_i(\bar a_i)=0.
+\]</span> Ainsi <span class="math inline">\(\tau_i=I+a_i\otimes
+f_i\)</span> est une transvection de <span
+class="math inline">\(E\)</span>. Elle fixe <span
+class="math inline">\(D\)</span> point par point, puisque <span
+class="math inline">\(f_i|_D=0\)</span>, et <span
+class="math display">\[
+\pi(\tau_i(z))=\pi(z)+\bar f_i(\pi(z))\bar a_i
+=\bar\tau_i(\pi(z)).
+\]</span> Le produit <span
+class="math inline">\(v=\tau_1\cdots\tau_r\)</span> fixe donc <span
+class="math inline">\(D\)</span> et induit <span
+class="math inline">\(\bar g\)</span> sur le quotient.</p>
+<h3 id="identifier-le-résidu">5. Identifier le résidu</h3>
+<p>Poser <span class="math inline">\(w=v^{-1}g\)</span>. Il fixe <span
+class="math inline">\(D\)</span> et induit l’identité sur <span
+class="math inline">\(E/D\)</span>, donc <span class="math display">\[
+\operatorname{Im}(w-I)\subset D,
+\qquad (w-I)|_D=0.
+\]</span> Comme <span class="math inline">\(D=Kx\)</span> avec <span
+class="math inline">\(x\ne0\)</span>, il existe une unique forme
+linéaire <span class="math inline">\(f\)</span> telle que <span
+class="math inline">\((w-I)(z)=f(z)x\)</span>. L’égalité <span
+class="math inline">\(w(x)=x\)</span> donne <span
+class="math inline">\(f(x)=0\)</span>.</p>
+<p>Si <span class="math inline">\(f=0\)</span>, <span
+class="math inline">\(w=I\)</span> ; sinon <span
+class="math inline">\(w\)</span> est une transvection. Dans les deux
+cas, <span class="math inline">\(g=vw\)</span>, puis <span
+class="math inline">\(u=s^{-1}vw\)</span>, est produit de transvections.
+L’inclusion réciproque résulte de leur déterminant <span
+class="math inline">\(1\)</span> : le théorème pour <span
+class="math inline">\(\mathrm{SL}(E)\)</span> est démontré.</p>
+<h3 id="corollaire-engendrer-gle">6. Corollaire : engendrer GL(E)</h3>
+<p>Soit maintenant <span
+class="math inline">\(u\in\mathrm{GL}(E)\)</span> et <span
+class="math inline">\(\delta=\det u\)</span>. Si <span
+class="math inline">\(\delta=1\)</span>, le théorème précédent suffit.
+Sinon, choisir une dilatation <span class="math inline">\(d\)</span> de
+rapport <span class="math inline">\(\delta^{-1}\)</span>, par exemple de
+matrice <span
+class="math inline">\(\operatorname{diag}(\delta^{-1},1,\ldots,1)\)</span>
+dans une base.</p>
+<p>Alors <span class="math inline">\(\det(ud)=1\)</span>, donc <span
+class="math inline">\(ud=\tau_1\cdots\tau_m\)</span>, d’où <span
+class="math display">\[
+\boxed{u=\tau_1\cdots\tau_m d^{-1}.}
+\]</span> Pour <span class="math inline">\(K=\mathbb F_2\)</span>, tout
+déterminant non nul vaut <span class="math inline">\(1\)</span> ; les
+transvections suffisent donc déjà à engendrer <span
+class="math inline">\(\mathrm{GL}(E)=\mathrm{SL}(E)\)</span>.</p>
+<h2 id="durée-estimée">Durée estimée</h2>
+<p>Objectif <strong>14–15 minutes</strong>, non encore chronométré :
+préliminaire et énoncé 2 minutes ; lemme 3 minutes ; correction et
+quotient 3 minutes ; relèvements et résidu 5 minutes ; corollaire 2
+minutes. Si les définitions sont déjà au plan, les rappeler brièvement
+sans sacrifier la justification du relèvement.</p>
+<h2 id="points-sensibles-à-loral">Points sensibles à l’oral</h2>
+<ul>
+<li>Ne pas inverser l’ordre des compositions dans le lemme.</li>
+<li>C’est <span class="math inline">\(g=su\)</span>, non nécessairement
+<span class="math inline">\(u\)</span>, qui fixe la droite <span
+class="math inline">\(D\)</span>.</li>
+<li>Justifier <span class="math inline">\(\det\bar g=1\)</span> par la
+matrice par blocs, et non par une propriété vague des quotients.</li>
+<li>Un représentant quelconque de <span class="math inline">\(\bar
+a_i\)</span> convient, car <span class="math inline">\(f_i\)</span>
+s’annule sur <span class="math inline">\(D\)</span>.</li>
+<li>Le résidu peut être l’identité : ne pas imposer une transvection non
+triviale.</li>
+<li>Distinguer toutes les transvections des seules transvections
+élémentaires dans une base fixée : ce texte démontre la génération par
+les premières, sans algorithme de pivot.</li>
+</ul>
+<h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
+<p><strong>Pourquoi la dimension deux suffit-elle dans le lemme
+?</strong> Il suffit d’un vecteur hors de <span
+class="math inline">\(Kx\)</span>, même sur un corps fini : un
+sous-espace propre n’est pas tout l’espace.</p>
+<p><strong>Pourquoi <span class="math inline">\(I+a\otimes f\)</span>
+a-t-il déterminant <span class="math inline">\(1\)</span> ?</strong>
+Parce que <span class="math inline">\(f(a)=0\)</span> ; utiliser la base
+de <span class="math inline">\(\ker f\)</span> complétée par <span
+class="math inline">\(b\)</span> telle que <span
+class="math inline">\(f(b)=1\)</span>, comme dans le préliminaire.</p>
+<p><strong>Pourquoi le résidu est-il de rang au plus un après
+soustraction de l’identité ?</strong> Son image est contenue dans <span
+class="math inline">\(D\)</span> ; la fixation de <span
+class="math inline">\(D\)</span> donne ensuite <span
+class="math inline">\((w-I)^2=0\)</span>.</p>
+<p><strong>Le quotient suffit-il à déterminer <span
+class="math inline">\(g\)</span> ?</strong> Non. Il oublie un terme à
+valeurs dans <span class="math inline">\(D\)</span>, précisément corrigé
+par la dernière transvection.</p>
+<p><strong>Pourquoi ne pas employer un supplémentaire stable ?</strong>
+Rien ne garantit son existence ; une transvection non triviale en
+dimension deux fournit déjà un contre-exemple pour sa droite fixe. Le
+quotient évite cette difficulté.</p>
+<h2 id="variantes-et-limites">Variantes et limites</h2>
+<p>La preuve par pivot est une autre version, mieux adaptée à <a href="../alg%C3%A8bre/le%C3%A7ons/162-systemes-equations-lineaires-operations-elementaires.html">162</a>. Elle
+n’est pas incorporée ici : juxtaposer deux preuves du même théorème
+alourdirait le développement. Pour <a href="../alg%C3%A8bre/le%C3%A7ons/101-groupe-operant-sur-un-ensemble.html">101</a>, rendre explicites la
+transitivité du groupe engendré et la réduction au stabilisateur ; ce
+lien est réel mais reste secondaire dans la narration retenue (3/5).</p>
+<h2 id="source-et-corrections">Source et corrections</h2>
+<p>Dorian Cacitti-Holland, <em><a href="generateurs-sl-gl-transvections.html">Générateurs de SL(E) et GL(E)</a></em>,
+2020–2021, p. 1–3, <a
+href="https://perso.eleves.ens-rennes.fr/~dcaci409/Generateurs.pdf">PDF
+original</a>. La fiche cite Daniel Perrin, <em>Cours d’algèbre</em>,
+sans page ; le passage du livre n’a pas été contrôlé directement.</p>
+<p>Archive :
+<code>raw data/développements/generateurs-sl-gl-cacitti-holland.pdf</code>
+; extraction <code>.txt</code> de même radical : lemme lignes 14–36,
+récurrence lignes 40–114, corollaire lignes 117–124. La rédaction
+corrige l’ordre de composition du lemme, le corps du cas initial, les
+indices matriciels et les cas où le résidu ou la correction du
+déterminant est l’identité.</p>
+<h2 id="à-travailler">À travailler</h2>
+<ul>
+<li>Chronométrer la présentation entière, corollaire compris.</li>
+<li>Savoir écrire les relèvements et le résidu sans hésitation.</li>
+<li>Préparer un exemple en dimension deux sur <span
+class="math inline">\(\mathbb F_2\)</span>.</li>
+</ul>
+</body>
+</html>
