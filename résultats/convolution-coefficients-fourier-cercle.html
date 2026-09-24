@@ -1,0 +1,114 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Résultat — Convolution et coefficients de Fourier sur le cercle</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css?v=3fa8cfdcc3ea" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Résultat — Convolution et coefficients de Fourier sur
+le cercle</h1>
+</header>
+<h1
+id="résultat-convolution-et-coefficients-de-fourier-sur-le-cercle">Résultat
+— Convolution et coefficients de Fourier sur le cercle</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../index/resultats.html">← Index des résultats</a> · <a
+href="../analyse/le%C3%A7ons/246-series-de-fourier-exemples-applications.html">Leçon
+246</a> · <a href="../d%C3%A9veloppements/theoreme-fejer.html">Théorème de
+Fejér</a> · <a href="../index.html">Accueil</a></p>
+<h2 id="énoncé-et-convention">Énoncé et convention</h2>
+<p>Sur le cercle de période <span class="math inline">\(2\pi\)</span>,
+munissons <span class="math inline">\(\mathbb T\)</span> de la mesure
+normalisée <span class="math inline">\(dm(t)=dt/(2\pi)\)</span>. Pour
+<span class="math inline">\(f,g\in L^1(\mathbb T)\)</span>, on pose,
+presque partout, <span class="math display">\[
+(f*g)(x)=\int_{-\pi}^{\pi}f(x-t)g(t)\,dm(t),\qquad
+c_k(f)=\int_{-\pi}^{\pi}f(x)e^{-ikx}\,dm(x).
+\]</span> Alors <span class="math inline">\(f*g\in L^1(\mathbb
+T)\)</span> et, pour tout <span class="math inline">\(k\in\mathbb
+Z\)</span>, <span class="math display">\[
+\boxed{c_k(f*g)=c_k(f)c_k(g).}
+\]</span> Avec la convolution non normalisée <span
+class="math inline">\(\int f(x-t)g(t)\,dt\)</span>, le membre de droite
+serait multiplié par <span class="math inline">\(2\pi\)</span> :
+annoncer la convention avant d’énoncer la formule.</p>
+<h2 id="preuve-courte">Preuve courte</h2>
+<p>L’invariance par translation de la mesure sur le cercle et Tonelli
+donnent <span class="math display">\[
+\int\!\int |f(x-t)g(t)|\,dm(x)\,dm(t)=\|f\|_1\|g\|_1&lt;\infty.
+\]</span> Fubini s’applique. En posant <span
+class="math inline">\(u=x-t\)</span> sur le cercle, <span
+class="math display">\[
+\begin{aligned}
+c_k(f*g)
+&amp;=\int g(t)\left(\int f(x-t)e^{-ikx}\,dm(x)\right)dm(t)\\
+&amp;=\left(\int f(u)e^{-iku}\,dm(u)\right)
+  \left(\int g(t)e^{-ikt}\,dm(t)\right).
+\end{aligned}
+\]</span></p>
+<h2 id="application-somme-partielle-et-noyau-de-dirichlet">Application :
+somme partielle et noyau de Dirichlet</h2>
+<p>Pour <span class="math inline">\(D_n(x)=\sum_{|j|\le
+n}e^{ijx}\)</span>, l’orthogonalité des exponentielles donne <span
+class="math inline">\(c_k(D_n)=\mathbf 1_{|k|\le n}\)</span>. Plus
+directement, la somme étant finie, pour tout <span
+class="math inline">\(f\in L^1(\mathbb T)\)</span> et tout <span
+class="math inline">\(x\)</span>, le changement de variable <span
+class="math inline">\(u=x-t\)</span> donne <span class="math display">\[
+(f*D_n)(x)=\sum_{|j|\le n}\int f(x-t)e^{ijt}\,dm(t)
+=\sum_{|j|\le n}c_j(f)e^{ijx}=S_n(f)(x).
+\]</span> Cette identité de troncature vaut pour chaque <span
+class="math inline">\(n\)</span> ; elle <strong>n’affirme pas</strong>
+que <span class="math inline">\(S_n(f)\to f\)</span>. Les moyennes de
+Cesàro <span class="math inline">\(\sigma_n(f)=f*F_n\)</span> font
+intervenir le noyau de Fejér, positif, de masse unité et concentré près
+de zéro ; elles convergent uniformément si <span
+class="math inline">\(f\)</span> est continue.</p>
+<h2 id="à-distinguer-à-loral">À distinguer à l’oral</h2>
+<ul>
+<li>Convolution dans la variable spatiale <span
+class="math inline">\(\longleftrightarrow\)</span> multiplication des
+coefficients de Fourier ; multiplication de fonctions <span
+class="math inline">\(\longleftrightarrow\)</span> convolution
+<strong>discrète</strong> des coefficients seulement sous des hypothèses
+justifiant cette opération (par exemple pour des polynômes
+trigonométriques).</li>
+<li>Ici il s’agit des <strong>séries de Fourier sur le cercle</strong>.
+La transformation de Fourier sur <span class="math inline">\(\mathbb
+R\)</span> a ses propres conventions et espaces de fonctions.</li>
+<li>Le noyau de Dirichlet filtre les fréquences mais n’est pas positif ;
+sa norme <span class="math inline">\(L^1\)</span> n’est pas uniformément
+bornée. Ne pas lui appliquer sans justification la preuve de Fejér par
+approximation positive de l’identité.</li>
+</ul>
+<h2 id="question-de-vérification">Question de vérification</h2>
+<p>Pourquoi <span class="math inline">\(f*D_n=S_n(f)\)</span> sans
+aucune hypothèse de convergence de la série de Fourier de <span
+class="math inline">\(f\)</span> ?</p>
+</body>
+</html>
