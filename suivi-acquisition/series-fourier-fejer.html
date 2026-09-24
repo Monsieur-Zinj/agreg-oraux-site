@@ -1,0 +1,159 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Fiche de suivi d’acquisition — séries de Fourier et Fejér</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css?v=3fa8cfdcc3ea" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Fiche de suivi d’acquisition — séries de Fourier et
+Fejér</h1>
+</header>
+<h1 id="fiche-de-suivi-dacquisition-séries-de-fourier-et-fejér">Fiche de
+suivi d’acquisition — séries de Fourier et Fejér</h1>
+<p><a
+href="../analyse/le%C3%A7ons/246-series-de-fourier-exemples-applications.html">Leçon
+246</a> · <a href="../d%C3%A9veloppements/theoreme-fejer.html">Développement de
+Fejér</a> · <a href="../index/programme-revision.html">Programme de
+révision</a></p>
+<h2 id="niveau-constaté">Niveau constaté</h2>
+<p>Échelle : <strong>à reprendre</strong> (besoin exprimé),
+<strong>expliqué</strong> (réponse reçue), <strong>restitué</strong>
+(argument reformulé), <strong>mobilisable</strong> (réemploi autonome
+vérifié).</p>
+<p>Le besoin formulé porte sur un rappel des définitions et des
+résultats fondamentaux des séries de Fourier <strong>avant</strong> le
+développement de Fejér. Des explications ont été reçues, mais aucune
+preuve ni formule n’a été restituée de manière autonome dans ces
+extraits.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Point</th>
+<th>Constat prudent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Convolution et fréquences</td>
+<td>La relation <span class="math inline">\(f*D_n=S_n(f)\)</span> a
+suscité une demande de reprise puis d’énoncé rigoureux ; explication
+reçue, restitution non évaluée.</td>
+</tr>
+<tr>
+<td>Coefficients réels et complexes</td>
+<td>Un passage fragmentaire évoque <span
+class="math inline">\(a_3,b_3\)</span> et l’interlocuteur répond pour
+<span class="math inline">\(\sin(3x)\)</span> ; faute de contexte
+complet et de convention explicitée, ne pas attribuer une erreur
+certaine au candidat. Faire vérifier sur un exemple simple.</td>
+</tr>
+<tr>
+<td>Fejér et convergence</td>
+<td>Une réponse sur Fejér et sa version <span
+class="math inline">\(L^1\)</span> a été donnée alors que la demande
+était un mini-cours sur les séries de Fourier ; cette propriété est
+vraie, mais son explication ne répondait pas au besoin exprimé.</td>
+</tr>
+<tr>
+<td>Preuve de Fejér</td>
+<td>Positivité, masse, concentration, découpage proche/loin et preuve
+complète : non évalués.</td>
+</tr>
+</tbody>
+</table>
+<p>Une formule comprise après explication ou un acquiescement ne suffit
+pas à établir sa maîtrise. Rien dans ces deux extraits ne permet de
+conclure à une difficulté récurrente.</p>
+<h2 id="ordre-de-reprise">Ordre de reprise</h2>
+<ol type="1">
+<li>Sur le cercle de période <span class="math inline">\(2\pi\)</span>,
+définir <span class="math inline">\(c_k(f)\)</span>, <span
+class="math inline">\(S_n(f)\)</span>, la convolution normalisée et
+<span class="math inline">\(D_n\)</span> ; voir le <a
+href="../analyse/le%C3%A7ons/246-series-de-fourier-exemples-applications.html">socle
+de la leçon 246</a> et le <a
+href="../r%C3%A9sultats/convolution-coefficients-fourier-cercle.html">résultat
+convolution–coefficients</a>.</li>
+<li>Retrouver <span class="math inline">\(f*D_n=S_n(f)\)</span> d’abord
+par développement de la somme finie, puis énoncer la formule générale
+<span class="math inline">\(c_k(f*g)=c_k(f)c_k(g)\)</span> pour <span
+class="math inline">\(f,g\in L^1(\mathbb T)\)</span> avec la convention
+choisie. Distinguer cette identité de toute convergence de <span
+class="math inline">\(S_n(f)\)</span>.</li>
+<li>Calculer les coefficients réels et complexes de <span
+class="math inline">\(\sin(3x)\)</span> avec la convention de la leçon
+<a href="../analyse/le%C3%A7ons/246-series-de-fourier-exemples-applications.html">246</a> ; comparer <span class="math inline">\(D_n\)</span> et <span
+class="math inline">\(F_n\)</span> avant de travailler la <a
+href="../d%C3%A9veloppements/theoreme-fejer.html">preuve de Fejér</a>.</li>
+<li>Reprendre la convergence uniforme pour <span
+class="math inline">\(f\in C(\mathbb T)\)</span> ; réserver la version
+<span class="math inline">\(L^1\)</span> à une seconde passe fondée sur
+la continuité des translations en norme <span
+class="math inline">\(L^1\)</span>.</li>
+</ol>
+<h2 id="questions-à-poser-une-par-une">Questions à poser une par
+une</h2>
+<ul>
+<li>Quelle normalisation choisis-tu pour <span
+class="math inline">\(c_k\)</span> et <span
+class="math inline">\(f*g\)</span> ?</li>
+<li>Pourquoi <span class="math inline">\(c_k(D_n)=1\)</span> si <span
+class="math inline">\(|k|\le n\)</span> et <span
+class="math inline">\(0\)</span> sinon ?</li>
+<li>Montre en deux lignes que <span
+class="math inline">\(f*D_n=S_n(f)\)</span> ; est-ce un théorème de
+convergence ?</li>
+<li>Pour <span class="math inline">\(\sin(3x)\)</span>, quels sont <span
+class="math inline">\(a_3,b_3,c_3,c_{-3}\)</span> ?</li>
+<li>Pourquoi la preuve de Fejér utilise-t-elle la positivité de <span
+class="math inline">\(F_n\)</span> plutôt que le noyau <span
+class="math inline">\(D_n\)</span> ?</li>
+</ul>
+<h2 id="actions">Actions</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Restituer sans notes les
+définitions, la convention et l’identité de convolution.</label></li>
+<li><label><input type="checkbox" />Comparer somme partielle, série et
+moyenne de Cesàro avec leurs hypothèses de convergence.</label></li>
+<li><label><input type="checkbox" />Refaire au tableau la preuve de
+Fejér et son application à la densité des polynômes
+trigonométriques.</label></li>
+</ul>
+<h2 id="sources-du-diagnostic">Sources du diagnostic</h2>
+<p>Conversations archivées sous
+<code>series-fourier-dirichlet-convolution-frequences.txt</code> (lignes
+1–21) et <code>preparation-fejer-rappels-fourier-coefficients.txt</code>
+(lignes 23–47). Dates des échanges non renseignées ; exports
+fragmentaires sans étiquettes de locuteurs fiables. Le diagnostic ne
+reprend pas les échanges bruts.</p>
+</body>
+</html>

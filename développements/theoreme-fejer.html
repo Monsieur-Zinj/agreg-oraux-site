@@ -39,7 +39,8 @@ Fejér</a></h1>
 <a href="../index/lecons.html">Leçons</a> · <a
 href="../index/matrice-developpements-lecons.html">Matrice</a> · <a
 href="../index/recasages/theoreme-fejer.html">Recasage détaillé</a> · <a
-href="../index.html">Accueil</a></p>
+href="../suivi-acquisition/series-fourier-fejer.html">Suivi
+d’acquisition</a> · <a href="../index.html">Accueil</a></p>
 <h2 id="position-dans-le-graphe">Position dans le graphe</h2>
 <p>Ce développement transforme les moyennes de Cesàro des sommes
 partielles de Fourier en convolution par un noyau positif. La
@@ -79,6 +80,12 @@ class="math inline">\(C(\mathbb T)\)</span> pour la norme uniforme.</p>
 <h2 id="résultats-liés">Résultats liés</h2>
 <ul>
 <li><a
+href="../r%C3%A9sultats/convolution-coefficients-fourier-cercle.html">Convolution
+et coefficients de Fourier sur le cercle</a> — précise les conventions,
+l’identité <span class="math inline">\(f*D_n=S_n(f)\)</span> et sa
+distinction d’une convergence de <span
+class="math inline">\(S_n(f)\)</span> ;</li>
+<li><a
 href="../r%C3%A9sultats/approximation-identite-positive-cercle.html">Approximation
 de l’identité positive sur le cercle</a> — mécanisme abstrait appliqué
 au noyau de Fejér ;</li>
@@ -97,6 +104,11 @@ D_j(y)=\sum_{k=-j}^{j}e^{iky}.
 <p><span class="math display">\[
 S_j(f)(t)=\frac1{2\pi}\int_{-\pi}^{\pi}f(t-y)D_j(y)\,dy.
 \]</span></p>
+<p>L’identité découle directement de la somme finie ; la <a
+href="../r%C3%A9sultats/convolution-coefficients-fourier-cercle.html">formule
+générale pour les coefficients d’une convolution</a> la replace dans le
+calcul fréquentiel. Elle ne suppose pas que les sommes partielles
+convergent vers <span class="math inline">\(f\)</span>.</p>
 <p>En moyennant de <span class="math inline">\(j=0\)</span> à <span
 class="math inline">\(n\)</span>, on obtient</p>
 <p><span class="math display">\[
