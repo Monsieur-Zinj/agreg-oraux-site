@@ -39,7 +39,8 @@ applications</h1>
 <p><a href="../../index/lecons.html">← Index des leçons</a> · <a
 href="../../index/developpements.html">Développements</a> · <a
 href="../../index/matrice-developpements-lecons.html">Matrice</a> · <a
-href="../../index.html">Accueil</a></p>
+href="../../suivi-acquisition/series-fourier-fejer.html">Suivi
+d’acquisition</a> · <a href="../../index.html">Accueil</a></p>
 <h2 id="rôle-dans-le-graphe">Rôle dans le graphe</h2>
 <p>Relier l’analyse harmonique sur le tore aux questions de convergence,
 de régularité et aux applications. La formule de Poisson fournit un pont
@@ -60,12 +61,68 @@ et Parseval comme une isométrie ;</li>
 <li>donner de vraies applications, notamment la formule sommatoire de
 Poisson.</li>
 </ul>
+<h2 id="socle-à-restituer-avant-le-développement-de-fejér">Socle à
+restituer avant le développement de Fejér</h2>
+<p>On travaille ici sur le cercle de période <span
+class="math inline">\(2\pi\)</span> (la convention <span
+class="math inline">\(\mathbb R/\mathbb Z\)</span> s’obtient par
+changement d’échelle). Pour <span class="math inline">\(f\in L^1(\mathbb
+T)\)</span>, avec <span class="math inline">\(dm(x)=dx/(2\pi)\)</span>,
+poser <span class="math display">\[
+c_k(f)=\int_{-\pi}^{\pi}f(x)e^{-ikx}\,dm(x),\qquad
+S_n(f)(x)=\sum_{k=-n}^{n}c_k(f)e^{ikx}.
+\]</span> Les coefficients sont définis pour toute <span
+class="math inline">\(f\in L^1\)</span>, mais <strong>l’écriture de
+<span class="math inline">\(S_n\)</span> n’affirme aucune convergence de
+<span class="math inline">\(S_n(f)\)</span> vers <span
+class="math inline">\(f\)</span></strong>. Le lemme de Riemann–Lebesgue
+donne seulement <span class="math inline">\(c_k(f)\to0\)</span> quand
+<span class="math inline">\(|k|\to\infty\)</span>.</p>
+<p>Pour une fonction réelle, avec <span
+class="math inline">\(a_0=\frac1\pi\int_{-\pi}^{\pi}f\)</span>, <span
+class="math inline">\(a_n=\frac1\pi\int f(x)\cos(nx)\,dx\)</span> et
+<span class="math inline">\(b_n=\frac1\pi\int f(x)\sin(nx)\,dx\)</span>
+(<span class="math inline">\(n\ge1\)</span>), on a <span
+class="math inline">\(c_0=a_0/2\)</span>, <span
+class="math inline">\(c_n=(a_n-ib_n)/2\)</span> et <span
+class="math inline">\(c_{-n}=(a_n+ib_n)/2\)</span>. Par exemple, pour
+<span class="math inline">\(f(x)=\sin(3x)\)</span> : <span
+class="math inline">\(a_3=0\)</span>, <span
+class="math inline">\(b_3=1\)</span>, <span
+class="math inline">\(c_3=-i/2\)</span>, <span
+class="math inline">\(c_{-3}=i/2\)</span> et les autres coefficients
+sont nuls. Annoncer la convention réelle utilisée avant de comparer
+<span class="math inline">\(a_n,b_n\)</span> et <span
+class="math inline">\(c_n\)</span>.</p>
+<p>Avec <span class="math inline">\((f*g)(x)=\int
+f(x-t)g(t)\,dm(t)\)</span> et <span
+class="math inline">\(D_n(t)=\sum_{|k|\le n}e^{ikt}\)</span>, le <a
+href="../../r%C3%A9sultats/convolution-coefficients-fourier-cercle.html">résultat
+convolution–coefficients</a> établit <span
+class="math inline">\(c_k(f*g)=c_k(f)c_k(g)\)</span> pour <span
+class="math inline">\(f,g\in L^1\)</span> et <span
+class="math inline">\(f*D_n=S_n(f)\)</span>. Le noyau de Dirichlet
+<strong>tronque</strong> les fréquences : cela ne prouve pas la
+convergence des sommes partielles. Les moyennes <span
+class="math inline">\(\sigma_n(f)=\frac1{n+1}\sum_{j=0}^n
+S_j(f)=f*F_n\)</span> convergent uniformément pour <span
+class="math inline">\(f\in C(\mathbb T)\)</span> par le <a
+href="../../d%C3%A9veloppements/theoreme-fejer.html">théorème de Fejér</a>. En
+<span class="math inline">\(L^2(\mathbb T)\)</span>, <span
+class="math inline">\(S_n(f)\to f\)</span> en norme grâce à la
+complétude des exponentielles ; ne pas confondre ces trois modes de
+convergence.</p>
+<p>Ce rappel sert de prérequis, non de substitut au plan équilibré et
+aux applications attendues par le jury (rapport 2025, leçon <a href="246-series-de-fourier-exemples-applications.html">246</a>, lignes
+1632–1646).</p>
 <h2 id="plan-possible-squelette">Plan possible — squelette</h2>
 <h3 id="coefficients-et-premières-propriétés">1. Coefficients et
 premières propriétés</h3>
 <ul>
-<li>définition sur <span class="math inline">\(\mathbb T=\mathbb
-R/\mathbb Z\)</span> ;</li>
+<li>définition sur le cercle de période <span
+class="math inline">\(2\pi\)</span> (ou <span
+class="math inline">\(\mathbb R/\mathbb Z\)</span> après changement
+d’échelle) ;</li>
 <li>Riemann–Lebesgue ;</li>
 <li>translation, dérivation, convolution.</li>
 </ul>
@@ -169,6 +226,9 @@ Parseval ;</li>
 <h2 id="pièges-et-points-de-vigilance">Pièges et points de
 vigilance</h2>
 <ul>
+<li>Avant Fejér, savoir énoncer la convention de convolution et
+retrouver <span class="math inline">\(f*D_n=S_n(f)\)</span> sans
+invoquer une convergence de série.</li>
 <li>Toujours annoncer le mode de convergence.</li>
 <li>Une fonction périodique <span class="math inline">\(C^1\)</span> a
 une série de Fourier absolument convergente ; savoir le prouver par
@@ -180,6 +240,10 @@ hilbertienne.</li>
 </ul>
 <h2 id="questions-possibles-du-jury">Questions possibles du jury</h2>
 <ul>
+<li>Calculer les coefficients réels et complexes de <span
+class="math inline">\(\sin(3x)\)</span>, puis justifier <span
+class="math inline">\(c_k(f*g)=c_k(f)c_k(g)\)</span> avec les hypothèses
+de Fubini.</li>
 <li>Comparer convergence simple, uniforme, normale et <span
 class="math inline">\(L^2\)</span>.</li>
 <li>Pourquoi le noyau de Fejér est-il positif ?</li>
@@ -190,6 +254,10 @@ de Fourier ?</li>
 </ul>
 <h2 id="résultats-liés">Résultats liés</h2>
 <ul>
+<li><a
+href="../../r%C3%A9sultats/convolution-coefficients-fourier-cercle.html">Convolution
+et coefficients de Fourier sur le cercle</a> — prérequis de l’écriture
+en convolution des sommes et moyennes de Fourier.</li>
 <li><a
 href="../../r%C3%A9sultats/approximation-identite-positive-cercle.html">Approximation
 de l’identité positive sur le cercle</a> — forme abstraite du mécanisme
