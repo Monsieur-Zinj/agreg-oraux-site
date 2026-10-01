@@ -1,0 +1,320 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Résultat — Divergence ponctuelle d'une série de Fourier de fonction continue</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/style.css?v=3fa8cfdcc3ea" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">Accueil</a></nav>
+
+<header id="title-block-header">
+<h1 class="title">Résultat — Divergence ponctuelle d&#x27;une série de
+Fourier de fonction continue</h1>
+</header>
+<h1
+id="résultat-divergence-ponctuelle-dune-série-de-fourier-de-fonction-continue">Résultat
+— Divergence ponctuelle d’une série de Fourier de fonction continue</h1>
+<h2 id="navigation">Navigation</h2>
+<p><a href="../index/resultats.html">← Index des résultats</a> · <a
+href="../analyse/le%C3%A7ons/246-series-de-fourier-exemples-applications.html">Leçon
+246</a> · <a href="../d%C3%A9veloppements/theoreme-fejer.html">Développement de
+Fejér</a> · <a href="../suivi-acquisition/series-fourier-fejer.html">Suivi
+Fourier–Fejér</a> · <a href="../index.html">Accueil</a></p>
+<h2 id="énoncé">Énoncé</h2>
+<p>Sur <span class="math inline">\(\mathbb T=\mathbb R/(2\pi\mathbb
+Z)\)</span>, poser <span class="math display">\[
+c_k(f)=\int_{-\pi}^{\pi}f(t)e^{-ikt}\,\frac{dt}{2\pi},\qquad
+S_n(f)(x)=\sum_{k=-n}^n c_k(f)e^{ikx}.
+\]</span> Pour tout point <strong>fixé</strong> <span
+class="math inline">\(x_0\in\mathbb T\)</span>, il existe <span
+class="math inline">\(f\in C(\mathbb T,\mathbb R)\)</span> telle que
+<span class="math display">\[
+\boxed{\sup_{n\ge0}|S_n(f)(x_0)|=+\infty.}
+\]</span> En particulier, <span
+class="math inline">\(S_n(f)(x_0)\)</span> ne converge pas. La
+continuité et la périodicité ne suffisent donc pas à garantir la
+convergence ponctuelle des sommes partielles en tout point. Le mécanisme
+est la croissance des normes des fonctionnelles d’évaluation des sommes
+partielles, puis Banach–Steinhaus.[1]</p>
+<p><strong>Nature du contre-exemple :</strong> la preuve ci-dessous est
+existentielle et non constructive. Elle ne donne pas une formule
+élémentaire explicite de <span class="math inline">\(f\)</span>. Les
+fonctions tests utilisées pour calculer une norme dépendent de <span
+class="math inline">\(n\)</span> ; elles ne constituent pas, à elles
+seules, une unique fonction divergente.</p>
+<h2 id="prérequis">Prérequis</h2>
+<ul>
+<li><a href="convolution-coefficients-fourier-cercle.html">Identité <span
+class="math inline">\(S_n(f)=f*D_n\)</span></a>, avec <span
+class="math inline">\(D_n(t)=\sum_{k=-n}^n e^{ikt}\)</span>.</li>
+<li>Complétude de <span class="math inline">\(C(\mathbb T,\mathbb
+R)\)</span> pour la norme uniforme : une suite uniformément de Cauchy a
+une limite uniforme réelle et continue.</li>
+<li>Banach–Steinhaus : si <span class="math inline">\(E\)</span> est un
+Banach, <span class="math inline">\(F\)</span> un espace normé et <span
+class="math inline">\((T_n)\)</span> une suite d’applications linéaires
+continues <span class="math inline">\(E\to F\)</span>, alors <span
+class="math display">\[
+\bigl(\forall f\in E,\ \sup_n\|T_n f\|&lt;\infty\bigr)
+\Longrightarrow \sup_n\|T_n\|&lt;\infty.
+\]</span> Une justification à partir de Baire est donnée après la
+preuve.</li>
+</ul>
+<h2 id="preuve">Preuve</h2>
+<p>On traite <span class="math inline">\(x_0=0\)</span>, puis on
+translate. Le schéma et l’approximation continue du signe de <span
+class="math inline">\(D_n\)</span> suivent la source ; toutes les
+intégrales ci-dessous utilisent la mesure normalisée <span
+class="math inline">\(dm=dt/(2\pi)\)</span>.[1]</p>
+<h3 id="des-formes-linéaires-continues">1. Des formes linéaires
+continues</h3>
+<p>Sur le Banach réel <span class="math inline">\(E=C(\mathbb T,\mathbb
+R)\)</span>, définir <span class="math display">\[
+L_n(f)=S_n(f)(0)=\int_{-\pi}^{\pi}f(-t)D_n(t)\,dm(t).
+\]</span> Le noyau <span class="math inline">\(D_n\)</span> est réel et
+pair. Ainsi <span class="math inline">\(L_n:E\to\mathbb R\)</span> est
+linéaire et <span class="math display">\[
+|L_n(f)|\le\|f\|_\infty\|D_n\|_{L^1(dm)}.
+\]</span></p>
+<h3 id="calculer-exactement-la-norme">2. Calculer exactement la
+norme</h3>
+<p>Pour <span class="math inline">\(n\)</span> fixé et <span
+class="math inline">\(\varepsilon&gt;0\)</span>, poser <span
+class="math display">\[
+g_{n,\varepsilon}(t)=\frac{D_n(t)}{|D_n(t)|+\varepsilon}.
+\]</span> Cette fonction est réelle, continue, périodique, paire et de
+norme uniforme au plus <span class="math inline">\(1\)</span>. Par
+convergence dominée, <span class="math display">\[
+L_n(g_{n,\varepsilon})
+=\int\frac{|D_n(t)|^2}{|D_n(t)|+\varepsilon}\,dm(t)
+\longrightarrow\int |D_n(t)|\,dm(t).
+\]</span> L’intégrande est dominé par <span
+class="math inline">\(|D_n|\in L^1(dm)\)</span>. On en déduit <span
+class="math display">\[
+\boxed{\|L_n\|=\|D_n\|_{L^1(dm)}.}
+\]</span> On ne peut pas utiliser directement <span
+class="math inline">\(\operatorname{sgn}(D_n)\)</span> comme élément de
+<span class="math inline">\(E\)</span> : il est discontinu aux
+changements de signe.[1]</p>
+<h3 id="la-norme-du-noyau-tend-vers-linfini">3. La norme du noyau tend
+vers l’infini</h3>
+<p>La somme géométrique donne, hors de <span
+class="math inline">\(2\pi\mathbb Z\)</span>, <span
+class="math display">\[
+D_n(t)=\frac{\sin((n+\tfrac12)t)}{\sin(t/2)}.
+\]</span> Par parité et <span class="math inline">\(\sin(t/2)\le
+t/2\)</span> pour <span class="math inline">\(0&lt;t\le\pi\)</span>,
+<span class="math display">\[
+\|D_n\|_{L^1(dm)}
+\ge\frac2\pi\int_0^\pi\frac{|\sin((n+\tfrac12)t)|}{t}\,dt
+=\frac2\pi\int_0^{(n+1/2)\pi}\frac{|\sin u|}{u}\,du.
+\]</span> Pour <span class="math inline">\(n\ge1\)</span>, on conserve
+les intervalles <span class="math inline">\([j\pi,(j+1)\pi]\)</span>,
+<span class="math inline">\(0\le j&lt;n\)</span>. Sur chacun d’eux,
+<span class="math inline">\(u\le(j+1)\pi\)</span> et l’intégrale de
+<span class="math inline">\(|\sin u|\)</span> vaut <span
+class="math inline">\(2\)</span>. Donc <span class="math display">\[
+\boxed{\|D_n\|_{L^1(dm)}
+\ge\frac4{\pi^2}\sum_{j=0}^{n-1}\frac1{j+1}\longrightarrow+\infty.}
+\]</span> Cette minoration harmonique suffit ; aucun équivalent précis
+des constantes de Lebesgue n’est requis. La source donne une autre
+minoration harmonique en intégrant sur <span
+class="math inline">\([0,2\pi]\)</span>.[1]</p>
+<h3 id="banachsteinhaus-fournit-une-seule-fonction">4. Banach–Steinhaus
+fournit une seule fonction</h3>
+<p>Si, pour toute <span class="math inline">\(f\in E\)</span>, <span
+class="math inline">\((L_n(f))_n\)</span> était bornée, Banach–Steinhaus
+imposerait <span class="math inline">\(\sup_n\|L_n\|&lt;\infty\)</span>,
+contrairement à l’étape précédente. Il existe donc <strong>une même
+fonction</strong> réelle continue <span class="math inline">\(f\)</span>
+telle que <span
+class="math inline">\(\sup_n|S_n(f)(0)|=\infty\)</span>.[1]</p>
+<p>Pour un point fixé <span class="math inline">\(x_0\)</span>, poser
+<span class="math inline">\(h(x)=f(x-x_0)\)</span>. Le changement de
+variable sur le cercle donne <span
+class="math inline">\(c_k(h)=e^{-ikx_0}c_k(f)\)</span>, donc <span
+class="math inline">\(S_n(h)(x_0)=S_n(f)(0)\)</span>. Cela prouve
+l’énoncé.</p>
+<h3 id="complément-pourquoi-la-complétude-intervient">Complément :
+pourquoi la complétude intervient</h3>
+<p>Voici l’argument de Banach–Steinhaus pour cette suite, en admettant
+Baire. Si <span class="math inline">\(\sup_n|L_n(f)|&lt;\infty\)</span>
+pour tout <span class="math inline">\(f\)</span>, les fermés <span
+class="math display">\[
+E_m=\{f\in E:\forall n,\ |L_n(f)|\le m\},\qquad m\ge1,
+\]</span> recouvrent <span class="math inline">\(E\)</span>. Par Baire,
+l’un contient une boule ouverte <span
+class="math inline">\(B(f_0,r)\)</span>. Pour <span
+class="math inline">\(\|g\|_\infty\le1\)</span>, les points <span
+class="math inline">\(f_0\)</span> et <span
+class="math inline">\(f_0+(r/2)g\)</span> sont dans <span
+class="math inline">\(E_m\)</span>, d’où <span class="math display">\[
+\frac r2|L_n(g)|
+\le |L_n(f_0+(r/2)g)|+|L_n(f_0)|\le2m.
+\]</span> Ainsi <span class="math inline">\(\|L_n\|\le4m/r\)</span> pour
+tout <span class="math inline">\(n\)</span>. C’est précisément la borne
+uniforme contredite plus haut. Baire utilise la complétude de <span
+class="math inline">\(E\)</span> ; la continuité de chaque <span
+class="math inline">\(L_n\)</span> assure que les <span
+class="math inline">\(E_m\)</span> sont fermés.</p>
+<h2 id="exemples-contre-exemples-et-limites">Exemples, contre-exemples
+et limites</h2>
+<ul>
+<li><strong>La conclusion n’est pas universelle</strong> : pour <span
+class="math inline">\(f(x)=\cos x\)</span>, <span
+class="math inline">\(S_n(f)=f\)</span> dès <span
+class="math inline">\(n\ge1\)</span>. L’énoncé affirme l’existence d’une
+fonction divergente, pas la divergence de toute fonction continue.</li>
+<li><strong>Un créneau ne convient pas</strong> : il n’est pas continu.
+De plus, le phénomène de Gibbs concerne notamment l’absence de
+convergence uniforme près d’un saut ; il ne prouve pas une divergence
+ponctuelle pour une fonction continue.</li>
+<li><strong>Une régularité suffisante évite la pathologie</strong> :
+pour une fonction périodique <span class="math inline">\(C^1\)</span>,
+la <a href="coefficients-fourier-c1-sommables.html">sommabilité absolue
+des coefficients</a> donne une convergence normale vers <span
+class="math inline">\(f\)</span>. Cette régularité est suffisante, pas
+annoncée comme nécessaire.</li>
+<li><strong>Les quantificateurs comptent</strong> : <span
+class="math inline">\(\forall x_0\,\exists f\)</span> n’est pas <span
+class="math inline">\(\exists f\,\forall x_0\)</span>. La preuve ne
+produit pas une fonction continue dont les sommes partielles divergent
+partout.</li>
+<li><strong>Pas de contradiction avec le cadre hilbertien</strong> :
+pour cette fonction continue, <span class="math inline">\(S_n(f)\to
+f\)</span> dans <span class="math inline">\(L^2(\mathbb T)\)</span> ; la
+convergence en norme <span class="math inline">\(L^2\)</span> n’impose
+pas la convergence en un point fixé.</li>
+</ul>
+<h2 id="lien-avec-fejér-et-les-leçons">Lien avec Fejér et les
+leçons</h2>
+<p>Pour la fonction divergente obtenue, les <a
+href="proprietes-noyau-fejer.html">moyennes de Cesàro</a> convergent
+néanmoins uniformément vers <span class="math inline">\(f\)</span>, par
+le <a href="../d%C3%A9veloppements/theoreme-fejer.html">théorème de Fejér</a>.
+Le changement de noyau est donc décisif : les opérateurs de Fejér ont
+norme <span class="math inline">\(1\)</span> sur <span
+class="math inline">\(C(\mathbb T)\)</span>, tandis que <span
+class="math inline">\(\|L_n\|\to\infty\)</span> pour Dirichlet.</p>
+<p>Ce résultat est un <strong>contre-exemple de contexte et une
+ouverture d’analyse fonctionnelle</strong>, pas un ingrédient nécessaire
+de la preuve de Fejér. Il n’ajoute aucun développement à la matrice.</p>
+<ul>
+<li><a
+href="../analyse/le%C3%A7ons/246-series-de-fourier-exemples-applications.html">246
+— Séries de Fourier</a> : limites de la convergence des sommes
+partielles et intérêt de Cesàro.</li>
+<li><a
+href="../analyse/le%C3%A7ons/241-suites-series-fonctions-exemples-contre-exemples.html">241
+— Suites et séries de fonctions</a> : comparaison des modes de
+convergence.</li>
+<li><a
+href="../analyse/le%C3%A7ons/208-espaces-vectoriels-normes-applications-lineaires-continues.html">208
+— Espaces normés et applications linéaires continues</a> : calcul de
+normes de formes linéaires et application de Banach–Steinhaus.</li>
+<li><a
+href="../analyse/le%C3%A7ons/201-espaces-de-fonctions-exemples-applications.html">201
+— Espaces de fonctions</a> : rôle du Banach <span
+class="math inline">\(C(\mathbb T)\)</span> et contraste avec <span
+class="math inline">\(L^2\)</span>.</li>
+</ul>
+<h2 id="suivi-dacquisition">Suivi d’acquisition</h2>
+<p>Source du diagnostic :
+<code>revision-fejer-enonce-cesaro-divergence-et-hypotheses.txt</code>,
+réponse sur le risque de divergence ponctuelle. Voir le <a
+href="../suivi-acquisition/series-fourier-fejer.html">suivi
+Fourier–Fejér</a>.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Axe</th>
+<th>État observé</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Énoncé</td>
+<td>Possibilité de divergence ponctuelle identifiée sans que la réponse
+soit fournie ; formulation quantifiée et non-bornitude non
+évaluées.</td>
+</tr>
+<tr>
+<td>Hypothèses</td>
+<td>Cadre continu périodique présent dans la question ; rôles du Banach
+et de la continuité des formes non évalués.</td>
+</tr>
+<tr>
+<td>Preuve</td>
+<td>Ni calcul de norme, ni minoration harmonique, ni Banach–Steinhaus
+restitués.</td>
+</tr>
+<tr>
+<td>Usage oral</td>
+<td>Distinction qualitative avec Fejér restituée ; justification du
+contre-exemple et réemploi dans une leçon non évalués.</td>
+</tr>
+</tbody>
+</table>
+<p>La documentation de la preuve n’est pas une nouvelle preuve
+d’acquisition.</p>
+<h2 id="questions-et-actions-de-consolidation">Questions et actions de
+consolidation</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Énoncer les quantificateurs et
+distinguer existence, construction explicite et divergence
+partout.</label></li>
+<li><label><input type="checkbox" />Expliquer pourquoi la croissance de
+<span class="math inline">\(\|L_n\|\)</span> ne suffit pas sans
+Banach–Steinhaus à obtenir une fonction unique.</label></li>
+<li><label><input type="checkbox" />Calculer <span
+class="math inline">\(\|L_n\|\)</span> avec une approximation
+<strong>continue</strong> du signe.</label></li>
+<li><label><input type="checkbox" />Retrouver la minoration par une
+série harmonique.</label></li>
+<li><label><input type="checkbox" />Expliquer la compatibilité entre
+divergence ponctuelle de <span class="math inline">\(S_n\)</span> et
+convergence uniforme de <span
+class="math inline">\(\sigma_n\)</span>.</label></li>
+</ul>
+<h2 id="sources">Sources</h2>
+<p>[1] https://minerve.ens-rennes.fr/images/BS_Fourier.pdf —
+Banach–Steinhaus et divergence des séries de Fourier — ENS Rennes</p>
+<p>Source consultée intégralement : « Théorème de Banach-Steinhaus et
+applications », 4 pages, référence indiquée : <em>Gourdon, Analyse</em>.
+Pages 1–3 pour le mécanisme de preuve ; la version forte de la page 4
+n’est pas requise ici. L’argument a été adapté au Banach réel et à une
+minoration sur <span class="math inline">\([0,\pi]\)</span> ; la
+référence à Gourdon est celle de la fiche, pas une vérification directe
+du livre.</p>
+<p>Copie locale conservée :
+<code>raw data/résultats/banach-steinhaus-divergence-fourier-ens-rennes.pdf</code>.
+SHA-256 :
+<code>f427ff9b354ccb333dac8860e47ebf9b54d8d614ab8016e054c8f3ad208d27c1</code>.</p>
+</body>
+</html>
