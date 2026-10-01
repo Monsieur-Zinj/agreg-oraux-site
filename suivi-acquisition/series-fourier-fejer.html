@@ -47,9 +47,12 @@ révision</a></p>
 vérifié).</p>
 <p>Le besoin formulé porte sur un rappel des définitions et des
 résultats fondamentaux des séries de Fourier <strong>avant</strong> le
-développement de Fejér. Des explications ont été reçues, mais aucune
-preuve ni formule n’a été restituée de manière autonome dans ces
-extraits.</p>
+développement de Fejér. Les premiers extraits montraient surtout des
+explications reçues. Un nouvel échange apporte une <strong>restitution
+partielle de l’énoncé de Fejér</strong> et une <strong>réponse autonome
+correcte sur la possibilité de divergence ponctuelle des sommes
+partielles</strong>. Aucune preuve complète ni formule de noyau n’est
+encore restituée.</p>
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -77,22 +80,46 @@ complet et de convention explicitée, ne pas attribuer une erreur
 certaine au candidat. Faire vérifier sur un exemple simple.</td>
 </tr>
 <tr>
-<td>Fejér et convergence</td>
-<td>Une réponse sur Fejér et sa version <span
-class="math inline">\(L^1\)</span> a été donnée alors que la demande
-était un mini-cours sur les séries de Fourier ; cette propriété est
-vraie, mais son explication ne répondait pas au besoin exprimé.</td>
+<td>Énoncé de Fejér</td>
+<td>Continuité, périodicité et convergence uniforme retrouvées ; «
+moyennes pondérées » reste à remplacer par la définition exacte des
+moyennes de Cesàro. La cible a été spontanément corrigée en « la
+fonction ». Énoncé partiellement restitué, puis précisé par
+l’interlocuteur.</td>
+</tr>
+<tr>
+<td>Sommes partielles et moyennes</td>
+<td>Le risque de divergence ponctuelle des sommes partielles a été
+identifié sans que la réponse soit fournie. Distinction qualitative
+restituée ; exemple précis, justification et réemploi non évalués.</td>
+</tr>
+<tr>
+<td>Version <span class="math inline">\(L^1\)</span></td>
+<td>Expliquée dans un ancien extrait hors du périmètre demandé ; ni
+énoncé ni preuve restitués.</td>
 </tr>
 <tr>
 <td>Preuve de Fejér</td>
-<td>Positivité, masse, concentration, découpage proche/loin et preuve
-complète : non évalués.</td>
+<td>La question sur les propriétés de <span
+class="math inline">\(F_n\)</span> clôt le nouvel export sans réponse :
+positivité, masse, concentration et découpage proche/loin restent non
+évalués, pas constatés comme inconnus.</td>
 </tr>
 </tbody>
 </table>
 <p>Une formule comprise après explication ou un acquiescement ne suffit
-pas à établir sa maîtrise. Rien dans ces deux extraits ne permet de
-conclure à une difficulté récurrente.</p>
+pas à établir sa maîtrise. La réponse sur la divergence constitue un
+indice positif limité, non une preuve maîtrisée. Les échanges ne
+permettent pas de conclure à une difficulté récurrente.</p>
+<h2 id="périmètre-de-la-prochaine-séance">Périmètre de la prochaine
+séance</h2>
+<p>Le besoin explicite est de travailler les <strong>résultats et
+prérequis</strong> des développements : énoncés, hypothèses, exemples et
+contre-exemples, y compris les résultats encore absents du wiki. Ne pas
+réduire cette demande à un passage chronométré de développement. Dans le
+nouvel échange, l’interlocuteur propose ce recensement mais ne le
+réalise pas ; seul le début d’un questionnement sur Fejér est
+observé.</p>
 <h2 id="ordre-de-reprise">Ordre de reprise</h2>
 <ol type="1">
 <li>Sur le cercle de période <span class="math inline">\(2\pi\)</span>,
@@ -134,6 +161,17 @@ class="math inline">\(f*D_n=S_n(f)\)</span> ; est-ce un théorème de
 convergence ?</li>
 <li>Pour <span class="math inline">\(\sin(3x)\)</span>, quels sont <span
 class="math inline">\(a_3,b_3,c_3,c_{-3}\)</span> ?</li>
+<li>Énonce Fejér avec <span class="math inline">\(f\in C(\mathbb
+T)\)</span>, définis <span class="math inline">\(\sigma_n\)</span> et
+donne la cible et la norme de convergence.</li>
+<li>Pourquoi la continuité ne garantit-elle pas la convergence
+ponctuelle de <span class="math inline">\(S_n(f)\)</span> ? Distingue
+l’existence d’un contre-exemple de sa construction.</li>
+<li>Quelles sont les trois propriétés de <span
+class="math inline">\(F_n\)</span> ? Que devient la conclusion si l’on
+remplace <span class="math inline">\(F_n\)</span> par <span
+class="math inline">\(1\)</span> ou par <span
+class="math inline">\(2F_n\)</span> ?</li>
 <li>Pourquoi la preuve de Fejér utilise-t-elle la positivité de <span
 class="math inline">\(F_n\)</span> plutôt que le noyau <span
 class="math inline">\(D_n\)</span> ?</li>
@@ -142,8 +180,18 @@ class="math inline">\(D_n\)</span> ?</li>
 <ul class="task-list">
 <li><label><input type="checkbox" />Restituer sans notes les
 définitions, la convention et l’identité de convolution.</label></li>
+<li><label><input type="checkbox" />Préciser la restitution de Fejér :
+écrire <span class="math inline">\(\sigma_n=(n+1)^{-1}\sum_{j=0}^n
+S_j(f)\)</span> et <span
+class="math inline">\(\|\sigma_n-f\|_\infty  o0\)</span>, sans
+présupposer une somme de série.</label></li>
 <li><label><input type="checkbox" />Comparer somme partielle, série et
 moyenne de Cesàro avec leurs hypothèses de convergence.</label></li>
+<li><label><input type="checkbox" />Reprendre les hypothèses et
+contre-exemples de l’<a
+href="../r%C3%A9sultats/approximation-identite-positive-cercle.html">approximation
+de l’identité positive</a> ; vérifier séparément les trois propriétés du
+noyau.</label></li>
 <li><label><input type="checkbox" />Refaire au tableau la preuve de
 Fejér et son application à la densité des polynômes
 trigonométriques.</label></li>
@@ -152,8 +200,12 @@ trigonométriques.</label></li>
 <p>Conversations archivées sous
 <code>series-fourier-dirichlet-convolution-frequences.txt</code> (lignes
 1–21) et <code>preparation-fejer-rappels-fourier-coefficients.txt</code>
-(lignes 23–47). Dates des échanges non renseignées ; exports
-fragmentaires sans étiquettes de locuteurs fiables. Le diagnostic ne
-reprend pas les échanges bruts.</p>
+(lignes 23–47). Nouvel échange :
+<code>revision-fejer-enonce-cesaro-divergence-et-hypotheses.txt</code>,
+lignes 18–40 (périmètre demandé, restitution de l’énoncé et réponse sur
+la divergence). Dates des échanges non renseignées ; exports sans
+étiquettes de locuteurs, avec des fragments tronqués. La question finale
+n’a pas de réponse dans l’export. Le diagnostic ne reprend pas les
+échanges bruts.</p>
 </body>
 </html>
